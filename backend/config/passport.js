@@ -9,10 +9,10 @@ const { Strategy: JwtStrategy, ExtractJwt } = require('passport-jwt');
 
 passport.use(new LocalStrategy({
   session: false,
-  usernameField: 'email',
+  usernameField: 'username',
   passwordField: 'password',
-}, async function (email, password, done) {
-  const user = await User.findOne({ email });
+}, async function (username, password, done) {
+  const user = await User.findOne({ username });
   if (user) {
     bcrypt.compare(password, user.hashedPassword, (err, isMatch) => {
       if (err || !isMatch) done(null, false);
@@ -26,7 +26,6 @@ exports.loginUser = async function(user) {
   const userInfo = {
     _id: user._id,
     username: user.username,
-    email: user.email
   };
   const token = await jwt.sign(
     userInfo, // payload
