@@ -4,6 +4,8 @@ const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const passport = require('passport');
+const validateRegisterInput = require('../../validations/register');
+const validateLoginInput = require('../../validations/login');
 
 const { loginUser, restoreUser } = require('../../config/passport');
 const { isProduction } = require('../../config/keys');
@@ -16,7 +18,7 @@ router.get('/', function(req, res, next) {
 });
 
 // POST /api/users/register
-router.post('/register', async (req, res, next) => {
+router.post('/register', validateRegisterInput, async (req, res, next) => {
   // Check to make sure no one has already registered with the proposed email or
   // username.
   const user = await User.findOne({
@@ -60,7 +62,7 @@ router.post('/register', async (req, res, next) => {
   });
 });
 
-router.post('/login', async (req, res, next) => {
+router.post('/login', validateLoginInput, async (req, res, next) => {
   passport.authenticate('local', async function(err, user) {
     if (err) return next(err);
     if (!user) {
