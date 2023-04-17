@@ -36,6 +36,10 @@ const userSchema = new Schema({
                 content: {
                     type: String,
                     required: true
+                }, 
+                post: {
+                    type: Schema.Types.ObjectId,
+                    ref: 'Post'
                 },
                 timestamps: true
             }
