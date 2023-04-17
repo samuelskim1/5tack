@@ -1,3 +1,4 @@
+@import '../../App.scss';
 
 #login-btn {
   padding: 12px;
@@ -22,8 +23,8 @@
 }
 
 #session-form-container {
-  width: 500px;
-  height: 500px;
+  width: 460px;
+  height: 100%;
   background-color: rgb(245, 245, 245);
   border-radius: 24px;
   padding: 30px;
@@ -43,7 +44,7 @@
 }
 
 .errors {
-  color: rgb(155, 0, 0);
+  color: $errors-color;
   font-size: 12px;
   font-weight: 300;
 }
@@ -57,7 +58,7 @@
 .session-form label {
   display: flex;
   flex-direction: column;
-  margin: 20px 0;
+  margin: 10px 0;
   width: 350px;
 }
 
@@ -87,4 +88,5 @@
   width: auto;
   padding: 12px;
   cursor: pointer;
+  margin: 30px 0;
 }
