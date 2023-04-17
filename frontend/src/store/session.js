@@ -8,7 +8,7 @@ export const RECEIVE_LOGOUT = 'session/RECEIVE_LOGOUT';
 
 
 // ACTIONS
-const receiveCurrentUser = currentUser => ({
+export const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,
   currentUser
 });
@@ -58,6 +58,7 @@ export const logout = () => dispatch => {
 export const sessionErrorsReducer = (state = null, action) => {
   switch (action.type) {
     case RECEIVE_SESSION_ERRORS:
+      debugger;
       return action.errors;
     case RECEIVE_CURRENT_USER:
     case CLEAR_SESSION_ERRORS:
