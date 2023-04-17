@@ -2,7 +2,7 @@
 
 #unauth-nav-container {
   position: fixed;
-  bottom: 30vh;
+  top: calc(40vh + 150px);
   left: 0;
   width: 100vw;
   height: 80px;
@@ -28,26 +28,5 @@
   font-weight: 500;
 }
 
-#login-btn {
-  padding: 12px;
-  border-radius: 12px;
-  background-color: rgb(0, 9, 71);
-  cursor: pointer;
-}
-
-#login-btn:hover {
-  background-color: #111;
-}
-
-#signup-btn {
-  padding: 12px;
-  border-radius: 12px;
-  background-color: rgb(49, 0, 90);
-  cursor: pointer;
-}
-
-#signup-btn:hover {
-  background-color: #111;
-}
 
 /* AUTH NAVBAR */

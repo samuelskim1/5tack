@@ -1,3 +1,26 @@
+
+#login-btn {
+  padding: 12px;
+  border-radius: 12px;
+  background-color: rgb(0, 9, 71);
+  cursor: pointer;
+}
+
+#login-btn:hover {
+  background-color: #111;
+}
+
+#signup-btn {
+  padding: 12px;
+  border-radius: 12px;
+  background-color: rgb(49, 0, 90);
+  cursor: pointer;
+}
+
+#signup-btn:hover {
+  background-color: #111;
+}
+
 #session-form-container {
   width: 500px;
   height: 500px;

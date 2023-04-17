@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import LoginModal from "../SessionForms/LoginModal";
+import SignupModal from "../SessionForms/SignupModal";
 
 const UnauthNav = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -17,26 +18,10 @@ const UnauthNav = () => {
     <>
       <nav id="unauth-nav-container" ref={bar}>
         <div id="unauth-button-container">
-          <div
-            id="login-btn"
-            onClick={() => setShowLogin(true)}
-          >
-            Log in
-          </div>
-
-          <div
-            id="signup-btn"
-            onClick={() => setShowSignup(true)}
-            >
-            Sign up
-          </div>
+          <LoginModal />
+          <SignupModal />
         </div>
       </nav>
-
-      {showLogin && (
-        <LoginModal onClose={() => setShowLogin(false)} />
-      )}
-      {/* {showSignup} */}
     </>
   );
 };
