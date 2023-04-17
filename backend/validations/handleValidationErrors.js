@@ -4,12 +4,12 @@ const { validationResult } = require("express-validator");
 
 // format validation errors
 const handleValidationErrors = (req, res, next) => {
-    const valiationErrors = validationResult(req);
+    const validationErrors = validationResult(req);
 
     // if there are errors
-    if (!valiationErrors.isEmpty()) {
+    if (!validationErrors.isEmpty()) {
         const errorFormatter = ({ msg }) => msg;
-        const errors = valiationErrors.formatWith(errorFormatter).mapped();
+        const errors = validationErrors.formatWith(errorFormatter).mapped();
 
         const err = Error("Validation Error");
         err.errors = errors;
