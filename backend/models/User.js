@@ -21,16 +21,6 @@ const userSchema = new Schema({
             required: true,
             index: { unique: true }
         },
-        posts: {
-            title: {
-                type: String,
-            required: true
-            },
-            description: {
-                type: String
-            },
-            timestamps: true
-        },
     }, {
         timestamps: true
 })
