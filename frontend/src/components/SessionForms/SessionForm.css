@@ -9,6 +9,7 @@
 .session-form {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .session-form h2 {
@@ -34,6 +35,7 @@
   display: flex;
   flex-direction: column;
   margin: 20px 0;
+  width: 350px;
 }
 
 .session-form input {
@@ -59,4 +61,7 @@
 
 .session-form input[type="submit"] {
   font-size: 16px;
+  width: auto;
+  padding: 12px;
+  cursor: pointer;
 }
