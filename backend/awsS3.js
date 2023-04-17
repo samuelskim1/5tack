@@ -5,12 +5,6 @@ const multer = require("multer");
 const s3 = new AWS.S3({ apiVersion: "2006-03-01" });
 const NAME_OF_BUCKET = "5tack"; // <-- Use your bucket name here
 
-module.exports = {
-  s3,
-  singleFileUpload,
-  multipleFilesUpload
-};
-
  // SINGLE IMAGE UPLOAD
 // public is false by default -> must specify if you want a file to be public
 const singleFileUpload = async ({ file, public = false }) => {
@@ -61,7 +55,6 @@ const singleFileUpload = async ({ file, public = false }) => {
     s3,
     singleFileUpload,
     multipleFilesUpload,
-    retrievePrivateFile,
     singleMulterUpload,
     multipleMulterUpload
   };
