@@ -7,7 +7,7 @@
   font-size: 72px;
   font-weight: 600;
   letter-spacing: 0.2rem;
-  z-index: 0;
+  z-index: -1;
 }
 
 .stacked {
