@@ -30,7 +30,7 @@
 
 #login-btn {
   padding: 12px;
-  border-radius: 24px;
+  border-radius: 12px;
   background-color: rgb(0, 9, 71);
   cursor: pointer;
 }
@@ -41,7 +41,7 @@
 
 #signup-btn {
   padding: 12px;
-  border-radius: 24px;
+  border-radius: 12px;
   background-color: rgb(49, 0, 90);
   cursor: pointer;
 }

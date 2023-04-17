@@ -3,7 +3,6 @@ import './NavBar.css';
 
 const Navbar = () => {
 
-
   return (
     <>
       <UnauthNav />
