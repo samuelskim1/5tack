@@ -1,8 +1,11 @@
-import { useEffect, useRef } from "react";
-
+import { useEffect, useRef, useState } from "react";
+import LoginModal from "../SessionForms/LoginModal";
 
 const UnauthNav = () => {
+  const [showLogin, setShowLogin] = useState(false);
+  const [showSignup, setShowSignup] = useState(false);
   const bar = useRef();
+  
 
   useEffect(() => {
     setTimeout(() => {
@@ -11,16 +14,30 @@ const UnauthNav = () => {
   }, [])
 
   return (
-    <nav id="unauth-nav-container" ref={bar}>
-      <div id="unauth-button-container">
-        <div id="login-btn">
-          Log in
+    <>
+      <nav id="unauth-nav-container" ref={bar}>
+        <div id="unauth-button-container">
+          <div
+            id="login-btn"
+            onClick={() => setShowLogin(true)}
+          >
+            Log in
+          </div>
+
+          <div
+            id="signup-btn"
+            onClick={() => setShowSignup(true)}
+            >
+            Sign up
+          </div>
         </div>
-        <div id="signup-btn">
-          Sign up
-        </div>
-      </div>
-    </nav>
+      </nav>
+
+      {showLogin && (
+        <LoginModal onClose={() => setShowLogin(false)} />
+      )}
+      {/* {showSignup} */}
+    </>
   );
 };
 
