@@ -11,6 +11,7 @@ users.push(
     new User ({
       username: 'demo',
       email: 'demo@user.com',
+      description: 'i am demo user',
       hashedPassword: bcrypt.hashSync('password', 10)
     })
   )
@@ -21,6 +22,7 @@ for (let i = 1; i < NUM_SEED_USERS; i++) {
         new User ({
         username: faker.internet.userName(firstName),
         email: faker.internet.email(firstName),
+        description: faker.lorem.sentences(),
         hashedPassword: bcrypt.hashSync(faker.internet.password(), 10)
         })
     )

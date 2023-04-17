@@ -10,6 +10,7 @@ const csurf = require('csurf');
 const { isProduction } = require('./config/keys');
 
 require('./models/User');
+require('./models/Post')
 require('./config/passport');
 
 const usersRouter = require('./routes/api/users');

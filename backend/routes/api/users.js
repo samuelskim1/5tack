@@ -53,21 +53,6 @@ router.get('/:username', async (req, res, next) => {
   }
 })
 
-
-// router.get('/:id', async (req, res, next) => {
-//   try {
-//     const user = await User.findById(req.params.id)
-//                              .populate("email", "_id username");
-//     return res.json(user);
-//   }
-//   catch(err) {
-//     const error = new Error('User not found');
-//     error.statusCode = 404;
-//     error.errors = { message: "No user found with that id" };
-//     return next(error);
-//   }
-// });
-
 // POST /api/users/register
 router.post('/register', validateRegisterInput, async (req, res, next) => {
   // Check to make sure no one has already registered with the proposed email or
@@ -143,6 +128,13 @@ router.get('/current', restoreUser, (req, res) => {
 });
 
 
+// POST /api/users/logout
+router.post('/logout', (req, res) => {
+  req.logout(); // clears the login session and removes req.user
+  res.status(204).end(); // sends a 204 No Content response
+});
+
+
 router.patch('/:id', async (req, res) => {
   try {
     const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -166,5 +158,6 @@ router.delete('/:id', async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 });
+
 
 module.exports = router;
