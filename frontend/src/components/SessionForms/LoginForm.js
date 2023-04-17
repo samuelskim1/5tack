@@ -6,7 +6,7 @@ import { clearSessionErrors, login } from "../../store/session";
 const LoginForm = () => {
   const dispatch = useDispatch();
   const errors = useSelector(state => state?.errors?.session);
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loginForm, setLoginForm] = useState(true);
   const [signupForm, setSignupForm] = useState(false);
@@ -20,11 +20,12 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(login({ email, password }));
+    dispatch(login({ username, password }));
+    // .then(err => console.log(err));
   };
 
   const update = (field) => {
-    const setField = field === 'email' ? setEmail : setPassword;
+    const setField = field === 'username' ? setUsername : setPassword;
     return (e) => setField(e.currentTarget.value);
   };
 
@@ -32,13 +33,13 @@ const LoginForm = () => {
     <div id="session-form-container">
       <form className="session-form" onSubmit={handleSubmit}>
         <h2>Welcome back, gamer!</h2>
-        <div className="errors">{errors?.email}</div>
+        <div className="errors">{errors?.username}</div>
         <label>
-          <span>Email</span>
+          <span>Username</span>
           <input type="text"
-            value={email}
-            onChange={update('email')}
-            placeholder="Enter your email"
+            value={username}
+            onChange={update('username')}
+            placeholder="Enter your username"
           />
         </label>
         <div className="errors">{errors?.password}</div>
@@ -53,7 +54,7 @@ const LoginForm = () => {
         <input
           type="submit"
           value="Log In"
-          disabled={!email || !password}
+          disabled={!username || !password}
         />
       </form>
     </div>
