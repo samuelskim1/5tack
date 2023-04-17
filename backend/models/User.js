@@ -21,29 +21,8 @@ const userSchema = new Schema({
             required: true,
             index: { unique: true }
         },
-        posts: {
-            title: {
-                type: String,
-            required: true
-            },
-            description: {
-                type: String
-            },
-            timestamps: true
-        },
-        comments: [
-            {
-                content: {
-                    type: String,
-                    required: true
-                }, 
-                post: {
-                    type: Schema.Types.ObjectId,
-                    ref: 'Post'
-                },
-                timestamps: true
-            }
-        ]
     }, {
         timestamps: true
 })
+
+module.exports = mongoose.model('User', userSchema);
