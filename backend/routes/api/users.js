@@ -1,3 +1,5 @@
+// routes/api/users.js
+
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
@@ -11,11 +13,60 @@ const { loginUser, restoreUser } = require('../../config/passport');
 const { isProduction } = require('../../config/keys');
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.json({
-    message: "GET /api/users"
-  });
+
+router.get('/', async (req, res) => {
+  try {
+    const users = await User.find()
+                              .populate("email", "_id username")
+                              .sort({ createdAt: -1 });
+    return res.json(users);
+  }
+  catch(err) {
+    return res.json([]);
+  }
 });
+
+router.get('/:username', async (req, res, next) => {
+  let user;
+  try {
+    user = await User.findOne({ username: req.params.username });
+    if (!user) {
+      const error = new Error('User not found');
+      error.statusCode = 404;
+      error.errors = { message: "No user found with that username" };
+      return next(error);
+    }
+  } catch(err) {
+    const error = new Error('User not found');
+    error.statusCode = 404;
+    error.errors = { message: "No user found with that username" };
+    return next(error);
+  }
+  try {
+    const users = await User.findOne({ username: req.params.username })
+                              .sort({ createdAt: -1 })
+                              .populate("email", "_id username");
+    return res.json(users);
+  }
+  catch(err) {
+    return res.json([]);
+  }
+})
+
+
+// router.get('/:id', async (req, res, next) => {
+//   try {
+//     const user = await User.findById(req.params.id)
+//                              .populate("email", "_id username");
+//     return res.json(user);
+//   }
+//   catch(err) {
+//     const error = new Error('User not found');
+//     error.statusCode = 404;
+//     error.errors = { message: "No user found with that id" };
+//     return next(error);
+//   }
+// });
 
 // POST /api/users/register
 router.post('/register', validateRegisterInput, async (req, res, next) => {

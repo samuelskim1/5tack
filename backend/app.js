@@ -46,6 +46,7 @@ app.use(
 );
 
 // Attach Express routers
+app.use('/api/user', usersRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/posts', postsRouter);
 app.use('/api/csrf', csrfRouter);
