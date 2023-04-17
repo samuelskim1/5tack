@@ -7,8 +7,8 @@ const { clearSessionErrors } = require("../../store/session");
 
 const SignupForm = () => {
     const dispatch = useDispatch();
-    const errors = useSelector(state => state.errors.session);
-    const [currModal, setCurrModal] = useState('signup');
+    const errors = useSelector(state => state?.errors?.session);
+    // const [currModal, setCurrModal] = useState('signup');
     
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
@@ -30,12 +30,13 @@ const SignupForm = () => {
     }
 
     return (
-        <>
-            {currModal === 'signup' && (
-            <div className="session-form-container">
-                <h1>yo, this is the sign up form</h1>
-                <form >
-                    <label>Email    
+        // <>
+        //     {currModal === 'signup' && (
+            <div id="session-form-container">
+                <form className="session-form" onSubmit={handleSubmit}>
+                <h2>yo, this is the sign up form</h2>
+                    <label>
+                        <span>Email</span>
                         <input
                         type="text"
                         value={email}
@@ -43,7 +44,9 @@ const SignupForm = () => {
                         placeholder="Email"
                         />
                     </label>
-                    <label>Username    
+                    <div className="errors">{errors?.email}</div>
+                    <label>
+                        <span>Username</span>  
                         <input
                         type="text"
                         value={username}
@@ -51,7 +54,9 @@ const SignupForm = () => {
                         placeholder="Username"
                         />
                     </label>
-                    <label>Password
+                    <div className="errors">{errors?.username}</div>
+                    <label>
+                        <span>Password</span>
                         <input
                         type="password"
                         value={password}
@@ -59,13 +64,18 @@ const SignupForm = () => {
                         placeholder="Password"
                         />
                     </label>
-                    <div onClick={handleSubmit}>Sign Up</div>
-                    <div onClick={setCurrModal('login')}>Login instead</div>
+                    <div className="errors">{errors?.password}</div>
+                    <input 
+                        type="submit"
+                        value="Sign Up"
+                        disabled={!email || !password || !username}
+                    />
+                    {/* <div onClick={setCurrModal('login')}>Login instead</div> */}
                 </form>
             </div>
-        )}
-        {currModal === 'login' && <LoginModal />}
-        </>
+        // )}
+        // {currModal === 'login' && <LoginModal />}
+        // </>
         
         
     )

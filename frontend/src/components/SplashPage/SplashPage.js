@@ -1,6 +1,6 @@
 
 import { useEffect, useRef } from 'react';
-import './SplashPage.css';
+import './SplashPage.scss';
 
 const SplashPage = () => {
   const stack1 = useRef();

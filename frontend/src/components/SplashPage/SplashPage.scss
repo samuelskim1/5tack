@@ -1,7 +1,9 @@
+@import '../../App.scss';
+
 #splash-page-container {
   width: 100vw;
   height: 100vh;
-  background-color: #222;
+  background-color: $default-bg;
   color: white;
   position: relative;
   font-size: 72px;
@@ -83,7 +85,7 @@
   font-weight: 200;
   letter-spacing: 0.1rem;
   position: absolute;
-  top: 50vh;
+  top: calc(40vh + 100px);
   width: 100vw;
   text-align: center;
   opacity: 0;
