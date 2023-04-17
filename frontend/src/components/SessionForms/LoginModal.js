@@ -1,17 +1,26 @@
 import { useState } from 'react';
-import * as sessionActions from '../../store/session';
-import { useDispatch } from 'react-redux';
 import { Modal } from "../../context/modal";
+import LoginForm from './LoginForm';
 import './SessionForm.css';
 
-const LoginModal = ({ onClose }) => {
+const LoginModal = () => {
+  const [showLogin, setShowLogin] = useState(false);
 
   return (
-    <Modal>
-      <div id="session-form-container">
-        hi
+    <>
+      <div
+        id="login-btn"
+        onClick={() => setShowLogin(true)}
+      >
+        Log in
       </div>
-    </Modal>
+
+      {showLogin && (
+        <Modal onClose={() => setShowLogin(false)} >
+          <LoginForm />
+        </Modal>
+      )}
+    </>
   );
 };
 

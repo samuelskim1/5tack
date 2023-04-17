@@ -1,6 +1,62 @@
 #session-form-container {
   width: 500px;
   height: 500px;
-  background-color: white;
-  color: white;
+  background-color: rgb(245, 245, 245);
+  border-radius: 24px;
+  padding: 30px;
+}
+
+.session-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.session-form h2 {
+  font-size: 36px;
+  font-weight: 500;
+  text-align: center;
+  margin: 30px 0;
+}
+
+.errors {
+  color: rgb(155, 0, 0);
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.session-form span {
+  font-size: 12px;
+  font-weight: 300;
+  margin: 8px;
+}
+
+.session-form label {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+
+.session-form input {
+  box-sizing: border-box;
+  border: none;
+  font-size: 18px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.session-form input[type="text"], .session-form input[type="password"] {
+  outline: 1px solid #999;
+}
+
+.session-form input[type="text"]:hover, .session-form input[type="password"]:hover {
+  outline: 1px solid #555;
+}
+
+.session-form input[type="text"]:focus, .session-form input[type="password"]:focus {
+  outline: 2px solid #333;
+}
+
+.session-form input[type="submit"] {
+  font-size: 16px;
 }
