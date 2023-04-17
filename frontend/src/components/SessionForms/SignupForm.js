@@ -1,4 +1,5 @@
 import { signup } from "../../store/session";
+import LoginModal from "./LoginModal";
 
 const { useState, useEffect } = require("react");
 const { useDispatch, useSelector } = require("react-redux");
@@ -59,9 +60,11 @@ const SignupForm = () => {
                         />
                     </label>
                     <div onClick={handleSubmit}>Sign Up</div>
+                    <div onClick={setCurrModal('login')}>Login instead</div>
                 </form>
             </div>
         )}
+        {currModal === 'login' && <LoginModal />}
         </>
         
         
