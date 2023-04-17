@@ -1,6 +1,19 @@
-function App() {
+import { Switch } from 'react-router-dom';
+import { AuthRoute, ProtectedRoute } from './components/Routes/Routes';
+import NavBar from './components/NavBar/NavBar';
+import SplashPage from './components/SplashPage/SplashPage';
+import HomePage from './components/HomePage/HomePage';
+
+const App = () => {
+
   return (
-    <h1>Hello from App</h1>
+    <>
+      <NavBar />
+      <Switch>
+        <AuthRoute exact path="/" component={SplashPage} />
+        <ProtectedRoute exact path="/home" component={HomePage} />
+      </Switch>
+    </>
   );
 }
 

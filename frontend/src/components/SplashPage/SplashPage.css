@@ -1,0 +1,95 @@
+#splash-page-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #222;
+  color: white;
+  position: relative;
+  font-size: 72px;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+  z-index: 0;
+}
+
+.stacked {
+  width: 0;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#splash-stack-1 {
+  position: absolute;
+  top: 40vh;
+  left: -50vw;
+  transition: transform 2s ease-out;
+  opacity: 0.3;
+}
+
+#splash-stack-1.stacked {
+  transform: translateX(100vw);
+}
+
+#splash-stack-2 {
+  position: absolute;
+  top: -60vh;
+  left: -50vw;
+  transition: transform 2.2s ease-out 0.4s;
+  opacity: 0.4;
+}
+
+#splash-stack-2.stacked {
+  transform: translate(100vw, 100vh);
+}
+
+#splash-stack-3 {
+  position: absolute;
+  top: -60vh;
+  left: 50vw;
+  transition: transform 2.4s ease-out 0.4s;
+  opacity: 0.5;
+}
+
+#splash-stack-3.stacked {
+  transform: translateY(100vh);
+}
+
+#splash-stack-4 {
+  position: absolute;
+  top: -60vh;
+  right: -50vw;
+  transition: transform 2.6s ease-out 0.6s;
+  opacity: 0.6;
+}
+
+#splash-stack-4.stacked {
+  transform: translate(-100vw, 100vh);
+}
+
+#splash-stack-5 {
+  position: absolute;
+  top: 40vh;
+  right: -50vw;
+  transition: transform 2.8s ease-out 0.8s;
+  opacity: 0.7;
+}
+
+#splash-stack-5.stacked {
+  transform: translateX(-100vw);
+}
+
+#splash-description {
+  font-size: 36px;
+  font-weight: 200;
+  letter-spacing: 0.1rem;
+  position: absolute;
+  top: 50vh;
+  width: 100vw;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 3s ease-in 3.6s;
+}
+
+#splash-description.fade-in {
+  opacity: 1;
+}
