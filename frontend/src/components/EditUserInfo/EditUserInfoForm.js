@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { clearSessionErrors, updateUser } from "../../store/session";
+import { useHistory } from "react-router-dom";
 
-const EditUserInfoForm = ({ currentUser }) => {
+const EditUserInfoForm = ({ currentUser, setEdit }) => {
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const errors = useSelector(state => state.errors?.session);
 
@@ -23,7 +25,18 @@ const EditUserInfoForm = ({ currentUser }) => {
             email,
             description
         }
-        dispatch(updateUser(user));
+        const res = dispatch(updateUser(user));
+        // console.log(res);
+        if (res) {
+            setEdit(false);
+            history.push(`/${username}`);
+        };
+        // .then(res => {
+        //     if (res.ok) {
+        //         console.log('testing if this part is being reached');
+        //         history.push(`/${username}`);
+        //     };
+        // });
     }
 
     return (
