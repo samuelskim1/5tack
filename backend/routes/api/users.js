@@ -17,15 +17,16 @@ const validateUpdateUser = require('../../validations/updateUser');
 
 router.get('/', async (req, res) => {
   try {
-    const users = await User.find()
-                              .populate("email", "_id username")
-                              .sort({ createdAt: -1 });
-    return res.json(users);
+    const users = await User.find().sort({ createdAt: -1 });
+    const modifiedUsers = Object.assign({}, ...users.map(user => ({ [user.username]: user })));
+    return res.json(modifiedUsers);
   }
   catch(err) {
     return res.json([]);
   }
 });
+
+
 
 router.get('/:username', async (req, res, next) => {
   let user;
