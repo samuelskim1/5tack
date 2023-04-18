@@ -20,22 +20,37 @@ const Profile = () => {
             <UserInfo currentUser={currentUser} />
 
             <div id="review-post-tabs-container">
-                <div id="review-tab">
-                    Reviews
-                </div>
-                <div id="post-tab">
-                    Posts
+                <div>
+
+                    <div 
+                        id="profile-tab"
+                        onClick={() => setTab('reviews')}
+                        className={tab === 'reviews' ? 'selected' : ''}
+                    >
+                        Reviews
+                    </div>
+                    <div 
+                        id="profile-tab"
+                        onClick={() => setTab('posts')}
+                        className={tab === 'posts' ? 'selected' : ''}
+                    >
+                        Posts
+                    </div>
+
                 </div>
             </div>
 
-            
-            <div id="reviews-index-container">
-                reviews placeholder
-            </div>
+            {tab === 'reviews' && (
+                <div id="reviews-index-container">
+                    this is where people call me toxic
+                </div>
+            )}
 
-            <div id="posts-index-container">
-                posts placeholder
-            </div>
+            {tab === 'posts' && (
+                <div id="posts-index-container">
+                    this is where i call on toxic people
+                </div>
+            )}
         </div>
     )
 }
