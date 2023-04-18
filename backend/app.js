@@ -13,6 +13,7 @@ require('./models/User');
 require('./models/Post');
 require('./models/Category');
 require('./models/Game');
+require('./models/Review');
 
 require('./config/passport');
 
@@ -20,6 +21,7 @@ const usersRouter = require('./routes/api/users');
 const postsRouter = require('./routes/api/posts');
 const categoriesRouter = require('./routes/api/categories')
 const gamesRouter = require('./routes/api/games')
+const reviewsRouter = require('./routes/api/reviews')
 
 const csrfRouter = require('./routes/api/csrf');
 const passport = require('passport');
@@ -80,6 +82,7 @@ app.use('/api/users', usersRouter);
 app.use('/api/posts', postsRouter);
 app.use('/api/category', categoriesRouter);
 app.use('/api/games', gamesRouter)
+app.use('/api/reviews', reviewsRouter)
 
 app.use('/api/csrf', csrfRouter);
 
