@@ -1,7 +1,11 @@
+// backend/seeders/images.js
+require('dotenv').config({ path: __dirname + '/../.env' });
+console.log('MONGO_URI:', process.env.MONGO_URI);
+
 const mongoose = require("mongoose");
 const { mongoURI: db } = require('../config/keys.js');
 const User = require('../models/User');
-const Tweet = require('../models/Tweet');
+const Post = require('../models/Post');
 
 const DEFAULT_PROFILE_IMAGE_URL = 'https://5tack.s3.amazonaws.com/public/cartoon-dead-fish.png'; // <- Insert the S3 URL that you copied above here
 
@@ -22,8 +26,8 @@ const initializeImages = async () => {
   console.log("Initializing profile avatars...");
   await User.updateMany({}, { profileImageUrl: DEFAULT_PROFILE_IMAGE_URL });
     
-  console.log("Initializing Tweet image URLs...");
-  await Tweet.updateMany({}, { imageUrls: [] });
+  console.log("Initializing Post image URLs...");
+  await Post.updateMany({}, { imageUrls: [] });
 
   console.log("Done!");
   mongoose.disconnect();
