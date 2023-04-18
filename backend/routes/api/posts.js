@@ -24,7 +24,8 @@ router.post('/', requireUser, async (req, res) => {
 router.get('/', async (req, res) => {
   try {
     const posts = await Post.find({}).populate('author_id');
-    res.status(200).json(posts);
+    const modifiedPosts = Object.assign({}, ...posts.map(post => ({ [post._id]: post })));
+    res.status(200).json(modifiedPosts);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
