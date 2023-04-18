@@ -55,116 +55,116 @@ const game18 = new Game({ name: 'MapleStory' });
 
 const category1 = new Category({
   name: '(MOBA) Multiplayer Online Battle Arena',
-  game_id: [{
+  game_id: [
     game1,
     game15
-  }
+  
   ]
 })
 
 const category2 = new Category({
   name: '(FPS) First Person Shooter',
-  game_id: [{
+  game_id: [
     game2,
     game3,
     game5,
     game16
-  }
+  
   ]
 })
 
 const category3 = new Category({
   name: 'Survival',
-  game_id: [{
+  game_id: [
     game6,
     game14
-  }]
+  ]
 })
 
 const category4 = new Category({
   name: '(BR) Battle Royale',
-  game_id: [{
+  game_id: [
     game4,
     game3
-  }]
+  ]
 })
 
 
 const category5 = new Category({
   name: 'Open World',
-  game_id: [{
+  game_id: [
     game6,
     game12,
     game14,
     game17
-  }]
+  ]
 })
 
 const category6 = new Category({
   name: 'Sandbox',
-  game_id: [{
+  game_id: [
     game6,
     game14,
     game12,
     game17
-  }]
+  ]
 })
 const category7 = new Category({
   name: 'Sports',
-  game_id: [{
+  game_id: [
     game8,
     game7,
     game11
-  }]
+  ]
 })
 const category8 = new Category({
   name: 'Role-Playing',
-  game_id: [{
+  game_id: [
     game12,
     game17,
     game18,
     game10
-  }]
+  ]
 })
 
 const category9 = new Category({
   name: '(MMORPG) Massively Multiplayer Online Role-Playing Game',
-  game_id: [{
+  game_id: [
     game18,
     game10
-  }]
+  ]
 })
 
 const category10 = new Category({
   name: '(RTS) Real-time strategy',
-  game_id: [{
+  game_id: [
     game18,
     game10
-  }]
+  ]
 })
 
 const category11 = new Category({
   name: '(MMORPG) Massively Multiplayer Online Role-Playing Game',
-  game_id: [{
+  game_id: [
     game18,
     game10
-  }]
+  ]
 })
 
 const category12 = new Category({
   name: '(RTS) Real-time strategy',
-  game_id: [{
+  game_id: [
     game13
-  }]
+  ]
 })
 
 const category13 = new Category({
   name: 'Fighting',
-  game_id: [{
+  game_id: [
     game9,
     game12,
     game10
-  }]
+  ]
 })
 
 categories.push(
@@ -222,8 +222,8 @@ console.log("Resetting db and seeding users, categories, and games...");
 
 User.collection.drop()
                 .then(() => User.insertMany(users))
-                .then(() => User.insertMany(categories))
-                .then(() => User.insertMany(games))
+                .then(() => Game.insertMany(games))
+                .then(() => Category.insertMany(categories))
                 .then(() => {
                     console.log("Done!");
                     mongoose.disconnect();

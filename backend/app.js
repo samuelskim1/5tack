@@ -80,7 +80,7 @@ app.use(
 app.use('/api/user', usersRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/posts', postsRouter);
-app.use('/api/category', categoriesRouter);
+app.use('/api/categories', categoriesRouter);
 app.use('/api/games', gamesRouter)
 app.use('/api/reviews', reviewsRouter)
 
