@@ -12,12 +12,14 @@ const { isProduction } = require('./config/keys');
 require('./models/User');
 require('./models/Post');
 require('./models/Category');
+require('./models/Game');
 
 require('./config/passport');
 
 const usersRouter = require('./routes/api/users');
 const postsRouter = require('./routes/api/posts');
 const categoriesRouter = require('./routes/api/categories')
+const gamesRouter = require('./routes/api/games')
 
 const csrfRouter = require('./routes/api/csrf');
 const passport = require('passport');
@@ -77,6 +79,7 @@ app.use('/api/user', usersRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/posts', postsRouter);
 app.use('/api/category', categoriesRouter);
+app.use('/api/games', gamesRouter)
 
 app.use('/api/csrf', csrfRouter);
 

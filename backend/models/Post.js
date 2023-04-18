@@ -11,7 +11,7 @@ const postSchema = new Schema(
     game_id: {
       type: Schema.Types.ObjectId,
       ref: 'Game',
-      // required: true
+      required: true
     },
     title: {
       type: String,

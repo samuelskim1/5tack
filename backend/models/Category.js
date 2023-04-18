@@ -9,7 +9,7 @@ const categorySchema = new Schema({
     game_id: {
       type: Schema.Types.ObjectId,
       ref: 'Game',
-      // required: true
+      required: true
     },
   }, {
     timestamps: true
