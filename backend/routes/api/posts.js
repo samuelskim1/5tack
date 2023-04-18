@@ -42,8 +42,7 @@ router.patch('/:id', requireUser,  async (req, res) => {
   try {
     const post = await Post.findByIdAndUpdate(
       req.params.id,
-      { title: req.body.title },
-      { description: req.body.description },
+      { title: req.body.title, description: req.body.description },
       { new: true }
     );
     if (!post) {

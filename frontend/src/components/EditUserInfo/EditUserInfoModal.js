@@ -9,6 +9,7 @@ const EditUserInfoModal = ({ currentUser }) => {
   return (
     <>
       <div
+        id="edit-profile-btn"
         onClick={() => setEdit(true)}
       >
         Edit Profile

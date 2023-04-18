@@ -10,21 +10,21 @@ import { getCurrentUser } from './store/session';
 
 
 const App = () => {
-  // const [loaded, setLoaded] = useState(false);
-  // const dispatch = useDispatch();
+  const [loaded, setLoaded] = useState(false);
+  const dispatch = useDispatch();
   
-  // useEffect(() => {
-  //   dispatch(getCurrentUser()).then(() => setLoaded(true));
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(getCurrentUser()).then(() => setLoaded(true));
+  }, [dispatch]);
 
-  return (
+  return loaded && (
     <>
       <NavBar />
       <Switch>
         <AuthRoute exact path="/" component={SplashPage} />
         <ProtectedRoute exact path="/home" component={HomePage} />
         {/* <ProtectedRoute exact path={`/:username`} component={Profile} /> */}
-        <Route exact path={`/:username`} component={Profile} />
+        <ProtectedRoute exact path={`/:username`} component={Profile} />
       </Switch>
     </>
   );
