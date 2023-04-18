@@ -2,7 +2,7 @@
 
 #login-btn {
   padding: 12px;
-  border-radius: 12px;
+  border-radius: 8px;
   background-color: rgb(0, 9, 71);
   cursor: pointer;
 }
@@ -13,7 +13,7 @@
 
 #signup-btn {
   padding: 12px;
-  border-radius: 12px;
+  border-radius: 8px;
   background-color: rgb(49, 0, 90);
   cursor: pointer;
 }
@@ -26,7 +26,7 @@
   width: 460px;
   height: 100%;
   background-color: rgb(245, 245, 245);
-  border-radius: 24px;
+  border-radius: 8px;
   padding: 30px;
 }
 
@@ -68,7 +68,7 @@
   font-size: 18px;
   width: 100%;
   padding: 12px;
-  border-radius: 12px;
+  border-radius: 4px;
 }
 
 .session-form input[type="text"], .session-form input[type="password"] {
@@ -83,10 +83,29 @@
   outline: 2px solid #333;
 }
 
-.session-form input[type="submit"] {
-  font-size: 16px;
-  width: auto;
+#submit-login-btn {
+  margin-top: 20px;
+  border-radius: 8px;
   padding: 12px;
+  background-color: #0c1398;
+  color: white;
   cursor: pointer;
-  margin: 30px 0;
+}
+
+#or-text {
+  margin: 12px 0;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+#submit-demo-btn {
+  border-radius: 8px;
+  padding: 12px;
+  background-color: #070a54;
+  color: white;
+  cursor: pointer;
+}
+
+#edit-profile-btn {
+  width: 100%;
 }

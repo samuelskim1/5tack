@@ -1,6 +1,8 @@
-
 import { useEffect, useRef } from 'react';
+import LoginModal from '../SessionForms/LoginModal';
+import SignupModal from '../SessionForms/SignupModal';
 import './SplashPage.scss';
+import '../SessionForms/SessionForm.scss';
 
 const SplashPage = () => {
   const stack1 = useRef();
@@ -9,19 +11,21 @@ const SplashPage = () => {
   const stack4 = useRef();
   const stack5 = useRef();
   const description = useRef();
+  const bar = useRef();
+  
 
   useEffect(() => {
+
     setTimeout(() => {
       stack1?.current?.classList.add('stacked');
       stack2?.current?.classList.add('stacked');
       stack3?.current?.classList.add('stacked');
       stack4?.current?.classList.add('stacked');
       stack5?.current?.classList.add('stacked');
+      description?.current?.classList.add('fade-in')
+      bar?.current?.classList.add('fade-in');
     }, 0)
 
-    setTimeout(() => {
-      description?.current?.classList.add('fade-in')
-    }, 0)
   }, []);
 
   return (
@@ -34,8 +38,15 @@ const SplashPage = () => {
       <div id="splash-stack-4" ref={stack4}>5tack</div>
       <div id="splash-stack-5" ref={stack5}>5tack</div>
 
-      <div id="splash-description" ref={description}>
-        Welcome to Five Stack, where gamers connect to create the most stacked team!
+      <div id="splash-bottom-container" ref={bar}>
+        <div id="splash-description" ref={description}>
+          Welcome to Five Stack, where gamers connect to create the most stacked team!
+        </div>
+
+        <div id="splash-btn-container">
+          <LoginModal />
+          <SignupModal />
+        </div>
       </div>
     </div>
   );
