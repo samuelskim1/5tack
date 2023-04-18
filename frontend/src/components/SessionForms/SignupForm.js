@@ -1,5 +1,5 @@
 import { signup } from "../../store/session";
-import LoginModal from "./LoginModal";
+import LoginForm from "./LoginForm";
 
 const { useState, useEffect } = require("react");
 const { useDispatch, useSelector } = require("react-redux");
@@ -8,7 +8,7 @@ const { clearSessionErrors } = require("../../store/session");
 const SignupForm = () => {
     const dispatch = useDispatch();
     const errors = useSelector(state => state?.errors?.session);
-    // const [currModal, setCurrModal] = useState('signup');
+    const [currModal, setCurrModal] = useState('signup');
     
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
@@ -28,12 +28,11 @@ const SignupForm = () => {
         };
         dispatch(signup(user));
     }
-
     return (
-        // <>
-        //     {currModal === 'signup' && (
+        <>
+            {currModal === 'signup' && (
             <div id="session-form-container">
-                <form className="session-form" onSubmit={handleSubmit}>
+                <form className="session-form">
                 <h2>yo, this is the sign up form</h2>
                     <label>
                         <span>Email</span>
@@ -65,17 +64,18 @@ const SignupForm = () => {
                         />
                     </label>
                     <div className="errors">{errors?.password}</div>
-                    <input 
-                        type="submit"
-                        value="Sign Up"
-                        disabled={!email || !password || !username}
-                    />
-                    {/* <div onClick={setCurrModal('login')}>Login instead</div> */}
+                    <div 
+                        id="submit-login-btn"
+                        onClick={handleSubmit}
+                        >
+                        Sign Up
+                    </div>
+                    <div onClick={() => setCurrModal('login')}>Login instead</div>
                 </form>
             </div>
-        // )}
-        // {currModal === 'login' && <LoginModal />}
-        // </>
+        )}
+        {currModal === 'login' && <LoginForm />}
+        </>
         
         
     )

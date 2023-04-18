@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { clearSessionErrors, login } from "../../store/session";
+import SignupForm from "./SignupForm";
 
 
 const LoginForm = () => {
@@ -24,40 +25,58 @@ const LoginForm = () => {
     // .then(err => console.log(err));
   };
 
+  const demoLogin = (e) => {
+    e.preventDefault();
+    dispatch(login({ username: "demo", password: "password" }));
+  };
+
   const update = (field) => {
     const setField = field === 'username' ? setUsername : setPassword;
     return (e) => setField(e.currentTarget.value);
   };
 
   return (
-    <div id="session-form-container">
-      <form className="session-form" onSubmit={handleSubmit}>
-        <h2>Welcome back, gamer!</h2>
-        <div className="errors">{errors?.username}</div>
-        <label>
-          <span>Username</span>
-          <input type="text"
-            value={username}
-            onChange={update('username')}
-            placeholder="Enter your username"
-          />
-        </label>
-        <div className="errors">{errors?.password}</div>
-        <label>
-          <span>Password</span>
-          <input type="password"
-            value={password}
-            onChange={update('password')}
-            placeholder="Enter your password"
-          />
-        </label>
-        <input
-          type="submit"
-          value="Log In"
-          disabled={!username || !password}
-        />
-      </form>
-    </div>
+    <>
+    {loginForm && (
+      <div id="session-form-container">
+        <form className="session-form">
+          <h2>Welcome back, gamer!</h2>
+          <div className="errors">{errors?.username}</div>
+          <label>
+            <span>Username</span>
+            <input type="text"
+              value={username}
+              onChange={update('username')}
+              placeholder="Enter your username"
+            />
+          </label>
+          <div className="errors">{errors?.password}</div>
+          <label>
+            <span>Password</span>
+            <input type="password"
+              value={password}
+              onChange={update('password')}
+              placeholder="Enter your password"
+            />
+          </label>
+          <div 
+            id="submit-login-btn"
+            onClick={handleSubmit}
+            >
+            Log In
+          </div>
+          <div id="or-text">OR</div>
+          <div 
+            id="submit-demo-btn"
+            onClick={demoLogin}
+            >
+            Demo Login
+          </div>
+        </form>
+      </div>
+      )}
+    {signupForm && <SignupForm />}
+    </>
   );
 };
 

@@ -26,6 +26,22 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/current', restoreUser, (req, res) => {
+  if (!isProduction) {
+    // In development, allow React server to gain access to the CSRF token
+    // whenever the current user information is first loaded into the
+    // React application
+    const csrfToken = req.csrfToken();
+    res.cookie("CSRF-TOKEN", csrfToken);
+  }
+  console.log(req);
+  if (!req.user) return res.json(null);
+  return res.json({
+    _id: req.user._id,
+    username: req.user.username,
+    email: req.user.email
+  });
+});
 
 
 router.get('/:username', async (req, res, next) => {
@@ -111,22 +127,6 @@ router.post('/login', validateLoginInput, async (req, res, next) => {
     }
     return res.json(await loginUser(user)); // <-- THIS IS THE CHANGED LINE
   })(req, res, next);
-});
-
-router.get('/current', restoreUser, (req, res) => {
-  if (!isProduction) {
-    // In development, allow React server to gain access to the CSRF token
-    // whenever the current user information is first loaded into the
-    // React application
-    const csrfToken = req.csrfToken();
-    res.cookie("CSRF-TOKEN", csrfToken);
-  }
-  if (!req.user) return res.json(null);
-  res.json({
-    _id: req.user._id,
-    username: req.user.username,
-    email: req.user.email
-  });
 });
 
 
