@@ -3,8 +3,6 @@ import LoginModal from "../SessionForms/LoginModal";
 import SignupModal from "../SessionForms/SignupModal";
 
 const UnauthNav = () => {
-  const [showLogin, setShowLogin] = useState(false);
-  const [showSignup, setShowSignup] = useState(false);
   const bar = useRef();
   
 
