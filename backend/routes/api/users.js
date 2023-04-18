@@ -26,8 +26,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-
-
 router.get('/:username', async (req, res, next) => {
   let user;
   try {

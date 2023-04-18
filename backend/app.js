@@ -33,8 +33,6 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
 
-const dbURI = 'mongodb+srv://admin:gviLmQbwohh7B7B9@5tack.ge4znht.mongodb.net/?retryWrites=true&w=majority';
-
 app.use(logger('dev')); // log request components (URL/method) to terminal
 app.use(express.json()); // parse JSON request body
 app.use(express.urlencoded({ extended: false })); // parse urlencoded request body

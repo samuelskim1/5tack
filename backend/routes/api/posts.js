@@ -5,17 +5,21 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const Post = mongoose.model('Post');
 const { requireUser } = require('../../config/passport');
+const { io } = require('../../app');
 
 /* GET posts listing. */
-
-router.post('/', requireUser,  async (req, res) => {
+router.post('/', requireUser, async (req, res) => {
   try {
     const newPost = await Post.create(req.body);
     res.status(201).json(newPost);
+
+    // Emit a WebSocket event when a new post is created
+    io.emit('newPost', newPost);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
 });
+
 
 router.get('/', async (req, res) => {
   try {
