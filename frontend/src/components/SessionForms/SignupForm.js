@@ -33,7 +33,7 @@ const SignupForm = () => {
             {currModal === 'signup' && (
             <div id="session-form-container">
                 <form className="session-form">
-                <h2>yo, this is the sign up form</h2>
+                <h2>Welcome to 5tack!</h2>
                     <label>
                         <span>Email</span>
                         <input
@@ -70,7 +70,11 @@ const SignupForm = () => {
                         >
                         Sign Up
                     </div>
-                    <div onClick={() => setCurrModal('login')}>Login instead</div>
+                    <div 
+                        id="alternate-form"
+                    >
+                        Already have an account?<span onClick={() => setCurrModal('login')}>Click here to log in!</span>
+                    </div>
                 </form>
             </div>
         )}

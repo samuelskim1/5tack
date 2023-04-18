@@ -75,7 +75,7 @@ const LoginForm = () => {
           <div 
             id="alternate-form"
           >
-            Don't have an account yet? <div onClick={() => {setLoginForm(false); setSignupForm(true)}}>Click here to sign up!</div>
+            Don't have an account yet?<span onClick={() => {setLoginForm(false); setSignupForm(true)}}>Click here to sign up!</span>
           </div>
         </form>
       </div>
