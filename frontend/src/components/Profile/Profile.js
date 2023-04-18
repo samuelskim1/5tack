@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { receiveCurrentUser } from "../../store/session";
 import UserInfo from "../UserInfo/UserInfo";
+import './Profile.scss';
 
 const Profile = () => {
     // const dispatch = useDispatch();
@@ -12,10 +13,18 @@ const Profile = () => {
     // }, [])
 
     if (!currentUser) return null;
+
     return (
-        <div>
-            <h1>please forgive the styling idk what it should look like</h1>
+        <div id="profile-container">
             <UserInfo currentUser={currentUser} />
+
+            <div id="reviews-index-container">
+                reviews placeholder
+            </div>
+
+            <div id="posts-index-container">
+                posts placeholder
+            </div>
         </div>
     )
 }

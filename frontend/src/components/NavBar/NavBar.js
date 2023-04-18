@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import './NavBar.css';
 
 
@@ -8,8 +9,8 @@ const Navbar = () => {
   return (
     <>
       {loggedIn && (
-        <nav id="auth-nav-container">
-          auth nav placeholder
+        <nav id="nav-container">
+          <Link to="/demo">go to demo profile</Link>
         </nav>
       )}
     </>

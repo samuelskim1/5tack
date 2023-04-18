@@ -6,7 +6,7 @@
   background-color: $default-bg;
   color: white;
   position: relative;
-  font-size: 10vw;
+  font-size: 15vh;
   font-weight: 600;
   letter-spacing: 0.2rem;
   overflow: hidden;
@@ -82,7 +82,7 @@
 
 #splash-bottom-container {
   position: absolute;
-  top: calc(40vh + 80px);
+  top: 50vh;
   width: 100vw;
   height: 100%;
   display: flex;

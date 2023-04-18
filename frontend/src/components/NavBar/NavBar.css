@@ -1,5 +1,9 @@
-#auth-nav-container {
+#nav-container {
   width: 100vw;
   height: 100px;
   background-color: rgb(0, 9, 103);
+}
+
+#nav-container a {
+  color: white;
 }

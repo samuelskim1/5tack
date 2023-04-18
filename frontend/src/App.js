@@ -24,7 +24,7 @@ const App = () => {
         <AuthRoute exact path="/" component={SplashPage} />
         <ProtectedRoute exact path="/home" component={HomePage} />
         {/* <ProtectedRoute exact path={`/:username`} component={Profile} /> */}
-        <Route exact path={`/:username`} component={Profile} />
+        <ProtectedRoute exact path={`/:username`} component={Profile} />
       </Switch>
     </>
   );

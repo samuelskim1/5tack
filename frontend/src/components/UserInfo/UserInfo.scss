@@ -1,5 +1,43 @@
 @import '../../App.scss';
 
 .user-info {
-    // background-color: $default-bg;
+    background-color: $default-bg;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 20px;
+    width: 100%;
+    min-height: 250px;
+}
+
+#avatar-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+    border-radius: 8px;
+    background-color: white;
+    margin-bottom: 20px;
+    color: black;
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.user-info-field {
+    padding: 8px;
+}
+
+.user-info-field.username {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.user-info-field.edit-user-btn {
+    padding: 12px;
+    border-radius: 8px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
 }
