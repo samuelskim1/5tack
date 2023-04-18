@@ -9,14 +9,14 @@ import './UserInfo.scss';
 const UserInfo = () => {
     const dispatch = useDispatch();
     const { username } = useParams();
-    const showUser = useSelector(state => state?.users?.username);
+    const showUser = useSelector(state => state?.users[username]);
     const button = useRef();
 
     useEffect(() => {
         dispatch(fetchUser(username));
-    }, [dispatch, showUser?.username, showUser])
+    }, [dispatch, username]);
 
-    debugger
+
     return (
         <div className='user-info'>
             <Avatar user={showUser} />

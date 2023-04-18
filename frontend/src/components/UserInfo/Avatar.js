@@ -8,11 +8,11 @@ const Avatar = ({ user }) => {
 
   useEffect(() => {
     dispatch(fetchUser(user?.username));
-  }, [dispatch, user?.username, user])
+  }, [dispatch, user?.username])
 
   return (
     <div id="avatar-container">
-      {!!user?.avatar && <img src={user?.avatar} />}
+      {!!user?.avatar && <img src={user?.avatar} alt={user?.username} />}
       {!user?.avatar && (
         <div>
           {user?.username?.charAt(0).toUpperCase()}

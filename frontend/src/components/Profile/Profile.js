@@ -8,7 +8,7 @@ import './Profile.scss';
 const Profile = () => {
     const dispatch = useDispatch();
     const { username } = useParams();
-    const user = useSelector(state => state?.users?.username);
+    const user = useSelector(state => state?.users[username]);
     const [tab, setTab] = useState('reviews');
 
     useEffect(() => {
