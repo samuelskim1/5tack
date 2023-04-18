@@ -1,23 +1,24 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { receiveCurrentUser } from "../../store/session";
 import UserInfo from "../UserInfo/UserInfo";
+import { fetchUser } from "../../store/users";
+import { useParams } from "react-router-dom";
 import './Profile.scss';
 
 const Profile = () => {
-    // const dispatch = useDispatch();
-    const currentUser = useSelector(state => state.session.user);
+    const dispatch = useDispatch();
+    const { username } = useParams();
+    const user = useSelector(state => state?.users?.username);
     const [tab, setTab] = useState('reviews');
 
-    // useEffect(() => {
-    //     dispatch( receiveCurrentUser());
-    // }, [])
+    useEffect(() => {
+        dispatch(fetchUser(username));
+    }, [dispatch, username])
 
-    if (!currentUser) return null;
 
     return (
         <div id="profile-container">
-            <UserInfo currentUser={currentUser} />
+            <UserInfo user={user} />
 
             <div id="review-post-tabs-container">
                 <div>
@@ -27,14 +28,14 @@ const Profile = () => {
                         onClick={() => setTab('reviews')}
                         className={tab === 'reviews' ? 'selected' : ''}
                     >
-                        Reviews
+                        REVIEWS
                     </div>
                     <div 
                         id="profile-tab"
                         onClick={() => setTab('posts')}
                         className={tab === 'posts' ? 'selected' : ''}
                     >
-                        Posts
+                        POSTS
                     </div>
 
                 </div>
@@ -42,7 +43,37 @@ const Profile = () => {
 
             {tab === 'reviews' && (
                 <div id="reviews-index-container">
-                    this is where people call me toxic
+                    <div className="review-box">
+                        review 1<br/>hello<br/>hello<br/>hello<br/>hello
+                    </div>
+                    <div className="review-box">
+                        review 2<br/>hello<br/>hello<br/>hello<br/>hello
+                    </div>
+                    <div className="review-box">
+                        review 3<br/>hello<br/>hello<br/>hello<br/>hello
+                    </div>
+                    <div className="review-box">
+                        review 3<br/>hello<br/>hello<br/>hello<br/>hello
+                    </div>
+                    <div className="review-box">
+                        review 3<br/>hello<br/>hello<br/>hello<br/>hello
+                    </div>
+                    <div className="review-box">
+                        review 3<br/>hello<br/>hello<br/>hello<br/>hello
+                    </div>
+                    <div className="review-box">
+                        review 3<br/>hello<br/>hello<br/>hello<br/>hello
+                    </div>
+                    <div className="review-box">
+                        review 3<br/>hello<br/>hello<br/>hello<br/>hello
+                    </div>
+                    <div className="review-box">
+                        review 3<br/>hello<br/>hello<br/>hello<br/>hello
+                    </div>
+                    <div className="review-box">
+                        review 3<br/>hello<br/>hello<br/>hello<br/>hello
+                    </div>
+                    
                 </div>
             )}
 

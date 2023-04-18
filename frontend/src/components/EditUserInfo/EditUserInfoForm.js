@@ -9,9 +9,9 @@ const EditUserInfoForm = ({ currentUser, setEdit }) => {
 
     const errors = useSelector(state => state.errors?.session);
 
-    const [username, setUsername] = useState(currentUser.username);
-    const [email, setEmail] = useState(currentUser.email);
-    const [description, setDescription] = useState(currentUser.description);
+    const [username, setUsername] = useState(currentUser?.username);
+    const [email, setEmail] = useState(currentUser?.email);
+    const [description, setDescription] = useState(currentUser?.description || '');
     // const [password, setPassword] = useState('');
 
     useEffect(() => {
@@ -44,7 +44,8 @@ const EditUserInfoForm = ({ currentUser, setEdit }) => {
             <h1>this is editing the user profile</h1>
             <form className="session-form">
                 <div className="errors">{errors?.username}</div>
-                <label>Username
+                <label>
+                    <span>Username</span>
                     <input
                         type="text"
                         value={username}
@@ -53,7 +54,8 @@ const EditUserInfoForm = ({ currentUser, setEdit }) => {
                     />
                 </label>
                 <div className="errors">{errors?.email}</div>
-                <label>Email
+                <label>
+                    <span>Email</span>
                     <input
                         type="text"
                         value={email}
@@ -62,7 +64,8 @@ const EditUserInfoForm = ({ currentUser, setEdit }) => {
                     />
                 </label>
                 <div className="errors">{errors?.description}</div>
-                <label>description
+                <label>
+                    <span>Description</span>
                     <input
                         type="text"
                         value={description}

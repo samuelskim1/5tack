@@ -10,7 +10,7 @@
     color: white;
     padding: 20px;
     width: 100%;
-    min-height: 300px;
+    min-height: 350px;
 }
 
 #avatar-container {
@@ -30,6 +30,8 @@
 
 .user-info-field {
     margin: 8px;
+    max-width: 450px;
+    text-align: center;
 }
 
 .user-info-field.username {

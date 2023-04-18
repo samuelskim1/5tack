@@ -26,14 +26,16 @@
 }
 
 #profile-tab {
-  width: 80px;
-  margin: 0 10px;
+  box-sizing: border-box;
+  width: 100px;
   text-align: center;
-  padding: 12px;
+  padding: 16px 0 12px 0;
   cursor: pointer;
   color: white;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
 }
 
 #profile-tab.selected {
@@ -49,8 +51,22 @@
   color: white;
   padding: 20px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
+  overflow-x: scroll;
+}
+
+.review-box {
+  min-width: 450px;
+  width: 30%;
+  height: 90%;
+  margin: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  outline: 2px solid white;
 }
 
 #posts-index-container {
