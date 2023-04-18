@@ -8,6 +8,7 @@ const User = require('../models/User');
 const Post = require('../models/Post');
 
 const DEFAULT_PROFILE_IMAGE_URL = 'https://5tack.s3.amazonaws.com/public/cartoon-dead-fish.png'; // <- Insert the S3 URL that you copied above here
+const DEFAULT_PROFILE_VIDEO_URL = 'https://5tack.s3.amazonaws.com/public/The+Capybara+Song+Official+Music+Video+%F0%9F%8E%B6%F0%9F%8E%B6+%23capybara+%23capybaras+%23shorts+%23capybarasong.mp4';
 
 // Connect to database
 mongoose
@@ -25,9 +26,9 @@ mongoose
 const initializeImages = async () => {
   console.log("Initializing profile avatars...");
   await User.updateMany({}, { profileImageUrl: DEFAULT_PROFILE_IMAGE_URL });
-    
-  console.log("Initializing Post image URLs...");
-  await Post.updateMany({}, { imageUrls: [] });
+
+  console.log("Initializing Post image and video URLs...");
+  await Post.updateMany({}, { imageUrls: [], videoUrl: DEFAULT_PROFILE_VIDEO_URL });
 
   console.log("Done!");
   mongoose.disconnect();

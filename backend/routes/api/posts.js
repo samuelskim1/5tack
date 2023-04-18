@@ -6,11 +6,20 @@ const mongoose = require('mongoose');
 const Post = mongoose.model('Post');
 const { requireUser } = require('../../config/passport');
 const { io } = require('../../app');
+const { multipleFilesUpload, multipleMulterUpload } = require("../../awsS3");
 
-/* GET posts listing. */
-router.post('/', requireUser, async (req, res) => {
+router.post('/', multipleMulterUpload("images"), multipleMulterUpload("videos"), requireUser, async (req, res) => {
+  const imageUrls = await multipleFilesUpload({ files: req.files.images, public: true });
+  const videoUrls = await multipleFilesUpload({ files: req.files.videos, public: true });
+
+  const postData = {
+    ...req.body,
+    imageUrls,
+    videoUrls
+  };
+
   try {
-    const newPost = await Post.create(req.body);
+    const newPost = await Post.create(postData);
     res.status(201).json(newPost);
 
     // Emit a WebSocket event when a new post is created
@@ -23,7 +32,7 @@ router.post('/', requireUser, async (req, res) => {
 
 router.get('/', async (req, res) => {
   try {
-    const posts = await Post.find({}).populate('author_id');
+    const posts = await Post.find({}).populate("author", "_id username profileImageUrl");
     const modifiedPosts = Object.assign({}, ...posts.map(post => ({ [post._id]: post })));
     res.status(200).json(modifiedPosts);
   } catch (error) {
@@ -33,7 +42,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const post = await Post.findById(req.params.id).populate('author_id');
+    const post = await Post.findById(req.params.id).populate("author", "_id username profileImageUrl");
     if (!post) {
       return res.status(404).json({ message: 'Post not found' });
     }
