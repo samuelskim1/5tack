@@ -1,16 +1,17 @@
 import { useSelector } from "react-redux";
-import UnauthNav from "./UnauthNav";
-import AuthNav from "./AuthNav";
 import './NavBar.css';
 
 
 const Navbar = () => {
   const loggedIn = useSelector(state => !!state?.session?.user);
-  const nav = loggedIn ? <AuthNav /> : <UnauthNav />;
 
   return (
     <>
-      {nav}
+      {loggedIn && (
+        <nav id="auth-nav-container">
+          auth nav placeholder
+        </nav>
+      )}
     </>
   );
 };

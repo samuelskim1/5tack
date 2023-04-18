@@ -6,10 +6,10 @@
   background-color: $default-bg;
   color: white;
   position: relative;
-  font-size: 72px;
+  font-size: 10vw;
   font-weight: 600;
   letter-spacing: 0.2rem;
-  z-index: -1;
+  overflow: hidden;
 }
 
 .stacked {
@@ -22,10 +22,10 @@
 
 #splash-stack-1 {
   position: absolute;
-  top: 40vh;
+  top: 30vh;
   left: -50vw;
-  transition: transform 2s ease-out;
-  opacity: 0.3;
+  transition: transform 2s ease-in;
+  opacity: 0.2;
 }
 
 #splash-stack-1.stacked {
@@ -34,10 +34,10 @@
 
 #splash-stack-2 {
   position: absolute;
-  top: -60vh;
+  top: -70vh;
   left: -50vw;
-  transition: transform 2.2s ease-out 0.4s;
-  opacity: 0.4;
+  transition: transform 2.2s ease-in 0.4s;
+  opacity: 0.3;
 }
 
 #splash-stack-2.stacked {
@@ -46,10 +46,10 @@
 
 #splash-stack-3 {
   position: absolute;
-  top: -60vh;
+  top: -70vh;
   left: 50vw;
-  transition: transform 2.4s ease-out 0.4s;
-  opacity: 0.5;
+  transition: transform 2.4s ease-in 0.4s;
+  opacity: 0.3;
 }
 
 #splash-stack-3.stacked {
@@ -58,10 +58,10 @@
 
 #splash-stack-4 {
   position: absolute;
-  top: -60vh;
+  top: -70vh;
   right: -50vw;
-  transition: transform 2.6s ease-out 0.6s;
-  opacity: 0.6;
+  transition: transform 2.6s ease-in 0.6s;
+  opacity: 0.4;
 }
 
 #splash-stack-4.stacked {
@@ -70,9 +70,9 @@
 
 #splash-stack-5 {
   position: absolute;
-  top: 40vh;
+  top: 30vh;
   right: -50vw;
-  transition: transform 2.8s ease-out 0.8s;
+  transition: transform 2.8s ease-in 0.8s;
   opacity: 0.7;
 }
 
@@ -80,18 +80,37 @@
   transform: translateX(-100vw);
 }
 
-#splash-description {
-  font-size: 36px;
-  font-weight: 200;
-  letter-spacing: 0.1rem;
+#splash-bottom-container {
   position: absolute;
-  top: calc(40vh + 100px);
+  top: calc(40vh + 80px);
   width: 100vw;
-  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   opacity: 0;
   transition: opacity 3s ease-in 3.6s;
 }
 
-#splash-description.fade-in {
+#splash-description {
+  font-size: 36px;
+  font-size: 2.5vw;
+  font-weight: 200;
+  letter-spacing: 0.1rem;
+  width: 100vw;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#splash-bottom-container.fade-in {
   opacity: 1;
+}
+
+#splash-btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 200px;
+  font-size: 16px;
+  letter-spacing: normal;
 }
