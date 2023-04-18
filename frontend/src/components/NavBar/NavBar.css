@@ -2,7 +2,7 @@
 
 #unauth-nav-container {
   position: fixed;
-  top: calc(40vh + 150px);
+  top: calc(40vh + 180px);
   left: 0;
   width: 100vw;
   height: 80px;

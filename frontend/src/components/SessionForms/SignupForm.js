@@ -28,7 +28,7 @@ const SignupForm = () => {
         };
         dispatch(signup(user));
     }
-
+debugger
     return (
         <>
             {currModal === 'signup' && (
