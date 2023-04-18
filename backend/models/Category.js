@@ -6,11 +6,12 @@ const categorySchema = new Schema({
       type: String,
       required: true
     },
-    game_id: {
+    game_id: [{
       type: Schema.Types.ObjectId,
       ref: 'Game',
       required: true
-    },
+
+    }]
   }, {
     timestamps: true
   });
