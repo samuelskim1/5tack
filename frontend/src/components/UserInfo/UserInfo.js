@@ -1,3 +1,4 @@
+import EditUserInfoForm from '../EditUserInfo/EditUserInfoForm';
 import './UserInfo.scss';
 
 const UserInfo = ({ currentUser }) => {
@@ -7,6 +8,7 @@ const UserInfo = ({ currentUser }) => {
             <h1>{currentUser.description}</h1>
             <h1>{currentUser.email}</h1>
             <div>edit profile</div>
+            <EditUserInfoForm currentUser={currentUser} />
         </div>
     )
 }
