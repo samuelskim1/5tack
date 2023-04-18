@@ -43,7 +43,6 @@ router.get('/current', restoreUser, (req, res) => {
   });
 });
 
-
 router.get('/:username', async (req, res, next) => {
   let user;
   try {

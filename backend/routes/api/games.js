@@ -7,7 +7,8 @@ const { requireUser } = require('../../config/passport');
 router.get('/', async (req, res) => {
   try {
     const games = await Game.find({}).populate('category_id');
-    res.status(200).json(games)
+    const modifiedGames = Object.assign({}, ...games.map(game => ({ [game._id]: game })));
+    res.status(200).json(modifiedGames)
   } catch (error) {
     res.status(400).json({ message: error.message })
   }
