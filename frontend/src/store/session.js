@@ -53,12 +53,27 @@ export const logout = () => dispatch => {
   dispatch(logoutUser());
 };
 
+export const updateUser = (userInfo) => async (dispatch) => {
+  try {
+    const res = await jwtFetch(`/api/users/${userInfo._id}`, {
+      method: 'PATCH',
+      body: JSON.stringify(userInfo)
+    });
+    const user = await res.json();
+    return dispatch(receiveCurrentUser(user));
+  } catch(err) {
+    const res = await err.json();
+    if (res.statusCode === 400) {
+      return dispatch(receiveErrors(res.errors));
+    }
+  }
+}
+
 
 // REDUCERS
 export const sessionErrorsReducer = (state = null, action) => {
   switch (action.type) {
     case RECEIVE_SESSION_ERRORS:
-      debugger;
       return action.errors;
     case RECEIVE_CURRENT_USER:
     case CLEAR_SESSION_ERRORS:

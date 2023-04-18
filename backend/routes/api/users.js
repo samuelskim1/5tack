@@ -11,6 +11,7 @@ const validateLoginInput = require('../../validations/login');
 
 const { loginUser, restoreUser } = require('../../config/passport');
 const { isProduction } = require('../../config/keys');
+const validateUpdateUser = require('../../validations/updateUser');
 
 /* GET users listing. */
 
@@ -135,13 +136,13 @@ router.post('/logout', (req, res) => {
 });
 
 
-router.patch('/:id', async (req, res) => {
+router.patch('/:id', validateUpdateUser, async (req, res) => {
   try {
     const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
-    res.status(200).json(user);
+    return res.status(200).json(user);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
