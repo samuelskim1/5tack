@@ -3,7 +3,6 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const User = mongoose.model('User');
 const Post = mongoose.model('Post');
 const { requireUser } = require('../../config/passport');
 
@@ -43,8 +42,7 @@ router.patch('/:id', requireUser,  async (req, res) => {
   try {
     const post = await Post.findByIdAndUpdate(
       req.params.id,
-      { title: req.body.title },
-      { description: req.body.description },
+      { title: req.body.title, description: req.body.description },
       { new: true }
     );
     if (!post) {

@@ -17,15 +17,32 @@ const validateUpdateUser = require('../../validations/updateUser');
 
 router.get('/', async (req, res) => {
   try {
-    const users = await User.find()
-                              .populate("email", "_id username")
-                              .sort({ createdAt: -1 });
-    return res.json(users);
+    const users = await User.find().sort({ createdAt: -1 });
+    const modifiedUsers = Object.assign({}, ...users.map(user => ({ [user.username]: user })));
+    return res.json(modifiedUsers);
   }
   catch(err) {
     return res.json([]);
   }
 });
+
+router.get('/current', restoreUser, (req, res) => {
+  if (!isProduction) {
+    // In development, allow React server to gain access to the CSRF token
+    // whenever the current user information is first loaded into the
+    // React application
+    const csrfToken = req.csrfToken();
+    res.cookie("CSRF-TOKEN", csrfToken);
+  }
+  console.log(req);
+  if (!req.user) return res.json(null);
+  return res.json({
+    _id: req.user._id,
+    username: req.user.username,
+    email: req.user.email
+  });
+});
+
 
 router.get('/:username', async (req, res, next) => {
   let user;
@@ -110,22 +127,6 @@ router.post('/login', validateLoginInput, async (req, res, next) => {
     }
     return res.json(await loginUser(user)); // <-- THIS IS THE CHANGED LINE
   })(req, res, next);
-});
-
-router.get('/current', restoreUser, (req, res) => {
-  if (!isProduction) {
-    // In development, allow React server to gain access to the CSRF token
-    // whenever the current user information is first loaded into the
-    // React application
-    const csrfToken = req.csrfToken();
-    res.cookie("CSRF-TOKEN", csrfToken);
-  }
-  if (!req.user) return res.json(null);
-  res.json({
-    _id: req.user._id,
-    username: req.user.username,
-    email: req.user.email
-  });
 });
 
 

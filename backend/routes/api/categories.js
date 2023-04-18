@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const Category = mongoose.model('Category');
-const Post = mongoose.model('Post');
+const { requireUser } = require('../../config/passport');
 
 router.get('/', async (req, res) => {
     try {
-        const categories = await Category.find({}).populate('game_id', 'name');
+        const categories = await Category.find({}).populate('game_id');
         res.status(200).json(categories);
     } catch (error) {
         res.status(400).json({ message: error.message});
@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const category = await Post.findById(req.params.id).populate('game_id', 'name');
+        const category = await Category.findById(req.params.id).populate('game_id');
         if (!category) {
             return res.status(404).json({ message: 'category not found' });
         }
@@ -24,3 +24,6 @@ router.get('/:id', async (req, res) => {
         res.status(400).json({ message: error.message });
     }
 });
+
+
+module.exports = router;

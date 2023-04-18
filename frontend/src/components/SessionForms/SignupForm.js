@@ -28,7 +28,6 @@ const SignupForm = () => {
         };
         dispatch(signup(user));
     }
-debugger
     return (
         <>
             {currModal === 'signup' && (
@@ -71,7 +70,7 @@ debugger
                         >
                         Sign Up
                     </div>
-                    <div onClick={setCurrModal('login')}>Login instead</div>
+                    <div onClick={() => setCurrModal('login')}>Login instead</div>
                 </form>
             </div>
         )}
