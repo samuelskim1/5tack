@@ -3,9 +3,9 @@
 const AuthNav = () => {
 
   return (
-    <div>
+    <nav id="auth-nav-container">
       Auth Nav placeholder
-    </div>
+    </nav>
   );
 };
 

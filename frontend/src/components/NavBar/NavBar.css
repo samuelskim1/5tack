@@ -30,3 +30,11 @@
 
 
 /* AUTH NAVBAR */
+#auth-nav-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100px;
+  background-color: rgb(0, 9, 103);
+}
