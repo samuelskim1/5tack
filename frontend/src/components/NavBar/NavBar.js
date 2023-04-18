@@ -17,14 +17,16 @@ const Navbar = () => {
     <>
       {loggedIn && (
         <nav id="nav-container">
-          <div className="upper-nav" >
-            <Link to="/demo">go to demo profile</Link>
-            <div className="logout-btn" onClick={handleLogout} >Logout</div>
+          <div className="inner-nav">
+            <div className="upper-nav" >
+              <Link to="/demo">go to demo profile</Link>
+              <div className="logout-btn" onClick={handleLogout} >Logout</div>
+            </div>
+            <div className="lower-nav">
+              {/* <p>---------------- this is where categories will go ----------------------</p> */}
+              <CategoryNav />
+            </div>
           </div>
-          {/* <div className="lower-nav">
-            <p>---------------- this is where categories will go ----------------------</p>
-          </div> */}
-          <CategoryNav />
         </nav>
       )}
     </>

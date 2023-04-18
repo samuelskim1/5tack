@@ -15,7 +15,9 @@ const CategoryNav = () => {
     if (!categories) return null;
 
     return (
-        <ul>{categories.map(cat => <li>{cat.name.split(" ")[0]}</li>)}</ul>
+        <>
+            {categories.map(cat => <li>{cat.name.split(" ")[0]}</li>)}
+        </>
     )
 }
 
