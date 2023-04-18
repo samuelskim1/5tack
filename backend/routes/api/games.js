@@ -3,6 +3,17 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const Game = mongoose.model('Game');
 const { requireUser } = require('../../config/passport');
+const { multipleFilesUpload, multipleMulterUpload } = require("../../awsS3");
+
+router.post('/', multipleMulterUpload("images"), requireUser, async (req, res) => {
+  const imageUrls = await multipleFilesUpload({ files: req.files, public: true });
+  try {
+    const newGame = await Game.create(req.body, imageUrls,);
+    res.status(201).json(newGame);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
 
 router.get('/', async (req, res) => {
   try {

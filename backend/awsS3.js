@@ -1,4 +1,4 @@
-// FINISH WITH BONUS PHASE 2 FOR MERN TWITTER AWS
+// awsS3.js
 
 const AWS = require("aws-sdk");
 const multer = require("multer");
@@ -58,5 +58,3 @@ const singleFileUpload = async ({ file, public = false }) => {
     singleMulterUpload,
     multipleMulterUpload
   };
-
-  // install the needed multer instance on routes where you want to receive files

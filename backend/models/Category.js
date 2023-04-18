@@ -10,8 +10,11 @@ const categorySchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: 'Game',
       required: true
-
-    }]
+    }],
+    imageUrls: {
+      type: [String],
+      required: false
+    },
   }, {
     timestamps: true
   });

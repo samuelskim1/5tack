@@ -20,7 +20,15 @@ const postSchema = new Schema(
     description: {
       type: String,
       required: true,
-    }
+    },
+    imageUrls: {
+      type: [String],
+      required: false
+    },
+    videoUrls: {
+      type: [String],
+      required: false
+    },
   },
   {
     timestamps: true

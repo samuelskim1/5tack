@@ -5,12 +5,11 @@ const gameSchema = new Schema({
     name: { 
       type: String,
       required: true
-    }
-    // post_id: {
-    //   type: Schema.Types.ObjectId,
-    //   ref: 'Post',
-    //   required: true
-    // },
+    },
+    imageUrls: {
+      type: [String],
+      required: false
+    },
   }, {
     timestamps: true
   });
