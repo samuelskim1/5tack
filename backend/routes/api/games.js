@@ -13,6 +13,7 @@ router.get('/', async (req, res) => {
   }
 })
 
+
 router.get('/:id', async (req, res) => {
   try {
     const game = await Game.findById(req.params.id).populate('category_id');
