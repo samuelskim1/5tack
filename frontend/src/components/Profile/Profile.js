@@ -1,41 +1,87 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { receiveCurrentUser } from "../../store/session";
 import UserInfo from "../UserInfo/UserInfo";
+import { fetchUser } from "../../store/users";
+import { useParams } from "react-router-dom";
 import './Profile.scss';
 
 const Profile = () => {
-    // const dispatch = useDispatch();
-    const currentUser = useSelector(state => state.session.user);
+    const dispatch = useDispatch();
+    const { username } = useParams();
+    const user = useSelector(state => state?.users[username]);
     const [tab, setTab] = useState('reviews');
 
-    // useEffect(() => {
-    //     dispatch( receiveCurrentUser());
-    // }, [])
+    useEffect(() => {
+        dispatch(fetchUser(username));
+    }, [dispatch, username])
 
-    if (!currentUser) return null;
 
     return (
         <div id="profile-container">
-            <UserInfo currentUser={currentUser} />
+            <UserInfo user={user} />
 
             <div id="review-post-tabs-container">
-                <div id="review-tab">
-                    Reviews
-                </div>
-                <div id="post-tab">
-                    Posts
+                <div>
+
+                    <div 
+                        id="profile-tab"
+                        onClick={() => setTab('reviews')}
+                        className={tab === 'reviews' ? 'selected' : ''}
+                    >
+                        REVIEWS
+                    </div>
+                    <div 
+                        id="profile-tab"
+                        onClick={() => setTab('posts')}
+                        className={tab === 'posts' ? 'selected' : ''}
+                    >
+                        POSTS
+                    </div>
+
                 </div>
             </div>
 
-            
-            <div id="reviews-index-container">
-                reviews placeholder
-            </div>
+            {tab === 'reviews' && (
+                <div id="reviews-index-container">
+                    <div className="review-box">
+                        review 1<br/>hello<br/>hello<br/>hello<br/>hello
+                    </div>
+                    <div className="review-box">
+                        review 2<br/>hello<br/>hello<br/>hello<br/>hello
+                    </div>
+                    <div className="review-box">
+                        review 3<br/>hello<br/>hello<br/>hello<br/>hello
+                    </div>
+                    <div className="review-box">
+                        review 3<br/>hello<br/>hello<br/>hello<br/>hello
+                    </div>
+                    <div className="review-box">
+                        review 3<br/>hello<br/>hello<br/>hello<br/>hello
+                    </div>
+                    <div className="review-box">
+                        review 3<br/>hello<br/>hello<br/>hello<br/>hello
+                    </div>
+                    <div className="review-box">
+                        review 3<br/>hello<br/>hello<br/>hello<br/>hello
+                    </div>
+                    <div className="review-box">
+                        review 3<br/>hello<br/>hello<br/>hello<br/>hello
+                    </div>
+                    <div className="review-box">
+                        review 3<br/>hello<br/>hello<br/>hello<br/>hello
+                    </div>
+                    <div className="review-box">
+                        review 3<br/>hello<br/>hello<br/>hello<br/>hello
+                    </div>
+                    
+                </div>
+            )}
 
-            <div id="posts-index-container">
-                posts placeholder
-            </div>
+            {tab === 'posts' && (
+                <div id="posts-index-container">
+                    this is where i call on toxic people
+                </div>
+            )}
         </div>
     )
 }

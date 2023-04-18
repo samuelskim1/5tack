@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { clearSessionErrors, updateUser } from "../../store/session";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
+import '../SessionForms/SessionForm.scss';
 
-const EditUserInfoForm = ({ currentUser, setEdit }) => {
+const EditUserInfoForm = ({ setEdit }) => {
     const dispatch = useDispatch();
     const history = useHistory();
+    const { username } = useParams();
 
     const errors = useSelector(state => state.errors?.session);
+    const showUser = useSelector(state => state?.users[username]);
 
-    const [username, setUsername] = useState(currentUser.username);
-    const [email, setEmail] = useState(currentUser.email);
-    const [description, setDescription] = useState(currentUser.description);
+    const [showUsername, setShowUsername] = useState(showUser?.username);
+    const [email, setEmail] = useState(showUser?.email);
+    const [description, setDescription] = useState(showUser?.description || '');
     // const [password, setPassword] = useState('');
 
     useEffect(() => {
@@ -20,8 +23,8 @@ const EditUserInfoForm = ({ currentUser, setEdit }) => {
 
     const handleSubmit = () => {
         const user = {
-            ...currentUser,
-            username,
+            ...showUser,
+            showUsername,
             email,
             description
         }
@@ -29,7 +32,7 @@ const EditUserInfoForm = ({ currentUser, setEdit }) => {
         // console.log(res);
         if (res) {
             setEdit(false);
-            history.push(`/${username}`);
+            history.push(`/${showUsername}`);
         };
         // .then(res => {
         //     if (res.ok) {
@@ -40,37 +43,40 @@ const EditUserInfoForm = ({ currentUser, setEdit }) => {
     }
 
     return (
-        <div className="session-form-container">
-            <h1>this is editing the user profile</h1>
+        <div id="session-form-container">
             <form className="session-form">
+                <h2>Edit your profile</h2>
                 <div className="errors">{errors?.username}</div>
-                <label>Username
+                <label>
+                    <span>Username</span>
                     <input
                         type="text"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        placeholder="Username"
+                        value={showUsername}
+                        onChange={(e) => setShowUsername(e.target.value)}
+                        placeholder="How should we call you?"
                     />
                 </label>
                 <div className="errors">{errors?.email}</div>
-                <label>Email
+                <label>
+                    <span>Email</span>
                     <input
                         type="text"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Email"
+                        placeholder="Tired of spam? Enter a new email"
                     />
                 </label>
                 <div className="errors">{errors?.description}</div>
-                <label>description
+                <label>
+                    <span>Description</span>
                     <input
                         type="text"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
-                        placeholder="Description"
+                        placeholder="Tell us about yourself!"
                     />
                 </label>
-                <div onClick={handleSubmit}>update</div>
+                <div id="submit-login-btn" onClick={handleSubmit}>Update</div>
             </form>
         </div>
     )

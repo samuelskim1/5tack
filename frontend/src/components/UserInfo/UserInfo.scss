@@ -1,6 +1,7 @@
 @import '../../App.scss';
 
 .user-info {
+    box-sizing: border-box;
     background-color: $default-bg;
     display: flex;
     flex-direction: column;
@@ -9,24 +10,28 @@
     color: white;
     padding: 20px;
     width: 100%;
-    min-height: 250px;
+    min-height: 350px;
 }
 
 #avatar-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 28px;
+    padding: 50px;
     border-radius: 8px;
     background-color: white;
-    margin-bottom: 20px;
+    margin: 20px 0;
     color: black;
     font-size: 48px;
     font-weight: 700;
+    width: 0;
+    height: 0;
 }
 
 .user-info-field {
     margin: 8px;
+    max-width: 450px;
+    text-align: center;
 }
 
 .user-info-field.username {
@@ -40,4 +45,6 @@
     background-color: white;
     color: black;
     cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
 }
