@@ -10,11 +10,15 @@ const csurf = require('csurf');
 const { isProduction } = require('./config/keys');
 
 require('./models/User');
-require('./models/Post')
+require('./models/Post');
+require('./models/Category');
+
 require('./config/passport');
 
 const usersRouter = require('./routes/api/users');
 const postsRouter = require('./routes/api/posts');
+const categoriesRouter = require('./routes/api/categories')
+
 const csrfRouter = require('./routes/api/csrf');
 const passport = require('passport');
 const app = express();
@@ -48,8 +52,6 @@ if (isProduction) {
   });
 }
 
-
-
 // Security Middleware
 if (!isProduction) {
   // Enable CORS only in development because React will be on the React
@@ -74,6 +76,8 @@ app.use(
 app.use('/api/user', usersRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/posts', postsRouter);
+app.use('/api/category', categoriesRouter);
+
 app.use('/api/csrf', csrfRouter);
 
 // Express custom middleware for catching all unmatched requests and formatting
