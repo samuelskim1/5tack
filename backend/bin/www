@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+const { app } = require('../app');
 // var debug = require('debug')('backend:server');
 const debug = require('debug');
 
@@ -25,7 +25,7 @@ app.set('port', port);
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+const { server } = require('../app');
 
 /**
  * Listen on provided port, on all network interfaces.

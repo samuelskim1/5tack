@@ -5,6 +5,9 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const debug = require('debug');
 
+const http = require('http');
+const socketIO = require('socket.io');
+
 const cors = require('cors');
 const csurf = require('csurf');
 const { isProduction } = require('./config/keys');
@@ -26,6 +29,11 @@ const reviewsRouter = require('./routes/api/reviews')
 const csrfRouter = require('./routes/api/csrf');
 const passport = require('passport');
 const app = express();
+
+const server = http.createServer(app);
+const io = socketIO(server);
+
+const dbURI = 'mongodb+srv://admin:gviLmQbwohh7B7B9@5tack.ge4znht.mongodb.net/?retryWrites=true&w=majority';
 
 app.use(logger('dev')); // log request components (URL/method) to terminal
 app.use(express.json()); // parse JSON request body
@@ -80,7 +88,7 @@ app.use(
 app.use('/api/user', usersRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/posts', postsRouter);
-app.use('/api/category', categoriesRouter);
+app.use('/api/categories', categoriesRouter);
 app.use('/api/games', gamesRouter)
 app.use('/api/reviews', reviewsRouter)
 
@@ -106,7 +114,23 @@ app.use((err, req, res, next) => {
     message: err.message,
     statusCode,
     errors: err.errors
-  })
+  });
 });
 
-module.exports = app;
+// Socket.IO connection handler
+io.on('connection', (socket) => {
+  console.log('A user connected');
+
+  // Handle new messages
+  socket.on('message', (msg) => {
+    console.log(`Message received: ${msg}`);
+    // Broadcast the message to all connected clients
+    io.emit('message', msg);
+  });
+
+  socket.on('disconnect', () => {
+    console.log('A user disconnected');
+  });
+});
+
+module.exports = { app, server };
