@@ -18,7 +18,8 @@ router.post('/',  async (req, res) => {
 router.get('/', async (req, res) => {
   try {
     const reviews = await Review.find({}).populate('reviewer_id');
-    res.status(200).json(reviews);
+    const modifiedReviews = Object.assign({}, ...reviews.map(review => ({ [review._id]: review })));
+    res.status(200).json(modifiedReviews);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }

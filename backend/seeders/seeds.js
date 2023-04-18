@@ -221,6 +221,8 @@ const insertSeeds = () => {
 console.log("Resetting db and seeding users, categories, and games...");
 
 User.collection.drop()
+                .then(() => Game.collection.drop())
+                .then(() => Category.collection.drop())
                 .then(() => User.insertMany(users))
                 .then(() => Game.insertMany(games))
                 .then(() => Category.insertMany(categories))
