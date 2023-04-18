@@ -58,7 +58,6 @@ const category1 = new Category({
   game_id: [
     game1,
     game15
-  
   ]
 })
 
@@ -69,7 +68,6 @@ const category2 = new Category({
     game3,
     game5,
     game16
-  
   ]
 })
 
@@ -203,8 +201,6 @@ games.push(
   game17,
   game18
 )
-
-
 
 mongoose
   .connect(db, { useNewUrlParser: true })

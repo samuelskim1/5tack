@@ -13,6 +13,8 @@ const { loginUser, restoreUser } = require('../../config/passport');
 const { isProduction } = require('../../config/keys');
 const validateUpdateUser = require('../../validations/updateUser');
 
+const { singleFileUpload, singleMulterUpload } = require("../../awsS3");
+
 /* GET users listing. */
 
 router.get('/', async (req, res) => {
@@ -39,6 +41,7 @@ router.get('/current', restoreUser, (req, res) => {
   return res.json({
     _id: req.user._id,
     username: req.user.username,
+    profileImageUrl: req.user.profileImageUrl,
     email: req.user.email
   });
 });
@@ -71,7 +74,7 @@ router.get('/:username', async (req, res, next) => {
 })
 
 // POST /api/users/register
-router.post('/register', validateRegisterInput, async (req, res, next) => {
+router.post('/register', singleMulterUpload("image"), validateRegisterInput, async (req, res, next) => {
   // Check to make sure no one has already registered with the proposed email or
   // username.
   const user = await User.findOne({
@@ -92,10 +95,14 @@ router.post('/register', validateRegisterInput, async (req, res, next) => {
     err.errors = errors;
     return next(err);
   }
+  const profileImageUrl = req.file ?
+  await singleFileUpload({ file: req.file, public: true }) :
+  DEFAULT_PROFILE_IMAGE_URL;
 
   // Otherwise create a new user
   const newUser = new User({
     username: req.body.username,
+    profileImageUrl,
     email: req.body.email
   });
 
