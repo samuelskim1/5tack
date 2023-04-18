@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { clearSessionErrors, updateUser } from "../../store/session";
 import { useHistory, useParams } from "react-router-dom";
+import '../SessionForms/SessionForm.scss';
 
 const EditUserInfoForm = ({ setEdit }) => {
     const dispatch = useDispatch();
@@ -42,9 +43,9 @@ const EditUserInfoForm = ({ setEdit }) => {
     }
 
     return (
-        <div className="session-form-container">
-            <h1>this is editing the user profile</h1>
+        <div id="session-form-container">
             <form className="session-form">
+                <h2>Edit your profile</h2>
                 <div className="errors">{errors?.username}</div>
                 <label>
                     <span>Username</span>
@@ -52,7 +53,7 @@ const EditUserInfoForm = ({ setEdit }) => {
                         type="text"
                         value={showUsername}
                         onChange={(e) => setShowUsername(e.target.value)}
-                        placeholder="Username"
+                        placeholder="How should we call you?"
                     />
                 </label>
                 <div className="errors">{errors?.email}</div>
@@ -62,7 +63,7 @@ const EditUserInfoForm = ({ setEdit }) => {
                         type="text"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Email"
+                        placeholder="Tired of spam? Enter a new email"
                     />
                 </label>
                 <div className="errors">{errors?.description}</div>
@@ -72,10 +73,10 @@ const EditUserInfoForm = ({ setEdit }) => {
                         type="text"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
-                        placeholder="Description"
+                        placeholder="Tell us about yourself!"
                     />
                 </label>
-                <div onClick={handleSubmit}>update</div>
+                <div id="submit-login-btn" onClick={handleSubmit}>Update</div>
             </form>
         </div>
     )

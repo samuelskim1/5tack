@@ -3,7 +3,7 @@ import { Modal } from "../../context/modal";
 import EditUserInfoForm from './EditUserInfoForm';
 import '../SessionForms/SessionForm.scss';
 
-const EditUserInfoModal = ({ currentUser }) => {
+const EditUserInfoModal = () => {
   const [showEdit, setEdit] = useState(false);
 
   return (
@@ -17,7 +17,7 @@ const EditUserInfoModal = ({ currentUser }) => {
 
       {showEdit && (
         <Modal onClose={() => setEdit(false)} >
-          <EditUserInfoForm currentUser={currentUser} setEdit={setEdit} />
+          <EditUserInfoForm setEdit={setEdit} />
         </Modal>
       )}
     </>
