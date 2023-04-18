@@ -72,6 +72,11 @@ const LoginForm = () => {
             >
             Demo Login
           </div>
+          <div 
+            id="alternate-form"
+          >
+            Don't have an account yet? <div onClick={() => {setLoginForm(false); setSignupForm(true)}}>Click here to sign up!</div>
+          </div>
         </form>
       </div>
       )}
