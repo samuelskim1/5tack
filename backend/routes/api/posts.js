@@ -42,61 +42,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-//custom route for getting all the posts for a singular user
-router.get('/:username', async (req, res, next) => {
-  let user;
-  try {
-    user = await User.findOne({ username: req.params.username });
-    if (!user) {
-      const error = new Error('User not found');
-      error.statusCode = 404;
-      error.errors = { message: "No user found with that username" };
-      return next(error);
-    }
-  } catch (err) {
-    const error = new Error('User not found');
-    error.statusCode = 404;
-    error.errors = { message: "No user found with that username" };
-    return next(error);
-  }
-  try {
-    const userPosts = await Post.find({ author_id: user.id })
-      .sort({ createdAt: -1 })
-      .populate("comment_id", "content");
-    return res.json(userPosts);
-  }
-  catch (err) {
-    return res.json([]);
-  }
-})
-
-//custom route for getting all the posts for a singular game
-router.get('/:nameURL', async (req, res, next) => {
-  let game;
-  try {
-    game = await Game.findOne({ nameURL: req.params.nameURL });
-    if (!game) {
-      const error = new Error('game not found');
-      error.statusCode = 404;
-      error.errors = { message: "No game found with that game" };
-      return next(error);
-    }
-  } catch (err) {
-    const error = new Error('game not found');
-    error.statusCode = 404;
-    error.errors = { message: "No game found with that game" };
-    return next(error);
-  }
-  try {
-    const gamePosts = await Post.find({ game_id: game.id })
-      .sort({ createdAt: -1 })
-      .populate("comment_id");
-    return res.json(gamePosts);
-  }
-  catch (err) {
-    return res.json([]);
-  }
-})
 
 router.get('/:id', async (req, res) => {
   try {
@@ -137,5 +82,62 @@ router.delete('/:id', requireUser,  async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 });
+
+
+//custom route for getting all the posts for a singular user
+router.get('/user/:username', async (req, res, next) => {
+  let user;
+  try {
+    user = await User.findOne({ username: req.params.username });
+    if (!user) {
+      const error = new Error('User not found');
+      error.statusCode = 404;
+      error.errors = { message: "No user found with that username" };
+      return next(error);
+    }
+  } catch (err) {
+    const error = new Error('User not found');
+    error.statusCode = 404;
+    error.errors = { message: "No user found with that username" };
+    return next(error);
+  }
+  try {
+    const userPosts = await Post.find({ author_id: user.id })
+      .sort({ createdAt: -1 })
+      .populate("comment_id", "content");
+    return res.json(userPosts);
+  }
+  catch (err) {
+    return res.json([]);
+  }
+})
+
+//custom route for getting all the posts for a singular game
+router.get('/game/:nameURL', async (req, res, next) => {
+  let game;
+  try {
+    game = await Game.findOne({ nameURL: req.params.nameURL });
+    if (!game) {
+      const error = new Error('game not found');
+      error.statusCode = 404;
+      error.errors = { message: "No game found with that game" };
+      return next(error);
+    }
+  } catch (err) {
+    const error = new Error('game not found');
+    error.statusCode = 404;
+    error.errors = { message: "No game found with that game" };
+    return next(error);
+  }
+  try {
+    const gamePosts = await Post.find({ game_id: game.id })
+      .sort({ createdAt: -1 })
+      .populate("comment_id");
+    return res.json(gamePosts);
+  }
+  catch (err) {
+    return res.json([]);
+  }
+})
 
 module.exports = router;
