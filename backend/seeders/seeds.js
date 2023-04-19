@@ -187,6 +187,11 @@ categories.push(
   category11,
   )
 
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+
 const posts = [];
 const NUM_SEED_POSTS = 10;
 //demoUser posts for League of Legends
@@ -194,7 +199,7 @@ for (let i = 0; i < NUM_SEED_POSTS; i++) {
   const author_id = demoUser._id;
   const game_id = game1._id;
   const title = faker.lorem.sentence(5);
-  const description = faker.lorem.paragraphs(2, '<br/>\n')
+  const description = faker.lorem.paragraphs(getRandomArbitrary(5,20), '<br/>\n')
   posts.push(
     new Post ({
       author_id: author_id,
