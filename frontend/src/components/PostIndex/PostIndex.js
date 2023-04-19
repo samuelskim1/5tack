@@ -6,7 +6,7 @@ const PostIndex = ({ posts }) => {
 
 
   return (
-    <div className="post-index-container">
+    <div className="posts-index-container">
       {posts?.map((post, i) => (
         <div className='post-index-item' key={i} >
           <div className='post-index-title'>

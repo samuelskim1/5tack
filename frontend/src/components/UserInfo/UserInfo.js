@@ -13,7 +13,7 @@ const UserInfo = () => {
     const button = useRef();
 
     useEffect(() => {
-        if (username) dispatch(fetchUser(username));
+        dispatch(fetchUser(username));
     }, [dispatch, username]);
 
 

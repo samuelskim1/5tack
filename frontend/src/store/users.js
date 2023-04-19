@@ -53,7 +53,7 @@ export const fetchUser = username => async dispatch => {
       return dispatch(receiveErrors(res.errors));
     }
   }
-}
+};
 
 
 // REDUCER
@@ -68,7 +68,7 @@ export const userErrorsReducer = (state = null, action) => {
     default:
       return state;
   }
-}
+};
 
 const usersReducer = (state = {}, action) => {
   switch (action.type) {
