@@ -6,5 +6,6 @@ $neutral-text: #e4dfd5;
     display: flex;
     .main-content {
         width: calc(100vw - 250px);
+        min-height: 100vh;
     }
 }

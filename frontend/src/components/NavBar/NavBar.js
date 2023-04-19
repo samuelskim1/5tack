@@ -36,7 +36,8 @@ const Navbar = () => {
               <Link className="profile-link" to="/demo">
                 {/* <p>go to demo profile</p> */}
                 <Avatar user={user} />
-                </Link>
+              </Link>
+              <div id="nav-welcome">Welcome back, {user?.username}!</div>
               <div className="logout-btn" onClick={handleLogout} >Logout</div>
             </div>
             <div className="line-divider"/>
