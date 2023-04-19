@@ -1,19 +1,14 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import UserInfo from "../UserInfo/UserInfo";
-import { fetchUser } from "../../store/users";
 import { useParams } from "react-router-dom";
 import './Profile.scss';
+import PostIndex from "../PostIndex/PostIndex";
 
 const Profile = () => {
-    const dispatch = useDispatch();
     const { username } = useParams();
     const user = useSelector(state => state?.users[username]);
     const [tab, setTab] = useState('reviews');
-
-    useEffect(() => {
-        dispatch(fetchUser(username));
-    }, [dispatch, username])
 
 
     return (
@@ -43,44 +38,12 @@ const Profile = () => {
 
             {tab === 'reviews' && (
                 <div id="reviews-index-container">
-                    <div className="review-box">
-                        review 1<br/>hello<br/>hello<br/>hello<br/>hello
-                    </div>
-                    <div className="review-box">
-                        review 2<br/>hello<br/>hello<br/>hello<br/>hello
-                    </div>
-                    <div className="review-box">
-                        review 3<br/>hello<br/>hello<br/>hello<br/>hello
-                    </div>
-                    <div className="review-box">
-                        review 3<br/>hello<br/>hello<br/>hello<br/>hello
-                    </div>
-                    <div className="review-box">
-                        review 3<br/>hello<br/>hello<br/>hello<br/>hello
-                    </div>
-                    <div className="review-box">
-                        review 3<br/>hello<br/>hello<br/>hello<br/>hello
-                    </div>
-                    <div className="review-box">
-                        review 3<br/>hello<br/>hello<br/>hello<br/>hello
-                    </div>
-                    <div className="review-box">
-                        review 3<br/>hello<br/>hello<br/>hello<br/>hello
-                    </div>
-                    <div className="review-box">
-                        review 3<br/>hello<br/>hello<br/>hello<br/>hello
-                    </div>
-                    <div className="review-box">
-                        review 3<br/>hello<br/>hello<br/>hello<br/>hello
-                    </div>
                     
                 </div>
             )}
 
             {tab === 'posts' && (
-                <div id="posts-index-container">
-                    this is where i call on toxic people
-                </div>
+                <PostIndex />
             )}
         </div>
     )

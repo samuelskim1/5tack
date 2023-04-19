@@ -1,14 +1,6 @@
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { fetchUser } from "../../store/users";
 
 
 const Avatar = ({ user }) => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchUser(user?.username));
-  }, [dispatch, user?.username])
 
   return (
     <div id="avatar-container">
