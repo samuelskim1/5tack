@@ -4,9 +4,15 @@ const Schema = mongoose.Schema;
 
 const postSchema = new Schema(
   {
+    comment_id: {
+      type: Schema.Types.ObjectId,
+      ref: 'Comment',
+      // required: true
+    },
     author_id: {
       type: Schema.Types.ObjectId,
-      ref: 'User'
+      ref: 'User',
+      required: true
     },
     game_id: {
       type: Schema.Types.ObjectId,
