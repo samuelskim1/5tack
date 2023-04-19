@@ -212,9 +212,6 @@ for (let i = 0; i < NUM_SEED_POSTS; i++) {
   )
 }
 
-
-
-
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => {
