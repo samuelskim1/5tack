@@ -195,21 +195,63 @@ function getRandomArbitrary(min, max) {
 
 
 const posts = [];
-const NUM_SEED_POSTS = 10;
-//demoUser posts for League of Legends
-for (let i = 0; i < NUM_SEED_POSTS; i++) {
-  const author_id = demoUser._id;
-  const game_id = game1._id;
-  const title = faker.lorem.sentence(5);
-  const description = faker.lorem.paragraphs(getRandomArbitrary(5,20), '<br/>\n')
+// Helper function to get a random game
+function getRandomGame() {
+  const randomIndex = Math.floor(Math.random() * games.length);
+  return games[randomIndex];
+}
+
+function getRandomUser() {
+  const randomIndex = Math.floor(Math.random() * users.length);
+  return users[randomIndex];
+}
+
+function getRandomPost() {
+  const randomIndex = Math.floor(Math.random() * posts.length);
+  return posts[randomIndex];
+}
+
+// Loop to create posts for each user with random games
+// Loop to create posts for each user with random games
+const POSTS_PER_USER = 10;
+
+for (let i = 0; i < POSTS_PER_USER; i++) {
+  const author_id = getRandomUser()._id;
+  const game_id = getRandomGame()._id;
+  let title = faker.lorem.sentence(5);
+  // Truncate the title to 50 characters if it's longer
+  title = title.length > 50 ? title.substring(0, 50) : title;
+  const description = faker.lorem
+  .paragraphs(getRandomArbitrary(5, 20), "<br/>\n")
+  .substring(0, 400);
   posts.push(
-    new Post ({
+    new Post({
       author_id: author_id,
       game_id: game_id,
       title: title,
-      description: description
+      description: description,
     })
-  )
+  );
+}
+
+
+
+
+const comments = [];
+const NUM_SEED_COMMENTS = 5;
+
+for (let i = 0; i < NUM_SEED_COMMENTS; i++) {
+  const author_id = getRandomUser()._id;
+  const post_id = getRandomPost()._id;
+  const description = faker.lorem
+  .sentences(getRandomArbitrary(1, 5))
+  .substring(0, 200);    comments.push(
+    new Comment({
+      author_id: author_id,
+      post_id: post_id,
+      content: description,
+    })
+  );
 }
 
 mongoose
@@ -229,11 +271,13 @@ console.log("Resetting db and seeding users, categories, and games...");
 User.collection.drop()
                 .then(() => Game.collection.drop())
                 .then(() => Category.collection.drop())
+                .then(() => Comment.collection.drop()) 
                 .then(() => Post.collection.drop())
                 .then(() => User.insertMany(users))
                 .then(() => Game.insertMany(games))
                 .then(() => Category.insertMany(categories))
                 .then(() => Post.insertMany(posts))
+                .then(() => Comment.insertMany(comments)) 
                 .then(() => {
                     console.log("Done!");
                     mongoose.disconnect();
