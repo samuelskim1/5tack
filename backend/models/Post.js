@@ -21,11 +21,13 @@ const postSchema = new Schema(
     },
     title: {
       type: String,
-      required: true
+      required: true,
+      maxlength: 50
     },
     description: {
       type: String,
       required: true,
+      maxlength: 400
     },
     imageUrls: {
       type: [String],
