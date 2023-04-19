@@ -7,7 +7,7 @@ import './PostIndex.scss';
 
 const PostIndex = ({ posts }) => {
 
-  if (!posts) return null;
+  if (!posts || !posts.length) return null;
 
   return (
     <div className="posts-index-container">
