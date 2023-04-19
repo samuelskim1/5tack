@@ -1,3 +1,4 @@
+// backend/seeders/seeds.js
 const mongoose = require("mongoose");
 const { mongoURI: db } = require('../config/keys.js');
 const User = require('../models/User');
@@ -35,24 +36,24 @@ for (let i = 1; i < NUM_SEED_USERS; i++) {
 
 const games = [];
 
-const game1 = new Game({ name: "League of Legends" });
-const game2 = new Game({ name: "Valorant" });
-const game3 = new Game({ name: "Apex Legends" });
-const game4 = new Game({ name: "Fortnite" })
-const game5 = new Game({ name: 'CS:GO' });
-const game6 = new Game({ name: 'Minecraft' });
-const game7 = new Game({ name: "Rocket League" });
-const game8 = new Game({ name: 'Fifa' });
-const game9 = new Game({ name: 'Super Smash Bros. Ultimate' });
-const game10 = new Game({ name: 'Lost Ark' });
-const game11 = new Game({ name: 'NBA 2K23' });
-const game12 = new Game({ name: 'Stardew Valley' });
-const game13 = new Game({ name: 'Starcraft' });
-const game14 = new Game({ name: 'Terraria' });
-const game15 = new Game({ name: 'DOTA 2' });
-const game16 = new Game({ name: 'Overwatch' });
-const game17 = new Game({ name: 'Grand Theft Auto V' });
-const game18 = new Game({ name: 'MapleStory' });
+const game1 = new Game({ name: "League of Legends", imageUrls:["https://5tack.s3.amazonaws.com/public/league_of_legends.jpeg"] });
+const game2 = new Game({ name: "Valorant", imageUrls: [] });
+const game3 = new Game({ name: "Apex Legends", imageUrls: [] });
+const game4 = new Game({ name: "Fortnite", imageUrls: [] })
+const game5 = new Game({ name: 'CS:GO', imageUrls: [] });
+const game6 = new Game({ name: 'Minecraft', imageUrls: [] });
+const game7 = new Game({ name: "Rocket League", imageUrls: [] });
+const game8 = new Game({ name: 'Fifa', imageUrls: [] });
+const game9 = new Game({ name: 'Super Smash Bros. Ultimate', imageUrls: [] });
+const game10 = new Game({ name: 'Lost Ark', imageUrls: [] });
+const game11 = new Game({ name: 'NBA 2K23', imageUrls: [] });
+const game12 = new Game({ name: 'Stardew Valley', imageUrls: [] });
+const game13 = new Game({ name: 'Starcraft', imageUrls: [] });
+const game14 = new Game({ name: 'Terraria', imageUrls: [] });
+const game15 = new Game({ name: 'DOTA 2', imageUrls: [] });
+const game16 = new Game({ name: 'Overwatch', imageUrls: [] });
+const game17 = new Game({ name: 'Grand Theft Auto V', imageUrls: [] });
+const game18 = new Game({ name: 'MapleStory', imageUrls: [] });
 
 games.push(
   game1, 
@@ -204,7 +205,6 @@ for (let i = 0; i < NUM_SEED_POSTS; i++) {
     })
   )
 }
-
 
 
 

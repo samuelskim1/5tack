@@ -1,0 +1,49 @@
+.game-show-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.game-show-content {
+  text-align: center;
+  max-width: 600px;
+}
+
+.game-show-images img {
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+
+:root {
+  --glow-color: #061e1e;
+}
+
+.game-Name {
+  color: var(--glow-color);
+  cursor: pointer;
+  padding: 0.35em 1em;
+  border: 0.15em solid var(--glow-color);
+  border-radius: 0.45em;
+  background: none;
+  perspective: 2em;
+  font-size: 2em;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-shadow: 0 0 5px rgba(6, 30, 30, 0.4), 0 0 10px rgba(6, 30, 30, 0.4), 0 0 15px rgba(6, 30, 30, 0.4), 0 0 20px rgba(6, 30, 30, 0.4);
+  box-shadow: 0 0 5px var(--glow-color), 0 0 10px var(--glow-color), 0 0 15px var(--glow-color), 0 0 20px var(--glow-color);
+  animation: glowing 2s infinite;
+}
+
+@keyframes glowing {
+  0% {
+    text-shadow: 0 0 5px rgba(6, 30, 30, 0.1), 0 0 10px rgba(6, 30, 30, 0.1), 0 0 15px rgba(6, 30, 30, 0.1), 0 0 20px rgba(6, 30, 30, 0.1);
+  }
+  50% {
+    text-shadow: 0 0 5px rgba(6, 30, 30, 0.6), 0 0 10px rgba(6, 30, 30, 0.6), 0 0 15px rgba(6, 30, 30, 0.6), 0 0 20px rgba(6, 30, 30, 0.6);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(6, 30, 30, 0.1), 0 0 10px rgba(6, 30, 30, 0.1), 0 0 15px rgba(6, 30, 30, 0.1), 0 0 20px rgba(6, 30, 30, 0.1);
+  }
+}

@@ -1,3 +1,4 @@
+// backend/routes/api/games.js
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
@@ -17,7 +18,7 @@ router.post('/', multipleMulterUpload("images"), requireUser, async (req, res) =
 
 router.get('/', async (req, res) => {
   try {
-    const games = await Game.find({}).populate('category_id');
+    const games = await Game.find({});
     const modifiedGames = Object.assign({}, ...games.map(game => ({ [game._id]: game })));
     res.status(200).json(modifiedGames)
   } catch (error) {
@@ -28,7 +29,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const game = await Game.findById(req.params.id).populate('category_id');
+    const game = await Game.findById(req.params.id);
     if (!game) {
       return res.status(404).json({ message: 'Game not found' })
     }

@@ -6,6 +6,7 @@ import NavBar from './components/NavBar/NavBar';
 import SplashPage from './components/SplashPage/SplashPage';
 import HomePage from './components/HomePage/HomePage';
 import Profile from './components/Profile/Profile';
+import GameShow from './components/GameShow/GameShow'; 
 import { getCurrentUser } from './store/session';
 
 
@@ -25,6 +26,7 @@ const App = () => {
         <ProtectedRoute exact path="/home" component={HomePage} />
         {/* <ProtectedRoute exact path={`/:username`} component={Profile} /> */}
         <ProtectedRoute exact path={`/:username`} component={Profile} />
+        <ProtectedRoute exact path="/games/:id" component={GameShow} />
       </Switch>
     </>
   );
