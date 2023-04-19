@@ -4,7 +4,7 @@ import UserInfo from "../UserInfo/UserInfo";
 import { useParams } from "react-router-dom";
 import './Profile.scss';
 import PostIndex from "../PostIndex/PostIndex";
-import { fetchAllPosts } from "../../store/posts";
+import { fetchUserPosts } from "../../store/posts";
 
 const Profile = () => {
     const dispatch = useDispatch();
@@ -15,7 +15,7 @@ const Profile = () => {
 
 
     useEffect(() => {
-        dispatch(fetchAllPosts());
+        dispatch(fetchUserPosts(username));
     }, [dispatch]);
 
 
