@@ -29,7 +29,7 @@ const PostIndex = ({ posts }) => {
             {post.description}
           </div>
           <div className='post-comment-separator' />
-          <CommentsIndex />
+          <CommentsIndex post={post} />
         </div>
       ))}
     </div>
