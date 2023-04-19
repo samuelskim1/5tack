@@ -65,7 +65,7 @@ router.get('/:username', async (req, res, next) => {
   try {
     const users = await User.findOne({ username: req.params.username })
                               .sort({ createdAt: -1 })
-                              .populate("email", "_id username post_id");
+                              .populate("email", "_id username");
     return res.json(users);
   }
   catch(err) {
