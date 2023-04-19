@@ -9,6 +9,7 @@ import './UserInfo.scss';
 const UserInfo = () => {
     const dispatch = useDispatch();
     const { username } = useParams();
+    const currentUser = useSelector(state => state?.session?.user);
     const showUser = useSelector(state => state?.users[username]);
     const button = useRef();
 
@@ -24,9 +25,11 @@ const UserInfo = () => {
             <div className='user-info-field'>{showUser?.description}</div>
             {/* <div className='user-info-field email'>{user.email}</div> */}
             {/* <EditUserInfoForm user={user} /> */}
-            <div className='user-info-field edit-user-btn' ref={button}>
-                <EditUserInfoModal user={showUser} />
-            </div>
+            {currentUser?.username === showUser?.username && (
+                <div className='user-info-field edit-user-btn' ref={button}>
+                    <EditUserInfoModal user={showUser} />
+                </div>
+            )}
         </div>
     )
 }

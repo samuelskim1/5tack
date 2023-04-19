@@ -1,4 +1,5 @@
 
+import { Link } from 'react-router-dom';
 import CommentsIndex from '../CommentsIndex/CommentsIndex';
 import TimeStamp from '../TimeStamp/TimeStamp';
 import Avatar from '../UserInfo/Avatar';
@@ -18,10 +19,14 @@ const PostIndex = ({ posts }) => {
           </div>
           <div className='author-block'>
             <div className='author-info'>
-              <Avatar user={post?.author_id} />
-              <div className='author-username'>
-                {post?.author_id.username}
-              </div>
+              <Link to={`/${post?.author_id.username}`}>
+                <Avatar user={post?.author_id} />
+              </Link>
+              <Link to={`/${post?.author_id.username}`}>
+                <div className='author-username'>
+                  {post?.author_id.username}
+                </div>
+              </Link>
             </div>
             <TimeStamp post={post} />
           </div>
