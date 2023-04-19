@@ -136,27 +136,11 @@ const category9 = new Category({
 const category10 = new Category({
   name: '(RTS) Real-time strategy',
   game_id: [
-    game18,
-    game10
-  ]
-})
-
-const category11 = new Category({
-  name: '(MMORPG) Massively Multiplayer Online Role-Playing Game',
-  game_id: [
-    game18,
-    game10
-  ]
-})
-
-const category12 = new Category({
-  name: '(RTS) Real-time strategy',
-  game_id: [
     game13
   ]
 })
 
-const category13 = new Category({
+const category11 = new Category({
   name: 'Fighting',
   game_id: [
     game9,
@@ -177,8 +161,6 @@ categories.push(
   category9,
   category10,
   category11,
-  category12,
-  category13
   )
 
 games.push(
