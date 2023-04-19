@@ -2,6 +2,12 @@ a {
     text-decoration: none;
     color: white;
 }
+
+.line-divider {
+    border-bottom: 1px white solid;
+    margin: 10px 0;
+}
+
 #nav-container {
     color: white;
     width: 250px;
@@ -25,13 +31,25 @@ a {
         padding: 20px 30px;
         background-color: rgb(52, 56, 99);
         .upper-nav {
-            border-bottom: 1px solid white;
-            padding-bottom: 10px;
+            // border-bottom: 1px solid white;
+            // padding-bottom: 10px;
+            text-align: center;
+            .logout-btn {
+                background-color: white;
+                color: rgb(52, 56, 99);
+                border-radius: 5px;
+                border: 1px solid rgb(52, 56, 99);
+            }
         }
         .lower-nav {
             padding-top: 10px;
             .category-item {
                 list-style: none;
+                position: relative;
+                border: 1px solid white;
+                text-align: center;
+                border-radius: 5px;
+                margin-bottom: 5px;
             }
         }
     }

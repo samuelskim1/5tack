@@ -22,6 +22,7 @@ const Navbar = () => {
               <Link to="/demo">go to demo profile</Link>
               <div className="logout-btn" onClick={handleLogout} >Logout</div>
             </div>
+            <div className="line-divider"/>
             <div className="lower-nav">
               {/* <p>---------------- this is where categories will go ----------------------</p> */}
               <CategoryNav />

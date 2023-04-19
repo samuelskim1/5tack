@@ -1,8 +1,18 @@
 .dropdown {
     position: absolute;
-    background-color: peru;
-    left: 110px;
+    background-color: black;
+    left: 100.5%;
+    top: -2px;
+    width: max-content;
+    padding: 0 10px;
+    z-index: 1;
+    // box-sizing: content-box;
+    border-radius: 1px solid white;
     // display: none;
+    .line-divider {
+        border-bottom: 1px white solid;
+        margin: 5px 0;
+    }
 }
 
 .dropdown:hover {
