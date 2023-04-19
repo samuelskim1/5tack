@@ -4,12 +4,14 @@ import session from './session';
 import errors from './errors';
 import users from './users';
 import categories from './categories';
+import posts from './posts';
 
 const rootReducer = combineReducers({
   session,
   errors,
   users,
-  categories
+  categories,
+  posts
 });
 
 let enhancer;
