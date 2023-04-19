@@ -8,7 +8,7 @@ import './PostIndex.scss';
 
 const PostIndex = ({ posts }) => {
 
-  if (!posts) return null;
+  if (!posts || !posts.length) return null;
 
   return (
     <div className="posts-index-container">
@@ -34,7 +34,7 @@ const PostIndex = ({ posts }) => {
             {post?.description}
           </div>
           <div className='post-comment-separator' />
-          <CommentsIndex />
+          <CommentsIndex post={post} />
         </div>
       ))}
     </div>

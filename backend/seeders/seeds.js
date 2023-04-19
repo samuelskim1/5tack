@@ -260,7 +260,7 @@ for (let i = 0; i < 10; i++) {
   // Truncate the title to 50 characters if it's longer
   title = title.length > 50 ? title.substring(0, 50) : title;
   const description = faker.lorem
-    .paragraphs(getRandomArbitrary(5, 20), "<br/>\n")
+    .paragraphs(getRandomArbitrary(5, 20), "\n")
     .substring(0, 400);
   posts.push(
     new Post({
