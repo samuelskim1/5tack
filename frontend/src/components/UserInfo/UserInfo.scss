@@ -26,6 +26,11 @@
     font-weight: 700;
     width: 0;
     height: 0;
+
+    > img {
+        width: 100px;
+        height: 100px;
+    }
 }
 
 .user-info-field {
@@ -47,4 +52,8 @@
     cursor: pointer;
     font-weight: 600;
     font-size: 14px;
+}
+
+.user-info-field.edit-user-btn:hover {
+    background-color: #d0d0d0;
 }
