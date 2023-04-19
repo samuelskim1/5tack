@@ -104,7 +104,8 @@ router.get('/user/:username', async (req, res, next) => {
   try {
     const userPosts = await Post.find({ author_id: user.id })
       .sort({ createdAt: -1 })
-      .populate("comment_id", "content");
+      .populate("comment_id", "content")
+      .populate("author_id", "username profileImageUrl")
     return res.json(userPosts);
   }
   catch (err) {
@@ -132,7 +133,8 @@ router.get('/game/:nameURL', async (req, res, next) => {
   try {
     const gamePosts = await Post.find({ game_id: game.id })
       .sort({ createdAt: -1 })
-      .populate("comment_id");
+      .populate("comment_id")
+      .populate("author_id", "username profileImageUrl")
     return res.json(gamePosts);
   }
   catch (err) {
