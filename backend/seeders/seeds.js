@@ -213,9 +213,9 @@ function getRandomPost() {
 
 // Loop to create posts for each user with random games
 // Loop to create posts for each user with random games
-const POSTS_PER_USER = 10;
+const NUM_SEED_POSTS = 50;
 
-for (let i = 0; i < POSTS_PER_USER; i++) {
+for (let i = 0; i < NUM_SEED_POSTS; i++) {
   const author_id = getRandomUser()._id;
   const game_id = getRandomGame()._id;
   let title = faker.lorem.sentence(5);
@@ -238,7 +238,7 @@ for (let i = 0; i < POSTS_PER_USER; i++) {
 
 
 const comments = [];
-const NUM_SEED_COMMENTS = 5;
+const NUM_SEED_COMMENTS = 50;
 
 for (let i = 0; i < NUM_SEED_COMMENTS; i++) {
   const author_id = getRandomUser()._id;
