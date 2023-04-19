@@ -54,7 +54,7 @@ const game17 = new Game({ name: 'Grand Theft Auto V' });
 const game18 = new Game({ name: 'MapleStory' });
 
 const category1 = new Category({
-  name: '(MOBA) Multiplayer Online Battle Arena',
+  name: 'MOBA$Multiplayer Online Battle Arena',
   game_id: [
     game1,
     game15
@@ -62,7 +62,7 @@ const category1 = new Category({
 })
 
 const category2 = new Category({
-  name: '(FPS) First Person Shooter',
+  name: 'FPS$First Person Shooter',
   game_id: [
     game2,
     game3,
@@ -80,7 +80,7 @@ const category3 = new Category({
 })
 
 const category4 = new Category({
-  name: '(BR) Battle Royale',
+  name: 'BR$Battle Royale',
   game_id: [
     game4,
     game3
@@ -126,7 +126,7 @@ const category8 = new Category({
 })
 
 const category9 = new Category({
-  name: '(MMORPG) Massively Multiplayer Online Role-Playing Game',
+  name: 'MMORPG$Massively Multiplayer Online Role-Playing Game',
   game_id: [
     game18,
     game10
@@ -134,7 +134,7 @@ const category9 = new Category({
 })
 
 const category10 = new Category({
-  name: '(RTS) Real-time strategy',
+  name: 'RTS$Real-time strategy',
   game_id: [
     game13
   ]
