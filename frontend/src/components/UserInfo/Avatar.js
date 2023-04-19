@@ -7,8 +7,8 @@ const Avatar = ({ user }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchUser(user?.username));
-  }, [dispatch, user?.username])
+    if (user) dispatch(fetchUser(user?.username));
+  }, [dispatch, user?.username, user])
 
   return (
     <div id="avatar-container">
