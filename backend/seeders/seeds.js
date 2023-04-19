@@ -19,6 +19,8 @@ const demoUser = new User({
   hashedPassword: bcrypt.hashSync('password', 10)
 })
 
+users.push(demoUser);
+
 for (let i = 1; i < NUM_SEED_USERS; i++) {
     const firstName = faker.name.firstName();
     users.push(
