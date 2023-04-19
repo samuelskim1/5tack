@@ -18,11 +18,6 @@ const userSchema = new Schema({
   profileImageUrl: {
     type: String,
   },
-  post_id: {
-    type: Schema.Types.ObjectId,
-    ref: 'Post',
-    // required: true
-  },
   hashedPassword: {
     type: String,
     required: true
