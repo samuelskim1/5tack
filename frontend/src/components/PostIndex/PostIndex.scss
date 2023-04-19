@@ -1,6 +1,8 @@
+@import '../../App.scss';
+
 .posts-index-container {
   box-sizing: border-box;
-  min-width: 450px;
+  min-width: 500px;
   width: 100%;
   height: 100%;
   min-height: calc(100vh - 350px);
@@ -14,19 +16,32 @@
 
 .post-index-item {
   box-sizing: border-box;
-  min-width: 450px;
+  min-width: 500px;
   max-width: 650px;
   width: 50%;
   padding: 25px;
-  outline: 2px solid white;
+  outline: 1px solid $neutral-text;
   border-radius: 12px;
-  color: #e4dfd5;
+  color: $neutral-text;
   margin-bottom: 50px;
+
+  .author-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    > .post-timestamp {
+      font-size: 12px;
+      font-weight: 200;
+    }
+  }
 
   .author-info {
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-right: 20px;
 
     > #avatar-container {
       padding: 20px;
@@ -41,7 +56,7 @@
 
     > .author-username {
       font-weight: 600;
-      letter-spacing: 0.15rem;
+      letter-spacing: 0.05rem;
     }
   }
 
@@ -51,8 +66,8 @@
   }
 
   .post-index-description {
-    font-size: 14px;
-    line-height: 1.1em;
+    font-size: 15px;
+    line-height: 1.15em;
     font-weight: 300;
     margin-bottom: 20px;
   }
@@ -60,7 +75,7 @@
   .post-comment-separator {
     width: 100%;
     height: 1px;
-    background-color: #e4dfd5;
+    background-color: $neutral-text;
     margin: 15px 0;
   }
 }
