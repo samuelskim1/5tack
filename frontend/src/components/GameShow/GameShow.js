@@ -6,15 +6,16 @@ import { fetchGame } from "../../store/games";
 import "./GameShow.scss";
 
 const GameShow = () => {
-  const { id } = useParams();
-  const game = useSelector(state => state.games[id]);
+  const { nameURL } = useParams();
+  const game = useSelector(state => state.games[nameURL]);
   console.log(game)
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    dispatch(fetchGame(id)).then(() => setLoading(false));
-  }, [dispatch, id]);
+    dispatch(fetchGame(nameURL)).then(() => setLoading(false));
+  }, [dispatch, nameURL]);
+
     
 
   return (

@@ -1,4 +1,3 @@
-import { response } from "express";
 import jwtFetch from "./jwt";
 
 const RECEIVE_POSTS = "posts/RECEIVE_POSTS";

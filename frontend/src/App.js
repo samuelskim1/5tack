@@ -22,13 +22,6 @@ const App = () => {
   return loaded && (
     <div id='entire-app'>
       <NavBar />
-      <Switch>
-        <AuthRoute exact path="/" component={SplashPage} />
-        <ProtectedRoute exact path="/home" component={HomePage} />
-        {/* <ProtectedRoute exact path={`/:username`} component={Profile} /> */}
-        <ProtectedRoute exact path={`/:username`} component={Profile} />
-        <ProtectedRoute exact path="/games/:id" component={GameShow} />
-      </Switch>
       <div className='main-content'>
         <Switch>
           <AuthRoute exact path="/" component={SplashPage} />

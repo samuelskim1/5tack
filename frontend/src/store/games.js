@@ -17,8 +17,8 @@ export const receiveGames = games => ({
 });
 
 // GAME THUNKS
-export const fetchGame = gameId => async dispatch => {
-  const res = await jwtFetch(`/api/games/${gameId}`);
+export const fetchGame = nameURL => async dispatch => {
+  const res = await jwtFetch(`/api/games/${nameURL}`);
   const gameInfo = await res.json();
   return dispatch(receiveGame(gameInfo));
 };
