@@ -28,6 +28,7 @@ const App = () => {
           <ProtectedRoute exact path="/home" component={HomePage} />
           {/* <ProtectedRoute exact path={`/:username`} component={Profile} /> */}
           <ProtectedRoute exact path={`/:username`} component={Profile} />
+          <ProtectedRoute exact path="/games/:nameURL" component={GameShow} />
         </Switch>
       </div>
     </div>
