@@ -133,7 +133,7 @@ router.get('/game/:nameURL', async (req, res, next) => {
   try {
     const gamePosts = await Post.find({ game_id: game.id })
       .sort({ createdAt: -1 })
-      .populate("comment_id");
+      .populate("comment_id")
       .populate("author_id", "username profileImageUrl")
     return res.json(gamePosts);
   }
