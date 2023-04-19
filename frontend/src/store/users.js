@@ -13,7 +13,7 @@ export const receiveUser = user => ({
   user
 });
 
-export const receiveAllusers = users => ({
+export const receiveAllUsers = users => ({
   type: RECEIVE_ALL_USERS,
   users
 });
@@ -32,8 +32,8 @@ const clearUserErrors = () => ({
 export const fetchAllUsers = () => async dispatch => {
   try {
     const res = await jwtFetch('/api/users');
-    const user = await res.json();
-    return dispatch(receiveUser(user));
+    const users = await res.json();
+    return dispatch(receiveAllUsers(users));
   } catch(err) {
     const res = await err.json();
     if (res.statusCode === 400) {

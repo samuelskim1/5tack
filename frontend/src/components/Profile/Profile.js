@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import './Profile.scss';
 import PostIndex from "../PostIndex/PostIndex";
 import { fetchUserPosts } from "../../store/posts";
+import { fetchUser } from "../../store/users";
 
 const Profile = () => {
     const dispatch = useDispatch();
@@ -15,8 +16,9 @@ const Profile = () => {
 
 
     useEffect(() => {
+        dispatch(fetchUser(username));
         dispatch(fetchUserPosts(username));
-    }, [dispatch]);
+    }, [dispatch, username]);
 
 
     return (

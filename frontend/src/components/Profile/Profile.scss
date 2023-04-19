@@ -35,12 +35,12 @@
   border-top-right-radius: 8px;
   font-size: 13px;
   font-weight: 600;
+  box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.3);
 }
 
 #profile-tab.selected {
   background-color: #333;
   box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.7);
-
 }
 
 #reviews-index-container {

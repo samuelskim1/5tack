@@ -32,11 +32,11 @@ const SplashPage = () => {
     <div id="splash-page-container">
 
 
-      <div id="splash-stack-1" ref={stack1}>5tack</div>
-      <div id="splash-stack-2" ref={stack2}>5tack</div>
-      <div id="splash-stack-3" ref={stack3}>5tack</div>
-      <div id="splash-stack-4" ref={stack4}>5tack</div>
-      <div id="splash-stack-5" ref={stack5}>5tack</div>
+      <div id="splash-stack-1" ref={stack1}>5TACK</div>
+      <div id="splash-stack-2" ref={stack2}>5TACK</div>
+      <div id="splash-stack-3" ref={stack3}>5TACK</div>
+      <div id="splash-stack-4" ref={stack4}>5TACK</div>
+      <div id="splash-stack-5" ref={stack5}>5TACK</div>
 
       <div id="splash-bottom-container" ref={bar}>
         <div id="splash-description" ref={description}>
