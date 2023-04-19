@@ -3,20 +3,21 @@ const { mongoURI: db } = require('../config/keys.js');
 const User = require('../models/User');
 const Category = require('../models/Category');
 const Game = require('../models/Game.js');
+const Post = require('../models/Post.js');
+const Comment = require('../models/Comment.js');
 const bcrypt = require('bcryptjs');
 const { faker } = require('@faker-js/faker');
 
 const NUM_SEED_USERS = 10;
 const users = [];
 
-users.push(
-    new User ({
-      username: 'demo',
-      email: 'demo@user.com',
-      description: 'i am demo user',
-      hashedPassword: bcrypt.hashSync('password', 10)
-    })
-  )
+
+const demoUser = new User({
+  username: 'demo',
+  email: 'demo@user.com',
+  description: 'i am demo user',
+  hashedPassword: bcrypt.hashSync('password', 10)
+})
 
 for (let i = 1; i < NUM_SEED_USERS; i++) {
     const firstName = faker.name.firstName();
@@ -29,8 +30,6 @@ for (let i = 1; i < NUM_SEED_USERS; i++) {
         })
     )
 }
-
-const categories = [];
 
 const games = [];
 
@@ -52,6 +51,29 @@ const game15 = new Game({ name: 'DOTA 2' });
 const game16 = new Game({ name: 'Overwatch' });
 const game17 = new Game({ name: 'Grand Theft Auto V' });
 const game18 = new Game({ name: 'MapleStory' });
+
+games.push(
+  game1, 
+  game2, 
+  game3, 
+  game4,
+  game5,
+  game6,
+  game7,
+  game8,
+  game9,
+  game10,
+  game11,
+  game12,
+  game13,
+  game14,
+  game15,
+  game16,
+  game17,
+  game18
+)
+
+const categories = [];
 
 const category1 = new Category({
   name: '(MOBA) Multiplayer Online Battle Arena',
@@ -163,26 +185,27 @@ categories.push(
   category11,
   )
 
-games.push(
-  game1, 
-  game2, 
-  game3, 
-  game4,
-  game5,
-  game6,
-  game7,
-  game8,
-  game9,
-  game10,
-  game11,
-  game12,
-  game13,
-  game14,
-  game15,
-  game16,
-  game17,
-  game18
-)
+const posts = [];
+const NUM_SEED_POSTS = 10;
+//demoUser posts for League of Legends
+for (let i = 0; i < NUM_SEED_POSTS; i++) {
+  const author_id = demoUser._id;
+  const game_id = game1._id;
+  const title = faker.lorem.sentence(5);
+  const description = faker.lorem.paragraphs(2, '<br/>\n')
+  posts.push(
+    new Post ({
+      author_id: author_id,
+      game_id: game_id,
+      title: title,
+      description: description
+    })
+  )
+}
+
+
+
+
 
 mongoose
   .connect(db, { useNewUrlParser: true })
@@ -201,9 +224,11 @@ console.log("Resetting db and seeding users, categories, and games...");
 User.collection.drop()
                 .then(() => Game.collection.drop())
                 .then(() => Category.collection.drop())
+                .then(() => Post.collection.drop())
                 .then(() => User.insertMany(users))
                 .then(() => Game.insertMany(games))
                 .then(() => Category.insertMany(categories))
+                .then(() => Post.insertMany(posts))
                 .then(() => {
                     console.log("Done!");
                     mongoose.disconnect();
