@@ -8,6 +8,7 @@ import "./GameShow.scss";
 const GameShow = () => {
   const { nameURL } = useParams();
   const game = useSelector(state => state.games[nameURL]);
+  console.log("gameState:", game);
   console.log(game)
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
@@ -15,8 +16,6 @@ const GameShow = () => {
   useEffect(() => {
     dispatch(fetchGame(nameURL)).then(() => setLoading(false));
   }, [dispatch, nameURL]);
-
-    
 
   return (
     <div className="game-show-container">
