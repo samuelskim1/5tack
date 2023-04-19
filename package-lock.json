@@ -1,0 +1,16 @@
+{
+  "name": "5tack",
+  "version": "1.0.0",
+  "lockfileVersion": 2,
+  "requires": true,
+  "packages": {
+    "": {
+      "name": "5tack",
+      "version": "1.0.0",
+      "license": "ISC",
+      "engines": {
+        "node": "16.19.0"
+      }
+    }
+  }
+}
