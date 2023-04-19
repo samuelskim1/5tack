@@ -2,7 +2,14 @@ import { useEffect, useState } from "react";
 
 
 const TimeStamp = ({ post, review, comment }) => {
-  const postDate = new Date(post.createdAt);
+  let postDate = new Date(post.createdAt);
+  if (post) {
+    postDate = new Date(post.createdAt);
+  } else if (review) {
+    postDate = new Date(review.createdAt);
+  } else if (comment) {
+    postDate = new Date(comment.createdAt);
+  }
   const [timeAgo, setTimeAgo] = useState();
 
   const calcTimeAgo = postDate => {
@@ -10,30 +17,30 @@ const TimeStamp = ({ post, review, comment }) => {
 
     let elapsed = secs / 31536000;
     if (elapsed > 1) {
-      return Math.floor(elapsed) + " years ago";
+      return Math.floor(elapsed) + " year(s) ago";
     }
 
     elapsed = secs / 2592000;
     if (elapsed > 1) {
-      return Math.floor(elapsed) + " months ago";
+      return Math.floor(elapsed) + " month(s) ago";
     }
 
     elapsed = secs / 86400;
     if (elapsed > 1) {
-      return Math.floor(elapsed) + " days ago";
+      return Math.floor(elapsed) + " day(s) ago";
     }
 
     elapsed = secs / 3600;
     if (elapsed > 1) {
-      return Math.floor(elapsed) + " hours ago";
+      return Math.floor(elapsed) + " hour(s) ago";
     }
 
     elapsed = secs / 60;
     if (elapsed > 1) {
-      return Math.floor(elapsed) + " minutes ago";
+      return Math.floor(elapsed) + " minute(s) ago";
     }
 
-    return Math.floor(secs) + " seconds ago";
+    return Math.floor(secs) + " second(s) ago";
   }
 
   useEffect(() => {
