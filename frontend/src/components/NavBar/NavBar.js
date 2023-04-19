@@ -33,6 +33,9 @@ const Navbar = () => {
         <nav id="nav-container">
           <div className="inner-nav">
             <div className="upper-nav" >
+              <div id="nav-title">
+                <Link to="/home">5TACK</Link>
+              </div>
               <Link className="profile-link" to="/demo">
                 {/* <p>go to demo profile</p> */}
                 <Avatar user={user} />
