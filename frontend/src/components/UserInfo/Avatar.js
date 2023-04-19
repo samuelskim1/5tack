@@ -4,8 +4,8 @@ const Avatar = ({ user }) => {
 
   return (
     <div id="avatar-container">
-      {!!user?.avatar && <img src={user?.avatar} alt={user?.username} />}
-      {!user?.avatar && (
+      {!!user?.profileImageUrl && <img src={user?.profileImageUrl} alt={user?.username} />}
+      {!user?.profileImageUrl && (
         <div>
           {user?.username?.charAt(0).toUpperCase()}
         </div>

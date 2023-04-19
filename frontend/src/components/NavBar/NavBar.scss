@@ -34,6 +34,10 @@ a {
             // border-bottom: 1px solid white;
             // padding-bottom: 10px;
             text-align: center;
+            .profile-link {
+                display: flex;
+                justify-content: center;
+            }
             .logout-btn {
                 background-color: white;
                 color: rgb(52, 56, 99);
@@ -50,6 +54,7 @@ a {
                 text-align: center;
                 border-radius: 5px;
                 margin-bottom: 5px;
+                cursor: pointer;
             }
         }
     }
