@@ -5,6 +5,8 @@
   border-radius: 8px;
   background-color: rgb(0, 9, 71);
   cursor: pointer;
+  font-size: 20px;
+  font-size: 1.5vw;
 }
 
 #login-btn:hover {
@@ -16,6 +18,8 @@
   border-radius: 8px;
   background-color: rgb(49, 0, 90);
   cursor: pointer;
+  font-size: 20px;
+  font-size: 1.5vw;
 }
 
 #signup-btn:hover {
@@ -110,10 +114,10 @@
   font-size: 12px;
   font-weight: 300;
   color: #444;
-  margin: 12px 0;
+  margin: 20px 0;
 }
 
-#alternate-form > div {
+#alternate-form > span {
   cursor: pointer;
   color: #111;
   font-weight: 600;
