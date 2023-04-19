@@ -36,24 +36,24 @@ for (let i = 1; i < NUM_SEED_USERS; i++) {
 
 const games = [];
 
-const game1 = new Game({ name: "League of Legends", nameURL: "League+of+Legends", imageUrls:["https://5tack.s3.amazonaws.com/public/league_of_legends.jpeg"] });
+const game1 = new Game({ name: "League of Legends", nameURL: "LeagueofLegends", imageUrls:["https://5tack.s3.amazonaws.com/public/league_of_legends.jpeg"] });
 const game2 = new Game({ name: "Valorant", nameURL: "Valorant", imageUrls: ["https://5tack.s3.amazonaws.com/public/valorant.webp"] });
-const game3 = new Game({ name: "Apex Legends", nameURL: "Apex+Legends", imageUrls: ["https://5tack.s3.amazonaws.com/public/apexlegends.jpeg"] });
+const game3 = new Game({ name: "Apex Legends", nameURL: "ApexLegends", imageUrls: ["https://5tack.s3.amazonaws.com/public/apexlegends.jpeg"] });
 const game4 = new Game({ name: "Fortnite", nameURL: "Fortnite", imageUrls: ["https://5tack.s3.amazonaws.com/public/fortnite.jpeg"] })
 const game5 = new Game({ name: 'CS:GO', nameURL: "CS:GO", imageUrls: ["https://5tack.s3.amazonaws.com/public/csgo.webp"] });
 const game6 = new Game({ name: 'Minecraft', nameURL: "Minecraft", imageUrls: ["https://5tack.s3.amazonaws.com/public/minecraft.jpeg"] });
-const game7 = new Game({ name: "Rocket League", nameURL: "Rocket+League", imageUrls: ["https://5tack.s3.amazonaws.com/public/rocketleague.jpeg"] });
+const game7 = new Game({ name: "Rocket League", nameURL: "RocketLeague", imageUrls: ["https://5tack.s3.amazonaws.com/public/rocketleague.jpeg"] });
 const game8 = new Game({ name: 'Fifa', nameURL: "Fifa", imageUrls: ["https://5tack.s3.amazonaws.com/public/fifa23.jpeg"] });
-const game9 = new Game({ name: 'Super Smash Bros. Ultimate', nameURL: "Super+Smash+Bros.+Ultimate", imageUrls: ["https://5tack.s3.amazonaws.com/public/supersmashbros.png"] });
-const game10 = new Game({ name: 'Lost Ark', nameURL: "Lost+Ark", imageUrls: ["https://5tack.s3.amazonaws.com/public/lostark.jpeg"] });
-const game11 = new Game({ name: 'NBA 2K23', nameURL: "NBA+2K23", imageUrls: ["https://5tack.s3.amazonaws.com/public/nba2k23.jpeg"] });
-const game12 = new Game({ name: 'Stardew Valley', nameURL: "Stardew+Valley", imageUrls: ["https://5tack.s3.amazonaws.com/public/stardewvalley.jpeg"] });
-const game13 = new Game({ name: 'Starcraft II', nameURL: "Starcraft+II", imageUrls: ["https://5tack.s3.amazonaws.com/public/starcraft2.jpeg"] });
+const game9 = new Game({ name: 'Super Smash Bros. Ultimate', nameURL: "SuperSmashBros.Ultimate", imageUrls: ["https://5tack.s3.amazonaws.com/public/supersmashbros.png"] });
+const game10 = new Game({ name: 'Lost Ark', nameURL: "LostArk", imageUrls: ["https://5tack.s3.amazonaws.com/public/lostark.jpeg"] });
+const game11 = new Game({ name: 'NBA 2K23', nameURL: "NBA2K23", imageUrls: ["https://5tack.s3.amazonaws.com/public/nba2k23.jpeg"] });
+const game12 = new Game({ name: 'Stardew Valley', nameURL: "StardewValley", imageUrls: ["https://5tack.s3.amazonaws.com/public/stardewvalley.jpeg"] });
+const game13 = new Game({ name: 'Starcraft II', nameURL: "StarcraftII", imageUrls: ["https://5tack.s3.amazonaws.com/public/starcraft2.jpeg"] });
 const game14 = new Game({ name: 'Terraria', nameURL: "Terraria", imageUrls: ["https://5tack.s3.amazonaws.com/public/terraria.jpeg"] });
 const game15 = new Game({ name: 'DOTA 2', nameURL: "DOTA 2", imageUrls: ["https://5tack.s3.amazonaws.com/public/dota2.jpeg"] });
 const game16 = new Game({ name: 'Overwatch', nameURL: "Overwatch", imageUrls: ["https://5tack.s3.amazonaws.com/public/overwatch.jpeg"] });
-const game17 = new Game({ name: 'Grand Theft Auto V', nameURL: "Grand+Theft+Auto+V", imageUrls: ["https://5tack.s3.amazonaws.com/public/gtaV.jpeg"] });
-const game18 = new Game({ name: 'Maple Story', nameURL: "Maple+Story", imageUrls: ["https://5tack.s3.amazonaws.com/public/maplestory.jpeg"] });
+const game17 = new Game({ name: 'Grand Theft Auto V', nameURL: "GrandTheftAutoV", imageUrls: ["https://5tack.s3.amazonaws.com/public/gtaV.jpeg"] });
+const game18 = new Game({ name: 'Maple Story', nameURL: "MapleStory", imageUrls: ["https://5tack.s3.amazonaws.com/public/maplestory.jpeg"] });
 
 games.push(
   game1, 
