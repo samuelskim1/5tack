@@ -5,11 +5,13 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   username: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   email: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   description: {
     type: String,
@@ -17,11 +19,6 @@ const userSchema = new Schema({
   },
   profileImageUrl: {
     type: String,
-  },
-  post_id: {
-    type: Schema.Types.ObjectId,
-    ref: 'Post',
-    // required: true
   },
   hashedPassword: {
     type: String,

@@ -1,14 +1,22 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import UserInfo from "../UserInfo/UserInfo";
 import { useParams } from "react-router-dom";
 import './Profile.scss';
 import PostIndex from "../PostIndex/PostIndex";
+import { fetchAllPosts } from "../../store/posts";
 
 const Profile = () => {
+    const dispatch = useDispatch();
     const { username } = useParams();
     const user = useSelector(state => state?.users[username]);
+    const posts = useSelector(state => Object.values(state?.posts))
     const [tab, setTab] = useState('reviews');
+
+
+    useEffect(() => {
+        dispatch(fetchAllPosts());
+    }, [dispatch]);
 
 
     return (
@@ -43,7 +51,7 @@ const Profile = () => {
             )}
 
             {tab === 'posts' && (
-                <PostIndex />
+                <PostIndex posts={posts} />
             )}
         </div>
     )
