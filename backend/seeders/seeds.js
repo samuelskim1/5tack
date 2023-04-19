@@ -252,6 +252,26 @@ for (let i = 0; i < NUM_SEED_POSTS; i++) {
   );
 }
 
+//demo user post seeding
+for (let i = 0; i < 10; i++) {
+  const author_id = demoUser._id;
+  const game_id = game1._id;
+  let title = faker.lorem.sentence(5);
+  // Truncate the title to 50 characters if it's longer
+  title = title.length > 50 ? title.substring(0, 50) : title;
+  const description = faker.lorem
+    .paragraphs(getRandomArbitrary(5, 20), "<br/>\n")
+    .substring(0, 400);
+  posts.push(
+    new Post({
+      author_id: author_id,
+      game_id: game_id,
+      title: title,
+      description: description
+    })
+  );
+}
+
 
 
 
@@ -295,6 +315,28 @@ for (let i = 0; i < NUM_SEED_REVIEWS; i++) {
         rating: rating
       })
     );
+}
+
+//demoUser reviews seeding
+for (let i = 0; i < 10; i++) {
+  const user_id = demoUser.id;
+  let reviewer_id;
+  reviewer_id = getRandomUser().id;
+  while (reviewer_id === user_id) {
+    reviewer_id = getRandomUser().id;
+  };
+  const rating = getRandomIntInclusive(1, 5)
+  const description = faker.lorem
+    .sentences(getRandomArbitrary(1, 10))
+    .substring(0, 500);
+  reviews.push(
+    new Review({
+      user_id: user_id,
+      reviewer_id: reviewer_id,
+      description: description,
+      rating: rating
+    })
+  );
 }
 
 mongoose
