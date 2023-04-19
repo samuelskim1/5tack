@@ -4,5 +4,6 @@ $errors-color: rgb(155, 0, 0);
 #entire-app {
     display: flex;
     .main-content {
+        width: calc(100vw - 250px);
     }
 }

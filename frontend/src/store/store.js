@@ -5,13 +5,16 @@ import errors from './errors';
 import users from './users';
 import categories from './categories';
 import posts from './posts';
+import games from './games';
 
 const rootReducer = combineReducers({
   session,
   errors,
   users,
   categories,
-  posts
+  posts,
+  games
+
 });
 
 let enhancer;

@@ -6,6 +6,7 @@ import NavBar from './components/NavBar/NavBar';
 import SplashPage from './components/SplashPage/SplashPage';
 import HomePage from './components/HomePage/HomePage';
 import Profile from './components/Profile/Profile';
+import GameShow from './components/GameShow/GameShow'; 
 import { getCurrentUser } from './store/session';
 import CategoryNav from './components/NavBar/CategoryNav';
 
@@ -21,6 +22,13 @@ const App = () => {
   return loaded && (
     <div id='entire-app'>
       <NavBar />
+      <Switch>
+        <AuthRoute exact path="/" component={SplashPage} />
+        <ProtectedRoute exact path="/home" component={HomePage} />
+        {/* <ProtectedRoute exact path={`/:username`} component={Profile} /> */}
+        <ProtectedRoute exact path={`/:username`} component={Profile} />
+        <ProtectedRoute exact path="/games/:id" component={GameShow} />
+      </Switch>
       <div className='main-content'>
         <Switch>
           <AuthRoute exact path="/" component={SplashPage} />

@@ -12,17 +12,17 @@ a {
     display: flex;
     justify-content: center;
     line-height: 2;
-    padding: 20px;
+    // padding: 20px;
     height: inherit;
+    background-color: rgb(52, 56, 99);
     .inner-nav {
         // min-width: 150px;
         position: sticky;
         top: 20px;
-        min-width: 200px;
+        // min-width: 200px;
         width: 100%;
         height: min-content;
         padding: 20px 30px;
-        border-radius: 20px;
         background-color: rgb(52, 56, 99);
         .upper-nav {
             border-bottom: 1px solid white;
