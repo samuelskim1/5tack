@@ -10,7 +10,7 @@ const Profile = () => {
     const dispatch = useDispatch();
     const { username } = useParams();
     const user = useSelector(state => state?.users[username]);
-    const posts = useSelector(state => Object.values(state?.posts))
+    const posts = useSelector(state => typeof(state?.posts) === 'object' ? Object.values(state?.posts) : state?.posts);
     const [tab, setTab] = useState('reviews');
 
 

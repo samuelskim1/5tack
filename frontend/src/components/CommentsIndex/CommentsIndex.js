@@ -1,4 +1,5 @@
 
+import TimeStamp from '../TimeStamp/TimeStamp';
 import Avatar from '../UserInfo/Avatar';
 import './CommentsIndex.scss';
 
@@ -12,7 +13,7 @@ const CommentsIndex = ({ post }) => {
           <div className='comment-text-holder'>
             <div className='author-block'>
               <div className='author-username'>{comment.author.username}</div>
-              <div className='post-timestamp'>42 seconds ago</div>
+              <TimeStamp comment={comment} />
             </div>
             <div className='comment-body'>{comment.body}</div> 
           </div>
@@ -25,7 +26,7 @@ const CommentsIndex = ({ post }) => {
           <div className='comment-text-holder'>
             <div className='author-block'>
               <div className='author-username'>thisisausername</div>
-              <div className='post-timestamp'>42 seconds ago</div>
+              <div className='timestamp'>42 seconds ago</div>
             </div>
             <div className='comment-body'>hello this is a comment. what a great comment. this is a wonderful comment! superlongwordforsomereason xd yesyesyes no</div> 
           </div>
@@ -35,7 +36,7 @@ const CommentsIndex = ({ post }) => {
           <div className='comment-text-holder'>
             <div className='author-block'>
               <div className='author-username'>thisisausername</div>
-              <div className='post-timestamp'>42 seconds ago</div>
+              <div className='timestamp'>42 seconds ago</div>
             </div>
             <div className='comment-body'>hello this is a comment. what a great comment. this is a wonderful comment! superlongwordforsomereason xd yesyesyes no</div> 
           </div>
@@ -45,7 +46,7 @@ const CommentsIndex = ({ post }) => {
           <div className='comment-text-holder'>
             <div className='author-block'>
               <div className='author-username'>thisisausername</div>
-              <div className='post-timestamp'>42 seconds ago</div>
+              <div className='timestamp'>42 seconds ago</div>
             </div>
             <div className='comment-body'>hello this is a comment. what a great comment. this is a wonderful comment! superlongwordforsomereason xd yesyesyes no</div> 
           </div>
