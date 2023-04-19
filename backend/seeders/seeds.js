@@ -36,24 +36,24 @@ for (let i = 1; i < NUM_SEED_USERS; i++) {
 
 const games = [];
 
-const game1 = new Game({ name: "League of Legends", imageUrls:["https://5tack.s3.amazonaws.com/public/league_of_legends.jpeg"] });
-const game2 = new Game({ name: "Valorant", imageUrls: [] });
-const game3 = new Game({ name: "Apex Legends", imageUrls: [] });
-const game4 = new Game({ name: "Fortnite", imageUrls: [] })
-const game5 = new Game({ name: 'CS:GO', imageUrls: [] });
-const game6 = new Game({ name: 'Minecraft', imageUrls: [] });
-const game7 = new Game({ name: "Rocket League", imageUrls: [] });
-const game8 = new Game({ name: 'Fifa', imageUrls: [] });
-const game9 = new Game({ name: 'Super Smash Bros. Ultimate', imageUrls: [] });
-const game10 = new Game({ name: 'Lost Ark', imageUrls: [] });
-const game11 = new Game({ name: 'NBA 2K23', imageUrls: [] });
-const game12 = new Game({ name: 'Stardew Valley', imageUrls: [] });
-const game13 = new Game({ name: 'Starcraft', imageUrls: [] });
-const game14 = new Game({ name: 'Terraria', imageUrls: [] });
-const game15 = new Game({ name: 'DOTA 2', imageUrls: [] });
-const game16 = new Game({ name: 'Overwatch', imageUrls: [] });
-const game17 = new Game({ name: 'Grand Theft Auto V', imageUrls: [] });
-const game18 = new Game({ name: 'MapleStory', imageUrls: [] });
+const game1 = new Game({ name: "League of Legends", nameURL: "League%of%Legends", imageUrls:["https://5tack.s3.amazonaws.com/public/league_of_legends.jpeg"] });
+const game2 = new Game({ name: "Valorant", nameURL: "Valorant", imageUrls: [] });
+const game3 = new Game({ name: "Apex Legends", nameURL: "Apex%Legends", imageUrls: [] });
+const game4 = new Game({ name: "Fortnite", nameURL: "Fortnite", imageUrls: [] })
+const game5 = new Game({ name: 'CS:GO', nameURL: "CS:GO", imageUrls: [] });
+const game6 = new Game({ name: 'Minecraft', nameURL: "Minecraft", imageUrls: [] });
+const game7 = new Game({ name: "Rocket League", nameURL: "Rocket%League", imageUrls: [] });
+const game8 = new Game({ name: 'Fifa', nameURL: "Fifa", imageUrls: [] });
+const game9 = new Game({ name: 'Super Smash Bros. Ultimate', nameURL: "Super%Smash%Bros.%Ultimate", imageUrls: [] });
+const game10 = new Game({ name: 'Lost Ark', nameURL: "Lost%Ark", imageUrls: [] });
+const game11 = new Game({ name: 'NBA 2K23', nameURL: "NBA%2K23", imageUrls: [] });
+const game12 = new Game({ name: 'Stardew Valley', nameURL: "Stardew%Valley", imageUrls: [] });
+const game13 = new Game({ name: 'Starcraft', nameURL: "Starcraft", imageUrls: [] });
+const game14 = new Game({ name: 'Terraria', nameURL: "Terraria", imageUrls: [] });
+const game15 = new Game({ name: 'DOTA 2', nameURL: "DOTA 2", imageUrls: [] });
+const game16 = new Game({ name: 'Overwatch', nameURL: "Overwatch", imageUrls: [] });
+const game17 = new Game({ name: 'Grand Theft Auto V', nameURL: "Grand%Theft%Auto%V", imageUrls: [] });
+const game18 = new Game({ name: 'Maple Story', nameURL: "Maple%Story", imageUrls: [] });
 
 games.push(
   game1, 
