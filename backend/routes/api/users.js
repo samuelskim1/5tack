@@ -15,18 +15,23 @@ const validateUpdateUser = require('../../validations/updateUser');
 
 const { singleFileUpload, singleMulterUpload } = require("../../awsS3");
 
-/* GET users listing. */
+function filterUser(user) {
+  const filteredUser = user.toObject();
+  delete filteredUser.hashedPassword;
+  return filteredUser;
+}
 
 router.get('/', async (req, res) => {
   try {
-    const users = await User.find().sort({ createdAt: -1 });
-    const modifiedUsers = Object.assign({}, ...users.map(user => ({ [user.username]: user })));
+    const users = await User.find().populate("username", "_id email description profileImageUrl").sort({ createdAt: -1 });
+    const modifiedUsers = Object.assign({}, ...users.map(user => ({ [user.username]: filterUser(user) })));
     return res.json(modifiedUsers);
   }
   catch(err) {
     return res.json([]);
   }
 });
+
 
 router.get('/current', restoreUser, (req, res) => {
   if (!isProduction) {
@@ -38,12 +43,7 @@ router.get('/current', restoreUser, (req, res) => {
   }
   console.log(req);
   if (!req.user) return res.json(null);
-  return res.json({
-    _id: req.user._id,
-    username: req.user.username,
-    profileImageUrl: req.user.profileImageUrl,
-    email: req.user.email
-  });
+  return res.json(filterUser(req.user));
 });
 
 router.get('/:username', async (req, res, next) => {
@@ -66,7 +66,7 @@ router.get('/:username', async (req, res, next) => {
     const users = await User.findOne({ username: req.params.username })
                               .sort({ createdAt: -1 })
                               .populate("email", "_id username profileImageUrl");
-    return res.json(users);
+    return res.json(filterUser(users));
   }
   catch(err) {
     return res.json([]);
@@ -113,7 +113,7 @@ router.post('/register', singleMulterUpload("image"), validateRegisterInput, asy
       try {
         newUser.hashedPassword = hashedPassword;
         const user = await newUser.save();
-        return res.json(await loginUser(user)); // <-- THIS IS THE CHANGED LINE
+        return res.json(await loginUser(filterUser(user))); 
       }
       catch(err) {
         next(err);
@@ -131,7 +131,7 @@ router.post('/login', validateLoginInput, async (req, res, next) => {
       err.errors = { username: "Invalid credentials" };
       return next(err);
     }
-    return res.json(await loginUser(user)); // <-- THIS IS THE CHANGED LINE
+    return res.json(await loginUser(filterUser(user)));
   })(req, res, next);
 });
 
@@ -149,7 +149,7 @@ router.patch('/:id', validateUpdateUser, async (req, res) => {
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
-    return res.status(200).json(user);
+    return res.status(200).json(filterUser(user));
   } catch (error) {
     res.status(400).json({ message: error.message });
   }

@@ -17,6 +17,7 @@ const demoUser = new User({
   username: 'demo',
   email: 'demo@user.com',
   description: 'i am demo user',
+  profileImageUrl: "https://5tack.s3.amazonaws.com/public/cartoon-dead-fish.png",
   hashedPassword: bcrypt.hashSync('password', 10)
 })
 
@@ -210,9 +211,6 @@ for (let i = 0; i < NUM_SEED_POSTS; i++) {
     })
   )
 }
-
-
-
 
 mongoose
   .connect(db, { useNewUrlParser: true })

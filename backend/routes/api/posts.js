@@ -34,7 +34,7 @@ router.post('/', multipleMulterUpload("images"), multipleMulterUpload("videos"),
 
 router.get('/', async (req, res) => {
   try {
-    const posts = await Post.find({}).populate("author", "_id username profileImageUrl");
+    const posts = await Post.find({}).populate("author_id", "_id username profileImageUrl");
     const modifiedPosts = Object.assign({}, ...posts.map(post => ({ [post._id]: post })));
     res.status(200).json(modifiedPosts);
   } catch (error) {
@@ -45,7 +45,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const post = await Post.findById(req.params.id).populate("author", "_id username profileImageUrl");
+    const post = await Post.findById(req.params.id).populate("author_id", "_id username profileImageUrl");
     if (!post) {
       return res.status(404).json({ message: 'Post not found' });
     }

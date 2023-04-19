@@ -1,3 +1,4 @@
+// backend/models/Comment.js
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
