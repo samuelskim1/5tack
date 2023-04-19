@@ -13,6 +13,7 @@ import Avatar from "../../components/UserInfo/Avatar";
 
 const Navbar = () => {
   const loggedIn = useSelector(state => !!state?.session?.user);
+  const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,9 +33,9 @@ const Navbar = () => {
         <nav id="nav-container">
           <div className="inner-nav">
             <div className="upper-nav" >
-              <Link to="/demo">
-                <p>go to demo profile</p>
-                <Avatar user={loggedIn} />
+              <Link className="profile-link" to="/demo">
+                {/* <p>go to demo profile</p> */}
+                <Avatar user={user} />
                 </Link>
               <div className="logout-btn" onClick={handleLogout} >Logout</div>
             </div>
