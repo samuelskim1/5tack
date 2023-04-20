@@ -1,0 +1,36 @@
+@import '../../App.scss';
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.team-member {
+  text-align: center;
+  margin: 20px;
+}
+
+.team-member img {
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.team-member img:hover {
+  transform: scale(1.1);
+}
+
+.team-member h2 {
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+.team-member p {
+  font-size: 18px;
+  margin-top: 5px;
+  color: #777;
+}
