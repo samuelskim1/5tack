@@ -33,10 +33,9 @@ router.post('/', multipleMulterUpload("images"), multipleMulterUpload("videos"),
 
 
 router.get('/', async (req, res) => {
-  debugger;
   try {
     const posts = await Post.find({})
-                            .populate("author_id", "_id username profileImageUrl")
+                            // .populate("author_id", "_id username profileImageUrl")
                             .populate("comment_id")
     const modifiedPosts = Object.assign({}, ...posts.map(post => ({ [post._id]: post })));
     res.status(200).json(modifiedPosts);
@@ -114,7 +113,7 @@ router.get('/user/:username', async (req, res, next) => {
   try {
     const userPosts = await Post.find({ author_id: user.id })
       .sort({ createdAt: -1 })
-      .populate("comment_id", "content")
+      .populate("comment_id")
       .populate("author_id", "username profileImageUrl")
     const modifiedPosts = Object.assign({}, ...userPosts.map(post => ({ [post._id]: post })));
     return res.json(modifiedPosts);

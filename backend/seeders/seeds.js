@@ -250,7 +250,7 @@ function getRandomReview() {
 
 
 const comments = [];
-const NUM_SEED_COMMENTS = 50;
+const NUM_SEED_COMMENTS = 200;
 
 for (let i = 0; i < NUM_SEED_COMMENTS; i++) {
   const author_id = getRandomUser()._id;
@@ -288,7 +288,7 @@ for (let i = 0; i < NUM_SEED_POSTS; i++) {
     new Post({
       author_id: author_id,
       game_id: game_id,
-      comment_id: comment_id,
+      comment_id: [comment_id, comment_id, comment_id],
       title: title,
       description: description
     })
@@ -309,7 +309,7 @@ for (let i = 0; i < 10; i++) {
   posts.push(
     new Post({
       author_id: author_id,
-      comment_id: comment_id,
+      comment_id: [comment_id, comment_id, comment_id],
       game_id: game_id,
       title: title,
       description: description
