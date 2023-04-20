@@ -162,7 +162,6 @@ export const postsErrorsReducer = (state = null, action) => {
 
 const postsReducer = (state = {}, action) => {
     const nextState = {...state}
-
     switch (action.type) {
         case RECEIVE_POSTS:
             return { ...nextState, ...action.posts };

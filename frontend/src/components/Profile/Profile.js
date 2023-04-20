@@ -14,9 +14,10 @@ const Profile = () => {
     const { username } = useParams();
     const user = useSelector(state => state?.users[username]);
     const posts = useSelector(state => typeof(state?.posts) === 'object' ? Object.values(state?.posts) : state?.posts);
+    //  const posts = useSelector(state => Object.values(state?.posts));
     const reviews = useSelector(state => typeof (state?.reviews) === 'object' ? Object.values(state?.reviews) : state?.reviews)
     const [tab, setTab] = useState('reviews');
-
+    // debugger;
 
     useEffect(() => {
         dispatch(fetchUser(username));
