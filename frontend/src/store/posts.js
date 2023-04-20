@@ -92,6 +92,7 @@ export const createPost = postInfo => async dispatch => {
         const newPost = await res.json();
         return dispatch(receivePost(newPost));
     } catch(err) {
+        const res = await err.json();
         if (res.statusCode === 404) {
             return dispatch(receiveErrors(res.errors));
         }
@@ -129,7 +130,7 @@ export const updatedPost = postInfo => async dispatch => {
     }
 }
 
-export const deletePost = postId = async dispatch => {
+export const deletePost = postId => async dispatch => {
     try {
         const res = await jwtFetch(`/api/posts/${postId}`, {
             method: "DELETE"
