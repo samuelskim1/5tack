@@ -35,7 +35,7 @@ router.post('/', multipleMulterUpload("images"), multipleMulterUpload("videos"),
 router.get('/', async (req, res) => {
   try {
     const posts = await Post.find({})
-                            // .populate("author_id", "_id username profileImageUrl")
+                            .populate("author_id", "_id username profileImageUrl")
                             .populate("comment_id")
     const modifiedPosts = Object.assign({}, ...posts.map(post => ({ [post._id]: post })));
     res.status(200).json(modifiedPosts);
