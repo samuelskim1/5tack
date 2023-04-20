@@ -7,6 +7,6 @@ $neutral-text: #e4dfd5;
     .main-content {
         width: calc(100vw - 250px);
         min-height: 100vh;
-        z-index: -1;
+        z-index: 0;
     }
 }
