@@ -90,7 +90,8 @@ router.get('/user/:username', async (req, res, next) => {
       .sort({ createdAt: -1 })
       .populate("user_id", "username")
       .populate("reviewer_id")
-    return res.json(userReviews);
+    const modifiedUserReviews = Object.assign({}, ...userReviews.map(review => ({ [review._id]: review })));
+    return res.json(modifiedUserReviews);
   }
   catch (err) {
     return res.json([]);
