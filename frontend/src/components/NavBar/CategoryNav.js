@@ -37,13 +37,11 @@ const CategoryNav = () => {
     // console.log(show);
     return (
         <>
-            {categories.map(cat =>
-            <>
-                <li className="category-item" onClick={() => setShow(cat.name)} ref={ref}>
+            {categories.map((cat, i) =>
+                <li className="category-item" onClick={() => setShow(cat.name)} ref={ref} key={i} >
                     {cat.name.split("$")[0]}
                     {show === cat.name && <CategoryDropdown category={cat} />}
                 </li>
-            </>
             )}
         </>
     )
