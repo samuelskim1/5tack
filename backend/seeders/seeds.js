@@ -52,8 +52,8 @@ for (let i = 1; i < NUM_SEED_USERS; i++) {
         email: faker.internet.email(firstName),
         description: faker.lorem.sentences(),
         profileImageUrl: getRandomImage(),
-        hashedPassword: bcrypt.hashSync(faker.internet.password(), 10)
-        })
+        hashedPassword: bcrypt.hashSync('password', 10)
+      })
     )
 }
 

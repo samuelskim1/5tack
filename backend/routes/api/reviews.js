@@ -5,11 +5,13 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const Review = mongoose.model('Review');
 const { requireUser } = require('../../config/passport');
+const { io } = require('../../app');
 
 router.post('/',  async (req, res) => {
   try {
     const newReview = await Review.create(req.body);
     res.status(201).json(newReview);
+    io.emit('newReview', newReview);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
