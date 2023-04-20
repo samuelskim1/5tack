@@ -29,8 +29,14 @@ const Navbar = () => {
 
   return (
     <>
+      <button className="about-button">
+        <Link to="/about" className="about-link">
+          About
+        </Link>
+      </button>
       {loggedIn && (
         <nav id="nav-container">
+          
           <div className="inner-nav">
             <div className="upper-nav" >
               <div id="nav-title">

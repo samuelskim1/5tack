@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import LoginModal from '../SessionForms/LoginModal';
 import SignupModal from '../SessionForms/SignupModal';
 import './SplashPage.scss';
@@ -31,15 +32,21 @@ const SplashPage = () => {
 
   return (
     <div id="splash-page-container">
-
-
+      
       <div id="splash-stack-1" ref={stack1}>5TACK</div>
       <div id="splash-stack-2" ref={stack2}>5TACK</div>
       <div id="splash-stack-3" ref={stack3}>5TACK</div>
       <div id="splash-stack-4" ref={stack4}>5TACK</div>
       <div id="splash-stack-5" ref={stack5}>5TACK</div>
 
+      <button className="about-button">
+        <Link to="/about" className="about-link">
+          About
+        </Link>
+      </button>
+      
       <div id="splash-bottom-container" ref={bar}>
+
         <div id="splash-description" ref={description}>
           Welcome to Five Stack, where gamers connect to create the most stacked team!
         </div>

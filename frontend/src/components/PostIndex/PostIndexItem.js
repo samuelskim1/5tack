@@ -2,8 +2,16 @@ import { Link } from 'react-router-dom';
 import CommentsIndex from '../CommentsIndex/CommentsIndex';
 import TimeStamp from '../TimeStamp/TimeStamp';
 import Avatar from '../UserInfo/Avatar';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchAllComments } from '../../store/comments';
 
 const PostIndexItem = ({ post }) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchAllComments());
+  }, [dispatch])
 
   return (
     <div className='post-index-item'>

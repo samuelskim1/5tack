@@ -6,6 +6,7 @@ import users from './users';
 import categories from './categories';
 import posts from './posts';
 import games from './games';
+import comments from './comments';
 import reviews from './reviews';
 
 const rootReducer = combineReducers({
@@ -15,8 +16,8 @@ const rootReducer = combineReducers({
   categories,
   posts,
   games,
+  comments,
   reviews
-
 });
 
 let enhancer;

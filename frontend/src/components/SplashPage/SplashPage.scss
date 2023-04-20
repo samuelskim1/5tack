@@ -136,3 +136,26 @@
 //   font-size: 28px;
 //   color: black;
 // }
+
+.about-button {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background-color: #777;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.about-button:hover {
+  background-color: #111;
+}
+
+.about-link {
+  text-decoration: none;
+  color: inherit;
+}
