@@ -5,6 +5,8 @@ const RECEIVE_POST = "posts/RECEIVE_POST";
 const REMOVE_POST = "posts/DELETE_POST";
 const RECEIVE_USER_POSTS = "posts/RECEIVE_USER_POSTS";
 const RECEIVE_GAME_POSTS = "posts/RECEIVE_GAME_POSTS";
+const RECEIVE_POST_ERRORS = "posts/RECEIVE_POST_ERRORS";
+const CLEAR_POST_ERRORS = "posts/CLEAR_POST_ERRORS";
 
 export const receivePosts = (posts) => ({
     type: RECEIVE_POSTS,
@@ -31,6 +33,17 @@ export const removePost = (postId) => ({
     postId
 });
 
+export const receiveErrors = errors => ({
+    type: RECEIVE_POST_ERRORS,
+    errors
+});
+
+export const clearReviewErrors = () => ({
+    type: CLEAR_POST_ERRORS
+});
+
+
+
 export const fetchAllPosts = () =>  async dispatch => {
     const res = await jwtFetch('/api/posts');
     const posts = await res.json();
@@ -56,34 +69,96 @@ export const fetchGamePosts = (nameURL) => async dispatch => {
 }
 
 
-export const createPost = (post) => async dispatch => {
-    const res = await jwtFetch(`/api/posts/`, {
-        method: "POST",
-        body: JSON.stringify(post),
-        headers: {
-            'Content-Type': 'application/json'
+// export const createPost = (post) => async dispatch => {
+//     const res = await jwtFetch(`/api/posts/`, {
+//         method: "POST",
+//         body: JSON.stringify(post),
+//         headers: {
+//             'Content-Type': 'application/json'
+//         }
+//     })
+//     if (res.ok) {
+//         const postData = await res.json();
+//         dispatch(receivePost(postData));
+//     }
+// }
+
+export const createPost = postInfo => async dispatch => {
+    try {
+        const res = await jwtFetch(`/api/posts/`, {
+            method: "POST",
+            body: JSON.stringify(postInfo)
+        });
+        const newPost = await res.json();
+        return dispatch(receivePost(newPost));
+    } catch(err) {
+        const res = await err.json();
+        if (res.statusCode === 400) {
+            return dispatch(receiveErrors(res.errors));
         }
-    })
-    if (res.ok) {
-        const postData = await res.json();
-        dispatch(receivePost(postData));
     }
 }
 
-export const updatePost = post => async dispatch => {
-    const res = await jwtFetch(`/api/posts/${post.id}`, {
-        method: "PATCH",
-        body: JSON.stringify(post),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
+// export const updatePost = post => async dispatch => {
+//     const res = await jwtFetch(`/api/posts/${post.id}`, {
+//         method: "PATCH",
+//         body: JSON.stringify(post),
+//         headers: {
+//             'Content-Type': 'application/json'
+//         }
+//     })
 
-    if (res.ok) {
+//     if (res.ok) {
+//         const updatedPost = await res.json();
+//         dispatch(receivePost(updatedPost));
+//     }
+// }
+
+export const updatedPost = postInfo => async dispatch => {
+    try {
+        const res = await jwtFetch(`/api/posts/${postInfo.id}`, {
+            method: "PATCH",
+            body: JSON.stringify(postInfo)
+        });
         const updatedPost = await res.json();
-        dispatch(receivePost(updatedPost));
+        return dispatch(receivePost(updatedPost));
+    } catch(err) {
+        const res = await err.json();
+        if (res.statusCode === 400) {
+            return dispatch(receiveErrors(res.errors));
+        }
     }
 }
+
+export const deletePost = postId => async dispatch => {
+    try {
+        const res = await jwtFetch(`/api/posts/${postId}`, {
+            method: "DELETE"
+        });
+        return dispatch(removePost(postId));
+    } catch(err) {
+        const res = await err.json();
+        if (res.statusCode === 400) {
+            return dispatch(receiveErrors(res.errors));
+        }
+    }
+}
+
+
+// REDUCERS
+export const postsErrorsReducer = (state = null, action) => {
+    switch (action.type) {
+      case RECEIVE_POST_ERRORS:
+        return action.errors;
+      case RECEIVE_POST:
+      case RECEIVE_POSTS:
+      case CLEAR_POST_ERRORS:
+        return null;
+      default:
+        return state;
+    }
+};
+
 
 const postsReducer = (state = {}, action) => {
     const nextState = {...state}
