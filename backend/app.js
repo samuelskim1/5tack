@@ -6,7 +6,7 @@ const logger = require('morgan');
 const debug = require('debug');
 
 const http = require('http');
-// const socketIO = require('socket.io');
+const socketIO = require('socket.io');
 
 const cors = require('cors');
 const csurf = require('csurf');
@@ -33,7 +33,7 @@ const passport = require('passport');
 const app = express();
 
 const server = http.createServer(app);
-// const io = socketIO(server);
+const io = socketIO(server);
 
 app.use(logger('dev')); // log request components (URL/method) to terminal
 app.use(express.json()); // parse JSON request body
@@ -119,19 +119,33 @@ app.use((err, req, res, next) => {
 });
 
 // Socket.IO connection handler
-// io.on('connection', (socket) => {
-//   console.log('A user connected');
+io.on('connection', (socket) => {
+  console.log('A user connected');
 
-//   // Handle new messages
-//   socket.on('message', (msg) => {
-//     console.log(`Message received: ${msg}`);
-//     // Broadcast the message to all connected clients
-//     io.emit('message', msg);
-//   });
+  // Handle new comments
+  socket.on('newComment', (comment) => {
+    console.log(`Comment received: ${comment}`);
+    // Broadcast the comment to all connected clients
+    io.emit('comment', comment);
+  });
 
-//   socket.on('disconnect', () => {
-//     console.log('A user disconnected');
-//   });
-// });
+  // Handle new posts
+  socket.on('newPost', (post) => {
+    console.log(`New post received: ${post.title}`);
+    // Broadcast the post to all connected clients
+    io.emit('newPost', post);
+  });
+
+  // Handle new reviews
+  socket.on('newReview', (review) => {
+    console.log(`New review received: ${review.content}`);
+    // Broadcast the review to all connected clients
+    io.emit('newReview', review);
+  });
+
+  socket.on('disconnect', () => {
+    console.log('A user disconnected');
+  });
+});
 
 module.exports = { app, server };

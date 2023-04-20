@@ -1,20 +1,16 @@
 .dropdown {
     position: absolute;
-    background-color: black;
+    background-color: #111;
     left: 100.5%;
-    top: -2px;
+    top: 0px;
     width: max-content;
     padding: 0 10px;
-    z-index: 1;
+    // z-index: 10;
     // box-sizing: content-box;
-    border-radius: 1px solid white;
+    border-radius: 4px;
     // display: none;
     .line-divider {
         border-bottom: 1px white solid;
         margin: 5px 0;
     }
-}
-
-.dropdown:hover {
-    // display: block;
 }

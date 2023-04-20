@@ -35,6 +35,7 @@ router.post('/', multipleMulterUpload("images"), multipleMulterUpload("videos"),
 
 
 router.get('/', async (req, res) => {
+  debugger;
   try {
     const posts = await Post.find({}).populate("author_id", "_id username profileImageUrl");
     const modifiedPosts = Object.assign({}, ...posts.map(post => ({ [post._id]: post })));
@@ -108,7 +109,8 @@ router.get('/user/:username', async (req, res, next) => {
       .sort({ createdAt: -1 })
       .populate("comment_id", "content")
       .populate("author_id", "username profileImageUrl")
-    return res.json(userPosts);
+    const modifiedPosts = Object.assign({}, ...userPosts.map(post => ({ [post._id]: post })));
+    return res.json(modifiedPosts);
   }
   catch (err) {
     return res.json([]);
@@ -137,7 +139,8 @@ router.get('/game/:nameURL', async (req, res, next) => {
       .sort({ createdAt: -1 })
       .populate("comment_id")
       .populate("author_id", "username profileImageUrl")
-    return res.json(gamePosts);
+    const modifiedPosts = Object.assign({}, ...gamePosts.map(post => ({ [post._id]: post })));
+    return res.json(modifiedPosts);
   }
   catch (err) {
     return res.json([]);

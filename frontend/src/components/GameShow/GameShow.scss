@@ -10,6 +10,11 @@
   text-align: center;
   // max-width: 600px;
   width: 100%;
+
+  .posts-index-container {
+    height: auto;
+    text-align: left;
+  }
 }
 
 .game-show-images {
@@ -58,7 +63,6 @@
   // border: 0.15em solid var(--glow-color);
   border-radius: 0.45em;
   background: none;
-  perspective: 2em;
   font-size: 3em;
   font-weight: 500;
   letter-spacing: 0.2em;
