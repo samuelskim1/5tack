@@ -93,7 +93,7 @@ export const createPost = postInfo => async dispatch => {
         return dispatch(receivePost(newPost));
     } catch(err) {
         const res = await err.json();
-        if (res.statusCode === 404) {
+        if (res.statusCode === 400) {
             return dispatch(receiveErrors(res.errors));
         }
     }
@@ -124,7 +124,7 @@ export const updatedPost = postInfo => async dispatch => {
         return dispatch(receivePost(updatedPost));
     } catch(err) {
         const res = await err.json();
-        if (res.statusCode === 404) {
+        if (res.statusCode === 400) {
             return dispatch(receiveErrors(res.errors));
         }
     }
@@ -138,7 +138,7 @@ export const deletePost = postId => async dispatch => {
         return dispatch(removePost(postId));
     } catch(err) {
         const res = await err.json();
-        if (res.statusCode === 404) {
+        if (res.statusCode === 400) {
             return dispatch(receiveErrors(res.errors));
         }
     }
