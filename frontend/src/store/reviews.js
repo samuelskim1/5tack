@@ -63,6 +63,7 @@ export const createReview = reviewInfo => async dispatch => {
         const newReview = await res.json();
         return dispatch(receiveReview(newReview));
     } catch(err) {
+        const res = await err.json();
         if (res.statusCode === 400) {
             return dispatch(receiveErrors(res.errors));
         }
@@ -85,9 +86,9 @@ export const updateReview = reviewInfo => async dispatch => {
     }
 }
 
-export const removeReview = reivewId = async dispatch => {
+export const removeReview = reviewId => async dispatch => {
     try {
-        const res = await jwtFetch(`/api/reivews/${reviewId}`, {
+        const res = await jwtFetch(`/api/reviews/${reviewId}`, {
             method: 'DELETE'
         });
     } catch(err) {
