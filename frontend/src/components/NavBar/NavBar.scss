@@ -7,7 +7,7 @@ a {
 
 .line-divider {
     border-bottom: 1px white solid;
-    margin: 10px 0;
+    margin: 5px 0;
 }
 
 #nav-container {
@@ -17,6 +17,7 @@ a {
     position: relative;
     // text-align: center;
     // padding: 20px 40px;
+    padding: 17px;
     display: flex;
     justify-content: center;
     line-height: 2;
@@ -67,19 +68,13 @@ a {
 
             #nav-welcome {
                 margin-bottom: 10px;
+                font-weight: 500;
             }
 
-            .logout-btn {
-                background-color: white;
-                // color: #aaaaaa;
-                color: black;
-                border-radius: 5px;
-                border: 1px solid #aaaaaa;
-                cursor: pointer;
-            }
         }
         .lower-nav {
-            padding-top: 10px;
+            // padding-top: 10px;
+            padding: 10px 0;
             .category-item {
                 list-style: none;
                 position: relative;
@@ -93,6 +88,16 @@ a {
     }
 }
 
+.logout-btn {
+    background-color: white;
+    // color: #aaaaaa;
+    color: black;
+    border-radius: 5px;
+    border: 1px solid #aaaaaa;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 20px;
+}
 // #nav-container {
 //     // width: 100vw;
 //     // height: 100px;

@@ -4,46 +4,64 @@ import { fetchCategories } from "../../store/categories";
 import CategoryDropdown from "../CategoryDropdown/CategoryDropdown";
 
 const CategoryNav = () => {
-
-    const ref = useRef();
     const dispatch = useDispatch();
+    const dropdown = useRef();
     const categories = useSelector(state => Object.values(state.categories));
-    const [show, setShow] = useState(false);
+    const [show, setShow] = useState(
+        Array(categories.length).fill(false)
+    );
 
     useEffect(() => {
         dispatch(fetchCategories());
         console.log(categories);
     }, []);
 
-    useEffect(() => {
-        const outsideClick = e => {
-            if (show && ref.current && !ref.current.contains(e.target)) {
-                setShow(false);
-            }
-        }
-        document.addEventListener("mousedown", outsideClick);
+    // const handleClick = (e) => {
+    //     if (!dropdown.current.contains(e.target)) toggleShow()
+    // }
 
-        return () => {
-            document.addEventListener("mousedown", outsideClick);
-        }
+    // useEffect(() => {
+    //     const outsideClick = e => {
+    //         if (show && ref.current && !ref.current.contains(e.target)) {
+    //             setShow(false);
+    //         }
+    //     }
+    //     document.addEventListener("mousedown", outsideClick);
 
-    }, [show])
+    //     return () => {
+    //         document.addEventListener("mousedown", outsideClick);
+    //     }
+
+    // }, [show])
+
+
+    const toggleShow = (index) => {
+        setShow(prev => {
+            const next = [ ...prev ];
+            next[index] = !next[index];
+            return next;
+        })
+    };
+
+
 
     if (!categories) return null;
 
-    // const handleClick = () => {
-    //     setShow();
-    // }
-    // console.log(show);
     return (
         <>
-            {categories.map(cat =>
-            <>
-                <li className="category-item" onClick={() => setShow(cat.name)} ref={ref}>
+            {categories.map((cat, i) =>
+                <li 
+                    className="category-item" 
+                    onClick={() => toggleShow(i)}  
+                    key={i} 
+                >
                     {cat.name.split("$")[0]}
-                    {show === cat.name && <CategoryDropdown category={cat} />}
+                    <div className="dropdown" ref={dropdown} >
+                        {show[i] && 
+                            <CategoryDropdown show={show[i]} category={cat} toggleShow={() => toggleShow(i)} dropdown={dropdown} />
+                        }
+                    </div>
                 </li>
-            </>
             )}
         </>
     )

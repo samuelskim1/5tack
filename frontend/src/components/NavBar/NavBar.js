@@ -41,13 +41,14 @@ const Navbar = () => {
                 <Avatar user={user} />
               </Link>
               <div id="nav-welcome">Welcome back, {user?.username}!</div>
-              <div className="logout-btn" onClick={handleLogout} >Logout</div>
             </div>
             <div className="line-divider"/>
             <div className="lower-nav">
               {/* <p>---------------- this is where categories will go ----------------------</p> */}
               <CategoryNav />
             </div>
+            <div className="line-divider" />
+            <div className="logout-btn" onClick={handleLogout} >Logout</div>
           </div>
         </nav>
       )}
