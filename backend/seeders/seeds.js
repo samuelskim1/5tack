@@ -248,6 +248,26 @@ function getRandomReview() {
 }
 
 
+
+const comments = [];
+const NUM_SEED_COMMENTS = 200;
+
+for (let i = 0; i < NUM_SEED_COMMENTS; i++) {
+  const author_id = getRandomUser()._id;
+  // const post_id = getRandomPost()._id;
+  const description = faker.lorem
+    .sentences(getRandomArbitrary(1, 5))
+    .substring(0, 200);
+  comments.push(
+    new Comment({
+      author_id: author_id,
+      content: description
+    })
+  );
+}
+
+
+
 // Loop to create posts for each user with random games
 // Loop to create posts for each user with random games
 
@@ -257,6 +277,7 @@ const NUM_SEED_POSTS = 50;
 for (let i = 0; i < NUM_SEED_POSTS; i++) {
   const author_id = getRandomUser()._id;
   const game_id = getRandomGame()._id;
+  const comment_id = getRandomComment()._id;
   let title = faker.lorem.sentence(5);
   // Truncate the title to 50 characters if it's longer
   title = title.length > 50 ? title.substring(0, 50) : title;
@@ -267,6 +288,7 @@ for (let i = 0; i < NUM_SEED_POSTS; i++) {
     new Post({
       author_id: author_id,
       game_id: game_id,
+      comment_id: [comment_id, comment_id, comment_id],
       title: title,
       description: description
     })
@@ -277,6 +299,7 @@ for (let i = 0; i < NUM_SEED_POSTS; i++) {
 for (let i = 0; i < 10; i++) {
   const author_id = demoUser._id;
   const game_id = game1._id;
+  const comment_id = getRandomComment()._id;
   let title = faker.lorem.sentence(5);
   // Truncate the title to 50 characters if it's longer
   title = title.length > 50 ? title.substring(0, 50) : title;
@@ -286,6 +309,7 @@ for (let i = 0; i < 10; i++) {
   posts.push(
     new Post({
       author_id: author_id,
+      comment_id: [comment_id, comment_id, comment_id],
       game_id: game_id,
       title: title,
       description: description
@@ -293,23 +317,7 @@ for (let i = 0; i < 10; i++) {
   );
 }
 
-const comments = [];
-const NUM_SEED_COMMENTS = 50;
 
-for (let i = 0; i < NUM_SEED_COMMENTS; i++) {
-  const author_id = getRandomUser()._id;
-  const post_id = getRandomPost()._id;
-  const description = faker.lorem
-  .sentences(getRandomArbitrary(1, 5))
-  .substring(0, 200);    
-  comments.push(
-    new Comment({
-      author_id: author_id,
-      post_id: post_id,
-      content: description
-    })
-  );
-}
 
 
 const reviews = [];
@@ -388,10 +396,10 @@ User.collection.drop()
                 .then(() => Review.collection.drop())
                 .then(() => User.insertMany(users))
                 .then(() => Game.insertMany(games))
+                .then(() => Comment.insertMany(comments)) 
                 .then(() => Category.insertMany(categories))
                 .then(() => Review.insertMany(reviews))
                 .then(() => Post.insertMany(posts))
-                .then(() => Comment.insertMany(comments)) 
                 .then(() => {
                     console.log("Done!");
                     mongoose.disconnect();

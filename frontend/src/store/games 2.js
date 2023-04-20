@@ -20,6 +20,7 @@ export const receiveGames = games => ({
 export const fetchGame = nameURL => async dispatch => {
   const res = await jwtFetch(`/api/games/${nameURL}`);
   const gameInfo = await res.json();
+  console.log("Fetched game data:", gameInfo);
   return dispatch(receiveGame(gameInfo));
 };
 
@@ -31,6 +32,8 @@ export const fetchGames = () => async dispatch => {
 
 // GAME REDUCER
 const gamesReducer = (state = {}, action) => {
+  console.log("Reducer state:", state);
+  console.log("Reducer action:", action);
   switch (action.type) {
     case RECEIVE_GAME:
       return { ...state, [action.game.nameURL]: action.game };

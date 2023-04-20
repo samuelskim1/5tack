@@ -9,7 +9,7 @@ import Profile from './components/Profile/Profile';
 import GameShow from './components/GameShow/GameShow'; 
 import { getCurrentUser } from './store/session';
 import CategoryNav from './components/NavBar/CategoryNav';
-
+import AboutPage from './components/AboutPage/AboutPage'; 
 
 const App = () => {
   const [loaded, setLoaded] = useState(false);
@@ -26,6 +26,7 @@ const App = () => {
         <Switch>
           <AuthRoute exact path="/" component={SplashPage} />
           <ProtectedRoute exact path="/home" component={HomePage} />
+          <ProtectedRoute exact path="/about" component={AboutPage} />
           {/* <ProtectedRoute exact path={`/:username`} component={Profile} /> */}
           <ProtectedRoute exact path={`/:username`} component={Profile} />
           <ProtectedRoute exact path="/games/:nameURL" component={GameShow} />
