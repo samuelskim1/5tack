@@ -24,7 +24,7 @@
 .team-member {
   text-align: center;
   margin: 20px;
-  min-height: 670px;
+  min-height: 690px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -57,6 +57,9 @@
   color: #141414;
   max-width: 300px;
   padding-bottom: 10px;
+  box-sizing: border-box;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .team-member .member-email {
