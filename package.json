@@ -2,7 +2,6 @@
   "name": "5tack",
   "version": "1.0.0",
   "description": "5tack is a web application designed to help gamers connect based on similar interests and availability.",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "backend-install": "npm install --prefix backend",
