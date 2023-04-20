@@ -4,6 +4,7 @@ import CommentsIndex from '../CommentsIndex/CommentsIndex';
 import TimeStamp from '../TimeStamp/TimeStamp';
 import Avatar from '../UserInfo/Avatar';
 import './PostIndex.scss';
+import CreatePostForm from '../PostForms/CreatePostForm';
 
 
 const PostIndex = ({ posts }) => {

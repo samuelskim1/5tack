@@ -6,7 +6,7 @@ const logger = require('morgan');
 const debug = require('debug');
 
 const http = require('http');
-const socketIO = require('socket.io');
+// const socketIO = require('socket.io');
 
 const cors = require('cors');
 const csurf = require('csurf');
@@ -33,7 +33,7 @@ const passport = require('passport');
 const app = express();
 
 const server = http.createServer(app);
-const io = socketIO(server);
+// const io = socketIO(server);
 
 app.use(logger('dev')); // log request components (URL/method) to terminal
 app.use(express.json()); // parse JSON request body
@@ -119,19 +119,19 @@ app.use((err, req, res, next) => {
 });
 
 // Socket.IO connection handler
-io.on('connection', (socket) => {
-  console.log('A user connected');
+// io.on('connection', (socket) => {
+//   console.log('A user connected');
 
-  // Handle new messages
-  socket.on('message', (msg) => {
-    console.log(`Message received: ${msg}`);
-    // Broadcast the message to all connected clients
-    io.emit('message', msg);
-  });
+//   // Handle new messages
+//   socket.on('message', (msg) => {
+//     console.log(`Message received: ${msg}`);
+//     // Broadcast the message to all connected clients
+//     io.emit('message', msg);
+//   });
 
-  socket.on('disconnect', () => {
-    console.log('A user disconnected');
-  });
-});
+//   socket.on('disconnect', () => {
+//     console.log('A user disconnected');
+//   });
+// });
 
 module.exports = { app, server };
