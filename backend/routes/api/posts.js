@@ -22,7 +22,10 @@ router.post('/', multipleMulterUpload("images"), multipleMulterUpload("videos"),
   };
   
   try {
-    const newPost = await Post.create(postData);
+    const newPost = await Post.create(postData)
+                              .populate("author_id", "_id username profileImageUrl")
+                              .populate("comment_id")
+                              
     res.status(201).json(newPost);
     // await console.log("res", res);
 
