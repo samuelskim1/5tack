@@ -1,0 +1,70 @@
+@import '../../App.scss';
+
+.create-post-container {
+    width: 400px;
+    height: 100%;
+    background-color: rgb(245, 245, 245);
+    border-radius: 8px;
+    padding: 30px;
+  }
+
+.create-post-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+        font-size: 36px;
+        font-weight: 500;
+        text-align: center;
+        margin: 30px 0;
+    }
+
+    span {
+        font-size: 12px;
+        font-weight: 300;
+        margin: 8px;
+    }
+
+    label {
+        display: flex;
+        flex-direction: column;
+        margin: 10px 0;
+        width: 350px;
+    }
+
+    input {
+        box-sizing: border-box;
+        border: none;
+        font-size: 18px;
+        width: 100%;
+        padding: 12px;
+        border-radius: 4px;
+    }
+
+    input[type="text"], .session-form input[type="password"] {
+        outline: 1px solid #999;
+    }
+
+    input[type="text"]:hover, .session-form input[type="password"]:hover {
+        outline: 1px solid #555;
+    }
+
+
+}
+
+.errors {
+    color: $errors-color;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.submit-btn {
+    
+  margin-top: 20px;
+  border-radius: 8px;
+  padding: 12px;
+  background-color: #0c1398;
+  color: white;
+  cursor: pointer;
+}

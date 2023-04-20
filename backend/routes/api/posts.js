@@ -11,22 +11,25 @@ const { io } = require('../../app');
 const { multipleFilesUpload, multipleMulterUpload } = require("../../awsS3");
 
 router.post('/', multipleMulterUpload("images"), multipleMulterUpload("videos"), requireUser, async (req, res) => {
-  const imageUrls = await multipleFilesUpload({ files: req.files.images, public: true });
-  const videoUrls = await multipleFilesUpload({ files: req.files.videos, public: true });
+  // await console.log("req", req);
+  // const imageUrls = await multipleFilesUpload({ files: req.files.images, public: true });
+  // const videoUrls = await multipleFilesUpload({ files: req.files.videos, public: true });
 
   const postData = {
-    ...req.body,
-    imageUrls,
-    videoUrls
+    ...req.body
+    // imageUrls,
+    // videoUrls
   };
-
+  
   try {
     const newPost = await Post.create(postData);
     res.status(201).json(newPost);
+    // await console.log("res", res);
 
     // Emit a WebSocket event when a new post is created
-    io.emit('newPost', newPost);
+    // io.emit('newPost', newPost);
   } catch (error) {
+    // console.log("catching errors from the backend", error);
     res.status(400).json({ message: error.message });
   }
 });
