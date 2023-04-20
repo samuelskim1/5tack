@@ -88,7 +88,7 @@ router.get('/user/:username', async (req, res, next) => {
   try {
     const userReviews = await Review.find({ user_id: user.id })
       .sort({ createdAt: -1 })
-      .populate("user_id")
+      .populate("user_id", "username")
       .populate("reviewer_id")
     return res.json(userReviews);
   }
