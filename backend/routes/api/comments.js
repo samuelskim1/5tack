@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
   try {
     const comments = await Comment.find({})
       .populate("author_id", "_id username profileImageUrl")
-      // .populate("post_id");
+      .populate("post_id");
     const modifiedComments = Object.assign({}, ...comments.map(comment => ({ [comment._id]: comment })));
     res.status(200).json(modifiedComments);
   } catch (error) {

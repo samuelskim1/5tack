@@ -33,10 +33,9 @@ router.post('/', multipleMulterUpload("images"), multipleMulterUpload("videos"),
 
 
 router.get('/', async (req, res) => {
+  debugger;
   try {
-    const posts = await Post.find({})
-                            // .populate("author_id", "_id username profileImageUrl")
-                            .populate("comment_id")
+    const posts = await Post.find({}).populate("author_id", "_id username profileImageUrl");
     const modifiedPosts = Object.assign({}, ...posts.map(post => ({ [post._id]: post })));
     res.status(200).json(modifiedPosts);
   } catch (error) {
@@ -47,9 +46,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const post = await Post.findById(req.params.id)
-                           .populate("author_id", "_id username profileImageUrl")
-                           .populate("comment_id")
+    const post = await Post.findById(req.params.id).populate("author_id", "_id username profileImageUrl");
     if (!post) {
       return res.status(404).json({ message: 'Post not found' });
     }
@@ -62,13 +59,10 @@ router.get('/:id', async (req, res) => {
 router.patch('/:id', requireUser,  async (req, res) => {
   try {
     const post = await Post.findByIdAndUpdate(
-                            req.params.id,
-                            { title: req.body.title, description: req.body.description },
-                            { new: true }
-                            )
-                            .populate("author_id", "_id username profileImageUrl")
-                            .populate("comment_id")
-
+      req.params.id,
+      { title: req.body.title, description: req.body.description },
+      { new: true }
+    );
     if (!post) {
       return res.status(404).json({ message: 'Post not found' });
     }
@@ -80,9 +74,7 @@ router.patch('/:id', requireUser,  async (req, res) => {
 
 router.delete('/:id', requireUser,  async (req, res) => {
   try {
-    const post = await Post.findByIdAndRemove(req.params.id)
-                           .populate("author_id", "_id username profileImageUrl")
-                           .populate("comment_id")
+    const post = await Post.findByIdAndRemove(req.params.id);
     if (!post) {
       return res.status(404).json({ message: 'Post not found' });
     }
@@ -113,7 +105,7 @@ router.get('/user/:username', async (req, res, next) => {
   try {
     const userPosts = await Post.find({ author_id: user.id })
       .sort({ createdAt: -1 })
-      .populate("comment_id")
+      .populate("comment_id", "content")
       .populate("author_id", "username profileImageUrl")
     const modifiedPosts = Object.assign({}, ...userPosts.map(post => ({ [post._id]: post })));
     return res.json(modifiedPosts);

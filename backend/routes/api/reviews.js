@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const review = await Review.findById(req.params.id).populate('reviewer_id');
+    const review = await Review.findById(req.params.id).populate('review_id');
     if (!review) {
       return res.status(404).json({ message: 'Review not found' });
     }
