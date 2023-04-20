@@ -1,7 +1,7 @@
 import shankim from './shankim.jpg';
 import garyhor from './garyhor.jpg';
 import samkim from './samkim.jpg';
-// import milnerchen from '';
+import milnerchen from './cartoon-dead-fish.png';
 import './AboutPage.scss';
 
 const AboutPage = () => {
@@ -9,44 +9,64 @@ const AboutPage = () => {
   const teamMembers = [
     {
       name: "Gary Hor",
-      bio: "Frontend Lead",
+      role: "Frontend Lead",
       image: garyhor,
-      width: "150px",
-      height: "150px"
+      bio: "I am Gary Hoe",
+      email: "geehor@gmail.com",
+      github: "https://github.com/g-hor",
+      linkedin: "https://www.linkedin.com/in/garyhor65/"
     },
     {
       name: "Shan Kim",
-      bio: "Backend Lead",
+      role: "Backend Lead",
       image: shankim,
-      width: "150px",
-      height: "150px"
+      bio: "I am an aspiring software engineer passionate about creating innovative solutions and enhancing user experiences. With a strong foundation in web development and a keen interest in emerging technologies, I am always eager to learn and grow as a professional. My goal is to contribute to projects that make a positive impact on people's lives.",
+      email: "shankkim35@gmail.com",
+      github: "https://github.com/shank35",
+      linkedin: "https://www.linkedin.com/in/shan-kim/"
     },
     {
       name: "Sam Kim",
-      bio: "Team Lead",
+      role: "Team Lead",
       image: samkim,
-      width: "150px",
-      height: "150px"
+      bio: "I am Sam Kim",
+      email: "samsjkim1@gmail.com",
+      github: "https://github.com/samuelskim1",
+      linkedin: "https://www.linkedin.com/in/samuel-kim-3b4935206"
     },
     {
       name: "Milner Chen",
-      bio: "Flex",
-      image: "",
-      width: "150px",
-      height: "150px"
+      role: "Flex",
+      image: milnerchen,
+      bio: "I am Milner Chen",
+      email: "milnerchen0@gmail.com",
+      github: "https://github.com/milner-chen",
+      linkedin: "https://www.linkedin.com/in/milner-chen-841330216/"
     }
   ];
 
   return (
-    <div>
+    <div className="aboutPageContainer">
       <h1>Meet Our Team</h1>
-      {teamMembers.map((member) => (
-        <div key={member.name}>
-          <img src={member.image} alt={member.name} style={{width: member.width, height: member.height}} />
-          <h2>{member.name}</h2>
-          <p>{member.bio}</p>
-        </div>
-      ))}
+      <div className="aboutContainer">
+        {teamMembers.map((member) => (
+          <div className="team-member" key={member.name} >
+            <img src={member.image} alt={member.name} style={{width: member.width, height: member.height}} />
+            <h2>{member.name}</h2>
+            <p className="member-role">{member.role}</p>
+            <p>{member.bio}</p>
+            <p className="member-email">{member.email}</p>
+            <div className="social-buttons">
+              <a href={member.github} target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-github"></i>
+              </a>
+              <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

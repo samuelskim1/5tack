@@ -1,21 +1,36 @@
 @import '../../App.scss';
 
-.container {
+.aboutPageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.aboutPageContainer {
+  font-size: 50px;
+}
+
+.aboutContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 1400px;
 }
 
 .team-member {
   text-align: center;
   margin: 20px;
+  min-height: 670px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .team-member img {
-  border-radius: 50%;
+  width: 300px;
+  height: 300px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease-in-out;
 }
@@ -29,8 +44,39 @@
   margin-top: 10px;
 }
 
+.team-member .member-role {
+  font-size: 18px;
+  margin-top: 5px;
+  color: #a9a8a8;
+  font-weight: bold;
+}
+
 .team-member p {
   font-size: 18px;
   margin-top: 5px;
-  color: #777;
+  color: #141414;
+  max-width: 300px;
+  padding-bottom: 10px;
+}
+
+.team-member .member-email {
+  color: #090909;
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.social-buttons a {
+  color: #141414;
+  margin: 0 5px;
+  font-size: 32px;
+  transition: color 0.3s ease-in-out;
+}
+
+.social-buttons a:hover {
+  color: #333;
 }
