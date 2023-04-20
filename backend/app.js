@@ -42,28 +42,6 @@ app.use(cookieParser()); // parse cookies as an object on req.cookies
 
 app.use(passport.initialize());
 
-if (isProduction) {
-  const path = require('path');
-  // Serve the frontend's index.html file at the root route
-  app.get('/', (req, res) => {
-    res.cookie('CSRF-TOKEN', req.csrfToken());
-    res.sendFile(
-      path.resolve(__dirname, '../frontend', 'build', 'index.html')
-    );
-  });
-
-  // Serve the static assets in the frontend's build folder
-  app.use(express.static(path.resolve("../frontend/build")));
-
-  // Serve the frontend's index.html file at all other routes NOT starting with /api
-  app.get(/^(?!\/?api).*/, (req, res) => {
-    res.cookie('CSRF-TOKEN', req.csrfToken());
-    res.sendFile(
-      path.resolve(__dirname, '../frontend', 'build', 'index.html')
-    );
-  });
-}
-
 // Security Middleware
 if (!isProduction) {
   // Enable CORS only in development because React will be on the React
@@ -92,8 +70,31 @@ app.use('/api/categories', categoriesRouter);
 app.use('/api/games', gamesRouter);
 app.use('/api/reviews', reviewsRouter);
 app.use('/api/comments', commentsRouter);
-
 app.use('/api/csrf', csrfRouter);
+
+// Serve static React build files statically in production
+if (isProduction) {
+  const path = require('path');
+  // Serve the frontend's index.html file at the root route
+  app.get('/', (req, res) => {
+    res.cookie('CSRF-TOKEN', req.csrfToken());
+    res.sendFile(
+      path.resolve(__dirname, '../frontend', 'build', 'index.html')
+    );
+  });
+
+  // Serve the static assets in the frontend's build folder
+  app.use(express.static(path.resolve("../frontend/build")));
+
+  // Serve the frontend's index.html file at all other routes NOT starting with /api
+  app.get(/^(?!\/?api).*/, (req, res) => {
+    res.cookie('CSRF-TOKEN', req.csrfToken());
+    res.sendFile(
+      path.resolve(__dirname, '../frontend', 'build', 'index.html')
+    );
+  });
+}
+
 
 // Express custom middleware for catching all unmatched requests and formatting
 // a 404 error to be sent as the response.
@@ -122,11 +123,25 @@ app.use((err, req, res, next) => {
 io.on('connection', (socket) => {
   console.log('A user connected');
 
-  // Handle new messages
-  socket.on('message', (msg) => {
-    console.log(`Message received: ${msg}`);
-    // Broadcast the message to all connected clients
-    io.emit('message', msg);
+  // Handle new comments
+  socket.on('newComment', (comment) => {
+    console.log(`Comment received: ${comment}`);
+    // Broadcast the comment to all connected clients
+    io.emit('comment', comment);
+  });
+
+  // Handle new posts
+  socket.on('newPost', (post) => {
+    console.log(`New post received: ${post.title}`);
+    // Broadcast the post to all connected clients
+    io.emit('newPost', post);
+  });
+
+  // Handle new reviews
+  socket.on('newReview', (review) => {
+    console.log(`New review received: ${review.content}`);
+    // Broadcast the review to all connected clients
+    io.emit('newReview', review);
   });
 
   socket.on('disconnect', () => {

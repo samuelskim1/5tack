@@ -13,6 +13,26 @@ const { faker } = require('@faker-js/faker');
 const NUM_SEED_USERS = 10;
 const users = [];
 
+const images = [
+  "https://5tack.s3.amazonaws.com/public/0.jpeg", 
+  "https://5tack.s3.amazonaws.com/public/1.jpeg", 
+  "https://5tack.s3.amazonaws.com/public/2.jpeg",
+  "https://5tack.s3.amazonaws.com/public/3.jpeg",
+  "https://5tack.s3.amazonaws.com/public/3.jpeg",
+  "https://5tack.s3.amazonaws.com/public/5.jpeg",
+  "https://5tack.s3.amazonaws.com/public/6.jpeg",
+  "https://5tack.s3.amazonaws.com/public/7.jpeg",
+  "https://5tack.s3.amazonaws.com/public/8.jpeg",
+  "https://5tack.s3.amazonaws.com/public/9.jpeg",
+  "https://5tack.s3.amazonaws.com/public/12.jpeg",
+  "https://5tack.s3.amazonaws.com/public/13.jpeg",
+  "https://5tack.s3.amazonaws.com/public/15.jpeg"
+];
+
+function getRandomImage() {
+  const randomIndex = Math.floor(Math.random() * images.length);
+  return images[randomIndex];
+}
 
 const demoUser = new User({
   username: 'demo',
@@ -31,8 +51,9 @@ for (let i = 1; i < NUM_SEED_USERS; i++) {
         username: faker.internet.userName(firstName),
         email: faker.internet.email(firstName),
         description: faker.lorem.sentences(),
-        hashedPassword: bcrypt.hashSync(faker.internet.password(), 10)
-        })
+        profileImageUrl: getRandomImage(),
+        hashedPassword: bcrypt.hashSync('password', 10)
+      })
     )
 }
 
@@ -272,9 +293,6 @@ for (let i = 0; i < 10; i++) {
   );
 }
 
-
-
-
 const comments = [];
 const NUM_SEED_COMMENTS = 50;
 
@@ -283,7 +301,8 @@ for (let i = 0; i < NUM_SEED_COMMENTS; i++) {
   const post_id = getRandomPost()._id;
   const description = faker.lorem
   .sentences(getRandomArbitrary(1, 5))
-  .substring(0, 200);    comments.push(
+  .substring(0, 200);    
+  comments.push(
     new Comment({
       author_id: author_id,
       post_id: post_id,
