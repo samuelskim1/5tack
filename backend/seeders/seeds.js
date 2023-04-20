@@ -6,6 +6,7 @@ const Category = require('../models/Category');
 const Game = require('../models/Game.js');
 const Post = require('../models/Post.js');
 const Comment = require('../models/Comment.js');
+const Review = require('../models/Review.js');
 const bcrypt = require('bcryptjs');
 const { faker } = require('@faker-js/faker');
 
@@ -193,23 +194,149 @@ function getRandomArbitrary(min, max) {
   return Math.random() * (max - min) + min;
 }
 
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+}
+
+// Helper function to get a random game
+function getRandomGame() {
+  const randomIndex = Math.floor(Math.random() * games.length);
+  return games[randomIndex];
+}
+
+function getRandomUser() {
+  const randomIndex = Math.floor(Math.random() * users.length);
+  return users[randomIndex];
+}
+
+function getRandomPost() {
+  const randomIndex = Math.floor(Math.random() * posts.length);
+  return posts[randomIndex];
+}
+
+function getRandomComment() {
+  const randomIndex = Math.floor(Math.random() * comments.length);
+  return comments[randomIndex];
+}
+
+function getRandomReview() {
+  const randomIndex = Math.floor(Math.random() * reviews.length);
+  return reviews[randomIndex];
+}
+
+
+// Loop to create posts for each user with random games
+// Loop to create posts for each user with random games
 
 const posts = [];
-const NUM_SEED_POSTS = 10;
-//demoUser posts for League of Legends
+const NUM_SEED_POSTS = 50;
+
 for (let i = 0; i < NUM_SEED_POSTS; i++) {
-  const author_id = demoUser._id;
-  const game_id = game1._id;
-  const title = faker.lorem.sentence(5);
-  const description = faker.lorem.paragraphs(getRandomArbitrary(5,20), '<br/>\n')
+  const author_id = getRandomUser()._id;
+  const game_id = getRandomGame()._id;
+  let title = faker.lorem.sentence(5);
+  // Truncate the title to 50 characters if it's longer
+  title = title.length > 50 ? title.substring(0, 50) : title;
+  const description = faker.lorem
+  .paragraphs(getRandomArbitrary(5, 20), "<br/>\n")
+  .substring(0, 400);
   posts.push(
-    new Post ({
+    new Post({
       author_id: author_id,
       game_id: game_id,
       title: title,
       description: description
     })
-  )
+  );
+}
+
+//demo user post seeding
+for (let i = 0; i < 10; i++) {
+  const author_id = demoUser._id;
+  const game_id = game1._id;
+  let title = faker.lorem.sentence(5);
+  // Truncate the title to 50 characters if it's longer
+  title = title.length > 50 ? title.substring(0, 50) : title;
+  const description = faker.lorem
+    .paragraphs(getRandomArbitrary(5, 20), "\n")
+    .substring(0, 400);
+  posts.push(
+    new Post({
+      author_id: author_id,
+      game_id: game_id,
+      title: title,
+      description: description
+    })
+  );
+}
+
+
+
+
+const comments = [];
+const NUM_SEED_COMMENTS = 50;
+
+for (let i = 0; i < NUM_SEED_COMMENTS; i++) {
+  const author_id = getRandomUser()._id;
+  const post_id = getRandomPost()._id;
+  const description = faker.lorem
+  .sentences(getRandomArbitrary(1, 5))
+  .substring(0, 200);    comments.push(
+    new Comment({
+      author_id: author_id,
+      post_id: post_id,
+      content: description
+    })
+  );
+}
+
+
+const reviews = [];
+const NUM_SEED_REVIEWS = 100;
+
+for (let i = 0; i < NUM_SEED_REVIEWS; i++) {
+  const user_id = getRandomUser().id;
+  let reviewer_id;
+  reviewer_id = getRandomUser().id;
+  while (reviewer_id === user_id) {
+    reviewer_id = getRandomUser().id;
+  };
+  const rating = getRandomIntInclusive(1,5)
+  const description = faker.lorem
+    .sentences(getRandomArbitrary(1, 10))
+    .substring(0, 500); 
+    reviews.push(
+      new Review({
+        user_id: user_id,
+        reviewer_id: reviewer_id,
+        description: description,
+        rating: rating
+      })
+    );
+}
+
+//demoUser reviews seeding
+for (let i = 0; i < 10; i++) {
+  const user_id = demoUser.id;
+  let reviewer_id;
+  reviewer_id = getRandomUser().id;
+  while (reviewer_id === user_id) {
+    reviewer_id = getRandomUser().id;
+  };
+  const rating = getRandomIntInclusive(1, 5)
+  const description = faker.lorem
+    .sentences(getRandomArbitrary(1, 10))
+    .substring(0, 500);
+  reviews.push(
+    new Review({
+      user_id: user_id,
+      reviewer_id: reviewer_id,
+      description: description,
+      rating: rating
+    })
+  );
 }
 
 mongoose
@@ -229,11 +356,15 @@ console.log("Resetting db and seeding users, categories, and games...");
 User.collection.drop()
                 .then(() => Game.collection.drop())
                 .then(() => Category.collection.drop())
+                .then(() => Comment.collection.drop()) 
                 .then(() => Post.collection.drop())
+                .then(() => Review.collection.drop())
                 .then(() => User.insertMany(users))
                 .then(() => Game.insertMany(games))
                 .then(() => Category.insertMany(categories))
+                .then(() => Review.insertMany(reviews))
                 .then(() => Post.insertMany(posts))
+                .then(() => Comment.insertMany(comments)) 
                 .then(() => {
                     console.log("Done!");
                     mongoose.disconnect();

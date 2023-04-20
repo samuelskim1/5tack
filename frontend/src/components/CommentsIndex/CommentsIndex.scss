@@ -27,14 +27,18 @@
   margin: 5px 0;
 
   > #avatar-container {
-    padding: 15px;
     margin-right: 10px;
-  }
 
-  > img {
-    width: 30px;
-    height: 40px;
-    margin-right: 10px;
+    > img {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+
+    #initial-container {
+      padding: 15px;
+      font-size: 15px;
+    }
   }
 
   > .comment-text-holder {
@@ -46,11 +50,16 @@
 
     > .author-block {
       margin-bottom: 10px;
-    }
 
-    > .author-username {
-      font-weight: 600;
-      font-size: 14px;
+      > .author-username {
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      .timestamp {
+        font-size: 10px;
+        font-weight: 200;
+      }
     }
 
     > .comment-body {

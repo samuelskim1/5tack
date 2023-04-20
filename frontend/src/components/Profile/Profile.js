@@ -5,18 +5,20 @@ import { useParams } from "react-router-dom";
 import './Profile.scss';
 import PostIndex from "../PostIndex/PostIndex";
 import { fetchUserPosts } from "../../store/posts";
+import { fetchUser } from "../../store/users";
 
 const Profile = () => {
     const dispatch = useDispatch();
     const { username } = useParams();
     const user = useSelector(state => state?.users[username]);
-    const posts = useSelector(state => Object.values(state?.posts))
+    const posts = useSelector(state => typeof(state?.posts) === 'object' ? Object.values(state?.posts) : state?.posts);
     const [tab, setTab] = useState('reviews');
 
 
     useEffect(() => {
+        dispatch(fetchUser(username));
         dispatch(fetchUserPosts(username));
-    }, [dispatch]);
+    }, [dispatch, username]);
 
 
     return (

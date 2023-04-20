@@ -34,15 +34,42 @@ a {
             // border-bottom: 1px solid white;
             // padding-bottom: 10px;
             text-align: center;
+
+            #nav-title {
+                font-size: 24px;
+                font-weight: 600;
+                border-top: 4px solid white;
+                border-bottom: 4px solid white;
+            }
+
             .profile-link {
                 display: flex;
                 justify-content: center;
+
+                > #avatar-container {
+
+                    > img {
+                        width: 69px;
+                        height: 69px;
+                    }
+
+                    #initial-container {
+                        padding: 34.5px;
+                        font-size: 34.5px;
+                    }
+                }
             }
+
+            #nav-welcome {
+                margin-bottom: 10px;
+            }
+
             .logout-btn {
                 background-color: white;
                 color: rgb(52, 56, 99);
                 border-radius: 5px;
                 border: 1px solid rgb(52, 56, 99);
+                cursor: pointer;
             }
         }
         .lower-nav {

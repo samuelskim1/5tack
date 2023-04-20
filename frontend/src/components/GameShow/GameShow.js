@@ -4,11 +4,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchGame } from "../../store/games";
 import { fetchGamePosts } from "../../store/posts";
+import PostIndex from "../PostIndex/PostIndex";
 import "./GameShow.scss";
 
 const GameShow = () => {
   const { nameURL } = useParams();
   const game = useSelector(state => state.games[nameURL]);
+  const gamePosts = useSelector(state => state.posts);
   console.log("gameState:", game);
   console.log(game)
   const dispatch = useDispatch();
@@ -31,6 +33,7 @@ const GameShow = () => {
             ))}
           </div>
           <h2 className="game-Name">{game.name}</h2>
+          <PostIndex posts={gamePosts}/>
         </div>
       ) : (
         <h3>Game not found</h3>

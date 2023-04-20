@@ -31,7 +31,8 @@
     align-items: center;
     justify-content: space-between;
 
-    > .post-timestamp {
+
+    > .timestamp {
       font-size: 12px;
       font-weight: 200;
     }
@@ -43,16 +44,18 @@
     align-items: center;
     margin-right: 20px;
 
-    > #avatar-container {
-      padding: 20px;
+    a > #avatar-container {
       margin-right: 20px;
-      font-size: 24px;
-    }
+  
+      > img {
+        width: 40px;
+        height: 40px;
+      }
 
-    > img {
-      width: 40px;
-      height: 40px;
-      margin-right: 20px;
+      #initial-container {
+        font-size: 20px;
+        padding: 20px;
+      }
     }
 
     > .author-username {
