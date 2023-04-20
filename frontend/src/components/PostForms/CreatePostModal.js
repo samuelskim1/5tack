@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { Modal } from "../../context/modal";
 import CreatePostForm from './CreatePostForm';
-// import './SessionForm.scss';
 
 const CreatePostModal = ({ game }) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <>
+    <div className='create-post-modal-holder'>
       <div
+        className='create-post-modal'
         onClick={() => setShowModal(true)}
       >
         Create new Form
@@ -16,10 +16,10 @@ const CreatePostModal = ({ game }) => {
 
       {showModal && (
         <Modal onClose={() => setShowModal(false)} >
-          <CreatePostForm game={game} />
+          <CreatePostForm game={game} setShowModal={setShowModal} />
         </Modal>
       )}
-    </>
+    </div>
   );
 };
 

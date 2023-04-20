@@ -32,16 +32,19 @@ const CreatePostForm = ({ setShowModal, game }) => {
             title,
             description
         };
-        console.log("errors", errors);
-        const res = dispatch(createPost(post));
-        console.log("res res res res", res.ok);
+        // console.log("errors", errors);
+        const res = dispatch(createPost(post)).then(res => {
+            if (res.ok) {
+            setShowModal(false);
+            }
+        });
     }
 
     return (
-        <div className="create-post-form">
+        <div className="create-post-container">
+            <form className="create-post-form">
             <h2>Create a Post</h2>
-            <form className="post-form">
-                <label>Title
+                <label><span>Title</span>
                     <input
                     type="text"
                     value={title}
@@ -50,7 +53,7 @@ const CreatePostForm = ({ setShowModal, game }) => {
                     />
                 </label>
                 <div>{errors?.title}</div>
-                <label>Description
+                <label><span>Description</span>
                     <input
                     type="text"
                     value={description}
@@ -60,6 +63,7 @@ const CreatePostForm = ({ setShowModal, game }) => {
                 </label>
                 <div>{errors?.description}</div>
                 <div
+                className="submit-btn"
                 onClick={handleSubmit}
                 >
                 Publish</div>

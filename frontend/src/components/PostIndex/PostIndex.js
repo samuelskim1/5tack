@@ -1,6 +1,5 @@
 import './PostIndex.scss';
 import PostIndexItem from './PostIndexItem';
-import CreatePostForm from '../PostForms/CreatePostForm';
 
 
 const PostIndex = ({ posts }) => {

@@ -83,3 +83,23 @@
 //     text-shadow: 0 0 5px rgba(6, 30, 30, 0.1), 0 0 10px rgba(6, 30, 30, 0.1), 0 0 15px rgba(6, 30, 30, 0.1), 0 0 20px rgba(6, 30, 30, 0.1);
 //   }
 // }
+
+.create-post-modal-holder {
+  width: fit-content;
+  margin: 0 auto;
+  border-radius: 8px;
+  .create-post-modal {
+    background-color: #666;
+    color: white;
+    padding: 10px 30px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 8px; 
+    margin-bottom: 20px;
+  }
+}
+
+.create-post-modal-holder:hover {
+  // box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.3);
+  background-color: #555;
+}
