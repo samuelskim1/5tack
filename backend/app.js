@@ -122,11 +122,25 @@ app.use((err, req, res, next) => {
 io.on('connection', (socket) => {
   console.log('A user connected');
 
-  // Handle new messages
-  socket.on('message', (msg) => {
-    console.log(`Message received: ${msg}`);
-    // Broadcast the message to all connected clients
-    io.emit('message', msg);
+  // Handle new comments
+  socket.on('newComment', (comment) => {
+    console.log(`Comment received: ${comment}`);
+    // Broadcast the comment to all connected clients
+    io.emit('comment', comment);
+  });
+
+  // Handle new posts
+  socket.on('newPost', (post) => {
+    console.log(`New post received: ${post.title}`);
+    // Broadcast the post to all connected clients
+    io.emit('newPost', post);
+  });
+
+  // Handle new reviews
+  socket.on('newReview', (review) => {
+    console.log(`New review received: ${review.content}`);
+    // Broadcast the review to all connected clients
+    io.emit('newReview', review);
   });
 
   socket.on('disconnect', () => {
