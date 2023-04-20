@@ -261,7 +261,7 @@ for (let i = 0; i < NUM_SEED_POSTS; i++) {
   // Truncate the title to 50 characters if it's longer
   title = title.length > 50 ? title.substring(0, 50) : title;
   const description = faker.lorem
-  .paragraphs(getRandomArbitrary(5, 20), "<br/>\n")
+  .paragraphs(getRandomArbitrary(5, 20), "\n")
   .substring(0, 400);
   posts.push(
     new Post({
@@ -322,15 +322,19 @@ for (let i = 0; i < NUM_SEED_REVIEWS; i++) {
   while (reviewer_id === user_id) {
     reviewer_id = getRandomUser().id;
   };
+  let title = faker.lorem.sentence(5);
+  // Truncate the title to 50 characters if it's longer
+  title = title.length > 50 ? title.substring(0, 50) : title;
   const rating = getRandomIntInclusive(1,5)
   const description = faker.lorem
     .sentences(getRandomArbitrary(1, 10))
-    .substring(0, 500); 
+    .substring(0, 400); 
     reviews.push(
       new Review({
         user_id: user_id,
         reviewer_id: reviewer_id,
         description: description,
+        title: title,
         rating: rating
       })
     );
@@ -344,15 +348,19 @@ for (let i = 0; i < 10; i++) {
   while (reviewer_id === user_id) {
     reviewer_id = getRandomUser().id;
   };
+  let title = faker.lorem.sentence(5);
+  // Truncate the title to 50 characters if it's longer
+  title = title.length > 50 ? title.substring(0, 50) : title;
   const rating = getRandomIntInclusive(1, 5)
   const description = faker.lorem
     .sentences(getRandomArbitrary(1, 10))
-    .substring(0, 500);
+    .substring(0, 400);
   reviews.push(
     new Review({
       user_id: user_id,
       reviewer_id: reviewer_id,
       description: description,
+      title: title,
       rating: rating
     })
   );
@@ -370,7 +378,7 @@ mongoose
   });
 
 const insertSeeds = () => {
-console.log("Resetting db and seeding users, categories, and games...");
+console.log("Resetting db and seeding users, categories, games, posts, comments, and reviews...");
 
 User.collection.drop()
                 .then(() => Game.collection.drop())
