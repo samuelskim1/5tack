@@ -11,22 +11,28 @@ const { io } = require('../../app');
 const { multipleFilesUpload, multipleMulterUpload } = require("../../awsS3");
 
 router.post('/', multipleMulterUpload("images"), multipleMulterUpload("videos"), requireUser, async (req, res) => {
-  const imageUrls = await multipleFilesUpload({ files: req.files.images, public: true });
-  const videoUrls = await multipleFilesUpload({ files: req.files.videos, public: true });
+  // await console.log("req", req);
+  // const imageUrls = await multipleFilesUpload({ files: req.files.images, public: true });
+  // const videoUrls = await multipleFilesUpload({ files: req.files.videos, public: true });
 
   const postData = {
-    ...req.body,
-    imageUrls,
-    videoUrls
+    ...req.body
+    // imageUrls,
+    // videoUrls
   };
-
+  
   try {
-    const newPost = await Post.create(postData);
+    const newPost = await Post.create(postData)
+                              .populate("author_id", "_id username profileImageUrl")
+                              .populate("comment_id")
+                              
     res.status(201).json(newPost);
+    // await console.log("res", res);
 
     // Emit a WebSocket event when a new post is created
-    io.emit('newPost', newPost);
+    // io.emit('newPost', newPost);
   } catch (error) {
+    // console.log("catching errors from the backend", error);
     res.status(400).json({ message: error.message });
   }
 });
@@ -34,7 +40,9 @@ router.post('/', multipleMulterUpload("images"), multipleMulterUpload("videos"),
 
 router.get('/', async (req, res) => {
   try {
-    const posts = await Post.find({}).populate("author_id", "_id username profileImageUrl");
+    const posts = await Post.find({})
+                            .populate("author_id", "_id username profileImageUrl")
+                            .populate("comment_id")
     const modifiedPosts = Object.assign({}, ...posts.map(post => ({ [post._id]: post })));
     res.status(200).json(modifiedPosts);
   } catch (error) {
@@ -45,7 +53,9 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const post = await Post.findById(req.params.id).populate("author_id", "_id username profileImageUrl");
+    const post = await Post.findById(req.params.id)
+                           .populate("author_id", "_id username profileImageUrl")
+                           .populate("comment_id")
     if (!post) {
       return res.status(404).json({ message: 'Post not found' });
     }
@@ -58,10 +68,13 @@ router.get('/:id', async (req, res) => {
 router.patch('/:id', requireUser,  async (req, res) => {
   try {
     const post = await Post.findByIdAndUpdate(
-      req.params.id,
-      { title: req.body.title, description: req.body.description },
-      { new: true }
-    );
+                            req.params.id,
+                            { title: req.body.title, description: req.body.description },
+                            { new: true }
+                            )
+                            .populate("author_id", "_id username profileImageUrl")
+                            .populate("comment_id")
+
     if (!post) {
       return res.status(404).json({ message: 'Post not found' });
     }
@@ -73,7 +86,9 @@ router.patch('/:id', requireUser,  async (req, res) => {
 
 router.delete('/:id', requireUser,  async (req, res) => {
   try {
-    const post = await Post.findByIdAndRemove(req.params.id);
+    const post = await Post.findByIdAndRemove(req.params.id)
+                           .populate("author_id", "_id username profileImageUrl")
+                           .populate("comment_id")
     if (!post) {
       return res.status(404).json({ message: 'Post not found' });
     }
@@ -104,9 +119,10 @@ router.get('/user/:username', async (req, res, next) => {
   try {
     const userPosts = await Post.find({ author_id: user.id })
       .sort({ createdAt: -1 })
-      .populate("comment_id", "content")
+      .populate("comment_id")
       .populate("author_id", "username profileImageUrl")
-    return res.json(userPosts);
+    const modifiedPosts = Object.assign({}, ...userPosts.map(post => ({ [post._id]: post })));
+    return res.json(modifiedPosts);
   }
   catch (err) {
     return res.json([]);
@@ -135,7 +151,8 @@ router.get('/game/:nameURL', async (req, res, next) => {
       .sort({ createdAt: -1 })
       .populate("comment_id")
       .populate("author_id", "username profileImageUrl")
-    return res.json(gamePosts);
+    const modifiedPosts = Object.assign({}, ...gamePosts.map(post => ({ [post._id]: post })));
+    return res.json(modifiedPosts);
   }
   catch (err) {
     return res.json([]);

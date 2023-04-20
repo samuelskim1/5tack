@@ -5,12 +5,17 @@ const reviewSchema = new Schema({
     user_id: {
       type: Schema.Types.ObjectId,
       ref: 'User',
-      // required: true
+      required: true
     },
     reviewer_id: { 
       type: Schema.Types.ObjectId,
       ref: 'User',
-      // required: true
+      required: true
+    },
+    title: {
+      type: String,
+      required: true,
+      maxlength: 50
     },
     rating: {
       type: Number,
@@ -18,7 +23,8 @@ const reviewSchema = new Schema({
     },
     description: {
       type: String,
-      required: true
+      required: true,
+      maxlength: 400
     },
   }, 
   {

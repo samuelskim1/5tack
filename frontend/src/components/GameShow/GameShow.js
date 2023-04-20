@@ -6,13 +6,12 @@ import { fetchGame } from "../../store/games";
 import { fetchGamePosts } from "../../store/posts";
 import PostIndex from "../PostIndex/PostIndex";
 import "./GameShow.scss";
+import CreatePostModal from "../PostForms/CreatePostModal";
 
 const GameShow = () => {
   const { nameURL } = useParams();
   const game = useSelector(state => state.games[nameURL]);
   const gamePosts = useSelector(state => Object.values(state.posts));
-  console.log("gameState:", game);
-  console.log(game)
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
 
@@ -33,6 +32,7 @@ const GameShow = () => {
             ))}
           </div>
           <h2 className="game-Name">{game.name}</h2>
+          <CreatePostModal game={game} />
           <PostIndex posts={gamePosts}/>
         </div>
       ) : (

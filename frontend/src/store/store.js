@@ -7,6 +7,7 @@ import categories from './categories';
 import posts from './posts';
 import games from './games';
 import comments from './comments';
+import reviews from './reviews';
 
 const rootReducer = combineReducers({
   session,
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
   categories,
   posts,
   games,
-  comments
+  comments,
+  reviews
 });
 
 let enhancer;

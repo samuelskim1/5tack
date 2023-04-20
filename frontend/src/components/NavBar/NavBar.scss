@@ -145,3 +145,29 @@ a {
 //         }
 //     }
 // }
+
+
+.about-button {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    background-color: #777;
+    color: #fff;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    z-index: 1000;
+  }
+  
+  .about-button:hover {
+    background-color: #111;
+  }
+
+  .about-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  

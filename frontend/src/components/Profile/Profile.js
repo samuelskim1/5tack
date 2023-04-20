@@ -4,20 +4,25 @@ import UserInfo from "../UserInfo/UserInfo";
 import { useParams } from "react-router-dom";
 import './Profile.scss';
 import PostIndex from "../PostIndex/PostIndex";
+import ReviewIndex from "../ReviewIndex/ReviewIndex";
 import { fetchUserPosts } from "../../store/posts";
+import { fetchUserReviews } from "../../store/reviews";
 import { fetchUser } from "../../store/users";
 
 const Profile = () => {
     const dispatch = useDispatch();
     const { username } = useParams();
     const user = useSelector(state => state?.users[username]);
-    const posts = useSelector(state => typeof(state?.posts) === 'object' ? Object.values(state?.posts) : state?.posts);
+    const posts = useSelector(state => Object.values(state?.posts));
+    //  const posts = useSelector(state => Object.values(state?.posts));
+    const reviews = useSelector(state => Object.values(state?.reviews))
     const [tab, setTab] = useState('reviews');
 
 
     useEffect(() => {
         dispatch(fetchUser(username));
         dispatch(fetchUserPosts(username));
+        dispatch(fetchUserReviews(username));
     }, [dispatch, username]);
 
 
@@ -47,9 +52,7 @@ const Profile = () => {
             </div>
 
             {tab === 'reviews' && (
-                <div id="reviews-index-container">
-                    
-                </div>
+                <ReviewIndex reviews={reviews}/>
             )}
 
             {tab === 'posts' && (
