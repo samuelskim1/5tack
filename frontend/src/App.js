@@ -22,11 +22,12 @@ const App = () => {
   return loaded && (
     <div id='entire-app'>
       <NavBar />
+
       <div className='main-content'>
         <Switch>
           <AuthRoute exact path="/" component={SplashPage} />
           <ProtectedRoute exact path="/home" component={HomePage} />
-          <ProtectedRoute exact path="/about" component={AboutPage} />
+          <Route exact path="/about" component={AboutPage} />
           {/* <ProtectedRoute exact path={`/:username`} component={Profile} /> */}
           <ProtectedRoute exact path={`/:username`} component={Profile} />
           <ProtectedRoute exact path="/games/:nameURL" component={GameShow} />
