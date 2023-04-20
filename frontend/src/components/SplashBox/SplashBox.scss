@@ -4,17 +4,21 @@
     position: absolute;
     bottom: 8vh;
     justify-content: space-between;
-    width: 70vw;
+    width: 60vw;
     left: 0; 
     right: 0; 
     margin-left: auto; 
     margin-right: auto; 
-
+    
     .splash-box {
+        // animation: fadeIn s;
+        opacity: 0;
+        transition: opacity 3s ease-in 3.6s;
         background-color: rgb(244, 227, 197);
         color: black;
         width: 30%;
-        height: 13vw;
+        height: 12vw;
+        max-height: 200px;
         border-radius: 10px;
         display: flex;
         flex-wrap: wrap;
@@ -28,4 +32,14 @@
             font-size: 16px;
         }
     }
+
+    .fade-in {
+        // animation: fadeIn 5s;
+        opacity: 1;
+    }
+
+    // @keyframes fadeIn {
+    //     0% { opacity: 0; }
+    //     100% { opacity: 1; }
+    //   }
 }
