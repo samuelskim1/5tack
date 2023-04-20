@@ -3,8 +3,10 @@ import jwtFetch from "./jwt";
 // ACTIONS
 const RECEIVE_REVIEWS = "reviews/RECEIVE_REVIEWS";
 const RECEIVE_REVIEW = "reviews/RECEIVE_REVIEW";
+const RECEIVE_USER_REVIEWS = "posts/RECEIVE_USER_REVIEWS";
 const RECEIVE_REVIEW_ERRORS = "reviews/RECEIVE_REVIEW_ERRORS";
 const CLEAR_REVIEW_ERRORS = "reviews/CLEAR_REVIEW_ERRORS";
+
 
 // ACTION CREATORS
 export const receiveReview = review => ({
@@ -16,6 +18,11 @@ export const receiveReviews = reviews => ({
     type: RECEIVE_REVIEWS,
     reviews
 });
+
+export const receiveUserReviews = (userReviews) => ({
+    type: RECEIVE_USER_REVIEWS,
+    userReviews
+})
 
 const receiveErrors = errors => ({
     type: RECEIVE_REVIEW_ERRORS,
@@ -52,6 +59,12 @@ export const fetchReviews = () => async dispatch => {
             return dispatch(receiveErrors(res.errors));
         }
     }
+}
+
+export const fetchUserReviews = (username) => async dispatch => {
+    const res = await jwtFetch(`/api/reviews/user/${username}`);
+    const userReviews = await res.json();
+    return dispatch(receiveUserReviews(userReviews));
 }
 
 export const createReview = reviewInfo => async dispatch => {
