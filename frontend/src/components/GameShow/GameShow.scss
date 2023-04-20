@@ -10,6 +10,11 @@
   text-align: center;
   // max-width: 600px;
   width: 100%;
+
+  .posts-index-container {
+    height: auto;
+    text-align: left;
+  }
 }
 
 .game-show-images {
@@ -53,7 +58,6 @@
 .game-Name {
   // color: var(--glow-color);
   color: #fff;
-  cursor: pointer;
   padding: 0.35em 1em;
   // border: 0.15em solid var(--glow-color);
   border-radius: 0.45em;

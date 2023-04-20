@@ -7,7 +7,7 @@ a {
 
 .line-divider {
     border-bottom: 1px white solid;
-    margin: 10px 0;
+    margin: 5px 0;
 }
 
 #nav-container {
@@ -32,7 +32,7 @@ a {
         // min-width: 200px;
         width: 100%;
         height: min-content;
-        padding: 20px 30px;
+        padding: 17px;
         // background-color: rgb(52, 56, 99);
         background-color: #666;
         .upper-nav {
@@ -69,17 +69,9 @@ a {
                 margin-bottom: 10px;
             }
 
-            .logout-btn {
-                background-color: white;
-                // color: #aaaaaa;
-                color: black;
-                border-radius: 5px;
-                border: 1px solid #aaaaaa;
-                cursor: pointer;
-            }
         }
         .lower-nav {
-            padding-top: 10px;
+            padding: 10px 0;
             .category-item {
                 list-style: none;
                 position: relative;
@@ -93,6 +85,16 @@ a {
     }
 }
 
+.logout-btn {
+    background-color: white;
+    // color: #aaaaaa;
+    color: black;
+    border-radius: 5px;
+    border: 1px solid #aaaaaa;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 20px;
+}
 // #nav-container {
 //     // width: 100vw;
 //     // height: 100px;

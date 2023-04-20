@@ -1,13 +1,13 @@
 .dropdown {
     position: absolute;
-    background-color: black;
+    background-color: #111;
     left: 100.5%;
-    top: -2px;
+    top: 0px;
     width: max-content;
     padding: 0 10px;
     z-index: 1;
     // box-sizing: content-box;
-    border-radius: 1px solid white;
+    border-radius: 8px;
     // display: none;
     .line-divider {
         border-bottom: 1px white solid;

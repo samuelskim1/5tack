@@ -11,8 +11,6 @@ const GameShow = () => {
   const { nameURL } = useParams();
   const game = useSelector(state => state.games[nameURL]);
   const gamePosts = useSelector(state => state.posts);
-  console.log("gameState:", game);
-  console.log(game)
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
 
