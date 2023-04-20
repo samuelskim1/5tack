@@ -3,6 +3,7 @@ import LoginModal from '../SessionForms/LoginModal';
 import SignupModal from '../SessionForms/SignupModal';
 import './SplashPage.scss';
 import '../SessionForms/SessionForm.scss';
+import SplashBox from '../SplashBox/SplashBox';
 
 const SplashPage = () => {
   const stack1 = useRef();
@@ -48,23 +49,10 @@ const SplashPage = () => {
           <SignupModal />
         </div>
       </div>
-
-      <div id="actual-bottom-of-splash">
-        <div className='little-squishy'>
-        
-        </div>
-        <div className='little-squishy'>
-          
-        </div>
-        <div className='little-squishy'>
-        
-        </div>
-        <div className='little-squishy'>
-        
-        </div>
-        <div className='little-squishy'>
-          
-        </div>
+      <div className='splash-box-container'>
+        <SplashBox title="Customize Your Profile" text="Tell us about yourself and your gaming interests" />
+        <SplashBox title="Create Your Own Team" text="Find teammates with similar interests and gaming style." />
+        <SplashBox title="Review Your Teammates" text="Help the community gain a better understanding of this player" />
       </div>
     </div>
   );

@@ -1,0 +1,31 @@
+.splash-box-container {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 8vh;
+    justify-content: space-between;
+    width: 70vw;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+
+    .splash-box {
+        background-color: rgb(244, 227, 197);
+        color: black;
+        width: 30%;
+        height: 13vw;
+        border-radius: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 20px;
+        box-sizing: border-box;
+        text-align: center;
+        .box-title {
+            font-size: 24px;
+        }
+        .box-text {
+            font-size: 16px;
+        }
+    }
+}
