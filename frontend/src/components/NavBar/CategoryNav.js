@@ -5,14 +5,9 @@ import CategoryDropdown from "../CategoryDropdown/CategoryDropdown";
 import { Link } from "react-router-dom";
 
 const CategoryNav = () => {
-    const useRef = useRef();
     const dispatch = useDispatch();
     const categories = useSelector(state => Object.values(state.categories));
-    const [show, setShow] = useState(false);
-    for(let i = 0; i < categories.length; i++) {
-        eval('var catitem' + i.to_s + '= useRef;' );
-    };
-
+    // const [show, setShow] = useState(false);
 
     useEffect(() => {
         dispatch(fetchCategories());
@@ -59,22 +54,13 @@ const CategoryNav = () => {
             <>
                 <li 
                     className="category-item" 
-                    onClick={() => setShow(cat.name)} 
                     key={i}
-                    ref={eval('catitem' + i.to_s)}
+                    id={cat.name.split("$")[0]}
                 >
-                    {cat.name.split("$")[0]}
-                    {show === cat.name && 
-                        <div className="dropdown">
-                            <p className='dropdown-name'>{cat.name.split("$")[1] ? cat.name.split("$")[1] : cat.name.split("$")[0]}</p>
-                            <div className='line-divider'/>
-                            {cat.game_id.map(game => 
-                                <Link to={`/games/${game.nameURL}`}>
-                                    <div className="dropdown-item">{game.name}</div>
-                                </Link>
-                            )}
-                        </div>
-                    }
+                    {/* {cat.name.split("$")[0]} */}
+                    {/* {show === cat.name &&  */}
+                        <CategoryDropdown category={cat} />
+                    {/* } */}
                 </li>
             </>
             )}

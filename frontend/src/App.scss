@@ -5,6 +5,7 @@ $neutral-text: #e4dfd5;
 #entire-app {
     display: flex;
     .main-content {
+        z-index: -1;
         width: calc(100vw - 250px);
         min-height: 100vh;
     }
