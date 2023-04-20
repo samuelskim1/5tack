@@ -4,18 +4,39 @@ import TimeStamp from '../TimeStamp/TimeStamp';
 import Avatar from '../UserInfo/Avatar';
 import './CommentsIndex.scss';
 import { useEffect, useState } from 'react';
-import { fetchAllComments } from '../../store/comments';
+import { createComment, fetchAllComments } from '../../store/comments';
 import { Link } from 'react-router-dom';
 
 const CommentsIndex = ({ post }) => {
   const dispatch = useDispatch();
-  const comments = useSelector(state => Object.values(state.comments).slice(1, 5));
+  const errors = useSelector(state => state?.errors?.comments)
+  const comments = useSelector(state => Object.values(state.comments));
   const currentUser = useSelector(state => state.session.user)
   const [content, setContent] = useState('');
 
   useEffect(() => {
     dispatch(fetchAllComments());
   }, [dispatch])
+
+  const handleSubmit = (e) => {
+    if (e.key === 'Enter') {
+      dispatch(createComment({
+        author_id: {
+          profileImageUrl: currentUser.profileImageUrl, 
+          username: currentUser.username,
+          _id: currentUser._id
+        },
+        content: content,
+        post_id: {
+          _id: post._id
+        }
+      }))
+    }
+  };
+
+  const handleChange = (e) => {
+    setContent(e.target.value);
+  };
 
 
   return (
@@ -44,20 +65,22 @@ const CommentsIndex = ({ post }) => {
             <Avatar user={currentUser} />
           </Link>
         <div className='comment-text-holder'>
-          <div className='author-block'>
+          {/* <div className='author-block'>
             <div className='author-username'>
               <Link to={`/${currentUser.username}`}>
                 {currentUser.username}
               </Link>
             </div>
-          </div>
+          </div> */}
           <div className='comment-body'>
             <textarea
               placeholder='Say something to begin your premade journey!'
               value={content}
-              onChange={(e) => setContent(e.target.value)}
+              onChange={(e) => handleChange(e)}
+              onKeyDown={(e) => handleSubmit(e)}
             />
           </div> 
+          {!!errors?.content && <div className='errors'>{errors?.content}</div>}
         </div>
       </div>
     </div>

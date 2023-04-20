@@ -14,7 +14,7 @@ router.post('/', requireUser, async (req, res) => {
     const newComment = await Comment.create(commentData);
     res.status(201).json(newComment);
 
-    io.emit('newComment', newComment);
+    // io.emit('newComment', newComment);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
