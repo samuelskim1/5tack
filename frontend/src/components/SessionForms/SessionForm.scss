@@ -27,7 +27,7 @@
 }
 
 #session-form-container {
-  width: 460px;
+  width: 400px;
   height: 100%;
   background-color: rgb(245, 245, 245);
   border-radius: 8px;
@@ -51,6 +51,15 @@
   color: $errors-color;
   font-size: 12px;
   font-weight: 300;
+}
+
+#log-demo-btn-holder {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 200px;
+  height: 100px;
 }
 
 .session-form span {
@@ -88,7 +97,7 @@
 }
 
 #submit-login-btn {
-  margin-top: 20px;
+  // margin-top: 20px;
   border-radius: 8px;
   padding: 12px;
   background-color: #0c1398;

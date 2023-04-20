@@ -7,12 +7,7 @@ import { useEffect } from 'react';
 import { fetchAllComments } from '../../store/comments';
 
 const PostIndexItem = ({ post }) => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchAllComments());
-  }, [dispatch])
-
+  
   return (
     <div className='post-index-item'>
       <div className='post-index-title'>
