@@ -35,7 +35,9 @@ router.post('/', multipleMulterUpload("images"), multipleMulterUpload("videos"),
 router.get('/', async (req, res) => {
   debugger;
   try {
-    const posts = await Post.find({}).populate("author_id", "_id username profileImageUrl");
+    const posts = await Post.find({})
+                            .populate("author_id", "_id username profileImageUrl")
+                            .populate("comment_id")
     const modifiedPosts = Object.assign({}, ...posts.map(post => ({ [post._id]: post })));
     res.status(200).json(modifiedPosts);
   } catch (error) {
@@ -46,7 +48,9 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const post = await Post.findById(req.params.id).populate("author_id", "_id username profileImageUrl");
+    const post = await Post.findById(req.params.id)
+                           .populate("author_id", "_id username profileImageUrl")
+                           .populate("comment_id")
     if (!post) {
       return res.status(404).json({ message: 'Post not found' });
     }
@@ -59,10 +63,13 @@ router.get('/:id', async (req, res) => {
 router.patch('/:id', requireUser,  async (req, res) => {
   try {
     const post = await Post.findByIdAndUpdate(
-      req.params.id,
-      { title: req.body.title, description: req.body.description },
-      { new: true }
-    );
+                            req.params.id,
+                            { title: req.body.title, description: req.body.description },
+                            { new: true }
+                            )
+                            .populate("author_id", "_id username profileImageUrl")
+                            .populate("comment_id")
+
     if (!post) {
       return res.status(404).json({ message: 'Post not found' });
     }
@@ -74,7 +81,9 @@ router.patch('/:id', requireUser,  async (req, res) => {
 
 router.delete('/:id', requireUser,  async (req, res) => {
   try {
-    const post = await Post.findByIdAndRemove(req.params.id);
+    const post = await Post.findByIdAndRemove(req.params.id)
+                           .populate("author_id", "_id username profileImageUrl")
+                           .populate("comment_id")
     if (!post) {
       return res.status(404).json({ message: 'Post not found' });
     }
