@@ -48,6 +48,24 @@ const SplashPage = () => {
           <SignupModal />
         </div>
       </div>
+
+      <div id="actual-bottom-of-splash">
+        <div className='little-squishy'>
+        
+        </div>
+        <div className='little-squishy'>
+          
+        </div>
+        <div className='little-squishy'>
+        
+        </div>
+        <div className='little-squishy'>
+        
+        </div>
+        <div className='little-squishy'>
+          
+        </div>
+      </div>
     </div>
   );
 };
