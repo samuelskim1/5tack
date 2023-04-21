@@ -21,9 +21,9 @@ const CommentsIndex = ({ post }) => {
   //   dispatch(fetchAllComments());
   // }, [dispatch])
   
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     if (e.key === 'Enter') {
-      let created = {
+      let createdComment = {
         author_id: {
           profileImageUrl: currentUser.profileImageUrl, 
           username: currentUser.username,
@@ -34,8 +34,8 @@ const CommentsIndex = ({ post }) => {
           _id: post._id
         }
       }
-      dispatch(createComment(created));
-      post.comment_id.push(created);
+      const commentData = await dispatch(createComment(createdComment));
+      post.comment_id.push(commentData);
       dispatch(updatedPost(post));
     }
   };

@@ -69,7 +69,7 @@ router.patch('/:id', requireUser,  async (req, res) => {
   try {
     const post = await Post.findByIdAndUpdate(
                             req.params.id,
-                            { title: req.body.title, description: req.body.description },
+                            { title: req.body.title, description: req.body.description, comment_id: req.body.comment_id },
                             { new: true }
                             )
                             .populate("author_id", "_id username profileImageUrl")

@@ -71,6 +71,7 @@ export const createComment = (comment) => async dispatch => {
         });
         const commentData = await res.json();
         dispatch(receiveComment(commentData));
+        return commentData;
     } catch(err) {
         const res = await err.json();
         if (res.statusCode === 400) {
