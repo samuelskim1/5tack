@@ -15,7 +15,7 @@ const userSchema = new Schema({
   },
   description: {
     type: String,
-    required: true,
+    // required: true,
     maxlength: 400
   },
   profileImageUrl: {
