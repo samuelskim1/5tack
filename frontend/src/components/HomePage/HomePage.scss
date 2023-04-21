@@ -1,28 +1,47 @@
+@import '../../App.scss';
+
 .home-container {
-    margin: 20px;
+    padding: 30px 5px;
+    margin: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // justify-content: center;
+
+    h1 {
+      font-size: 8vw;
+      font-weight: 700;
+      color: $neutral-text;
+    }
 
     .header-text {
       text-align: center;
-      font-size: 28px;
-      margin-bottom: 20px;
-      color: white;
+      font-size: 1.42vw;
+      font-weight: 300;
+      margin-bottom: 30px;
+      color: $neutral-text;
+      width: 85%;
     }
   
     .body-text {
       padding: 20px;
       line-height: 1.5;
-      font-size: 18px;
+      font-size: 1.8vw;
       text-align: center;
       text-justify: inter-word;
       margin-bottom: 20px;
-      color: white;
+      color: $neutral-text;
+      max-width: 90%;
+      box-shadow: 0 0 20px 1px #333;
+      border-radius: 12px;
+      font-weight: 300;
     }
   
     .ending-text {
       text-align: center;
       font-size: 24px;
       margin-bottom: 20px;
-      color: white;
+      color: $neutral-text;
     }
 
     .swiper-image {
@@ -30,6 +49,12 @@
     }
     
     swiper-container {
+      max-width: 40vw;
+      width: 35vw;
+      background-color: $neutral-text;
+      padding: 25px 15px 5px 15px;
+      border-radius: 12px;
+      margin-bottom: 20px;
     
         swiper-slide {
             display: flex;
@@ -38,7 +63,8 @@
             
             img {
                 display: block;
-                max-height: 300px;
+                max-height: 35vh;
+                margin-bottom: 25px;
             }
         }
     }
