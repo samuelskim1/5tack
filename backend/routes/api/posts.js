@@ -22,11 +22,11 @@ router.post('/', multipleMulterUpload("images"), multipleMulterUpload("videos"),
   };
   
   try {
-    const newPost = await Post.create(postData)
-                              .populate("author_id", "_id username profileImageUrl")
-                              .populate("comment_id")
-                              
-    res.status(201).json(newPost);
+    const newPost = await Post.create(postData);
+    const findNewPost = await Post.findById(newPost._id)
+                                          .populate("author_id", "_id username profileImageUrl")
+                                          .populate("comment_id");
+    res.status(201).json(findNewPost);
     // await console.log("res", res);
 
     // Emit a WebSocket event when a new post is created
@@ -41,6 +41,7 @@ router.post('/', multipleMulterUpload("images"), multipleMulterUpload("videos"),
 router.get('/', async (req, res) => {
   try {
     const posts = await Post.find({})
+                            .sort({ createdAt: -1 })
                             .populate("author_id", "_id username profileImageUrl")
                             .populate("comment_id")
     const modifiedPosts = Object.assign({}, ...posts.map(post => ({ [post._id]: post })));
@@ -54,6 +55,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const post = await Post.findById(req.params.id)
+                           .sort({ createdAt: -1 })
                            .populate("author_id", "_id username profileImageUrl")
                            .populate("comment_id")
     if (!post) {

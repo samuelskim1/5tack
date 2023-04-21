@@ -1,26 +1,25 @@
 import { useState } from 'react';
 import { Modal } from "../../context/modal";
-import CreatePostForm from './CreatePostForm';
+import UpdatePostForm from './UpdatePostForm';
 
-const CreatePostModal = ({ game }) => {
+const UpdatePostModal = ({ post }) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <div className='create-post-modal-holder'>
+    <div className='update-post-modal-holder'>
       <div
-        className='create-post-modal'
+        className='update-post-modal'
         onClick={() => setShowModal(true)}
       >
-        Post
+        <i class="fa-solid fa-pen"></i>
       </div>
-
       {showModal && (
         <Modal onClose={() => setShowModal(false)} >
-          <CreatePostForm game={game} setShowModal={setShowModal} />
+          <UpdatePostForm post={post} setShowModal={setShowModal} />
         </Modal>
       )}
     </div>
   );
 };
 
-export default CreatePostModal;
+export default UpdatePostModal;
