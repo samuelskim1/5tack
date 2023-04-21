@@ -25,7 +25,7 @@
   position: absolute;
   top: 10vh;
   left: -50vw;
-  transition: transform 2s ease-in;
+  transition: transform 1.4s ease-in;
   opacity: 0.2;
 }
 
@@ -37,7 +37,7 @@
   position: absolute;
   top: -90vh;
   left: -50vw;
-  transition: transform 2.2s ease-in 0.4s;
+  transition: transform 1.7s ease-in 0.2s;
   opacity: 0.3;
 }
 
@@ -49,7 +49,7 @@
   position: absolute;
   top: -90vh;
   left: 50vw;
-  transition: transform 2.4s ease-in 0.4s;
+  transition: transform 1.9s ease-in 0.3s;
   opacity: 0.3;
 }
 
@@ -61,7 +61,7 @@
   position: absolute;
   top: -90vh;
   right: -50vw;
-  transition: transform 2.6s ease-in 0.6s;
+  transition: transform 2.1s ease-in 0.4s;
   opacity: 0.4;
 }
 
@@ -73,7 +73,7 @@
   position: absolute;
   top: 10vh;
   right: -50vw;
-  transition: transform 2.8s ease-in 0.8s;
+  transition: transform 2s ease-in 0.5s;
   opacity: 0.7;
 }
 
@@ -89,7 +89,7 @@
   flex-direction: column;
   align-items: center;
   opacity: 0;
-  transition: opacity 3s ease-in 3.6s;
+  transition: opacity 1.8s ease-in 2.5s;
 }
 
 #splash-description {
@@ -114,48 +114,4 @@
   min-width: 300px;
   font-size: 24px;
   letter-spacing: normal;
-}
-
-// #actual-bottom-of-splash {
-//   position: absolute;
-//   bottom: 10vh;
-//   width: 100vw;
-//   height: 20vh;
-//   background-color: white;
-//   display: flex;
-//   flex-direction: row;
-//   align-items: center;
-//   justify-content: space-between;
-// }
-
-// .litte-squishy {
-//   display: inline-block;
-//   width: 100px;
-//   height: 100px;
-//   background-color: black;
-//   font-size: 28px;
-//   color: black;
-// }
-
-.about-button {
-  position: absolute;
-  top: 25px;
-  right: 25px;
-  background-color: #777;
-  color: #fff;
-  padding: 12px 24px;
-  font-size: 16px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.about-button:hover {
-  background-color: #111;
-}
-
-.about-link {
-  text-decoration: none;
-  color: inherit;
 }

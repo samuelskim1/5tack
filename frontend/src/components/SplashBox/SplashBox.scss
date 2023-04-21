@@ -1,10 +1,12 @@
+@import '../../App.scss';
+
 .splash-box-container {
     display: flex;
     flex-direction: row;
     position: absolute;
-    bottom: 8vh;
+    bottom: 10vh;
     justify-content: space-between;
-    width: 60vw;
+    width: 65vw;
     left: 0; 
     right: 0; 
     margin-left: auto; 
@@ -13,23 +15,33 @@
     .splash-box {
         // animation: fadeIn s;
         opacity: 0;
-        transition: opacity 3s ease-in 3.6s;
-        background-color: rgb(244, 227, 197);
+        transition: opacity 1.5s ease-in 3.3s;
+        background-color: $neutral-text;
         color: black;
+        min-width: 250px;
         width: 30%;
         height: 12vw;
+        min-height: 150px;
         max-height: 200px;
-        border-radius: 10px;
+        border-radius: 12px;
         display: flex;
-        flex-wrap: wrap;
+        // flex-wrap: wrap;
+        flex-direction: column;
         padding: 20px;
         box-sizing: border-box;
         text-align: center;
+        margin: 0 15px;
         .box-title {
             font-size: 24px;
+            letter-spacing: 0;
+            font-weight: 600;
+            margin-bottom: 20px;
         }
         .box-text {
             font-size: 16px;
+            letter-spacing: 0.01em;
+            font-weight: 300;
+            height: 100%;
         }
     }
 

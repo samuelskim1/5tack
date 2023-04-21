@@ -60,9 +60,10 @@ export const fetchComment = comment => async dispatch => {
 }
 
 export const createComment = (comment) => async dispatch => {
+    debugger
     try {
         const res = await jwtFetch(`/api/comments/`, {
-            method: "comment",
+            method: "POST",
             body: JSON.stringify(comment),
             headers: {
                 'Content-Type': 'application/json'
@@ -70,6 +71,7 @@ export const createComment = (comment) => async dispatch => {
         });
         const commentData = await res.json();
         dispatch(receiveComment(commentData));
+        return commentData;
     } catch(err) {
         const res = await err.json();
         if (res.statusCode === 400) {
@@ -134,7 +136,7 @@ const commentsReducer = (state = {}, action) => {
         case RECEIVE_COMMENTS:
             return { ...nextState, ...action.comments };
         case RECEIVE_COMMENT:
-            nextState[action.comment.id] = action.comment;
+            nextState[action.comment._id] = action.comment;
             return nextState;
         case REMOVE_COMMENT:
             delete nextState[action.commentId];
