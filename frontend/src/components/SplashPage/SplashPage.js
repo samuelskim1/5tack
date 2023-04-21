@@ -41,7 +41,7 @@ const SplashPage = () => {
 
       <button className="about-button">
         <Link to="/about" className="about-link">
-          About
+          Meet the Team
         </Link>
       </button>
       
