@@ -59,18 +59,20 @@ const LoginForm = () => {
               placeholder="Enter your password"
             />
           </label>
-          <div 
-            id="submit-login-btn"
-            onClick={handleSubmit}
-            >
-            Log In
-          </div>
-          <div id="or-text">OR</div>
-          <div 
-            id="submit-demo-btn"
-            onClick={demoLogin}
-            >
-            Demo Login
+          <div id="log-demo-btn-holder">
+            <div 
+              id="submit-login-btn"
+              onClick={handleSubmit}
+              >
+              Log In
+            </div>
+            {/* <div id="or-text">OR</div> */}
+            <div 
+              id="submit-demo-btn"
+              onClick={demoLogin}
+              >
+              Demo Login
+            </div>
           </div>
           <div 
             id="alternate-form"

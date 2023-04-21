@@ -33,7 +33,7 @@ const SignupForm = () => {
             {currModal === 'signup' && (
             <div id="session-form-container">
                 <form className="session-form">
-                <h2>Welcome to 5tack!</h2>
+                <h2>Welcome to 5TACK!</h2>
                     <label>
                         <span>Email</span>
                         <input

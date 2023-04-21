@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 
 const TimeStamp = ({ post, review, comment }) => {
-  // let postDate = new Date(post.createdAt);
   let postDate;
   if (post) {
     postDate = new Date(post.createdAt);
