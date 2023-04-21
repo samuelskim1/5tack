@@ -26,23 +26,27 @@
     .body-text {
       padding: 20px;
       line-height: 1.5;
-      font-size: 1.8vw;
+      font-size: 18px;
       text-align: center;
-      text-justify: inter-word;
+      padding: 50px;
+      color: white;
+      font-size: 20px;
       margin-bottom: 20px;
-      color: $neutral-text;
-      max-width: 90%;
-      box-shadow: 0 0 20px 1px #333;
-      border-radius: 12px;
-      font-weight: 300;
+      color: white;
     }
   
-    .ending-text {
+    .header-end {
+      background-image: url("https://5tack.s3.amazonaws.com/public/game-background.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
       text-align: center;
+      padding: 50px;
+      color: white;
       font-size: 24px;
       margin-bottom: 20px;
-      color: $neutral-text;
+      color: white;
     }
+  
 
     .swiper-image {
         border-radius: 4%;
