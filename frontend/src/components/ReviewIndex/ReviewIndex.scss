@@ -29,15 +29,33 @@
 
 
     .review-index-rating {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         box-sizing: border-box;
+        font-size: 28px;
+        font-weight: 600;
         min-width: 500px;
         max-width: 650px;
-        width: 50%;
+        width: 100%;
         padding: 25px;
         outline: 1px solid $neutral-text;
         border-radius: 12px 12px 0px 0px;
         color: $neutral-text;
-        margin-bottom: 50px;
+    }
+
+    .review-index-rating i {
+        margin-left: 12px;
+        font-size: 24px;
+    }
+
+    .review-index-item-information {
+        box-sizing: border-box;
+        min-width: 500px;
+        max-width: 650px;
+        width: 100%;
+        padding: 25px;
+        color: #e4dfd5;
     }
 
 
@@ -49,7 +67,7 @@
 
 
         >.timestamp {
-            font-size: 12px;
+            font-size: 14px;
             font-weight: 200;
         }
     }
@@ -86,7 +104,7 @@
     }
 
     .review-index-description {
-        font-size: 15px;
+        font-size: 18px;
         line-height: 1.15em;
         font-weight: 300;
         margin-bottom: 20px;
