@@ -87,7 +87,7 @@ const CommentsIndex = ({ post }) => {
       ))}
 
       <div className='comment-item'>
-          <Link to={`/${currentUser.username}`}>
+          <Link to={`/${currentUser?.username}`}>
             <Avatar user={currentUser} />
           </Link>
         <div className='comment-text-holder'>

@@ -1,48 +1,39 @@
-.home-container {
-    margin: 20px;
+@import '../../App.scss';
 
-    .swiper-image {
-      border-radius: 4%;
+.home-container {
+    padding: 30px 5px;
+    margin: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // justify-content: center;
+    background-color: #333;
+
+    h1 {
+      font-size: 8vw;
+      font-weight: 700;
+      color: $neutral-text;
     }
-  
+
     .header-text {
       text-align: center;
-      font-size: 28px;
-      margin-bottom: 20px;
-      color: white;
+      font-size: 1.42vw;
+      font-weight: 300;
+      margin-bottom: 30px;
+      color: $neutral-text;
+      width: 85%;
     }
   
-    .header-body1 {
-      background-image: url("https://5tack.s3.amazonaws.com/public/game-background.jpg");
-      background-repeat: no-repeat;
-      background-size: cover;
+    .body-text {
+      padding: 20px;
+      line-height: 1.5;
+      font-size: 18px;
       text-align: center;
       padding: 50px;
-      color: white;
+      color: $neutral-text;
       font-size: 20px;
       margin-bottom: 20px;
-    }
-  
-    .header-body2 {
-      background-image: url("https://5tack.s3.amazonaws.com/public/game-background.jpg");
-      background-repeat: no-repeat;
-      background-size: cover;
-      text-align: center;
-      padding: 50px;
-      color: white;
-      font-size: 20px;
-      margin-bottom: 20px;
-    }
-  
-    .header-body3 {
-      background-image: url("https://5tack.s3.amazonaws.com/public/game-background.jpg");
-      background-repeat: no-repeat;
-      background-size: cover;
-      text-align: center;
-      padding: 50px;
-      color: white;
-      font-size: 20px;
-      margin-bottom: 20px;
+      color: $neutral-text;
     }
   
     .header-end {
@@ -51,9 +42,10 @@
       background-size: cover;
       text-align: center;
       padding: 50px;
-      color: white;
+      color: $neutral-text;
       font-size: 24px;
       margin-bottom: 20px;
+      color: $neutral-text;
     }
   
 
@@ -62,6 +54,12 @@
     }
     
     swiper-container {
+      max-width: 40vw;
+      width: 35vw;
+      background-color: $neutral-text;
+      padding: 25px 15px 5px 15px;
+      border-radius: 12px;
+      margin-bottom: 20px;
     
         swiper-slide {
             display: flex;
@@ -70,7 +68,8 @@
             
             img {
                 display: block;
-                max-height: 300px;
+                max-height: 35vh;
+                margin-bottom: 25px;
             }
         }
     }

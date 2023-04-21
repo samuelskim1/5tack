@@ -1,3 +1,5 @@
+@import '../../App.scss';
+
 .dropdown {
     position: absolute;
     background-color: #111;
@@ -10,7 +12,7 @@
     border-radius: 4px;
     // display: none;
     .line-divider {
-        border-bottom: 1px white solid;
+        border-bottom: 1px $neutral-text solid;
         margin: 5px 0;
     }
 }
