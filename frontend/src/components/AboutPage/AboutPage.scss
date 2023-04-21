@@ -5,11 +5,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-}
-
-.aboutPageContainer {
+  min-height: 100vh;
   font-size: 50px;
+  padding: 20px;
 }
 
 .aboutContainer {
@@ -22,6 +20,7 @@
 }
 
 .team-member {
+  max-width: 100%; 
   text-align: center;
   margin: 20px;
   min-height: 690px;
