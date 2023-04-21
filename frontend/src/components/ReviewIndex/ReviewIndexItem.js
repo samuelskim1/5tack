@@ -6,6 +6,11 @@ const ReviewIndexItem = ({ review }) => {
 
     return (
         <div className='review-index-item'>
+            <div className='review-index-rating'>
+                {review?.rating}
+                <i class="fa-solid fa-star" style={{color: `$#e4dfd5`}}></i>
+            </div>
+            <div className="review-index-item-information"></div>
             <div className='review-index-title'>
                 {review?.title}
             </div>
