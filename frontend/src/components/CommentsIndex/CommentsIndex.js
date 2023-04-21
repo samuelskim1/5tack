@@ -20,8 +20,26 @@ const CommentsIndex = ({ post }) => {
   // useEffect(() => {
   //   dispatch(fetchAllComments());
   // }, [dispatch])
-  
+
   const handleSubmit = async (e) => {
+    let createdComment = {
+      author_id: {
+        profileImageUrl: currentUser.profileImageUrl, 
+        username: currentUser.username,
+        _id: currentUser._id
+      },
+      content: content,
+      post_id: {
+        _id: post._id
+      }
+    }
+    const commentData = await dispatch(createComment(createdComment));
+    post.comment_id.push(commentData);
+    dispatch(updatedPost(post));
+    setContent('');
+  };
+  
+  const handleEnter = async (e) => {
     if (e.key === 'Enter') {
       let createdComment = {
         author_id: {
@@ -37,6 +55,7 @@ const CommentsIndex = ({ post }) => {
       const commentData = await dispatch(createComment(createdComment));
       post.comment_id.push(commentData);
       dispatch(updatedPost(post));
+      setContent('');
     }
   };
   
@@ -77,7 +96,11 @@ const CommentsIndex = ({ post }) => {
               placeholder='Say something to begin your premade journey!'
               value={content}
               onChange={(e) => handleChange(e)}
-              onKeyDown={(e) => handleSubmit(e)}
+              onKeyDown={(e) => handleEnter(e)}
+            />
+            <i 
+              className="fa-regular fa-paper-plane" 
+              onClick={() => handleSubmit()}
             />
           </div> 
           {!!errors?.content && <div className='errors'>{errors?.content}</div>}

@@ -60,14 +60,30 @@
       }
 
       .timestamp {
-        font-size: 10px;
+        font-size: 12px;
         font-weight: 200;
       }
     }
 
     > .comment-body {
       font-weight: 300;
-      font-size: 13px;
+      font-size: 16px;
+      line-height: 1.1em;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      i {
+        padding: 10px;
+        font-size: 18px;
+        cursor: pointer;
+        margin-left: 10px;
+        border-radius: 8px;
+      }
+
+      i:hover {
+        background-color: #666;
+      }
 
       .errors {
         margin-top: 10px;
@@ -80,7 +96,7 @@
         outline: none;
         font-family: $default-font;
         border-radius: 8px;
-        font-size: 13px;
+        font-size: 14px;
       }
 
       textarea:hover {
