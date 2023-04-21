@@ -60,7 +60,6 @@ export const fetchComment = comment => async dispatch => {
 }
 
 export const createComment = (comment) => async dispatch => {
-    debugger
     try {
         const res = await jwtFetch(`/api/comments/`, {
             method: "POST",
