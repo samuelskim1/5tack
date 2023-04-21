@@ -51,8 +51,10 @@ const Navbar = () => {
         <nav id="nav-container">
           <div className="inner-nav">
             <div className="upper-nav" >
-              <Link to="/home" id="nav-title">5TACK</Link>
-              <Link className="profile-link" to="/demo">
+              <div id="nav-title">
+                <Link to="/home">5TACK</Link>
+              </div>
+              <Link className="profile-link" to={`/${user.username}`}>
                 {/* <p>go to demo profile</p> */}
                 <Avatar user={user} />
               </Link>
