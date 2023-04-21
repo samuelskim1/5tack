@@ -1,13 +1,35 @@
 .home-container {
-    // width: 75vw;
-    .header-text {
+    margin: 20px;
 
+    .header-text {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: white;
+    }
+  
+    .body-text {
+      padding: 20px;
+      line-height: 1.5;
+      font-size: 18px;
+      text-align: center;
+      text-justify: inter-word;
+      margin-bottom: 20px;
+      color: white;
+    }
+  
+    .ending-text {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .swiper-image {
+        border-radius: 4%;
     }
     
     swiper-container {
-        width: 50%;
-        height: 100%;
-        margin: 0;
     
         swiper-slide {
             display: flex;
@@ -17,8 +39,6 @@
             img {
                 display: block;
                 max-height: 300px;
-                // height: 100%;
-                // object-fit: cover;
             }
         }
     }

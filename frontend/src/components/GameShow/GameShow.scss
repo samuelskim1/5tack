@@ -1,15 +1,21 @@
+// GameShow.scss
 .game-show-container {
   background-color: #222;
   display: flex;
-  // justify-content: center;
-  // align-items: center;
+  justify-content: center;
+  align-items: center;
   height: 100%;
+  margin-top: 10px;
 }
 
 .game-show-content {
   text-align: center;
-  // max-width: 600px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  
 
   .posts-index-container {
     height: auto;
@@ -19,19 +25,16 @@
 
 .game-show-images {
   display: flex;
-  width: 100%;
   justify-content: center;
+  width: 100%;
+  margin: 0 auto;
 }
 
+
 .game-show-images img {
-  display: flex;
   border-radius: 10px;
   width: 600px;
-  // width: 100%;
   height: auto;
-  // margin-top: 20px;
-  margin-top: 55px;
-
 }
 
 // :root {
@@ -64,7 +67,7 @@
   background: none;
   font-size: 3em;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
   // text-shadow: 0 0 5px rgba(6, 30, 30, 0.4), 0 0 10px rgba(6, 30, 30, 0.4), 0 0 15px rgba(6, 30, 30, 0.4), 0 0 20px rgba(6, 30, 30, 0.4);
   // box-shadow: 0 0 5px var(--glow-color), 0 0 10px var(--glow-color), 0 0 15px var(--glow-color), 0 0 20px var(--glow-color);
   // animation: glowing 2s infinite;
@@ -102,3 +105,8 @@
   // box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.3);
   background-color: #555;
 }
+
+.game-posts {
+  width: 200%;
+}
+
