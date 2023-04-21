@@ -25,6 +25,17 @@
   color: $neutral-text;
   margin-bottom: 50px;
 
+  .post-index-title {
+    display: flex;
+    justify-content: space-between;
+    // div {
+    //   height: 20px;
+    //   width: 20px;
+    //   text-align: center;
+    //   border: 1px solid white;
+    // }
+  }
+
   .author-block {
     display: flex;
     flex-direction: row;
@@ -84,3 +95,17 @@
   }
 }
 
+.post-buttons-holder {
+  display: flex;
+  width: fit-content;
+  justify-content: space-between;
+}
+
+.delete-post-btn {
+  padding-left: 15px;
+}
+
+.delete-post-btn, .update-post-modal {
+  font-size: 16px;
+  cursor: pointer;
+}

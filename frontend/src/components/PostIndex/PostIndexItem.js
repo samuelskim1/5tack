@@ -5,6 +5,7 @@ import Avatar from '../UserInfo/Avatar';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchAllComments } from '../../store/comments';
+import PostButtons from './PostButtons';
 
 const PostIndexItem = ({ post }) => {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ const PostIndexItem = ({ post }) => {
     <div className='post-index-item'>
       <div className='post-index-title'>
         {post?.title}
+        <PostButtons post={post} />
       </div>
       <div className='author-block'>
         <div className='author-info'>

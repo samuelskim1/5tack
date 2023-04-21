@@ -32,7 +32,7 @@ const CreatePostForm = ({ setShowModal, game }) => {
             title,
             description
         };
-        // console.log("errors", errors);
+        console.log("errors", errors);
         const res = dispatch(createPost(post)).then(res => {
             if (res.ok) {
             setShowModal(false);
@@ -66,7 +66,7 @@ const CreatePostForm = ({ setShowModal, game }) => {
                 className="submit-btn"
                 onClick={handleSubmit}
                 >
-                Publish</div>
+                Make Your Stack Request</div>
             </form>
         </div>
     )

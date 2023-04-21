@@ -51,7 +51,7 @@ export const fetchAllPosts = () =>  async dispatch => {
 }
 
 export const fetchPost = post => async dispatch => {
-    const res = await jwtFetch(`/api/posts/${post.id}`);
+    const res = await jwtFetch(`/api/posts/${post._id}`);
     const postInfo = await res.json();
     return dispatch(receivePost(postInfo));
 }
@@ -94,7 +94,7 @@ export const createPost = postInfo => async dispatch => {
         return res;
     } catch(err) {
         const res = await err.json();
-        console.log("err from the thunk action", res.statusText);
+        console.log("err from the thunk action", res);
         if (res.statusText === 400) {
             console.log("the status code is 400", res.errors);
             return dispatch(receiveErrors(res.errors));
@@ -103,7 +103,7 @@ export const createPost = postInfo => async dispatch => {
 }
 
 // export const updatePost = post => async dispatch => {
-//     const res = await jwtFetch(`/api/posts/${post.id}`, {
+//     const res = await jwtFetch(`/api/posts/${post._id}`, {
 //         method: "PATCH",
 //         body: JSON.stringify(post),
 //         headers: {
@@ -119,12 +119,14 @@ export const createPost = postInfo => async dispatch => {
 
 export const updatedPost = postInfo => async dispatch => {
     try {
-        const res = await jwtFetch(`/api/posts/${postInfo.id}`, {
+        const res = await jwtFetch(`/api/posts/${postInfo._id}`, {
             method: "PATCH",
             body: JSON.stringify(postInfo)
         });
         const updatedPost = await res.json();
-        return dispatch(receivePost(updatedPost));
+        console.log(updatedPost);
+        dispatch(receivePost(updatedPost));
+        return res;
     } catch(err) {
         const res = await err.json();
         if (res.statusCode === 400) {
@@ -167,10 +169,11 @@ const postsReducer = (state = {}, action) => {
     const nextState = {...state}
     switch (action.type) {
         case RECEIVE_POSTS:
-            return { ...nextState, ...action.posts };
+            return { ...action.posts };
         case RECEIVE_POST:
-            nextState[action.post.id] = action.post;
-            return nextState;
+            // nextState[action.post._id] = action.post;
+            // return nextState;
+            return { [action.post._id]: action.post, ...state, [action.post._id]: action.post };
         case RECEIVE_USER_POSTS:
             return action.userPosts;
         case RECEIVE_GAME_POSTS:

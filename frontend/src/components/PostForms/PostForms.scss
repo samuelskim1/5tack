@@ -33,13 +33,18 @@
         width: 350px;
     }
 
-    input {
+    input, textarea {
         box-sizing: border-box;
         border: none;
         font-size: 18px;
         width: 100%;
         padding: 12px;
         border-radius: 4px;
+    }
+
+    textarea {
+        border: 0.5px solid black;
+        font-family: inherit;
     }
 
     input[type="text"], .session-form input[type="password"] {
