@@ -2,12 +2,19 @@ import { Link } from 'react-router-dom';
 import CommentsIndex from '../CommentsIndex/CommentsIndex';
 import TimeStamp from '../TimeStamp/TimeStamp';
 import Avatar from '../UserInfo/Avatar';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchAllComments } from '../../store/comments';
 
 const PostIndexItem = ({ post }) => {
-  
+  const dispatch = useDispatch();
+  // const postComments = useSelector(state => state.posts[post._id].comment_id);
+
+
+  useEffect(() => {
+    dispatch(fetchAllComments());
+  }, [dispatch]);
+
   return (
     <div className='post-index-item'>
       <div className='post-index-title'>

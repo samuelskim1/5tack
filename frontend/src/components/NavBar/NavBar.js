@@ -10,6 +10,7 @@ import { fetchAllPosts } from "../../store/posts";
 import { fetchGames } from "../../store/games";
 import { fetchAllUsers } from "../../store/users";
 import Avatar from "../../components/UserInfo/Avatar";
+import { fetchAllComments } from "../../store/comments";
 
 const Navbar = () => {
   const loggedIn = useSelector(state => !!state?.session?.user);
@@ -17,10 +18,11 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchCategories);
-    dispatch(fetchAllPosts);
-    dispatch(fetchGames);
-    dispatch(fetchAllUsers);
+    dispatch(fetchCategories());
+    dispatch(fetchAllPosts());
+    dispatch(fetchGames());
+    dispatch(fetchAllComments())
+    dispatch(fetchAllUsers());
   }, [loggedIn]);
 
   const handleLogout = () => {
