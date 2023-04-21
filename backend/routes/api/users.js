@@ -15,6 +15,8 @@ const validateUpdateUser = require('../../validations/updateUser');
 
 const { singleFileUpload, singleMulterUpload } = require("../../awsS3");
 
+const DEFAULT_PROFILE_IMAGE_URL = "https://5tack.s3.amazonaws.com/public/0.jpeg";
+
 function filterUser(user) {
   const filteredUser = user.toObject();
   delete filteredUser.hashedPassword;

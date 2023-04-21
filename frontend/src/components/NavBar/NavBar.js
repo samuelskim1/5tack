@@ -54,7 +54,7 @@ const Navbar = () => {
               <div id="nav-title">
                 <Link to="/home">5TACK</Link>
               </div>
-              <Link className="profile-link" to="/demo">
+              <Link className="profile-link" to={`/${user.username}`}>
                 {/* <p>go to demo profile</p> */}
                 <Avatar user={user} />
               </Link>
