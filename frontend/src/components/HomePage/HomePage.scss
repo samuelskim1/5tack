@@ -1,6 +1,10 @@
 .home-container {
     margin: 20px;
 
+    .swiper-image {
+      border-radius: 4%;
+    }
+  
     .header-text {
       text-align: center;
       font-size: 28px;
@@ -8,22 +12,50 @@
       color: white;
     }
   
-    .body-text {
-      padding: 20px;
-      line-height: 1.5;
-      font-size: 18px;
+    .header-body1 {
+      background-image: url("https://5tack.s3.amazonaws.com/public/game-background.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
       text-align: center;
-      text-justify: inter-word;
-      margin-bottom: 20px;
+      padding: 50px;
       color: white;
+      font-size: 20px;
+      margin-bottom: 20px;
     }
   
-    .ending-text {
+    .header-body2 {
+      background-image: url("https://5tack.s3.amazonaws.com/public/game-background.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
       text-align: center;
+      padding: 50px;
+      color: white;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+  
+    .header-body3 {
+      background-image: url("https://5tack.s3.amazonaws.com/public/game-background.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      text-align: center;
+      padding: 50px;
+      color: white;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+  
+    .header-end {
+      background-image: url("https://5tack.s3.amazonaws.com/public/game-background.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      text-align: center;
+      padding: 50px;
+      color: white;
       font-size: 24px;
       margin-bottom: 20px;
-      color: white;
     }
+  
 
     .swiper-image {
         border-radius: 4%;
