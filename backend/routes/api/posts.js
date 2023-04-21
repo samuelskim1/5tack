@@ -7,7 +7,7 @@ const Post = mongoose.model('Post');
 const User = mongoose.model('User');
 const Game = mongoose.model('Game');
 const { requireUser } = require('../../config/passport');
-const { io } = require('../../app');
+// const { io } = require('../../app');
 const { multipleFilesUpload, multipleMulterUpload } = require("../../awsS3");
 
 router.post('/', multipleMulterUpload("images"), multipleMulterUpload("videos"), requireUser, async (req, res) => {

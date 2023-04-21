@@ -3,7 +3,7 @@ const router = express.Router({ mergeParams: true });
 const mongoose = require('mongoose');
 const Comment = mongoose.model('Comment');
 const { requireUser } = require('../../config/passport');
-const { io } = require('../../app');
+// const { io } = require('../../app');
 
 router.post('/', requireUser, async (req, res) => {
   const commentData = {
