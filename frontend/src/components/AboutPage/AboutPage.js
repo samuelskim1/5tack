@@ -1,7 +1,7 @@
 import shankim from './shankim.jpg';
 import garyhor from './garyhor.jpg';
 import samkim from './samkim.jpg';
-import milnerchen from './cartoon-dead-fish.png';
+import milnerchen from './milnerchen.jpg';
 import './AboutPage.scss';
 
 const AboutPage = () => {
@@ -11,8 +11,8 @@ const AboutPage = () => {
       name: "Gary Hor",
       role: "Frontend Lead",
       image: garyhor,
-      bio: "I am Gary Hoe",
-      email: "geehor@gmail.com",
+      bio: "I am an aspiring software engineer passionate about creating innovative solutions and enhancing user experiences. With a strong foundation in web development and a keen interest in emerging technologies, I am always eager to learn and grow as a professional. My goal is to contribute to projects that make a positive impact on people's lives.",
+      email: "garyhor95@gmail.com",
       github: "https://github.com/g-hor",
       linkedin: "https://www.linkedin.com/in/garyhor65/"
     },
@@ -29,16 +29,16 @@ const AboutPage = () => {
       name: "Sam Kim",
       role: "Team Lead",
       image: samkim,
-      bio: "I am Sam Kim",
+      bio: "I am an aspiring software engineer passionate about creating innovative solutions and enhancing user experiences. With a strong foundation in web development and a keen interest in emerging technologies, I am always eager to learn and grow as a professional. My goal is to contribute to projects that make a positive impact on people's lives.",
       email: "samsjkim1@gmail.com",
       github: "https://github.com/samuelskim1",
       linkedin: "https://www.linkedin.com/in/samuel-kim-3b4935206"
     },
     {
       name: "Milner Chen",
-      role: "Flex",
+      role: "Flex Engineer",
       image: milnerchen,
-      bio: "I am Milner Chen",
+      bio: "I am an aspiring software engineer passionate about creating innovative solutions and enhancing user experiences. With a strong foundation in web development and a keen interest in emerging technologies, I am always eager to learn and grow as a professional. My goal is to contribute to projects that make a positive impact on people's lives.",
       email: "milnerchen0@gmail.com",
       github: "https://github.com/milner-chen",
       linkedin: "https://www.linkedin.com/in/milner-chen-841330216/"
