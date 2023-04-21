@@ -82,6 +82,14 @@
         border-radius: 8px;
         font-size: 13px;
       }
+
+      textarea:hover {
+        outline: 1px solid #999;
+      }
+
+      textarea:focus {
+        outline: 2px solid #bababa;
+      }
     }
   }
 }

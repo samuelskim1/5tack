@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import './NavBar.scss';
 import { useDispatch } from "react-redux";
 import { logout } from "../../store/session";
@@ -16,6 +16,7 @@ const Navbar = () => {
   const loggedIn = useSelector(state => !!state?.session?.user);
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     dispatch(fetchCategories());
@@ -27,6 +28,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     dispatch(logout());
+    history.push('/');
   }
 
   return (
