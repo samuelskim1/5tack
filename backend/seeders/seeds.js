@@ -50,7 +50,9 @@ for (let i = 1; i < NUM_SEED_USERS; i++) {
         new User ({
         username: faker.internet.userName(firstName),
         email: faker.internet.email(firstName),
-        description: faker.lorem.sentences(),
+          description: faker.lorem
+            .sentences(getRandomArbitrary(1, 5))
+            .substring(0, 200),
         profileImageUrl: getRandomImage(),
         hashedPassword: bcrypt.hashSync('password', 10)
       })
