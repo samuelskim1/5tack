@@ -10,7 +10,10 @@ import PostButtons from './PostButtons';
 const PostIndexItem = ({ post }) => {
   const dispatch = useDispatch();
   // const postComments = useSelector(state => state.posts[post._id].comment_id);
-
+  const user = useSelector(state => state.session.user)
+  console.log('author id', post?.author_id._id);
+  console.log('user id', user._id);
+  const isAuthor = post?.author_id._id === user._id
 
   useEffect(() => {
     dispatch(fetchAllComments());
@@ -20,7 +23,9 @@ const PostIndexItem = ({ post }) => {
     <div className='post-index-item'>
       <div className='post-index-title'>
         {post?.title}
-        <PostButtons post={post} />
+        { isAuthor && 
+          <PostButtons post={post} />
+        }
       </div>
       <div className='author-block'>
         <div className='author-info'>
