@@ -12,9 +12,9 @@ const PostIndexItem = ({ post }) => {
   // const postComments = useSelector(state => state.posts[post._id].comment_id);
 
 
-  useEffect(() => {
-    dispatch(fetchAllComments());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchAllComments());
+  // }, [dispatch]);
 
   return (
     <div className='post-index-item'>

@@ -116,4 +116,21 @@
     //     background-color: $neutral-text;
     //     margin: 15px 0;
     // }
+
+    .review-buttons-holder {
+        display: flex;
+        width: fit-content;
+        justify-content: space-between;
+    }
+
+    .delete-review-btn {
+        padding-left: 15px;
+    }
+
+    .delete-review-btn,
+    .update-review-modal {
+        font-size: 16px;
+        cursor: pointer;
+    }
+    
 }
