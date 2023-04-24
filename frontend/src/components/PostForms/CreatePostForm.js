@@ -22,7 +22,7 @@ const CreatePostForm = ({ setShowModal, game }) => {
             dispatch(clearSessionErrors());
             // dispatch(fetchGamePosts(game.gameURL));
         }
-    }, []);
+    }, [dispatch]);
 
     const handleSubmit = () => {
         const post = {

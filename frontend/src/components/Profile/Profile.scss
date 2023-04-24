@@ -59,3 +59,24 @@
   overflow-x: scroll;
 }
 
+.create-review-modal-holder {
+  width: fit-content;
+  margin: 0 auto;
+  border-radius: 8px;
+
+  .create-review-modal {
+    background-color: #666;
+    color: white;
+    padding: 10px 20px;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+}
+
+.create-review-modal-holder:hover {
+  // box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.3);
+  background-color: #555;
+}

@@ -1,25 +1,26 @@
 import { useState } from 'react';
 import { Modal } from "../../context/modal";
-import UpdateReviewForm from './UpdateReviewForm';
+import CreateReviewForm from './CreateReviewForm';
 
-const UpdateReviewModal = ({ review }) => {
+const CreateReviewModal = ({ user }) => {
     const [showModal, setShowModal] = useState(false);
 
     return (
-        <div className='update-review-modal-holder'>
+        <div className='create-review-modal-holder'>
             <div
-                className='update-review-modal'
+                className='create-review-modal'
                 onClick={() => setShowModal(true)}
             >
-                <i class="fa-solid fa-pen"></i>
+                Review
             </div>
+
             {showModal && (
                 <Modal onClose={() => setShowModal(false)} >
-                    <UpdateReviewForm review={review} setShowModal={setShowModal} />
+                    <CreateReviewForm user={user} setShowModal={setShowModal} />
                 </Modal>
             )}
         </div>
     );
 };
 
-export default UpdateReviewModal;
+export default CreateReviewModal;

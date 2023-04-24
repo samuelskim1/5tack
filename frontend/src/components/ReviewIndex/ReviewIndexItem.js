@@ -18,12 +18,12 @@ const ReviewIndexItem = ({ review }) => {
                 </div>
                 <div className='author-block'>
                     <div className='author-info'>
-                        <Link to={`/${review?.reviewer_id.username}`}>
+                        <Link to={`/${review?.reviewer_id?.username}`}>
                             <Avatar user={review?.reviewer_id} />
                         </Link>
-                        <Link to={`/${review?.reviewer_id.username}`}>
+                        <Link to={`/${review?.reviewer_id?.username}`}>
                             <div className='author-username'>
-                                {review?.reviewer_id.username}
+                                {review?.reviewer_id?.username}
                             </div>
                         </Link>
                     </div>
