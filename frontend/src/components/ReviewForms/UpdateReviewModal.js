@@ -1,3 +1,5 @@
+import {useDispatch} from "react-redux";
+
 const UpdateReviewModal = ({ review }) => {
     const dispatch = useDispatch();
 

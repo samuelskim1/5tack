@@ -25,7 +25,7 @@ export const receiveUserReviews = (userReviews) => ({
     userReviews
 })
 
-export const removePost = (reviewId) => ({
+export const removeReview = (reviewId) => ({
     type: REMOVE_REVIEW,
     reviewId
 });
@@ -105,7 +105,7 @@ export const updateReview = reviewInfo => async dispatch => {
     }
 }
 
-export const removeReview = reviewId => async dispatch => {
+export const destroyReview = reviewId => async dispatch => {
     try {
         const res = await jwtFetch(`/api/reviews/${reviewId}`, {
             method: 'DELETE'
