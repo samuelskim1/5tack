@@ -11,8 +11,6 @@ const PostIndexItem = ({ post }) => {
   const dispatch = useDispatch();
   // const postComments = useSelector(state => state.posts[post._id].comment_id);
   const user = useSelector(state => state.session.user)
-  console.log('author id', post?.author_id._id);
-  console.log('user id', user._id);
   const isAuthor = post?.author_id._id === user._id
 
   useEffect(() => {
