@@ -16,6 +16,7 @@ const CommentsIndex = ({ post }) => {
   const comments = commentIds.map(id => allComments[id]);
   const currentUser = useSelector(state => state.session.user)
   const [content, setContent] = useState('');
+  const [canSubmit, setCanSubmit] = useState(false);
 
   // useEffect(() => {
   //   dispatch(fetchAllComments());
@@ -60,7 +61,13 @@ const CommentsIndex = ({ post }) => {
   };
   
   const handleChange = (e) => {
-    setContent(e.target.value);
+    let currContent = e.target.value;
+    setContent(currContent);
+    if (currContent.length > 0 && currContent.length <= 200) {
+      setCanSubmit(true);
+    } else {
+      setCanSubmit(false);
+    }
   };
   
   if (!Object.keys(allComments).length) return null;
@@ -98,11 +105,14 @@ const CommentsIndex = ({ post }) => {
               onChange={(e) => handleChange(e)}
               onKeyDown={(e) => handleEnter(e)}
             />
-            <i 
+            {canSubmit ? <i 
               className="fa-regular fa-paper-plane" 
               onClick={() => handleSubmit()}
             />
-          </div> 
+            : <i 
+            className="fa-regular fa-paper-plane disable-btn"
+          />}
+          </div>
           {!!errors?.content && <div className='errors'>{errors?.content}</div>}
         </div>
       </div>
