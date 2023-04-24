@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import TimeStamp from '../TimeStamp/TimeStamp';
 import Avatar from '../UserInfo/Avatar';
+import ReviewButtons from './ReviewButtons';
 
 const ReviewIndexItem = ({ review }) => {
 
@@ -9,6 +10,7 @@ const ReviewIndexItem = ({ review }) => {
             <div className='review-index-rating'>
                 {review?.rating}
                 <i class="fa-solid fa-star" style={{color: `$#e4dfd5`}}></i>
+                <ReviewButtons review={review} />
             </div>
             <div className="review-index-item-information">
                 <div className='review-index-title'>

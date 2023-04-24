@@ -15,9 +15,9 @@ const PostIndexItem = ({ post }) => {
   console.log('user id', user._id);
   const isAuthor = post?.author_id._id === user._id
 
-  useEffect(() => {
-    dispatch(fetchAllComments());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchAllComments());
+  // }, [dispatch]);
 
   return (
     <div className='post-index-item'>
