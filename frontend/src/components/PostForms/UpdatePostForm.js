@@ -12,6 +12,24 @@ const UpdatePostForm = ({ setShowModal, post }) => {
     
     const [title, setTitle] = useState(post.title);
     const [description, setDescription] = useState(post.description);
+    const [canSubmit, setCanSubmit] = useState(false);
+
+    const changeHandler = (e, type) => {
+        let currTitle = title;
+        let currDescription = description;
+        if (type === 'title') {
+            currTitle = e.target.value;
+            setTitle(currTitle);
+        } else {
+            currDescription = e.target.value;
+            setDescription(currDescription);
+        }
+        if (currTitle.length > 0 && currTitle.length <= 50 && currDescription.length > 0 && currDescription.length <= 400 ) {
+            setCanSubmit(true);
+        } else {
+            setCanSubmit(false);
+        }
+    }
 
     useEffect(() => {
         dispatch(fetchGamePosts(nameURL));
@@ -41,7 +59,7 @@ const UpdatePostForm = ({ setShowModal, post }) => {
                     <input
                         type="text"
                         value={title}
-                        onChange={(e) => setTitle(e.target.value)}
+                        onChange={e => changeHandler(e, 'title')}
                     />
                 </label>
                 <div>{errors?.title}</div>
@@ -49,16 +67,24 @@ const UpdatePostForm = ({ setShowModal, post }) => {
                 <span>Description</span>
                     <textarea
                         value={description}
-                        onChange={(e) => setDescription(e.target.value)}
+                        onChange={e => changeHandler(e, 'description')}
                         />
                 </label>
                 <div>{errors?.description}</div>
-                <div
-                    className="submit-btn"
-                    onClick={handleSubmit}
-                >
-                    Save Changes
-                </div>
+                { canSubmit ?
+                    <div
+                        className="submit-btn"
+                        onClick={handleSubmit}
+                    >
+                        Save Changes
+                    </div>
+                    :
+                    <div
+                        className="submit-btn disabled-btn"
+                    >
+                        Save Changes
+                    </div>
+                }
             </form>
         </div>
     )

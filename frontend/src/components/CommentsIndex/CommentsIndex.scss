@@ -81,8 +81,17 @@
         border-radius: 8px;
       }
 
+      .disable-btn {
+        color: #666;
+      }
+
       i:hover {
         background-color: #666;
+      }
+      
+      .disable-btn:hover {
+        background-color: unset;
+        cursor: not-allowed;
       }
 
       .errors {
