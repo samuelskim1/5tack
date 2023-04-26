@@ -249,14 +249,15 @@ function getRandomReview() {
   return reviews[randomIndex];
 }
 
-
+const posts = [];
+const NUM_SEED_POSTS = 50;
 
 const comments = [];
 const NUM_SEED_COMMENTS = 200;
 
+
 for (let i = 0; i < NUM_SEED_COMMENTS; i++) {
   const author_id = getRandomUser()._id;
-  // const post_id = getRandomPost()._id;
   const description = faker.lorem
     .sentences(getRandomArbitrary(1, 5))
     .substring(0, 200);
@@ -268,34 +269,34 @@ for (let i = 0; i < NUM_SEED_COMMENTS; i++) {
   );
 }
 
-
-
 // Loop to create posts for each user with random games
 // Loop to create posts for each user with random games
-
-const posts = [];
-const NUM_SEED_POSTS = 50;
 
 for (let i = 0; i < NUM_SEED_POSTS; i++) {
   const author_id = getRandomUser()._id;
   const game_id = getRandomGame()._id;
-  const comment_id = getRandomComment()._id;
   let title = faker.lorem.sentence(5);
   // Truncate the title to 50 characters if it's longer
   title = title.length > 50 ? title.substring(0, 50) : title;
   const description = faker.lorem
-  .paragraphs(getRandomArbitrary(5, 20), "\n")
-  .substring(0, 400);
-  posts.push(
-    new Post({
-      author_id: author_id,
-      game_id: game_id,
-      comment_id: [comment_id, comment_id, comment_id],
-      title: title,
-      description: description
-    })
-  );
+    .paragraphs(getRandomArbitrary(5, 20), "\n")
+    .substring(0, 400);
+  const post = new Post({
+    author_id: author_id,
+    game_id: game_id,
+    title: title,
+    description: description
+  });
+  posts.push(post);
+
+  // Update the comments with the correct post_id
+  for (let j = 0; j < 3; j++) {
+    const comment = comments.shift();
+    comment.post_id = post._id;
+    comments.push(comment);
+  }
 }
+
 
 //demo user post seeding
 for (let i = 0; i < 10; i++) {
@@ -318,9 +319,6 @@ for (let i = 0; i < 10; i++) {
     })
   );
 }
-
-
-
 
 const reviews = [];
 const NUM_SEED_REVIEWS = 100;

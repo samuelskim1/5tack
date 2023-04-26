@@ -5,6 +5,8 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
+const Post = mongoose.model('Post');
+const Review = mongoose.model('Review');
 const passport = require('passport');
 const validateRegisterInput = require('../../validations/register');
 const validateLoginInput = require('../../validations/login');
@@ -159,15 +161,30 @@ router.patch('/:id', validateUpdateUser, async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   try {
-    const user = await User.findByIdAndRemove(req.params.id);
+    const user = await User.findById(req.params.id);
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
-    res.status(204).json({ message: 'User deleted successfully' });
+
+    // Delete all posts created by the user
+    await Post.deleteMany({ author_id: user._id });
+
+    // Delete all reviews created by the user
+    await Review.deleteMany({ reviewer_id: user._id });
+
+    // Delete all reviews of the user
+    await Review.deleteMany({ user_id: user._id });
+
+    // Delete the user
+    await user.remove();
+    res.status(204).json({ message: 'User, their posts, and their reviews deleted successfully' });
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
 });
+
+
+
 
 
 module.exports = router;

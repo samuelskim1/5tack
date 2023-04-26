@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const Post = mongoose.model('Post');
 const User = mongoose.model('User');
 const Game = mongoose.model('Game');
+const Comment = mongoose.model('Comment');
 const { requireUser } = require('../../config/passport');
 const { io } = require('../../app');
 const { multipleFilesUpload, multipleMulterUpload } = require("../../awsS3");
@@ -86,19 +87,25 @@ router.patch('/:id', requireUser,  async (req, res) => {
   }
 });
 
-router.delete('/:id', requireUser,  async (req, res) => {
+router.delete('/:id', requireUser, async (req, res) => {
   try {
-    const post = await Post.findByIdAndRemove(req.params.id)
-                           .populate("author_id", "_id username profileImageUrl")
-                           .populate("comment_id")
+    const post = await Post.findById(req.params.id);
     if (!post) {
       return res.status(404).json({ message: 'Post not found' });
     }
-    res.status(204).json({ message: 'Post deleted successfully' });
+    
+    // Delete all comments associated with the post
+    await Comment.deleteMany({ post_id: req.params.id });
+
+    // Delete the post
+    await post.delete();
+
+    res.status(204).json({ message: 'Post and associated comments deleted successfully' });
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
 });
+
 
 
 //custom route for getting all the posts for a singular user
