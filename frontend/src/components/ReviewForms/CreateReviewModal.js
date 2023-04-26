@@ -11,7 +11,7 @@ const CreateReviewModal = ({ user }) => {
                 className='create-review-modal'
                 onClick={() => setShowModal(true)}
             >
-                Review
+                Make a Review
             </div>
 
             {showModal && (

@@ -8,7 +8,7 @@ import ReviewIndex from "../ReviewIndex/ReviewIndex";
 import { fetchUserPosts } from "../../store/posts";
 import { fetchUserReviews } from "../../store/reviews";
 import { fetchUser } from "../../store/users";
-import CreateReviewModal from "../ReviewForms/CreateReviewModal";
+
 
 const Profile = () => {
     const dispatch = useDispatch();
@@ -30,7 +30,6 @@ const Profile = () => {
     return (
         <div id="profile-container">
             <UserInfo user={user} />
-
             <div id="review-post-tabs-container">
                 <div>
 
@@ -54,8 +53,7 @@ const Profile = () => {
 
             {tab === 'reviews' && (
                 <>
-                    <CreateReviewModal user={user} />
-                    <ReviewIndex reviews={reviews}/>
+                    <ReviewIndex reviews={reviews} user={user}/>
                 </>
             )}
 

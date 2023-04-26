@@ -2,15 +2,21 @@ import { Link } from 'react-router-dom';
 import TimeStamp from '../TimeStamp/TimeStamp';
 import Avatar from '../UserInfo/Avatar';
 import ReviewButtons from './ReviewButtons';
+import { useSelector } from 'react-redux';
 
 const ReviewIndexItem = ({ review }) => {
+    const user = useSelector(state => state.session.user)
+    const isAuthor = review?.reviewer_id._id === user._id
+
 
     return (
         <div className='review-index-item'>
             <div className='review-index-rating'>
                 {review?.rating}
                 <i class="fa-solid fa-star" style={{color: `$#e4dfd5`}}></i>
-                <ReviewButtons review={review} />
+                { isAuthor &&
+                    <ReviewButtons review={review} />
+                }
             </div>
             <div className="review-index-item-information">
                 <div className='review-index-title'>
