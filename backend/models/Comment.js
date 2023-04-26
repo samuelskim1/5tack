@@ -15,7 +15,7 @@ const commentSchema = new Schema({
   },
   post_id: { 
     type: Schema.Types.ObjectId, 
-    ref: 'Post'
+    ref: 'Post',
     // required: true 
   }
 }, {
