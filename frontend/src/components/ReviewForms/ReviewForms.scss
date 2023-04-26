@@ -1,14 +1,14 @@
 @import '../../App.scss';
 
-.create-post-container {
+.create-review-container {
     width: 400px;
     height: 100%;
     background-color: rgb(245, 245, 245);
     border-radius: 8px;
     padding: 30px;
-  }
+}
 
-.create-post-form {
+.create-review-form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,7 +33,8 @@
         width: 350px;
     }
 
-    input, textarea {
+    input,
+    textarea {
         box-sizing: border-box;
         border: none;
         font-size: 18px;
@@ -47,11 +48,13 @@
         font-family: inherit;
     }
 
-    input[type="text"], .session-form input[type="password"] {
+    input[type="text"],
+    .session-form input[type="password"] {
         outline: 1px solid #999;
     }
 
-    input[type="text"]:hover, .session-form input[type="password"]:hover {
+    input[type="text"]:hover,
+    .session-form input[type="password"]:hover {
         outline: 1px solid #555;
     }
 
@@ -65,16 +68,11 @@
 }
 
 .submit-btn {
-    
-  margin-top: 20px;
-  border-radius: 8px;
-  padding: 12px;
-  background-color: #0c1398;
-  color: white;
-  cursor: pointer;
-}
 
-.disabled-btn {
-    background-color: #555;
-    cursor: not-allowed;
+    margin-top: 20px;
+    border-radius: 8px;
+    padding: 12px;
+    background-color: #0c1398;
+    color: white;
+    cursor: pointer;
 }

@@ -9,6 +9,7 @@ import { fetchUserPosts } from "../../store/posts";
 import { fetchUserReviews } from "../../store/reviews";
 import { fetchUser } from "../../store/users";
 
+
 const Profile = () => {
     const dispatch = useDispatch();
     const { username } = useParams();
@@ -29,7 +30,6 @@ const Profile = () => {
     return (
         <div id="profile-container">
             <UserInfo user={user} />
-
             <div id="review-post-tabs-container">
                 <div>
 
@@ -52,7 +52,9 @@ const Profile = () => {
             </div>
 
             {tab === 'reviews' && (
-                <ReviewIndex reviews={reviews}/>
+                <>
+                    <ReviewIndex reviews={reviews} user={user}/>
+                </>
             )}
 
             {tab === 'posts' && (

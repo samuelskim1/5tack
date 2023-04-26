@@ -3,6 +3,8 @@ import jwtFetch from "./jwt";
 // ACTIONS
 const RECEIVE_REVIEWS = "reviews/RECEIVE_REVIEWS";
 const RECEIVE_REVIEW = "reviews/RECEIVE_REVIEW";
+const RECEIVE_UPDATED_REVIEW = "posts/RECEIVE_UPDATED_REVIEW";
+const RECEIVE_NEW_REVIEW = "posts/RECEIVE_NEW_REVIEW";
 const RECEIVE_USER_REVIEWS = "posts/RECEIVE_USER_REVIEWS";
 const REMOVE_REVIEW = "posts/DELETE_REVIEW";
 const RECEIVE_REVIEW_ERRORS = "reviews/RECEIVE_REVIEW_ERRORS";
@@ -25,10 +27,22 @@ export const receiveUserReviews = (userReviews) => ({
     userReviews
 })
 
-export const removePost = (reviewId) => ({
+export const removeReview = (reviewId) => ({
     type: REMOVE_REVIEW,
     reviewId
 });
+
+export const receiveUpdatedReview = (updatedReview) => ({
+    type: RECEIVE_UPDATED_REVIEW,
+    updatedReview
+})
+
+export const receiveNewReview = (newReview) => ({
+    type: RECEIVE_NEW_REVIEW,
+    newReview
+})
+
+
 
 const receiveErrors = errors => ({
     type: RECEIVE_REVIEW_ERRORS,
@@ -80,7 +94,8 @@ export const createReview = reviewInfo => async dispatch => {
             body: JSON.stringify(reviewInfo)
         });
         const newReview = await res.json();
-        return dispatch(receiveReview(newReview));
+        dispatch(receiveNewReview(newReview));
+        return res;
     } catch(err) {
         const res = await err.json();
         if (res.statusCode === 400) {
@@ -91,12 +106,13 @@ export const createReview = reviewInfo => async dispatch => {
 
 export const updateReview = reviewInfo => async dispatch => {
     try {
-        const res = await jwtFetch(`/api/reviews/${reviewInfo.id}`, {
+        const res = await jwtFetch(`/api/reviews/${reviewInfo._id}`, {
             method: 'PATCH',
             body: JSON.stringify(reviewInfo)
         });
         const updatedReview = await res.json();
-        return dispatch(receiveReview(updatedReview));
+        dispatch(receiveUpdatedReview(updatedReview));
+        return res;
     } catch(err) {
         const res = await err.json();
         if (res.statusCode === 400) {
@@ -105,7 +121,7 @@ export const updateReview = reviewInfo => async dispatch => {
     }
 }
 
-export const removeReview = reviewId => async dispatch => {
+export const destroyReview = reviewId => async dispatch => {
     try {
         const res = await jwtFetch(`/api/reviews/${reviewId}`, {
             method: 'DELETE'
@@ -141,6 +157,10 @@ const reviewsReducer = (state = {}, action) => {
             return nextState[action.review.id] = action.review;
         case RECEIVE_REVIEWS:
             return { ...nextState, ...action.reviews };
+        case RECEIVE_UPDATED_REVIEW:
+            return { ...state, [action.updatedReview._id]: action.updatedReview };
+        case RECEIVE_NEW_REVIEW:
+            return { [action.newReview._id]: action.newReview, ...state };
         case RECEIVE_USER_REVIEWS:
             return action.userReviews;
         case REMOVE_REVIEW:

@@ -16,13 +16,31 @@ const CreatePostForm = ({ setShowModal, game }) => {
     
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+    const [canSubmit, setCanSubmit] = useState(false);
+
+    const changeHandler = (e, type) => {
+        let currTitle = title;
+        let currDescription = description;
+        if (type === 'title') {
+            currTitle = e.target.value;
+            setTitle(currTitle);
+        } else {
+            currDescription = e.target.value;
+            setDescription(currDescription);
+        }
+        if (currTitle.length > 0 && currTitle.length <= 50 && currDescription.length > 0 && currDescription.length <= 400 ) {
+            setCanSubmit(true);
+        } else {
+            setCanSubmit(false);
+        }
+    }
 
     useEffect(() => {
         return () => {
             dispatch(clearSessionErrors());
             // dispatch(fetchGamePosts(game.gameURL));
         }
-    }, []);
+    }, [dispatch]);
 
     const handleSubmit = () => {
         const post = {
@@ -48,7 +66,7 @@ const CreatePostForm = ({ setShowModal, game }) => {
                     <input
                     type="text"
                     value={title}
-                    onChange={(e) => setTitle(e.target.value)}
+                    onChange={(e) => changeHandler(e, 'title')}
                     placeholder="Title"
                     />
                 </label>
@@ -57,16 +75,22 @@ const CreatePostForm = ({ setShowModal, game }) => {
                     <input
                     type="text"
                     value={description}
-                    onChange={(e) => setDescription(e.target.value)}
+                    onChange={(e) => changeHandler(e, 'description')}
                     placeholder="Description"
                     />
                 </label>
                 <div>{errors?.description}</div>
-                <div
-                className="submit-btn"
-                onClick={handleSubmit}
-                >
-                Make Your Stack Request</div>
+                { canSubmit ?
+                    <div
+                    className="submit-btn"
+                    onClick={handleSubmit}
+                    >
+                    Make Your Stack Request</div>
+                    :
+                    <div className="submit-btn disabled-btn">
+                        Make Your Stack Request
+                    </div>
+                }
             </form>
         </div>
     )

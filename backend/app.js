@@ -42,6 +42,27 @@ app.use(cookieParser()); // parse cookies as an object on req.cookies
 
 app.use(passport.initialize());
 
+// Security Middleware
+if (!isProduction) {
+  // Enable CORS only in development because React will be on the React
+  // development server (http://localhost:3000). (In production, the Express 
+  // server will serve the React files statically.)
+  app.use(cors());
+}
+
+// Set the _csrf token and create req.csrfToken method to generate a hashed
+// CSRF token
+app.use(
+  csurf({
+    cookie: {
+      secure: isProduction,
+      sameSite: isProduction && "Lax",
+      httpOnly: true
+    }
+  })
+);
+
+
 if (isProduction) {
   const path = require('path');
   // Serve the frontend's index.html file at the root route
@@ -63,26 +84,6 @@ if (isProduction) {
     );
   });
 }
-
-// Security Middleware
-if (!isProduction) {
-  // Enable CORS only in development because React will be on the React
-  // development server (http://localhost:3000). (In production, the Express 
-  // server will serve the React files statically.)
-  app.use(cors());
-}
-
-// Set the _csrf token and create req.csrfToken method to generate a hashed
-// CSRF token
-app.use(
-  csurf({
-    cookie: {
-      secure: isProduction,
-      sameSite: isProduction && "Lax",
-      httpOnly: true
-    }
-  })
-);
 
 // Attach Express routers
 app.use('/api/user', usersRouter);
