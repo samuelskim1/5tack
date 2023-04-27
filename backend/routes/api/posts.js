@@ -89,7 +89,7 @@ router.patch('/:id', requireUser,  async (req, res) => {
 
 router.delete('/:id', requireUser, async (req, res) => {
   try {
-    const post = await Post.findById(req.params.id);
+    const post = await Post.findById(req.params.id).populate("author_id", "_id username profileImageUrl").populate("comment_id")
     if (!post) {
       return res.status(404).json({ message: 'Post not found' });
     }
@@ -98,7 +98,7 @@ router.delete('/:id', requireUser, async (req, res) => {
     await Comment.deleteMany({ post_id: req.params.id });
 
     // Delete the post
-    await post.delete();
+    // await post.delete();
 
     res.status(204).json({ message: 'Post and associated comments deleted successfully' });
   } catch (error) {
