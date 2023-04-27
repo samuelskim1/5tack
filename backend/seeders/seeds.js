@@ -295,6 +295,12 @@ for (let i = 0; i < NUM_SEED_POSTS; i++) {
       description: description
     })
   );
+
+  for (let j = 0; j < 3; j++) {
+    const comment = comments.shift();
+    comment.post_id = post._id;
+    comment_id.push(comment);
+  }
 }
 
 //demo user post seeding
