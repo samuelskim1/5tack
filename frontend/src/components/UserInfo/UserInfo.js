@@ -10,7 +10,8 @@ const UserInfo = () => {
     const dispatch = useDispatch();
     const { username } = useParams();
     const currentUser = useSelector(state => state?.session?.user);
-    const showUser = useSelector(state => state?.users[username]);
+    // const showUser = useSelector(state => state?.users[username]);
+    const showUser = useSelector(state => state?.session.user);
     const button = useRef();
 
     useEffect(() => {

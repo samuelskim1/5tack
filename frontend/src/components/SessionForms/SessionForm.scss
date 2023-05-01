@@ -143,3 +143,12 @@
 #edit-profile-btn {
   width: 100%;
 }
+
+.disabled-btn {
+  margin-top: 30px;
+  border-radius: 8px;
+  padding: 12px;
+  color: white;
+  background-color: #555;
+  cursor: not-allowed;
+}
