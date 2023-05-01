@@ -78,3 +78,22 @@
     background-color: #555;
     cursor: not-allowed;
 }
+
+.delete-btns {
+    display: flex;
+    width: 150px;
+    justify-content: space-between;
+
+    .cancel-btn {
+        // margin-top: 15px;
+        text-align: center;
+        cursor: pointer;
+        color: black;
+        background-color: transparent;
+    }
+}
+
+.cancel-btn:hover {
+    color: white;
+    background-color: #999;
+}
