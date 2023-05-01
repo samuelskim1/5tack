@@ -41,7 +41,7 @@ const LoginForm = () => {
       <div id="session-form-container">
         <form className="session-form">
           <h2>Welcome back, gamer!</h2>
-          <div className="errors">{errors?.username}</div>
+          <div className="errors">{errors?.credentials}</div>
           <label>
             <span>Username</span>
             <input type="text"
@@ -50,7 +50,7 @@ const LoginForm = () => {
               placeholder="Enter your username"
             />
           </label>
-          <div className="errors">{errors?.password}</div>
+          <div className="errors">{errors?.username}</div>
           <label>
             <span>Password</span>
             <input type="password"
@@ -59,6 +59,7 @@ const LoginForm = () => {
               placeholder="Enter your password"
             />
           </label>
+          <div className="errors">{errors?.password}</div>
           <div id="log-demo-btn-holder">
             <div 
               id="submit-login-btn"
