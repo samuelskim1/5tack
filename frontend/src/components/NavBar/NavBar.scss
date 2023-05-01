@@ -7,15 +7,11 @@
     width: 100vw;
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     background-color: #11151C;
     color: $neutral-text;
     overflow: hidden;
-}
-
-.sticky {
-    position: fixed;
-    top: 0;
-    left: 0;
 }
 
 #category-container {
@@ -24,3 +20,4 @@
     top: 0;
     left: 0;
 }
+
