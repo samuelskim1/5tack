@@ -1,17 +1,20 @@
-$default-bg: #222;
+$default-bg: #11151C;
+$bg-dark: #19212E;
+$bg-medium: #212D40;
+$bg-light: #364156;
 $errors-color: rgb(155, 0, 0);
-$neutral-text: #eeece7;
+$neutral-text: #FFFCF2;
 $default-font: "system-ui", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
 #entire-app {
-    display: flex;
+    // display: flex;
     .main-content {
-        width: calc(100vw - 250px);
+        width: 100vw;
         min-height: 100vh;
         // z-index: 0;
     }
 }
 
 .main-content {
-    background-color: #222;
+    background-color: $default-bg;
 }

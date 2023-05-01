@@ -20,7 +20,7 @@ const App = () => {
   }, [dispatch]);
 
   return loaded && (
-    <div id='entire-app'>
+    <>
       <NavBar />
 
       <div className='main-content'>
@@ -33,7 +33,7 @@ const App = () => {
           <ProtectedRoute exact path="/games/:nameURL" component={GameShow} />
         </Switch>
       </div>
-    </div>
+    </>
   );
 }
 
