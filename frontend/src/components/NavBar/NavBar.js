@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import './NavBar.scss';
 import { useDispatch } from "react-redux";
 import { logout } from "../../store/session";
@@ -10,25 +10,43 @@ import { fetchAllPosts } from "../../store/posts";
 import { fetchGames } from "../../store/games";
 import { fetchAllUsers } from "../../store/users";
 import Avatar from "../../components/UserInfo/Avatar";
+import { fetchAllComments } from "../../store/comments";
 
 const Navbar = () => {
   const loggedIn = useSelector(state => !!state?.session?.user);
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
-    dispatch(fetchCategories);
-    dispatch(fetchAllPosts);
-    dispatch(fetchGames);
-    dispatch(fetchAllUsers);
+    dispatch(fetchCategories());
+    dispatch(fetchAllPosts());
+    dispatch(fetchGames());
+    dispatch(fetchAllComments())
+    dispatch(fetchAllUsers());
   }, [loggedIn]);
 
   const handleLogout = () => {
     dispatch(logout());
+    history.push('/');
   }
 
   return (
     <>
+      {!loggedIn && (
+        <button className="about-button">
+          <Link to="/" className="about-go-back">
+            Go Back
+          </Link>
+        </button>
+      )}
+      {loggedIn && (
+        <button className="about-button">
+          <Link to="/about" className="meet-the-team">
+            Meet the Team
+          </Link>
+        </button>
+      )}
       {loggedIn && (
         <nav id="nav-container">
           <div className="inner-nav">
@@ -36,7 +54,7 @@ const Navbar = () => {
               <div id="nav-title">
                 <Link to="/home">5TACK</Link>
               </div>
-              <Link className="profile-link" to={`/${user?.username}`}>
+              <Link className="profile-link" to={`/${user.username}`}>
                 {/* <p>go to demo profile</p> */}
                 <Avatar user={user} />
               </Link>

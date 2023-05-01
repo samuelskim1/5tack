@@ -1,10 +1,14 @@
 import jwtFetch from "./jwt";
 
 const RECEIVE_POSTS = "posts/RECEIVE_POSTS";
-const RECEIVE_POST = "posts/RECEIVE_POST";
+// const RECEIVE_POST = "posts/RECEIVE_POST";
+const RECEIVE_UPDATED_POST = "posts/RECEIVE_UPDATED_POST";
+const RECEIVE_NEW_POST = "posts/RECEIVE_NEW_POST";
 const REMOVE_POST = "posts/DELETE_POST";
 const RECEIVE_USER_POSTS = "posts/RECEIVE_USER_POSTS";
 const RECEIVE_GAME_POSTS = "posts/RECEIVE_GAME_POSTS";
+const RECEIVE_POST_ERRORS = "posts/RECEIVE_POST_ERRORS";
+const CLEAR_POST_ERRORS = "posts/CLEAR_POST_ERRORS";
 
 export const receivePosts = (posts) => ({
     type: RECEIVE_POSTS,
@@ -21,15 +25,36 @@ export const receiveGamePosts = (gamePosts) => ({
     gamePosts
 })
 
-export const receivePost = (post) => ({
-    type: RECEIVE_POST,
-    post
-});
+// export const receivePost = (post) => ({
+//     type: RECEIVE_POST,
+//     post
+// });
+
+export const receiveUpdatedPost = (updatedPost) => ({
+    type: RECEIVE_UPDATED_POST,
+    updatedPost
+})
+
+export const receiveNewPost = (newPost) => ({
+    type: RECEIVE_NEW_POST,
+    newPost
+})
 
 export const removePost = (postId) => ({
     type: REMOVE_POST,
     postId
 });
+
+export const receiveErrors = errors => ({
+    type: RECEIVE_POST_ERRORS,
+    errors
+});
+
+export const clearPostErrors = () => ({
+    type: CLEAR_POST_ERRORS
+});
+
+
 
 export const fetchAllPosts = () =>  async dispatch => {
     const res = await jwtFetch('/api/posts');
@@ -37,11 +62,11 @@ export const fetchAllPosts = () =>  async dispatch => {
     return dispatch(receivePosts(posts));
 }
 
-export const fetchPost = post => async dispatch => {
-    const res = await jwtFetch(`/api/posts/${post.id}`);
-    const postInfo = await res.json();
-    return dispatch(receivePost(postInfo));
-}
+// export const fetchPost = post => async dispatch => {
+//     const res = await jwtFetch(`/api/posts/${post._id}`);
+//     const postInfo = await res.json();
+//     return dispatch(receivePost(postInfo));
+// }
 
 export const fetchUserPosts = (username) => async dispatch => {
     const res = await jwtFetch(`/api/posts/user/${username}`);
@@ -56,44 +81,119 @@ export const fetchGamePosts = (nameURL) => async dispatch => {
 }
 
 
-export const createPost = (post) => async dispatch => {
-    const res = await jwtFetch(`/api/posts/`, {
-        method: "POST",
-        body: JSON.stringify(post),
-        headers: {
-            'Content-Type': 'application/json'
+// export const createPost = (post) => async dispatch => {
+//     const res = await jwtFetch(`/api/posts/`, {
+//         method: "POST",
+//         body: JSON.stringify(post),
+//         headers: {
+//             'Content-Type': 'application/json'
+//         }
+//     })
+//     if (res.ok) {
+//         const postData = await res.json();
+//         dispatch(receivePost(postData));
+//     }
+// }
+
+export const createPost = postInfo => async dispatch => {
+    try {
+        const res = await jwtFetch(`/api/posts/`, {
+            method: "POST",
+            body: JSON.stringify(postInfo)
+        });
+        const newPost = await res.json();
+        dispatch(receiveNewPost(newPost));
+        return res;
+    } catch(err) {
+        console.log("err in createPost", err);
+        const res = await err.json();
+        console.log("err from the thunk action", res);
+        if (res.statusText === 400) {
+            console.log("the status code is 400", res.errors);
+            return dispatch(receiveErrors(res.errors));
         }
-    })
-    if (res.ok) {
-        const postData = await res.json();
-        dispatch(receivePost(postData));
     }
 }
 
-export const updatePost = post => async dispatch => {
-    const res = await jwtFetch(`/api/posts/${post.id}`, {
-        method: "PATCH",
-        body: JSON.stringify(post),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
+// export const updatePost = post => async dispatch => {
+//     const res = await jwtFetch(`/api/posts/${post._id}`, {
+//         method: "PATCH",
+//         body: JSON.stringify(post),
+//         headers: {
+//             'Content-Type': 'application/json'
+//         }
+//     })
 
-    if (res.ok) {
+//     if (res.ok) {
+//         const updatedPost = await res.json();
+//         dispatch(receivePost(updatedPost));
+//     }
+// }
+
+export const updatedPost = postInfo => async dispatch => {
+    try {
+        const res = await jwtFetch(`/api/posts/${postInfo._id}`, {
+            method: "PATCH",
+            body: JSON.stringify(postInfo)
+        });
         const updatedPost = await res.json();
-        dispatch(receivePost(updatedPost));
+        console.log(updatedPost);
+        dispatch(receiveUpdatedPost(updatedPost));
+        return res;
+    } catch(err) {
+        const res = await err.json();
+        if (res.statusCode === 400) {
+            return dispatch(receiveErrors(res.errors));
+        }
     }
 }
+
+export const deletePost = postId => async dispatch => {
+    try {
+        const res = await jwtFetch(`/api/posts/${postId}`, {
+            method: "DELETE"
+        });
+        return dispatch(removePost(postId));
+    } catch(err) {
+        const res = await err.json();
+        if (res.statusCode === 400) {
+            return dispatch(receiveErrors(res.errors));
+        }
+    }
+}
+
+
+// REDUCERS
+export const postsErrorsReducer = (state = null, action) => {
+    switch (action.type) {
+      case RECEIVE_POST_ERRORS:
+        return action.errors;
+    //   case RECEIVE_POST:
+      case RECEIVE_NEW_POST:
+      case RECEIVE_UPDATED_POST:
+      case RECEIVE_POSTS:
+      case CLEAR_POST_ERRORS:
+        return null;
+      default:
+        return state;
+    }
+};
+
 
 const postsReducer = (state = {}, action) => {
     const nextState = {...state}
-
     switch (action.type) {
         case RECEIVE_POSTS:
-            return { ...nextState, ...action.posts };
-        case RECEIVE_POST:
-            nextState[action.post.id] = action.post;
-            return nextState;
+            return { ...action.posts };
+        // case RECEIVE_POST:
+        //     // nextState[action.post._id] = action.post;
+        //     // return nextState;
+        //     return { [action.post._id]: action.post, ...state, [action.post._id]: action.post };
+        case RECEIVE_UPDATED_POST:
+            console.log('action in the reducer', action);
+            return { ...state, [action.updatedPost._id]: action.updatedPost };
+        case RECEIVE_NEW_POST:
+            return { [action.newPost._id]: action.newPost, ...state };
         case RECEIVE_USER_POSTS:
             return action.userPosts;
         case RECEIVE_GAME_POSTS:

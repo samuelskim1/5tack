@@ -2,49 +2,60 @@
 
 a {
     text-decoration: none;
-    color: white;
+    color: $neutral-text;
 }
 
 .line-divider {
-    border-bottom: 1px white solid;
+    border-bottom: 1px $neutral-text solid;
     margin: 5px 0;
 }
 
 #nav-container {
-    color: white;
+    color: $neutral-text;
     width: 250px;
     // width: fit-content;
     position: relative;
     // text-align: center;
     // padding: 20px 40px;
+    padding: 17px;
     display: flex;
     justify-content: center;
     line-height: 2;
     // padding: 20px;
     height: inherit;
     // background-color: rgb(52, 56, 99);
-    background-color: #666;
+    background-color: #222;
 
     .inner-nav {
         // min-width: 150px;
         position: sticky;
         top: 20px;
         // min-width: 200px;
-        width: 100%;
+        // width: 100%;
         height: min-content;
         padding: 17px;
         // background-color: rgb(52, 56, 99);
-        background-color: #666;
+        background-color: #1d1d1d;
+        border-radius: 12px;
+        // outline: 1px solid white;
+        // box-shadow: 0 0 5px 0 #777;
+
         .upper-nav {
-            // border-bottom: 1px solid white;
+            // border-bottom: 1px solid $neutral-text;
             // padding-bottom: 10px;
             text-align: center;
 
             #nav-title {
-                font-size: 24px;
+                display: block;
+                font-size: 18px;
                 font-weight: 600;
                 border-top: 4px solid white;
                 border-bottom: 4px solid white;
+                background-color: #333;
+            }
+
+            #nav-title:hover {
+                background-color: #555;
             }
 
             .profile-link {
@@ -54,8 +65,8 @@ a {
                 > #avatar-container {
 
                     > img {
-                        width: 69px;
-                        height: 69px;
+                        width: 35px;
+                        height: 35px;
                     }
 
                     #initial-container {
@@ -67,19 +78,26 @@ a {
 
             #nav-welcome {
                 margin-bottom: 10px;
+                font-weight: 500;
             }
 
         }
         .lower-nav {
+            // padding-top: 10px;
             padding: 10px 0;
             .category-item {
                 list-style: none;
                 position: relative;
-                border: 1px solid white;
+                border: 1px solid $neutral-text;
                 text-align: center;
                 border-radius: 5px;
                 margin-bottom: 5px;
                 cursor: pointer;
+                background-color: #555;
+            }
+
+            .category-item:hover {
+                background-color: #444;
             }
         }
     }
@@ -90,7 +108,7 @@ a {
     // color: #aaaaaa;
     color: black;
     border-radius: 5px;
-    border: 1px solid #aaaaaa;
+    border: 1px solid $neutral-text;
     cursor: pointer;
     text-align: center;
     margin-top: 20px;
@@ -106,12 +124,12 @@ a {
 //     // justify-content: space-between;
     
 //     a {
-//         color: white;
+//         color: $neutral-text;
 //     }
 
 //     .inner-nav {
 //         // width: 85%;
-//         color: white;
+//         color: $neutral-text;
 //         width: fit-content;
 //         margin: 0 auto;
 
@@ -142,3 +160,30 @@ a {
 //         }
 //     }
 // }
+
+
+.about-button {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  background-color: #777;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  z-index: 1000;
+}
+  
+.about-button:hover {
+  background-color: #111;
+}
+
+.about-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+

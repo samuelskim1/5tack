@@ -3,6 +3,7 @@ const router = express.Router({ mergeParams: true });
 const mongoose = require('mongoose');
 const Comment = mongoose.model('Comment');
 const { requireUser } = require('../../config/passport');
+const { io } = require('../../app');
 
 router.post('/', requireUser, async (req, res) => {
   const commentData = {
@@ -13,7 +14,7 @@ router.post('/', requireUser, async (req, res) => {
     const newComment = await Comment.create(commentData);
     res.status(201).json(newComment);
 
-    io.emit('newComment', newComment);
+    // io.emit('newComment', newComment);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -23,7 +24,7 @@ router.get('/', async (req, res) => {
   try {
     const comments = await Comment.find({})
       .populate("author_id", "_id username profileImageUrl")
-      .populate("post_id");
+      // .populate("post_id");
     const modifiedComments = Object.assign({}, ...comments.map(comment => ({ [comment._id]: comment })));
     res.status(200).json(modifiedComments);
   } catch (error) {

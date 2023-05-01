@@ -60,7 +60,8 @@ export const updateUser = (userInfo) => async (dispatch) => {
       body: JSON.stringify(userInfo)
     });
     const user = await res.json();
-    return dispatch(receiveCurrentUser(user));
+    dispatch(receiveCurrentUser(user));
+    return res;
   } catch(err) {
     const res = await err.json();
     if (res.statusCode === 400) {

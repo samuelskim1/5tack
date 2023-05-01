@@ -6,16 +6,23 @@ import { Link } from "react-router-dom";
 
 const CategoryNav = () => {
     const dispatch = useDispatch();
+    const dropdown = useRef();
     const categories = useSelector(state => Object.values(state.categories));
-    // const [show, setShow] = useState(false);
+    const [show, setShow] = useState(
+        Array(categories.length).fill(false)
+    );
 
     useEffect(() => {
         dispatch(fetchCategories());
     }, []);
 
+    // const handleClick = (e) => {
+    //     if (!dropdown.current.contains(e.target)) toggleShow()
+    // }
+
     // useEffect(() => {
     //     const outsideClick = e => {
-    //         if (cat.current && !cat.current.contains(e.target)) {
+    //         if (show && ref.current && !ref.current.contains(e.target)) {
     //             setShow(false);
     //         }
     //     }
@@ -28,41 +35,33 @@ const CategoryNav = () => {
     // }, [show])
 
 
-    // useEffect(() => {
-    //     if (!show) return;
+    const toggleShow = (index) => {
+        setShow(prev => {
+            const next = [ ...prev ];
+            next[index] = !next[index];
+            return next;
+        })
+    };
 
-    //     const clickHide = (e) => {
-    //         if (catitem?.current?.contains(e.target)) return;
-    //         setShow(false);
-    //     };
-
-    //     document.addEventListener('click', clickHide);
-
-    //     return () => document.removeEventListener('click', clickHide);
-    // }, [setShow])
 
 
     if (!categories) return null;
 
-    // const handleClick = () => {
-    //     setShow();
-    // }
-    // console.log(show);
     return (
         <>
             {categories.map((cat, i) =>
-            <>
                 <li 
                     className="category-item" 
-                    key={i}
-                    id={cat.name.split("$")[0]}
+                    onClick={() => toggleShow(i)}  
+                    key={i} 
                 >
-                    {/* {cat.name.split("$")[0]} */}
-                    {/* {show === cat.name &&  */}
-                        <CategoryDropdown category={cat} />
-                    {/* } */}
+                    {cat.name.split("$")[0]}
+                    <div className="dropdown" ref={dropdown} >
+                        {show[i] && 
+                            <CategoryDropdown show={show[i]} category={cat} toggleShow={() => toggleShow(i)} dropdown={dropdown} />
+                        }
+                    </div>
                 </li>
-            </>
             )}
         </>
     )

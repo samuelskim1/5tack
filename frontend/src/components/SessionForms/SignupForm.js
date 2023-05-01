@@ -33,7 +33,7 @@ const SignupForm = () => {
             {currModal === 'signup' && (
             <div id="session-form-container">
                 <form className="session-form">
-                <h2>Welcome to 5tack!</h2>
+                <h2>Welcome to 5TACK!</h2>
                     <label>
                         <span>Email</span>
                         <input
@@ -65,7 +65,7 @@ const SignupForm = () => {
                     </label>
                     <div className="errors">{errors?.password}</div>
                     <div 
-                        id="submit-login-btn"
+                        id="submit-signup-btn"
                         onClick={handleSubmit}
                         >
                         Sign Up
