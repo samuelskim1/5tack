@@ -97,7 +97,15 @@
 }
 
 #submit-login-btn {
-  // margin-top: 20px;
+  border-radius: 8px;
+  padding: 12px;
+  background-color: #0c1398;
+  color: white;
+  cursor: pointer;
+}
+
+#submit-signup-btn {
+  margin-top: 30px;
   border-radius: 8px;
   padding: 12px;
   background-color: #0c1398;

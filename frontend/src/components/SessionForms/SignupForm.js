@@ -65,7 +65,7 @@ const SignupForm = () => {
                     </label>
                     <div className="errors">{errors?.password}</div>
                     <div 
-                        id="submit-login-btn"
+                        id="submit-signup-btn"
                         onClick={handleSubmit}
                         >
                         Sign Up
