@@ -5,7 +5,6 @@ import CategoryDropdown from "../CategoryDropdown/CategoryDropdown";
 
 const CategoryNav = () => {
     const dispatch = useDispatch();
-    const dropdown = useRef();
     const categories = useSelector(state => Object.values(state.categories));
     const [show, setShow] = useState(
         Array(categories.length).fill(false)
@@ -13,35 +12,24 @@ const CategoryNav = () => {
 
     useEffect(() => {
         dispatch(fetchCategories());
-        console.log(categories);
     }, []);
 
-    // const handleClick = (e) => {
-    //     if (!dropdown.current.contains(e.target)) toggleShow()
-    // }
 
-    // useEffect(() => {
-    //     const outsideClick = e => {
-    //         if (show && ref.current && !ref.current.contains(e.target)) {
-    //             setShow(false);
-    //         }
-    //     }
-    //     document.addEventListener("mousedown", outsideClick);
-
-    //     return () => {
-    //         document.addEventListener("mousedown", outsideClick);
-    //     }
-
-    // }, [show])
-
-
-    const toggleShow = (index) => {
+    const showDrop = (index) => {
         setShow(prev => {
             const next = [ ...prev ];
-            next[index] = !next[index];
+            next[index] = true;
             return next;
         })
     };
+
+    const hideDrop = (index) => {
+        setShow(prev => {
+            const next = [ ...prev ];
+            next[index] = false;
+            return next;
+        })
+    }
 
 
 
@@ -52,15 +40,18 @@ const CategoryNav = () => {
             {categories.map((cat, i) =>
                 <li 
                     className="category-item" 
-                    onClick={() => toggleShow(i)}  
+                    onMouseUp={() => showDrop(i)}  
                     key={i} 
                 >
                     {cat.name.split("$")[0]}
-                    <div className="dropdown" ref={dropdown} >
                         {show[i] && 
-                            <CategoryDropdown show={show[i]} category={cat} toggleShow={() => toggleShow(i)} dropdown={dropdown} />
+                            <CategoryDropdown 
+                                show={show[i]} 
+                                category={cat} 
+                                hideDrop={() => hideDrop(i)} 
+                                idx={i} 
+                                />
                         }
-                    </div>
                 </li>
             )}
         </>
