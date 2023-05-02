@@ -2,18 +2,14 @@ import { useEffect, useRef } from 'react';
 import './CategoryDropdown.scss';
 import { Link } from 'react-router-dom';
 
-const CategoryDropdown = ({ category, toggleShow, show, idx }) => {
+const CategoryDropdown = ({ category, hideDrop, show, idx }) => {
     const dropdown = useRef();
 
     
     useEffect(() => {
-        // if (!show) return;
-        const links = document.getElementsByClassName('dropdown-item');
-        console.log(links);
-        
         const handleClick = (e) => {
             if (!dropdown.current.contains(e.target)) {
-                toggleShow(idx);
+                hideDrop(idx);
                 console.log('sup kaiter');
             }
         }
@@ -32,7 +28,10 @@ const CategoryDropdown = ({ category, toggleShow, show, idx }) => {
             <div className='line-divider'/>
             {category.game_id.map((game, i) => 
                 <div className="dropdown-item" key={i}>
-                    <Link to={`/games/${game.nameURL}`}>
+                    <Link 
+                        to={`/games/${game.nameURL}`}
+                        onClick={() => hideDrop(idx)}
+                        >
                         {game.name} 
                     </Link>
                 </div>

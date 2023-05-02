@@ -14,33 +14,22 @@ const CategoryNav = () => {
         dispatch(fetchCategories());
     }, []);
 
-    // const handleClick = (e) => {
-    //     if (!dropdown.current.contains(e.target)) toggleShow()
-    // }
 
-    // useEffect(() => {
-    //     const outsideClick = e => {
-    //         if (show && ref.current && !ref.current.contains(e.target)) {
-    //             setShow(false);
-    //         }
-    //     }
-    //     document.addEventListener("mousedown", outsideClick);
-
-    //     return () => {
-    //         document.addEventListener("mousedown", outsideClick);
-    //     }
-
-    // }, [show])
-
-
-    const toggleShow = (index) => {
-        // debugger;
+    const showDrop = (index) => {
         setShow(prev => {
             const next = [ ...prev ];
-            next[index] = !next[index];
+            next[index] = true;
             return next;
         })
     };
+
+    const hideDrop = (index) => {
+        setShow(prev => {
+            const next = [ ...prev ];
+            next[index] = false;
+            return next;
+        })
+    }
 
 
 
@@ -51,7 +40,7 @@ const CategoryNav = () => {
             {categories.map((cat, i) =>
                 <li 
                     className="category-item" 
-                    onMouseUp={() => toggleShow(i)}  
+                    onMouseUp={() => showDrop(i)}  
                     key={i} 
                 >
                     {cat.name.split("$")[0]}
@@ -59,7 +48,7 @@ const CategoryNav = () => {
                             <CategoryDropdown 
                                 show={show[i]} 
                                 category={cat} 
-                                toggleShow={() => toggleShow(i)} 
+                                hideDrop={() => hideDrop(i)} 
                                 idx={i} 
                                 />
                         }
