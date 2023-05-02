@@ -61,6 +61,17 @@
 
 }
 
+// .rating {
+//     display: flex;
+//     width: fit-content;
+//     flex-direction: row-reverse;
+// }
+
+// .rating i:hover,
+// .rating i:hover ~ i{
+//   color: red;
+// }
+
 .errors {
     color: $errors-color;
     font-size: 12px;
@@ -68,7 +79,6 @@
 }
 
 .submit-btn {
-
     margin-top: 20px;
     border-radius: 8px;
     padding: 12px;

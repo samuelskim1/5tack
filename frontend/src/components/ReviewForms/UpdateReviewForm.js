@@ -12,7 +12,10 @@ const UpdateReviewForm = ({ setShowModal, review }) => {
 
     const [title, setTitle] = useState(review.title);
     const [description, setDescription] = useState(review.description);
+    // const [rating, setRating] = useState(review.rating);
+    
     const [rating, setRating] = useState(review.rating);
+    const [hoverRating, setHoverRating] = useState(0);
 
     useEffect(() => {
         dispatch(fetchUserReviews(username));
@@ -49,11 +52,29 @@ const UpdateReviewForm = ({ setShowModal, review }) => {
                 <div>{errors?.title}</div>
                 <label >
                     <span>Rating</span>
-                    <input
+                    <div>
+                        {[...Array(5)].map((star, i) => {
+                            i += 1;
+                            return (
+                                <span
+                                    key={i}
+                                    onClick={() => setRating(i)}
+                                    onMouseOver={() => setHoverRating(i)}
+                                    onMouseOut={() => setHoverRating(0)}
+                                    >
+                                        {i <= (hoverRating === 0 ? rating : hoverRating) ?
+                                        <i className="fa-solid fa-star" />
+                                        : <i className="fa-regular fa-star" />
+                                        }
+                                </span>
+                            )
+                        })}
+                    </div>
+                    {/* <input
                         type="text"
                         value={rating}
                         onChange={(e) => setRating(e.target.value)}
-                    />
+                    /> */}
                 </label>
                 <div>{errors?.rating}</div>
                 <label >

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createReview, fetchUserReviews } from "../../store/reviews";
 import './ReviewForms.scss';
 import { clearSessionErrors } from "../../store/session";
+import Rating from "./Rating";
 
 const CreateReviewForm = ({ setShowModal, user }) => {
     const dispatch = useDispatch();
@@ -13,7 +14,9 @@ const CreateReviewForm = ({ setShowModal, user }) => {
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [rating, setRating] = useState('');
+    
+    const [rating, setRating] = useState(0);
+    const [hoverRating, setHoverRating] = useState(0);
 
     useEffect(() => {
         return () => {
@@ -52,12 +55,31 @@ const CreateReviewForm = ({ setShowModal, user }) => {
                 <div>{errors?.title}</div>
                 <label >
                     <span>Rating</span>
-                    <input
+                    {/* <Rating setRating={setRating} setHoverRating={setHoverRating} rating={rating} hoverRating={hoverRating} /> */}
+                    <div>
+                        {[...Array(5)].map((star, i) => {
+                            i += 1;
+                            return (
+                                <span
+                                    key={i}
+                                    onClick={() => setRating(i)}
+                                    onMouseOver={() => setHoverRating(i)}
+                                    onMouseOut={() => setHoverRating(0)}
+                                    >
+                                        {i <= (hoverRating === 0 ? rating : hoverRating) ?
+                                        <i className="fa-solid fa-star" />
+                                        : <i className="fa-regular fa-star" />
+                                        }
+                                </span>
+                            )
+                        })}
+                    </div>
+                    {/* <input
                         type="text"
                         value={rating}
                         onChange={(e) => setRating(e.target.value)}
                         placeholder="Rating"
-                    />
+                    /> */}
                 </label>
                 <div>{errors?.rating}</div>
                 <label><span>Description</span>
