@@ -80,7 +80,7 @@ const UpdatePostForm = ({ setShowModal, post }) => {
                     </div>
                     :
                     <div
-                        className="submit-btn disabled-btn"
+                        className="disabled-btn"
                     >
                         Save Changes
                     </div>
