@@ -5,7 +5,6 @@ import CategoryDropdown from "../CategoryDropdown/CategoryDropdown";
 
 const CategoryNav = () => {
     const dispatch = useDispatch();
-    const dropdown = useRef();
     const categories = useSelector(state => Object.values(state.categories));
     const [show, setShow] = useState(
         Array(categories.length).fill(false)
@@ -13,7 +12,6 @@ const CategoryNav = () => {
 
     useEffect(() => {
         dispatch(fetchCategories());
-        console.log(categories);
     }, []);
 
     // const handleClick = (e) => {
@@ -36,6 +34,7 @@ const CategoryNav = () => {
 
 
     const toggleShow = (index) => {
+        // debugger;
         setShow(prev => {
             const next = [ ...prev ];
             next[index] = !next[index];
@@ -52,15 +51,18 @@ const CategoryNav = () => {
             {categories.map((cat, i) =>
                 <li 
                     className="category-item" 
-                    onClick={() => toggleShow(i)}  
+                    onMouseUp={() => toggleShow(i)}  
                     key={i} 
                 >
                     {cat.name.split("$")[0]}
-                    <div className="dropdown" ref={dropdown} >
                         {show[i] && 
-                            <CategoryDropdown show={show[i]} category={cat} toggleShow={() => toggleShow(i)} dropdown={dropdown} />
+                            <CategoryDropdown 
+                                show={show[i]} 
+                                category={cat} 
+                                toggleShow={() => toggleShow(i)} 
+                                idx={i} 
+                                />
                         }
-                    </div>
                 </li>
             )}
         </>
