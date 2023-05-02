@@ -13,7 +13,7 @@ const ReviewIndexItem = ({ review }) => {
         <div className='review-index-item'>
             <div className='review-index-rating'>
                 {review?.rating}
-                <i class="fa-solid fa-star" style={{color: `$#e4dfd5`}}></i>
+                <i className="fa-solid fa-star" style={{color: `$#e4dfd5`}}></i>
                 { isAuthor &&
                     <ReviewButtons review={review} />
                 }

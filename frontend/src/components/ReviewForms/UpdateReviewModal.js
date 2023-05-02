@@ -11,7 +11,7 @@ const UpdateReviewModal = ({ review }) => {
                 className='update-review-modal'
                 onClick={() => setShowModal(true)}
             >
-                <i class="fa-solid fa-pen"></i>
+                <i className="fa-solid fa-pen"></i>
             </div>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)} >

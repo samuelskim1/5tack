@@ -12,7 +12,10 @@ router.post('/', requireUser, async (req, res) => {
 
   try {
     const newComment = await Comment.create(commentData);
-    res.status(201).json(newComment);
+    const findNewComment = await Comment.findById(newComment._id)
+                                        .populate("author_id")
+                                        .populate("post_id");
+    res.status(201).json(findNewComment);
 
     // io.emit('newComment', newComment);
   } catch (error) {
@@ -24,7 +27,7 @@ router.get('/', async (req, res) => {
   try {
     const comments = await Comment.find({})
       .populate("author_id", "_id username profileImageUrl")
-      // .populate("post_id");
+      .populate("post_id");
     const modifiedComments = Object.assign({}, ...comments.map(comment => ({ [comment._id]: comment })));
     res.status(200).json(modifiedComments);
   } catch (error) {
@@ -50,7 +53,7 @@ router.patch('/:id', requireUser,  async (req, res) => {
   try {
     const comment = await Comment.findByIdAndUpdate(
       req.params.id,
-      { title: req.body.title, description: req.body.description },
+      { content: req.body.content },
       { new: true }
     );
     if (!comment) {

@@ -48,7 +48,7 @@ export const fetchAllComments = () => async dispatch => {
 
 export const fetchComment = comment => async dispatch => {
     try {
-        const res = await jwtFetch(`/api/comments/${comment.id}`);
+        const res = await jwtFetch(`/api/comments/${comment._id}`);
         const commentInfo = await res.json();
         return dispatch(receiveComment(commentInfo));
     } catch (err) {
@@ -81,7 +81,7 @@ export const createComment = (comment) => async dispatch => {
 
 export const updateComment = comment => async dispatch => {
     try {
-        const res = await jwtFetch(`/api/comments/${comment.id}`, {
+        const res = await jwtFetch(`/api/comments/${comment._id}`, {
             method: "PATCH",
             body: JSON.stringify(comment),
             headers: {
@@ -90,6 +90,7 @@ export const updateComment = comment => async dispatch => {
         });
         const updatedComment = await res.json();
         dispatch(receiveComment(updatedComment));
+        return updatedComment;
     } catch(err) {
         const res = await err.json();
         if (res.statusCode === 400) {

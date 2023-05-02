@@ -10,7 +10,7 @@ const PostButtons = ({ post }) => {
         <div className='post-buttons-holder'>
             <UpdatePostModal post={post} />
             <div className='delete-post-btn' onClick={() => dispatch(deletePost(post._id))}>
-                <i class="fa-solid fa-trash"></i>
+                <i className="fa-solid fa-trash"></i>
             </div>
         </div>
     )
