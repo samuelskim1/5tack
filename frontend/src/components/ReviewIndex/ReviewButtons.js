@@ -10,7 +10,7 @@ const ReviewButtons = ({ review }) => {
         <div className='review-buttons-holder'>
             <UpdateReviewModal review={review} />
             <div className='delete-review-btn' onClick={() => dispatch(destroyReview(review._id))}>
-                <i class="fa-solid fa-trash"></i>
+                <i className="fa-solid fa-trash"></i>
             </div>
         </div>
     )

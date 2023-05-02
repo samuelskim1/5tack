@@ -9,13 +9,15 @@ import { useState } from "react";
 
 const CommentsIndexItem = ({ comment, post }) => {
   const currentUser = useSelector(state => state.session.user)
-  const isAuthor = comment?.author_id._id === currentUser._id
+  const [isAuthor, setIsAuthor] = useState(comment?.author_id?._id == currentUser?._id);
+  const commentAuthor = useSelector(state => state.users[comment?.author_id?.username])
   const dispatch = useDispatch();
   const [isEditing, setIsEditing] = useState(false);
   const [content, setContent] = useState(comment?.content);
   const [canUpdate, setCanUpdate] = useState(false);
   
-
+  // console.log(commentAuthor);
+  // console.log(comment.author_id);
 
   // if (!comment.author_id) return null;
   const handleDelete = async (e) => {
@@ -37,11 +39,11 @@ const CommentsIndexItem = ({ comment, post }) => {
     if (e.key === 'Enter') {
       dispatch(updateComment(comment));
       dispatch(updatedPost(post));
+      setIsEditing(false);
     }
   };
 
   const handleUpdate = async (e) => {
-    debugger;
     let updatedComment = {
       _id: comment._id,
       author_id: {
@@ -58,27 +60,28 @@ const CommentsIndexItem = ({ comment, post }) => {
     const commentData = await dispatch(updateComment(updatedComment));
     console.log(commentData);
     post.comment_id.forEach((element, i) => {
-      debugger;
       if (element._id === commentData._id)
-      post.comment_id[i] = commentData;
+      post.comment_id[i] = updatedComment;
       console.log(element);
     })
     console.log(post);
     dispatch(updatedPost(post));
+    setIsEditing(false);
+    debugger;
   }
 
 
 
   return (
     <div className='comment-item'>
-      <Link to={`/${comment?.author_id?.username}`}>
-        <Avatar currentUser={comment?.author_id} />
+      <Link to={`/${commentAuthor?.username}`}>
+        <Avatar user={commentAuthor} />
       </Link>
       <div className='comment-text-holder'>
         <div className='author-block'>
           <div className='author-username'>
-            <Link to={`/${comment?.author_id?.username}`}>
-              {comment?.author_id?.username}
+            <Link to={`/${commentAuthor?.username}`}>
+              {commentAuthor?.username}
             </Link>
           </div>
           { isAuthor &&
@@ -92,25 +95,49 @@ const CommentsIndexItem = ({ comment, post }) => {
           
           <TimeStamp comment={comment} />
         </div>
-        { isEditing ?  
-          (<textarea
-            value={content}
-            onChange={(e) => handleChange(e)}
-          />
+        { isEditing ? 
+          (<div className='comment-edit-section'>
+            <textarea
+              value={content}
+              onChange={(e) => handleChange(e)}
+            />
+            <i
+              className="fa-regular fa-paper-plane"
+              onClick={(e) => handleUpdate(e)}
+              onKeyDown={(e) => handleEnter(e)}
+            />
+          </div>
           )
-          : (<div
-          className='comment-body'>{comment?.content}
-          </div> )
-        }
-        { isEditing && canUpdate ? <i
-          className="fa-regular fa-paper-plane"
-          onClick={(e) => handleUpdate(e)}
-          onKeyDown={(e) => handleEnter(e)}
-        />
-        : <i
-          className="fa-regular fa-paper-plane disable-btn"
-        />}
-        
+         : 
+            (<div className='comment-body'>
+              {comment?.content}
+            </div>) 
+        } 
+
+
+
+{/* 
+       { isEditing && canUpdate ? (
+          <div className='comment-edit-section'>
+            <textarea
+                value={content}
+                onChange={(e) => handleChange(e)}
+            />
+            <i
+              className="fa-regular fa-paper-plane"
+              onClick={(e) => handleUpdate(e)}
+              onKeyDown={(e) => handleEnter(e)}
+            />
+          </div>
+        )
+        : isEditing &&
+          <>
+            <div className='comment-body'>
+              {comment?.content}
+            </div> 
+            <i className="fa-regular fa-paper-plane disable-btn"/> 
+          </> 
+        } */}
       </div>
     </div>
   );
