@@ -10,7 +10,6 @@ const CategoryDropdown = ({ category, hideDrop, show, idx }) => {
         const handleClick = (e) => {
             if (!dropdown.current.contains(e.target)) {
                 hideDrop(idx);
-                console.log('sup kaiter');
             }
         }
 
