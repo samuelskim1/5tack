@@ -31,7 +31,7 @@ const App = () => {
           <Route exact path="/about" component={AboutPage} />
           <ProtectedRoute exact path={`/:username`} component={Profile} />
           <ProtectedRoute exact path="/games/:nameURL" component={GameShow} />
-          <ProtectedRoute exact path="/404" component={LostPage} />
+          <ProtectedRoute exact path="/uh-oh/404" component={LostPage} />
         </Switch>
       </div>
     </div>

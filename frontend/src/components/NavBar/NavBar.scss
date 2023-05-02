@@ -79,6 +79,10 @@ a {
             #nav-welcome {
                 margin-bottom: 10px;
                 font-weight: 500;
+
+                a {
+                    text-decoration: underline;
+                }
             }
 
         }

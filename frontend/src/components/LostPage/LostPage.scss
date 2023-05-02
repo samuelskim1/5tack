@@ -1,2 +1,10 @@
 @import '../../App.scss';
 
+#lost-page-container {
+  width: calc(100vw - 284px);
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
