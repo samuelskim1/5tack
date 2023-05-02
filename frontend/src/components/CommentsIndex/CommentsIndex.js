@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { createComment, fetchAllComments } from '../../store/comments';
 import { Link } from 'react-router-dom';
 import { receivePost, updatedPost } from '../../store/posts';
+import CommentsIndexItem from './CommentsIndexItem';
 
 const CommentsIndex = ({ post }) => {
   const dispatch = useDispatch();
@@ -75,22 +76,7 @@ const CommentsIndex = ({ post }) => {
   return (
     <div className='comments-index-container'>
       {comments?.map((comment, i) => (
-        <div className='comment-item' key={i}>
-          <Link to={`/${comment?.author_id?.username}`}>
-            <Avatar user={comment?.author_id} />
-          </Link>
-          <div className='comment-text-holder'>
-            <div className='author-block'>
-              <div className='author-username'>
-                <Link to={`/${comment?.author_id?.username}`}>
-                  {comment?.author_id.username}
-                </Link>
-              </div>
-              <TimeStamp comment={comment} />
-            </div>
-            <div className='comment-body'>{comment?.content}</div> 
-          </div>
-        </div>
+        <CommentsIndexItem comment={comment} post={post} key={i}/>
       ))}
 
       <div className='comment-item'>

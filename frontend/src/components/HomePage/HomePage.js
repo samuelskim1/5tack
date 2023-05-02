@@ -11,23 +11,23 @@ const HomePage = () => {
                 The ultimate platform for creating your stacked dream team!
             </div>
             <div className='slider-holder'>
-                <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" space-between="30"
+                <swiper-container className="mySwiper" pagination="true" pagination-clickable="true" space-between="30"
                     centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false">
           
                     <swiper-slide id="home-slide">
-                        <img className='swiper-image' src={"https://5tack.s3.amazonaws.com/public/league_of_legends.jpeg"} />
+                        <img className='swiper-image' src={"https://5tack.s3.amazonaws.com/public/league_of_legends.jpeg"} alt='hello'/>
                     </swiper-slide>
                     <swiper-slide id="home-slide">
-                        <img className='swiper-image' src={"https://5tack.s3.amazonaws.com/public/valorant.webp"} />
+                        <img className='swiper-image' src={"https://5tack.s3.amazonaws.com/public/valorant.webp"} alt='hello'/>
                     </swiper-slide>
                     <swiper-slide id="home-slide">
-                        <img className='swiper-image' src={"https://5tack.s3.amazonaws.com/public/maplestory.png"} />
+                        <img className='swiper-image' src={"https://5tack.s3.amazonaws.com/public/maplestory.png"} alt='hello'/>
                     </swiper-slide>
                     <swiper-slide id="home-slide">
-                        <img className='swiper-image' src={"https://5tack.s3.amazonaws.com/public/minecraft.jpeg"} />
+                        <img className='swiper-image' src={"https://5tack.s3.amazonaws.com/public/minecraft.jpeg"} alt='hello'/>
                     </swiper-slide>
                     <swiper-slide id="home-slide">
-                        <img className='swiper-image' src={"https://5tack.s3.amazonaws.com/public/gtaV.jpeg"} />
+                        <img className='swiper-image' src={"https://5tack.s3.amazonaws.com/public/gtaV.jpeg"} alt='hello'/>
                     </swiper-slide>
                 </swiper-container>
             </div>

@@ -18,8 +18,8 @@ const PostButtons = ({ post }) => {
     return (
         <div className='post-buttons-holder'>
             <UpdatePostModal post={post} />
-            <div className='delete-post-btn' onClick={() => setShowConfirm(true)}>
-                <i class="fa-solid fa-trash"></i>
+            <div className='delete-post-btn' onClick={() => dispatch(deletePost(post._id))}>
+                <i className="fa-solid fa-trash"></i>
             </div>
             {showConfirm && (
                 <Modal onClose={() => setShowConfirm(false)}>
