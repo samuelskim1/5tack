@@ -7,8 +7,8 @@ const UpdatePostForm = ({ setShowModal, post }) => {
     const dispatch = useDispatch();
 
     const { nameURL } = useParams();
-    const errors = useSelector(state => state.errors?.posts);
-    // const gameURL = useSelector(state => post.game)
+    // const errors = useSelector(state => state.errors?.posts);
+    const [errors, setErrors] = useState({title: '', description: ''});
     
     const [title, setTitle] = useState(post.title);
     const [description, setDescription] = useState(post.description);
@@ -20,9 +20,20 @@ const UpdatePostForm = ({ setShowModal, post }) => {
         if (type === 'title') {
             currTitle = e.target.value;
             setTitle(currTitle);
+            if (currTitle.length > 50) {
+                setErrors({ ...errors, ["title"]: "Title cannot be longer than 50 characters" })
+            } else {
+                setErrors({ ...errors, ["title"]: '' })
+            }
         } else {
             currDescription = e.target.value;
             setDescription(currDescription);
+
+            if (currDescription.length > 400) {
+                setErrors({ ...errors, ["description"]: "Description cannot be longer than 400 characters" })
+            } else {
+                setErrors({ ...errors, ["description"]: '' })
+            }
         }
         if (currTitle.length > 0 && currTitle.length <= 50 && currDescription.length > 0 && currDescription.length <= 400 ) {
             setCanSubmit(true);
@@ -62,7 +73,7 @@ const UpdatePostForm = ({ setShowModal, post }) => {
                         onChange={e => changeHandler(e, 'title')}
                     />
                 </label>
-                <div>{errors?.title}</div>
+                <div className="errors">{errors?.title}</div>
                 <label >
                 <span>Description</span>
                     <textarea
@@ -70,7 +81,7 @@ const UpdatePostForm = ({ setShowModal, post }) => {
                         onChange={e => changeHandler(e, 'description')}
                         />
                 </label>
-                <div>{errors?.description}</div>
+                <div className="errors">{errors?.description}</div>
                 { canSubmit ?
                     <div
                         className="submit-btn"
