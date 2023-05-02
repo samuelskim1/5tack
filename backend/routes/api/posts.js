@@ -86,19 +86,19 @@ router.patch('/:id', requireUser,  async (req, res) => {
   }
 });
 
-router.delete('/:id', requireUser,  async (req, res) => {
+router.delete('/:id', requireUser, async (req, res) => {
   try {
-    const post = await Post.findByIdAndRemove(req.params.id)
-                           .populate("author_id", "_id username profileImageUrl")
-                           .populate("comment_id")
+    const post = await Post.findById(req.params.id);
     if (!post) {
       return res.status(404).json({ message: 'Post not found' });
     }
+    await post.remove(); // Use the remove() method to trigger the pre hook
     res.status(204).json({ message: 'Post deleted successfully' });
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
 });
+
 
 
 //custom route for getting all the posts for a singular user
