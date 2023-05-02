@@ -1,37 +1,39 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
-import { clearSessionErrors, updateUser } from "../../store/session";
+import { clearSessionErrors, getCurrentUser, updateUser } from "../../store/session";
 import { useHistory, useParams } from "react-router-dom";
 import '../SessionForms/SessionForm.scss';
+import { receiveUser } from "../../store/users";
 
 const EditUserInfoForm = ({ setEdit }) => {
     const dispatch = useDispatch();
     const history = useHistory();
+    const currentUser = useSelector(state => state.session?.user);
     const { username } = useParams();
 
     const errors = useSelector(state => state.errors?.session);
     // const showUser = useSelector(state => state?.users[username]);
     const showUser = useSelector(state => state?.session.user);
-
-    const [showUsername, setShowUsername] = useState(showUser?.username);
-    const [email, setEmail] = useState(showUser?.email);
-    const [description, setDescription] = useState(showUser?.description || '');
+    const [showUsername, setShowUsername] = useState(currentUser?.username);
+    const [email, setEmail] = useState(currentUser?.email);
+    const [description, setDescription] = useState(currentUser?.description || '');
     const [canSubmit, setCanSubmit] = useState(false);
     // const [password, setPassword] = useState('');
 
-    useEffect(() => {
-        // dispatch(getCurrentUser(showUser));
-        return () => dispatch(clearSessionErrors());
-    }, [showUser]);
+    // useEffect(() => {
+    //     dispatch(getCurrentUser(currentUser));
+    //     // why is this session errors?
+    //     // return () => dispatch(clearSessionErrors());
+    // }, [currentUser]);
 
     const handleSubmit = () => {
         const user = {
-            ...showUser,
+            ...currentUser,
             username: showUsername,
             email,
             description
         }
-        console.log("info to update with", user);
+        // console.log("info to update with", user);
         dispatch(updateUser(user)).then(res => {
             // console.log(res);
             // console.log("username", user.username)
@@ -40,6 +42,7 @@ const EditUserInfoForm = ({ setEdit }) => {
                 history.push(`/${showUsername}`);
             }
         });
+        dispatch(receiveUser(user));
         // console.log(res);
         // if (res.ok) {
         //     setEdit(false);

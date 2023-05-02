@@ -5,7 +5,7 @@ import Avatar from '../UserInfo/Avatar';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchAllComments } from '../../store/comments';
-import PostButtons from './PostButtons';
+import PostButtons from './PostButtons.js';
 
 const PostIndexItem = ({ post }) => {
   const dispatch = useDispatch();
