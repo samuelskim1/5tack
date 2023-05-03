@@ -60,11 +60,12 @@
     min-width: 500px;
     max-width: 650px;
     width: 50%;
-    padding: 0px 0px 25px 0px;
+    // padding: 0px 0px 25px 0px;
     outline: 1px solid $neutral-text;
     border-radius: 12px;
     color: $neutral-text;
     margin-bottom: 50px;
+    padding-bottom: 10px;
 
 
     .review-index-rating {
@@ -81,6 +82,13 @@
         outline: 1px solid $neutral-text;
         border-radius: 12px 12px 0px 0px;
         color: $neutral-text;
+        position: relative;
+    }
+
+    .review-rating {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .review-index-rating i {
@@ -118,6 +126,7 @@
         margin-right: 20px;
 
         a>#avatar-container {
+            // margin: 15px 0;
             margin-right: 20px;
 
             >img {
@@ -146,7 +155,7 @@
         font-size: 18px;
         line-height: 1.15em;
         font-weight: 300;
-        margin-bottom: 20px;
+        // margin-bottom: 20px;
     }
 
     // .review-comment-separator {
@@ -160,6 +169,11 @@
         display: flex;
         width: fit-content;
         justify-content: space-between;
+        position: absolute;
+        // right: 30px;
+        right: 5%;
+        // bottom: 30px;
+        bottom: 35%;
     }
 
     .delete-review-btn {
@@ -168,8 +182,11 @@
 
     .delete-review-btn,
     .update-review-modal {
-        font-size: 16px;
         cursor: pointer;
+        padding: 0;
+        .fa-solid {
+            font-size: 20px;
+        }
     }
     
 }
