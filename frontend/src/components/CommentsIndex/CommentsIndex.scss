@@ -119,3 +119,99 @@
   }
 }
 
+
+#comment-body-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  flex-direction: row;
+  width: 100%;
+  
+  .comment-buttons-holder {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+
+    .fa-paper-plane {
+      width: 0;
+      height: 0;
+      padding: 13px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .fa-paper-plane:hover {
+      background-color: #666;
+    }
+
+    .fa-xmark {
+      font-size: 16px;
+      width: 0;
+      height: 0;
+      padding: 13px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .fa-xmark:hover {
+      background-color: #666;
+    }
+
+    .fa-pen {
+      margin-left: 8px;
+      // margin-bottom: 4px;
+      width: 0;
+      height: 0;
+      padding: 12px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .fa-pen:hover {
+      background-color: #666;
+    }
+
+    .fa-trash {
+      margin-left: 8px;
+      width: 0;
+      height: 0;
+      padding: 12px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .fa-trash:hover {
+      background-color: #666;
+    }
+  }
+}
+
+
+.comment-edit-section {
+  width: 100%;
+  
+  textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    font-family: $default-font;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+}

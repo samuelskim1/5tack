@@ -77,35 +77,49 @@ const CommentsIndexItem = ({ comment, post }) => {
               {commentAuthor?.username}
             </Link>
           </div>
-          { isAuthor &&
+          <TimeStamp comment={comment} />
+        </div>
+
+        <div id="comment-body-container">
+          { isEditing ? 
+            (
+              <>
+                <div className='comment-edit-section'>
+                  <textarea
+                    value={content}
+                    onChange={(e) => handleChange(e)}
+                  />
+                </div>
+                <div className="comment-buttons-holder">
+                  <i
+                    className="fa-regular fa-paper-plane"
+                    onClick={(e) => handleUpdate(e)}
+                    onKeyDown={(e) => handleEnter(e)}
+                  />
+                  <i
+                    className="fa-solid fa-xmark"
+                    onClick={() => setIsEditing(false)}
+                  />
+                </div>
+              </>
+            )
+          : 
+              (<div className='comment-body'>
+                {comment?.content}
+              </div>) 
+          } 
+
+          { (isAuthor && !isEditing) &&
             <div className='comment-buttons-holder'>
-              <div className='comment-edit' onClick={() => setIsEditing(true)}>edit</div>
+              <div className='comment-edit' onClick={() => setIsEditing(!isEditing)}>
+                <i className="fa-solid fa-pen" />
+              </div>
               <div className='delete-comment-btn' onClick={() => handleDelete()}>
-                  <i className="fa-solid fa-trash"></i>
+                <i className="fa-solid fa-trash" />
               </div>
             </div>
           }
-          
-          <TimeStamp comment={comment} />
         </div>
-        { isEditing ? 
-          (<div className='comment-edit-section'>
-            <textarea
-              value={content}
-              onChange={(e) => handleChange(e)}
-            />
-            <i
-              className="fa-regular fa-paper-plane"
-              onClick={(e) => handleUpdate(e)}
-              onKeyDown={(e) => handleEnter(e)}
-            />
-          </div>
-          )
-         : 
-            (<div className='comment-body'>
-              {comment?.content}
-            </div>) 
-        } 
 
 
 
