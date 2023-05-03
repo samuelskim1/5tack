@@ -34,10 +34,8 @@ const CommentsIndexItem = ({ comment, post }) => {
 
   const handleEnter = async (e) => {
     if (e.key === 'Enter') {
-      dispatch(updateComment(comment));
-      dispatch(updatedPost(post));
-      setIsEditing(false);
-    }
+      handleUpdate();
+    };
   };
 
   const handleUpdate = async (e) => {
@@ -87,6 +85,7 @@ const CommentsIndexItem = ({ comment, post }) => {
                 <div className='comment-edit-section'>
                   <textarea
                     value={content}
+                    onKeyDown={(e) => handleEnter(e)}
                     onChange={(e) => handleChange(e)}
                   />
                 </div>
@@ -94,7 +93,6 @@ const CommentsIndexItem = ({ comment, post }) => {
                   <i
                     className="fa-regular fa-paper-plane"
                     onClick={(e) => handleUpdate(e)}
-                    onKeyDown={(e) => handleEnter(e)}
                   />
                   <i
                     className="fa-solid fa-xmark"

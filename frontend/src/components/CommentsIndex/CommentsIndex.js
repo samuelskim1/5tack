@@ -34,7 +34,7 @@ const CommentsIndex = ({ post }) => {
       post_id: {
         _id: post._id
       }
-    }
+    };
     const commentData = await dispatch(createComment(createdComment));
     post.comment_id.push(commentData);
     dispatch(updatedPost(post));
@@ -43,22 +43,8 @@ const CommentsIndex = ({ post }) => {
   
   const handleEnter = async (e) => {
     if (e.key === 'Enter') {
-      let createdComment = {
-        author_id: {
-          profileImageUrl: currentUser.profileImageUrl, 
-          username: currentUser.username,
-          _id: currentUser._id
-        },
-        content: content,
-        post_id: {
-          _id: post._id
-        }
-      }
-      const commentData = await dispatch(createComment(createdComment));
-      post.comment_id.push(commentData);
-      dispatch(updatedPost(post));
-      setContent('');
-    }
+      handleSubmit();
+    };
   };
   
   const handleChange = (e) => {
