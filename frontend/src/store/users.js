@@ -18,7 +18,7 @@ export const receiveAllUsers = users => ({
   users
 });
 
-const receiveErrors = errors => ({
+const receiveUserErrors = errors => ({
   type: RECEIVE_USER_ERRORS,
   errors
 });
@@ -37,7 +37,7 @@ export const fetchAllUsers = () => async dispatch => {
   } catch(err) {
     const res = await err.json();
     if (res.statusCode === 400) {
-      return dispatch(receiveErrors(res.errors));
+      return dispatch(receiveUserErrors(res.errors));
     }
   } 
 };
@@ -51,7 +51,7 @@ export const fetchUser = username => async dispatch => {
     const res = await err.json();
     console.log(res);
     if (res.statusCode >= 400) {
-      dispatch(receiveErrors(res.errors));
+      dispatch(receiveUserErrors(res.errors));
       return res;
     }
   }

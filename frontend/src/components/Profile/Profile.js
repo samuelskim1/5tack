@@ -18,13 +18,13 @@ const Profile = () => {
     const { username } = useParams();
     const history = useHistory();
     const user = useSelector(state => state?.users[username]);
-    const userErrors = useSelector(state => state?.errors?.users)
+    // const userErrors = useSelector(state => state?.errors?.users)
     const posts = useSelector(state => Object.values(state?.posts));
     //  const posts = useSelector(state => Object.values(state?.posts));
     const reviews = useSelector(state => Object.values(state?.reviews))
     const [tab, setTab] = useState('reviews');
     
-    
+    //this fetches the proper user and redirects to our 404 page if that fetch request returns an error
     const grabError = async () => {
         const res = await dispatch(fetchUser(username));
         if (res.statusCode >= 400) {

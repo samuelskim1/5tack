@@ -12,6 +12,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "../../components/Swiper/swiper.scss";
 import "../../components/Swiper/pagination.scss";
 import { register } from 'swiper/element/bundle';
+import { clearGameErrors } from "../../store/games";
 import { Redirect, useHistory } from "react-router-dom";
 
 const GameShow = () => {
@@ -25,18 +26,21 @@ const GameShow = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   
-
+  //this fetches the proper user and redirects to our 404 page if that fetch request returns an error
   const grabError = async () => {
     const res = await dispatch(fetchGame(nameURL));
     if (res.statusCode >= 400) {
       history.push('/uh-oh/404');
-      // dispatch(clearUserErrors());
+      dispatch(clearGameErrors());
+    } else {
+      setLoading(false);
     }
   }
 
+  // dispatch(fetchGame(nameURL)).then(() => setLoading(false));
 
   useEffect(() => {
-      dispatch(fetchGame(nameURL)).then(() => setLoading(false));
+      grabError();
       dispatch(fetchGamePosts(nameURL));
   }, [dispatch, nameURL]);
 
