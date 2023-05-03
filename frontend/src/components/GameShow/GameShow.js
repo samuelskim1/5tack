@@ -12,22 +12,38 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "../../components/Swiper/swiper.scss";
 import "../../components/Swiper/pagination.scss";
 import { register } from 'swiper/element/bundle';
-register();
-
-
-SwiperCore.use([Navigation, Pagination, Autoplay]);
+import { clearGameErrors } from "../../store/games";
+import { Redirect, useHistory } from "react-router-dom";
 
 const GameShow = () => {
+  register();
+  SwiperCore.use([Navigation, Pagination, Autoplay]);
+
+  const history = useHistory();
   const { nameURL } = useParams();
   const game = useSelector(state => state.games[nameURL]);
   const gamePosts = useSelector(state => Object.values(state.posts));
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
+  
+  //this fetches the proper user and redirects to our 404 page if that fetch request returns an error
+  const grabError = async () => {
+    const res = await dispatch(fetchGame(nameURL));
+    if (res.statusCode >= 400) {
+      history.push('/uh-oh/404');
+      dispatch(clearGameErrors());
+    } else {
+      setLoading(false);
+    }
+  }
+
+  // dispatch(fetchGame(nameURL)).then(() => setLoading(false));
 
   useEffect(() => {
-    dispatch(fetchGame(nameURL)).then(() => setLoading(false));
-    dispatch(fetchGamePosts(nameURL));
+      grabError();
+      dispatch(fetchGamePosts(nameURL));
   }, [dispatch, nameURL]);
+
 
   const renderMedia = (url, index) => {
     const isVideo = /\.(mp4|webm)$/i.test(url);

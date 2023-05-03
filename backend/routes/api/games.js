@@ -26,15 +26,23 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.get('/:nameURL', async (req, res) => {
+router.get('/:nameURL', async (req, res, next) => {
   try {
     const game = await Game.findOne({ nameURL: req.params.nameURL });
     if (!game) {
-      return res.status(404).json({ message: 'Game not found' })
+      let error = new Error('Game not found');
+      error.statusCode = 404;
+      error.errors = { message: "No game with that name exists in our website"};
+      return next(error);
+      // return res.status(404).json({ message: 'Game not found' })
     }
     res.status(200).json(game);
-  } catch (error) {
-    res.status(400).json( {message: error.message });
+  } catch (err) {
+    let error = new Error('Game not found');
+    error.statusCode = 404;
+    error.errors = { message: "No game with that name exists in our website" };
+    return next(error);
+    // res.status(400).json( {message: error.message });
   }
 })
 

@@ -58,7 +58,13 @@ const Navbar = () => {
                 {/* <p>go to demo profile</p> */}
                 <Avatar user={user} />
               </Link>
-              <div id="nav-welcome">Welcome back, {user?.username}!</div>
+              <div id="nav-welcome">
+                Welcome back, {" "}
+                  <Link to={`/${user.username}`}>
+                    {user?.username}
+                  </Link>
+                !
+              </div>
             </div>
             <div className="line-divider"/>
             <div className="lower-nav">
