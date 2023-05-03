@@ -61,7 +61,6 @@ const CommentsIndexItem = ({ comment, post }) => {
     })
     dispatch(updatedPost(post));
     setIsEditing(false);
-    debugger;
   }
 
 
