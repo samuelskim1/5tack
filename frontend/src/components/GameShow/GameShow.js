@@ -16,8 +16,8 @@ import { clearGameErrors } from "../../store/games";
 import { Redirect, useHistory } from "react-router-dom";
 
 const GameShow = () => {
-  register();
-  SwiperCore.use([Navigation, Pagination, Autoplay]);
+  // register();
+  // SwiperCore.use([Navigation, Pagination, Autoplay]);
 
   const history = useHistory();
   const { nameURL } = useParams();
@@ -72,7 +72,7 @@ const GameShow = () => {
         <h3>Loading...</h3>
       ) : game ? (
         <div className="game-show-content">
-          <Swiper
+          {/* <Swiper
             // navigation
             pagination
             loop
@@ -82,8 +82,10 @@ const GameShow = () => {
             {game.imageUrls.map((url, index) => (
               <SwiperSlide key={index}>{renderMedia(url, index)}</SwiperSlide>
             ))}
-          </Swiper>
-
+          </Swiper> */}
+          <div className="game-show-images">
+            <img src={game.imageUrls[0]} alt={`${game.name} ${1}`} />
+          </div>
           <h2 className="game-Name">{game.name}</h2>
           <div className="game-posts">
           <CreatePostModal game={game} />
