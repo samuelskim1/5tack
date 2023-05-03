@@ -14,7 +14,7 @@ const CommentsIndexItem = ({ comment, post }) => {
   const dispatch = useDispatch();
   const [isEditing, setIsEditing] = useState(false);
   const [content, setContent] = useState(comment?.content);
-  const [canUpdate, setCanUpdate] = useState(false);
+  const [canUpdate, setCanUpdate] = useState(content !== comment?.content);
   
 
   const handleDelete = async (e) => {
@@ -88,14 +88,16 @@ const CommentsIndexItem = ({ comment, post }) => {
                 <div className='comment-edit-section'>
                   <textarea
                     value={content}
-                    onKeyDown={(e) => handleEnter(e)}
+                    onKeyDown={(e) => canUpdate && handleEnter(e)}
                     onChange={(e) => handleChange(e)}
                   />
                 </div>
                 <div className="comment-buttons-holder">
                   <i
-                    className="fa-regular fa-paper-plane"
-                    onClick={(e) => handleUpdate(e)}
+                    className={"fa-regular fa-paper-plane" + (
+                      canUpdate ? "" : " disable-btn" 
+                    )}
+                    onClick={(e) => canUpdate && handleUpdate(e)}
                   />
                   <i
                     className="fa-solid fa-xmark"

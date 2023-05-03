@@ -39,6 +39,7 @@ const CommentsIndex = ({ post }) => {
     post.comment_id.push(commentData);
     dispatch(updatedPost(post));
     setContent('');
+    setCanSubmit(false);
   };
   
   const handleEnter = async (e) => {
