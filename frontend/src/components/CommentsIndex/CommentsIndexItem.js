@@ -8,9 +8,9 @@ import { useState } from "react";
 
 
 const CommentsIndexItem = ({ comment, post }) => {
-  const currentUser = useSelector(state => state.session.user)
-  const [isAuthor, setIsAuthor] = useState(comment?.author_id?._id == currentUser?._id);
-  const commentAuthor = useSelector(state => state.users[comment?.author_id?.username])
+  const currentUser = useSelector(state => state?.session?.user);
+  const isAuthor = (comment?.author_id?._id || comment?.author_id) === currentUser?._id;
+  const commentAuthor = useSelector(state => state.users[comment?.author_id?.username]);
   const dispatch = useDispatch();
   const [isEditing, setIsEditing] = useState(false);
   const [content, setContent] = useState(comment?.content);
@@ -20,7 +20,7 @@ const CommentsIndexItem = ({ comment, post }) => {
   const handleDelete = async (e) => {
     dispatch(deleteComment(comment?._id))
     dispatch(updatedPost(post));
-  }
+  };
 
   const handleChange = (e) => {
     let currContent = e.target.value;
@@ -35,7 +35,11 @@ const CommentsIndexItem = ({ comment, post }) => {
   const handleEnter = async (e) => {
     if (e.key === 'Enter') {
       handleUpdate();
-    };
+    }
+    if (e.keyCode === 27) {
+      setIsEditing(false);
+      setContent(comment?.content);
+    }
   };
 
   const handleUpdate = async (e) => {
@@ -53,14 +57,13 @@ const CommentsIndexItem = ({ comment, post }) => {
     }
     const commentData = await dispatch(updateComment(updatedComment));
     post.comment_id.forEach((element, i) => {
-      if (element._id == commentData._id)
+      if (element._id === commentData._id)
       post.comment_id[i] = updatedComment;
       console.log(element);
     })
     dispatch(updatedPost(post));
     setIsEditing(false);
-  }
-
+  };
 
 
   return (
