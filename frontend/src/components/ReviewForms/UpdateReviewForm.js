@@ -7,7 +7,8 @@ const UpdateReviewForm = ({ setShowModal, review }) => {
     const dispatch = useDispatch();
 
     const { username } = useParams();
-    const errors = useSelector(state => state.errors?.reviews);
+    // const errors = useSelector(state => state.errors?.reviews);
+    const [errors, setErrors] = useState({title: '', description: ''})
     // const gameURL = useSelector(state => review.game)
 
     const [title, setTitle] = useState(review.title);
@@ -16,6 +17,7 @@ const UpdateReviewForm = ({ setShowModal, review }) => {
     
     const [rating, setRating] = useState(review.rating);
     const [hoverRating, setHoverRating] = useState(0);
+    const [canSubmit, setCanSubmit] = useState(false);
 
     useEffect(() => {
         dispatch(fetchUserReviews(username));
@@ -37,6 +39,38 @@ const UpdateReviewForm = ({ setShowModal, review }) => {
         });
     }
 
+    const changeHandler = (e, type) => {
+        let currTitle = title;
+        let currDescription = description;
+        let currRating = rating;
+        if (type === 'title') {
+            currTitle = e.target.value;
+            setTitle(currTitle);
+            if (currTitle.length > 50) {
+                setErrors({ ...errors, ["title"]: "Title cannot be longer than 50 characters" })
+            } else {
+                setErrors({ ...errors, ["title"]: '' })
+            }
+        } else if (type === 'description') {
+            currDescription = e.target.value;
+            setDescription(currDescription);
+
+            if (currDescription.length > 400) {
+                setErrors({ ...errors, ["description"]: "Description cannot be longer than 400 characters" })
+            } else {
+                setErrors({ ...errors, ["description"]: '' })
+            }
+        } else {
+            currRating = type;
+        }
+        if (currTitle.length > 0 && currTitle.length <= 50 && currDescription.length > 0 && currDescription.length <= 400 && currRating > 0) {
+            console.log("should be submittable????");
+            setCanSubmit(true);
+        } else {
+            setCanSubmit(false);
+        }
+    }
+
     return (
         <div className="create-review-container">
             <form className="create-review-form">
@@ -46,10 +80,10 @@ const UpdateReviewForm = ({ setShowModal, review }) => {
                     <input
                         type="text"
                         value={title}
-                        onChange={(e) => setTitle(e.target.value)}
+                        onChange={(e) => changeHandler(e, 'title')}
                     />
                 </label>
-                <div>{errors?.title}</div>
+                <div className="errors">{errors?.title}</div>
                 <label >
                     <span>Rating</span>
                     <div>
@@ -58,7 +92,7 @@ const UpdateReviewForm = ({ setShowModal, review }) => {
                             return (
                                 <span
                                     key={i}
-                                    onClick={() => setRating(i)}
+                                    onClick={(e) => {setRating(i); changeHandler(e, i)}}
                                     onMouseOver={() => setHoverRating(i)}
                                     onMouseOut={() => setHoverRating(0)}
                                     >
@@ -76,21 +110,26 @@ const UpdateReviewForm = ({ setShowModal, review }) => {
                         onChange={(e) => setRating(e.target.value)}
                     /> */}
                 </label>
-                <div>{errors?.rating}</div>
+                {/* <div>{errors?.rating}</div> */}
                 <label >
                     <span>Description</span>
                     <textarea
                         value={description}
-                        onChange={(e) => setDescription(e.target.value)}
+                        onChange={(e) => changeHandler(e, 'description')}
                     />
                 </label>
-                <div>{errors?.description}</div>
-                <div
+                <div className="errors">{errors?.description}</div>
+                { canSubmit ? <div
                     className="submit-btn"
                     onClick={handleSubmit}
                 >
                     Save Changes
                 </div>
+                :
+                <div className="disabled-btn">
+                    Save Changes
+                </div>
+                }
             </form>
         </div>
     )

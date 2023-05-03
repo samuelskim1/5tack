@@ -46,19 +46,31 @@ const CreateReviewForm = ({ setShowModal, user }) => {
     const changeHandler = (e, type) => {
         let currTitle = title;
         let currDescription = description;
-        let currRating = 0;
+        let currRating = rating;
         console.log("rating", rating);
         if (type === 'title') {
             currTitle = e.target.value;
             setTitle(currTitle);
+            if (currTitle.length > 50) {
+                setErrors({ ...errors, ["title"]: "Title cannot be longer than 50 characters" })
+            } else {
+                setErrors({ ...errors, ["title"]: '' })
+            }
         } else if (type === 'description') {
             currDescription = e.target.value;
             setDescription(currDescription);
+
+            if (currDescription.length > 400) {
+                setErrors({ ...errors, ["description"]: "Description cannot be longer than 400 characters" })
+            } else {
+                setErrors({ ...errors, ["description"]: '' })
+            }
         } else {
             currRating = type;
         }
-        console.log(rating);
+        console.log(currTitle.length, currRating, currDescription.length);
         if (currTitle.length > 0 && currTitle.length <= 50 && currDescription.length > 0 && currDescription.length <= 400 && currRating > 0) {
+            console.log("should be submittable????");
             setCanSubmit(true);
         } else {
             setCanSubmit(false);
@@ -77,7 +89,7 @@ const CreateReviewForm = ({ setShowModal, user }) => {
                         placeholder="Title"
                     />
                 </label>
-                <div>{errors?.title}</div>
+                <div className="errors">{errors?.title}</div>
                 <label >
                     <span>Rating</span>
                     {/* <Rating setRating={setRating} setHoverRating={setHoverRating} rating={rating} hoverRating={hoverRating} /> */}
@@ -106,7 +118,7 @@ const CreateReviewForm = ({ setShowModal, user }) => {
                         placeholder="Rating"
                     /> */}
                 </label>
-                <div>{errors?.rating}</div>
+                {/* <div className="errors">{errors?.rating}</div> */}
                 <label><span>Description</span>
                     <input
                         type="text"
@@ -115,7 +127,7 @@ const CreateReviewForm = ({ setShowModal, user }) => {
                         placeholder="Description"
                     />
                 </label>
-                <div>{errors?.description}</div>
+                <div className="errors">{errors?.description}</div>
                 { canSubmit ?
                     <div
                     className="submit-btn"

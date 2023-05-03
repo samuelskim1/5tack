@@ -60,11 +60,12 @@
     min-width: 500px;
     max-width: 650px;
     width: 50%;
-    padding: 0px 0px 25px 0px;
+    // padding: 0px 0px 25px 0px;
     outline: 1px solid $neutral-text;
     border-radius: 12px;
     color: $neutral-text;
     margin-bottom: 50px;
+    padding-bottom: 10px;
 
 
     .review-index-rating {
@@ -125,6 +126,7 @@
         margin-right: 20px;
 
         a>#avatar-container {
+            // margin: 15px 0;
             margin-right: 20px;
 
             >img {
@@ -153,7 +155,7 @@
         font-size: 18px;
         line-height: 1.15em;
         font-weight: 300;
-        margin-bottom: 20px;
+        // margin-bottom: 20px;
     }
 
     // .review-comment-separator {

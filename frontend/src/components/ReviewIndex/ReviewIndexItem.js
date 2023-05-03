@@ -42,7 +42,6 @@ const ReviewIndexItem = ({ review }) => {
                 <div className='review-index-description'>
                     {review?.description}
                 </div>
-                <div className='review-comment-separator' />
             </div>
         </div>
     );
