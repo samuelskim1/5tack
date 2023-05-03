@@ -8,20 +8,19 @@ import { useState } from "react";
 
 
 const CommentsIndexItem = ({ comment, post }) => {
-  const currentUser = useSelector(state => state.session.user)
-  const isAuthor = comment?.author_id._id === currentUser._id
+  const currentUser = useSelector(state => state?.session?.user);
+  const isAuthor = (comment?.author_id?._id || comment?.author_id) === currentUser?._id;
+  const commentAuthor = useSelector(state => state.users[comment?.author_id?.username]);
   const dispatch = useDispatch();
   const [isEditing, setIsEditing] = useState(false);
   const [content, setContent] = useState(comment?.content);
   const [canUpdate, setCanUpdate] = useState(false);
   
 
-
-  // if (!comment.author_id) return null;
   const handleDelete = async (e) => {
     dispatch(deleteComment(comment?._id))
     dispatch(updatedPost(post));
-  }
+  };
 
   const handleChange = (e) => {
     let currContent = e.target.value;
@@ -35,13 +34,15 @@ const CommentsIndexItem = ({ comment, post }) => {
 
   const handleEnter = async (e) => {
     if (e.key === 'Enter') {
-      dispatch(updateComment(comment));
-      dispatch(updatedPost(post));
+      handleUpdate();
+    }
+    if (e.keyCode === 27) {
+      setIsEditing(false);
+      setContent(comment?.content);
     }
   };
 
   const handleUpdate = async (e) => {
-    debugger;
     let updatedComment = {
       _id: comment._id,
       author_id: {
@@ -54,63 +55,97 @@ const CommentsIndexItem = ({ comment, post }) => {
         _id: post._id
       }
     }
-    console.log(updatedComment);
     const commentData = await dispatch(updateComment(updatedComment));
-    console.log(commentData);
     post.comment_id.forEach((element, i) => {
-      debugger;
       if (element._id === commentData._id)
-      post.comment_id[i] = commentData;
+      post.comment_id[i] = updatedComment;
       console.log(element);
     })
-    console.log(post);
     dispatch(updatedPost(post));
-  }
-
+    setIsEditing(false);
+  };
 
 
   return (
     <div className='comment-item'>
-      <Link to={`/${comment?.author_id?.username}`}>
-        <Avatar currentUser={comment?.author_id} />
+      <Link to={`/${commentAuthor?.username}`}>
+        <Avatar user={commentAuthor} />
       </Link>
       <div className='comment-text-holder'>
         <div className='author-block'>
           <div className='author-username'>
-            <Link to={`/${comment?.author_id?.username}`}>
-              {comment?.author_id?.username}
+            <Link to={`/${commentAuthor?.username}`}>
+              {commentAuthor?.username}
             </Link>
           </div>
-          { isAuthor &&
+          <TimeStamp comment={comment} />
+        </div>
+
+        <div id="comment-body-container">
+          { isEditing ? 
+            (
+              <>
+                <div className='comment-edit-section'>
+                  <textarea
+                    value={content}
+                    onKeyDown={(e) => handleEnter(e)}
+                    onChange={(e) => handleChange(e)}
+                  />
+                </div>
+                <div className="comment-buttons-holder">
+                  <i
+                    className="fa-regular fa-paper-plane"
+                    onClick={(e) => handleUpdate(e)}
+                  />
+                  <i
+                    className="fa-solid fa-xmark"
+                    onClick={() => setIsEditing(false)}
+                  />
+                </div>
+              </>
+            )
+          : 
+              (<div className='comment-body'>
+                {comment?.content}
+              </div>) 
+          } 
+
+          { (isAuthor && !isEditing) &&
             <div className='comment-buttons-holder'>
-              <div className='comment-edit' onClick={() => setIsEditing(true)}>edit</div>
+              <div className='comment-edit' onClick={() => setIsEditing(!isEditing)}>
+                <i className="fa-solid fa-pen" />
+              </div>
               <div className='delete-comment-btn' onClick={() => handleDelete()}>
-                  <i className="fa-solid fa-trash"></i>
+                <i className="fa-solid fa-trash" />
               </div>
             </div>
           }
-          
-          <TimeStamp comment={comment} />
         </div>
-        { isEditing ?  
-          (<textarea
-            value={content}
-            onChange={(e) => handleChange(e)}
-          />
-          )
-          : (<div
-          className='comment-body'>{comment?.content}
-          </div> )
-        }
-        { isEditing && canUpdate ? <i
-          className="fa-regular fa-paper-plane"
-          onClick={(e) => handleUpdate(e)}
-          onKeyDown={(e) => handleEnter(e)}
-        />
-        : <i
-          className="fa-regular fa-paper-plane disable-btn"
-        />}
-        
+
+
+
+{/* 
+       { isEditing && canUpdate ? (
+          <div className='comment-edit-section'>
+            <textarea
+                value={content}
+                onChange={(e) => handleChange(e)}
+            />
+            <i
+              className="fa-regular fa-paper-plane"
+              onClick={(e) => handleUpdate(e)}
+              onKeyDown={(e) => handleEnter(e)}
+            />
+          </div>
+        )
+        : isEditing &&
+          <>
+            <div className='comment-body'>
+              {comment?.content}
+            </div> 
+            <i className="fa-regular fa-paper-plane disable-btn"/> 
+          </> 
+        } */}
       </div>
     </div>
   );

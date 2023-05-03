@@ -55,7 +55,9 @@ router.patch('/:id', requireUser,  async (req, res) => {
       req.params.id,
       { content: req.body.content },
       { new: true }
-    );
+    )
+      .populate("author_id", "_id username profileImageUrl")
+      .populate("post_id");
     if (!comment) {
       return res.status(404).json({ message: 'Comment not found' });
     }
