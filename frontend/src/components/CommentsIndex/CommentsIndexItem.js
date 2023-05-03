@@ -99,7 +99,7 @@ const CommentsIndexItem = ({ comment, post }) => {
                   />
                   <i
                     className="fa-solid fa-xmark"
-                    onClick={() => setIsEditing(false)}
+                    onClick={() => {setIsEditing(false); setContent(comment?.content)}}
                   />
                 </div>
               </>

@@ -97,15 +97,23 @@
 
 .post-buttons-holder {
   display: flex;
-  width: fit-content;
-  justify-content: space-between;
-}
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  margin-left: 8px;
 
-.delete-post-btn {
-  padding-left: 15px;
-}
+  .fa-solid {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 6px;
+    padding: 8px;
+    
+  }
 
-.delete-post-btn, .update-post-modal {
-  font-size: 16px;
-  cursor: pointer;
+  .fa-solid:hover {
+    background-color: #666;
+  }
 }
