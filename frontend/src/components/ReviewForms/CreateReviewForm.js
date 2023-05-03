@@ -8,7 +8,8 @@ import Rating from "./Rating";
 const CreateReviewForm = ({ setShowModal, user }) => {
     const dispatch = useDispatch();
 
-    const errors = useSelector(state => state?.errors?.reviews);
+    // const errors = useSelector(state => state?.errors?.reviews);
+    const [errors, setErrors] = useState({title: '', description: ''});
     const user_id = user._id;
     const reviewer_id = useSelector(state => state.session.user?._id);
 
@@ -18,11 +19,13 @@ const CreateReviewForm = ({ setShowModal, user }) => {
     const [rating, setRating] = useState(0);
     const [hoverRating, setHoverRating] = useState(0);
 
-    useEffect(() => {
-        return () => {
-            dispatch(clearSessionErrors());
-        }
-    }, [dispatch]);
+    const [canSubmit, setCanSubmit] = useState(false);
+
+    // useEffect(() => {
+    //     return () => {
+    //         dispatch(clearSessionErrors());
+    //     }
+    // }, [dispatch]);
 
     const handleSubmit = () => {
         const review = {
@@ -40,6 +43,28 @@ const CreateReviewForm = ({ setShowModal, user }) => {
         });
     }
 
+    const changeHandler = (e, type) => {
+        let currTitle = title;
+        let currDescription = description;
+        let currRating = 0;
+        console.log("rating", rating);
+        if (type === 'title') {
+            currTitle = e.target.value;
+            setTitle(currTitle);
+        } else if (type === 'description') {
+            currDescription = e.target.value;
+            setDescription(currDescription);
+        } else {
+            currRating = type;
+        }
+        console.log(rating);
+        if (currTitle.length > 0 && currTitle.length <= 50 && currDescription.length > 0 && currDescription.length <= 400 && currRating > 0) {
+            setCanSubmit(true);
+        } else {
+            setCanSubmit(false);
+        }
+    }
+
     return (
         <div className="create-review-container">
             <form className="create-review-form">
@@ -48,7 +73,7 @@ const CreateReviewForm = ({ setShowModal, user }) => {
                     <input
                         type="text"
                         value={title}
-                        onChange={(e) => setTitle(e.target.value)}
+                        onChange={(e) => changeHandler(e, 'title')}
                         placeholder="Title"
                     />
                 </label>
@@ -62,7 +87,7 @@ const CreateReviewForm = ({ setShowModal, user }) => {
                             return (
                                 <span
                                     key={i}
-                                    onClick={() => setRating(i)}
+                                    onClick={(e) => {setRating(i); changeHandler(e, i)}}
                                     onMouseOver={() => setHoverRating(i)}
                                     onMouseOut={() => setHoverRating(0)}
                                     >
@@ -86,16 +111,22 @@ const CreateReviewForm = ({ setShowModal, user }) => {
                     <input
                         type="text"
                         value={description}
-                        onChange={(e) => setDescription(e.target.value)}
+                        onChange={(e) => changeHandler(e, 'description')}
                         placeholder="Description"
                     />
                 </label>
                 <div>{errors?.description}</div>
-                <div
+                { canSubmit ?
+                    <div
                     className="submit-btn"
                     onClick={handleSubmit}
-                >
+                    >
                     Make Your Review</div>
+                    :
+                    <div className="disabled-btn">
+                        Make Your Review
+                    </div>
+                }
             </form>
         </div>
     )
