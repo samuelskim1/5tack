@@ -19,7 +19,7 @@ const ReviewButtons = ({ review }) => {
         <div className='review-buttons-holder'>
             <UpdateReviewModal review={review} />
             <div className='delete-review-btn' onClick={() => setShowConfirm(true)}>
-                <i class="fa-solid fa-trash"></i>
+                <i className="fa-solid fa-trash"></i>
             </div>
             {showConfirm && (
                 <Modal onClose={() => setShowConfirm(false)}>

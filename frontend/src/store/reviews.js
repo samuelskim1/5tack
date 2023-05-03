@@ -135,6 +135,20 @@ export const destroyReview = reviewId => async dispatch => {
     }
 }
 
+export const fetchAverageRating = username => async dispatch => {
+    try {
+        const res = await jwtFetch(`/api/reviews/user/${username}/average`);
+        const data = await res.json();
+        return data.averageRating;
+        // return await res.json();
+    } catch(err) {
+        const res = await err.json();
+        if (res.statusCode === 400) {
+            return dispatch(receiveErrors(res.errors));
+        }
+    }
+}
+
 // REDUCERS
 export const reviewsErrorsReducer = (state = null, action) => {
     switch (action.type) {
