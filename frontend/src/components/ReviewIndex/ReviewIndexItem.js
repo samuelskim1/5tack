@@ -6,14 +6,18 @@ import { useSelector } from 'react-redux';
 
 const ReviewIndexItem = ({ review }) => {
     const user = useSelector(state => state.session.user)
-    const isAuthor = review?.reviewer_id._id === user._id
-
+    const isAuthor = (review?.reviewer_id._id || review?.reviewer_id) === user._id
 
     return (
         <div className='review-index-item'>
             <div className='review-index-rating'>
-                {review?.rating}
-                <i className="fa-solid fa-star" style={{color: `$#e4dfd5`}}></i>
+                <div className='review-rating'>
+                    {review?.rating}
+                    <i className="fa-solid fa-star" style={{color: `$#e4dfd5`}}></i>
+                    {
+                        console.log("is author?", user._id, review, isAuthor)
+                    }
+                </div>
                 { isAuthor &&
                     <ReviewButtons review={review} />
                 }
@@ -38,7 +42,6 @@ const ReviewIndexItem = ({ review }) => {
                 <div className='review-index-description'>
                     {review?.description}
                 </div>
-                <div className='review-comment-separator' />
             </div>
         </div>
     );

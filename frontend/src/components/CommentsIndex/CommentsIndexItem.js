@@ -9,7 +9,7 @@ import { useState } from "react";
 
 const CommentsIndexItem = ({ comment, post }) => {
   const currentUser = useSelector(state => state.session.user)
-  const isAuthor = comment?.author_id._id === currentUser._id
+  const isAuthor = comment?.author_id?._id === currentUser._id
   const dispatch = useDispatch();
   const [isEditing, setIsEditing] = useState(false);
   const [content, setContent] = useState(comment?.content);
