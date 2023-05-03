@@ -23,7 +23,7 @@ const receiveErrors = errors => ({
   errors
 });
 
-const clearUserErrors = () => ({
+export const clearUserErrors = () => ({
   type: CLEAR_USER_ERRORS
 });
 
@@ -49,8 +49,10 @@ export const fetchUser = username => async dispatch => {
     return dispatch(receiveUser(user));
   } catch(err) {
     const res = await err.json();
-    if (res.statusCode === 400) {
-      return dispatch(receiveErrors(res.errors));
+    console.log(res);
+    if (res.statusCode >= 400) {
+      dispatch(receiveErrors(res.errors));
+      return res;
     }
   }
 };

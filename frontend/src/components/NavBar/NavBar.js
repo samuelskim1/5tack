@@ -20,10 +20,10 @@ const Navbar = () => {
 
   useEffect(() => {
     dispatch(fetchCategories());
-    dispatch(fetchAllPosts());
-    dispatch(fetchGames());
-    dispatch(fetchAllComments())
-    dispatch(fetchAllUsers());
+    // dispatch(fetchAllPosts());
+    // dispatch(fetchGames());
+    // dispatch(fetchAllComments())
+    // dispatch(fetchAllUsers());
   }, [loggedIn]);
 
   const handleLogout = () => {
