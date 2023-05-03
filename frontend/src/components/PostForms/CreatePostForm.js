@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createPost, fetchGamePosts } from "../../store/posts";
-import './PostForms.scss';
+// import './PostForms.scss';
 import { clearSessionErrors } from "../../store/session";
 
 const CreatePostForm = ({ setShowModal, game }) => {
     const dispatch = useDispatch();
 
-    const errors = useSelector(state => state?.errors?.posts);
+    // const errors = useSelector(state => state?.errors?.posts);
+    const [errors, setErrors] = useState({title: '', description: ''});
     const game_id = game._id;
     const author_id = useSelector(state => state.session.user?._id);
     // const posts = useSelector(state => state.posts);
@@ -24,15 +25,29 @@ const CreatePostForm = ({ setShowModal, game }) => {
         if (type === 'title') {
             currTitle = e.target.value;
             setTitle(currTitle);
+            if (currTitle.length > 50) {
+                setErrors({ ...errors, ["title"]: "Title cannot be longer than 50 characters" })
+            } else {
+                setErrors({ ...errors, ["title"]: '' })
+            }
         } else {
             currDescription = e.target.value;
             setDescription(currDescription);
+            
+            if (currDescription.length > 400) {
+                setErrors({ ...errors, ["description"]: "Description cannot be longer than 400 characters" })
+            } else {
+                setErrors({ ...errors, ["description"]: '' })
+            }
         }
         if (currTitle.length > 0 && currTitle.length <= 50 && currDescription.length > 0 && currDescription.length <= 400 ) {
             setCanSubmit(true);
         } else {
             setCanSubmit(false);
         }
+
+        console.log(currTitle.length, currDescription.length);
+        console.log(errors);
     }
 
     useEffect(() => {
@@ -70,7 +85,7 @@ const CreatePostForm = ({ setShowModal, game }) => {
                     placeholder="Title"
                     />
                 </label>
-                <div>{errors?.title}</div>
+                <div className="errors">{errors?.title}</div>
                 <label><span>Description</span>
                     <input
                     type="text"
@@ -79,7 +94,7 @@ const CreatePostForm = ({ setShowModal, game }) => {
                     placeholder="Description"
                     />
                 </label>
-                <div>{errors?.description}</div>
+                <div className="errors">{errors?.description}</div>
                 { canSubmit ?
                     <div
                     className="submit-btn"
@@ -87,7 +102,7 @@ const CreatePostForm = ({ setShowModal, game }) => {
                     >
                     Make Your Stack Request</div>
                     :
-                    <div className="submit-btn disabled-btn">
+                    <div className="disabled-btn">
                         Make Your Stack Request
                     </div>
                 }

@@ -3,6 +3,10 @@ $errors-color: rgb(155, 0, 0);
 $neutral-text: #eeece7;
 $default-font: "system-ui", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
+div {
+    overflow-wrap: break-word;
+}
+
 #entire-app {
     display: flex;
     .main-content {
