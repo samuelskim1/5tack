@@ -16,10 +16,7 @@ const CommentsIndexItem = ({ comment, post }) => {
   const [content, setContent] = useState(comment?.content);
   const [canUpdate, setCanUpdate] = useState(false);
   
-  // console.log(commentAuthor);
-  // console.log(comment.author_id);
 
-  // if (!comment.author_id) return null;
   const handleDelete = async (e) => {
     dispatch(deleteComment(comment?._id))
     dispatch(updatedPost(post));
@@ -56,15 +53,12 @@ const CommentsIndexItem = ({ comment, post }) => {
         _id: post._id
       }
     }
-    console.log(updatedComment);
     const commentData = await dispatch(updateComment(updatedComment));
-    console.log(commentData);
     post.comment_id.forEach((element, i) => {
-      if (element._id === commentData._id)
+      if (element._id == commentData._id)
       post.comment_id[i] = updatedComment;
       console.log(element);
     })
-    console.log(post);
     dispatch(updatedPost(post));
     setIsEditing(false);
     debugger;
