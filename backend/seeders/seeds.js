@@ -3435,8 +3435,6 @@ reviews.push(reviewDemo3);
 reviews.push(reviewDemo4);
 reviews.push(reviewDemo5);
 
-
-
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => {
