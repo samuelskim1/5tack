@@ -49,7 +49,6 @@ export const fetchUser = username => async dispatch => {
     return dispatch(receiveUser(user));
   } catch(err) {
     const res = await err.json();
-    console.log(res);
     if (res.statusCode >= 400) {
       dispatch(receiveUserErrors(res.errors));
       return res;
