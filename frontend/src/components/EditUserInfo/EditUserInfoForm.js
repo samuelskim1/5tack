@@ -4,6 +4,7 @@ import { clearSessionErrors, getCurrentUser, updateUser } from "../../store/sess
 import { useHistory, useParams } from "react-router-dom";
 import '../SessionForms/SessionForm.scss';
 import { receiveUser } from "../../store/users";
+import Avatar from "../UserInfo/Avatar";
 
 const EditUserInfoForm = ({ setEdit }) => {
     const dispatch = useDispatch();
@@ -100,10 +101,38 @@ const EditUserInfoForm = ({ setEdit }) => {
 
     }
 
+    let preview = null;
+    if (profileImageUrl) {
+        preview = 
+        <img 
+            src={profileImageUrl} 
+            id="preview-pfp" 
+            alt="This is your selected profile picture." 
+            />
+    };
+
     return (
         <div id="session-form-container">
             <form className="session-form">
                 <h2>Edit your profile</h2>
+
+                <div id="edit-pfp" onClick={() => {uploadBtn.current.click()}}>
+                    {!preview && <Avatar user={currentUser} />}
+                    {preview && preview}
+                </div>
+
+                <div 
+                    onClick={() => {uploadBtn.current.click()}}
+                    >
+                    <input
+                        ref={uploadBtn}
+                        type="file"
+                        onChange={(e) => {handlePhoto(e); handleChange(e, e.target);}}
+                        style={{display: 'none'}}
+                        />
+                    <p className="user-info-field edit-user-btn">Change your picture</p>
+                </div>
+
                 <div className="errors">{errors?.username}</div>
                 <label>
                     <span>Username</span>
@@ -134,18 +163,6 @@ const EditUserInfoForm = ({ setEdit }) => {
                         placeholder="Tell us about yourself!"
                     />
                 </label>
-
-                <div 
-                    onClick={() => {uploadBtn.current.click()}}
-                >
-                    <input
-                        ref={uploadBtn}
-                        type="file"
-                        onChange={(e) => {handlePhoto(e); handleChange(e, e.target);}}
-                        style={{display: 'none'}}
-                    />
-                    <p>Add Profile Image</p>
-                </div>
 
                 {/* {<div id="submit-login-btn" onClick={handleSubmit}>Update</div>} */}
                 { canSubmit ?
