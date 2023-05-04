@@ -107,7 +107,6 @@
         font-family: $default-font;
         border-radius: 8px;
         font-size: 14px;
-        margin-top: 5px;
       }
 
       textarea:hover {
@@ -240,6 +239,9 @@
   display: flex;
   flex-direction: row;
   color: $neutral-text;
+  position: absolute;
+  bottom: -14px;
+  left: 0;
 }
 
 #edit-comment-count {

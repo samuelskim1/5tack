@@ -18,6 +18,7 @@ const CommentsIndex = ({ post }) => {
   const [content, setContent] = useState('');
   const [canSubmit, setCanSubmit] = useState(false);
   const [count, setCount] = useState(content?.length);
+  const [editing, setEditing] = useState(false);
 
   // useEffect(() => {
   //   dispatch(fetchAllComments());
@@ -79,6 +80,8 @@ const CommentsIndex = ({ post }) => {
               value={content}
               onChange={(e) => handleChange(e)}
               onKeyDown={(e) => handleEnter(e)}
+              onFocus={() => setEditing(true)}
+              onBlur={() => setEditing(false)}
             />
             {canSubmit ? <i 
               className="fa-regular fa-paper-plane" 
@@ -88,14 +91,16 @@ const CommentsIndex = ({ post }) => {
             className="fa-regular fa-paper-plane disable-btn"
           />}
           </div>
-          <div id="comment-count">
-            <div 
-              className={(count === 0 || count > 200) ? 'bad-count' : ""}
-              >
-              {`${count}`}
+          {editing && (
+            <div id="comment-count">
+              <div 
+                className={(count === 0 || count > 200) ? 'bad-count' : ""}
+                >
+                {`${count}`}
+              </div>
+              <p>/200</p>
             </div>
-            <p>/200</p>
-          </div>
+          )}
         </div>
       </div>
     </div>
