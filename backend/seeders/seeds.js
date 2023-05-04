@@ -1601,6 +1601,177 @@ comments.push(comment_nba8);
 comments.push(comment_nba9);
 comments.push(comment_nba10);
 
+const nba1 = new Post({
+  author_id: user1._id,
+  game_id: game2._id,
+  comment_id: [comment_nba_1._id, comment_nba_2._id],
+  title: 'Looking for people to play NBA 2K23 with',
+  description: 'Hey everyone, I am looking for some new people to play NBA 2K23 with. I play as a shooting guard and enjoy playing both online and offline modes. Let me know if you are interested in playing together!'
+})
+  
+const nba2 = new Post({
+  author_id: user2._id,
+  game_id: game2._id,
+  comment_id: [comment_nba_3._id],
+  title: 'Player looking for teammates in NBA 2K23',
+  description: 'Hey there, I am a point guard and I am looking for some teammates to play with. I mainly play online and I am interested in forming a team for competitive play. Let me know if you are interested!'
+})
+  
+const nba3 = new Post({
+  author_id: user3._id,
+  game_id: game2._id,
+  comment_id: [comment_nba_4._id, comment_nba_5._id],
+  title: 'Looking for casual NBA 2K23 players',
+  description: 'Hey everyone, I am a casual NBA 2K23 player and I am looking for some other casual players to play with. I am not very good, but I love the game and want to improve. Let me know if you want to play together!'
+})
+  
+const nba4 = new Post({
+  author_id: user4._id,
+  game_id: game2._id,
+  comment_id: [comment_nba2k23_6._id],
+  title: 'Player looking for teammates in NBA 2K23',
+  description: 'Hey there, I play as a small forward and I am looking for teammates to play with. I am looking for someone who is serious about the game and wants to improve. Let me know if you are interested!'
+})
+  
+const nba5 = new Post({
+  author_id: user5._id,
+  game_id: game2._id,
+  comment_id: [comment_nba2k23_7._id, comment_nba2k23_8._id],
+  title: 'Looking for a team to play NBA 2K23 with',
+  description: 'Hey everyone, I am looking for a team to play NBA 2K23 with. I am looking for a team that is serious about the game and wants to compete in tournaments. I play as a power forward and enjoy playing both online and offline modes. Let me know if you are interested!'
+})
+  
+const nba6 = new Post({
+  author_id: user6._id,
+  game_id: game2._id,
+  comment_id: [comment_nba2k23_9._id],
+  title: 'Player looking for teammate in NBA 2K23',
+  description: 'Hey there, I am looking for a teammate to play NBA 2K23 with. I play as a center and mainly play online modes. I am looking for someone who is serious about the game and wants to improve. Let me know if you are interested!'
+})
+
+posts.push(nba1);
+posts.push(nba2);
+posts.push(nba3);
+posts.push(nba4);
+posts.push(nba5);
+posts.push(nba6);
+
+const comment_stardew1 = new Comment({
+  author_id: user1._id,
+  content: 'Hey, I would love to join you on your farm! I enjoy raising animals and fishing in Stardew Valley. Let me know if you need a farming partner!'
+})
+  
+const comment_stardew2 = new Comment({
+  author_id: user3._id,
+  content: 'Hey, I am also a fan of Stardew Valley! I enjoy mining and gathering resources. Let me know if you want to explore the mines together!'
+})
+  
+const comment_stardew3 = new Comment({
+  author_id: user2._id,
+  content: 'Hey, I am interested in playing with you! I am a wine-making enthusiast and I enjoy growing crops. Let me know if you want to team up and become the best winemakers in the valley!'
+})
+  
+const comment_stardew4 = new Comment({
+  author_id: user3._id,
+  content: 'Hey, I am looking for more people to play with! I am a foraging expert and I love exploring the different areas of the valley. Let me know if you want to join me on my next adventure!'
+})
+  
+const comment_stardew5 = new Comment({
+  author_id: user4._id,
+  content: 'Hey, I am also a casual player and I love fishing in Stardew Valley! Let me know if you want to relax by the river and catch some fish together.'
+})
+  
+const comment_stardew6 = new Comment({
+  author_id: user5._id,
+  content: 'Hey, I am interested in playing with you! I am a seasoned farmer and I enjoy raising crops and animals. Let us work together and make our farms the envy of the valley!'
+})
+  
+const comment_stardew7 = new Comment({
+  author_id: user6._id,
+  content: 'Hey, I am looking for a group to play Stardew Valley with! I am a skilled cook and I love creating delicious dishes with the ingredients we grow. Let me know if you want to cook up a storm together!'
+})
+  
+const comment_stardew8 = new Comment({
+  author_id: user7._id,
+  content: 'Hey, I am also looking for people to play Stardew Valley with! I am a carpentry enthusiast and I love building and decorating our farms. Let us build the best farmhouses in the valley!'
+})
+  
+const comment_stardew9 = new Comment({
+  author_id: user8._id,
+  content: 'Hey, I am interested in joining your farm! I am a skilled blacksmith and I can help you upgrade your tools and equipment. Let us become the best blacksmiths in the valley!'
+})
+  
+const comment_stardew10 = new Comment({
+  author_id: user9._id,
+  content: 'Hey, I am also a new player to Stardew Valley! I am still learning the ropes but I would love to play with others and explore the valley together. Let us have some fun and learn from each other!'
+})
+
+comments.push(comment_stardew1);
+comments.push(comment_stardew2);
+comments.push(comment_stardew3);
+comments.push(comment_stardew4);
+comments.push(comment_stardew5);
+comments.push(comment_stardew6);
+comments.push(comment_stardew7);
+comments.push(comment_stardew8);
+comments.push(comment_stardew9);
+comments.push(comment_stardew10);
+
+const stardewvalley1 = new Post({
+  author_id: user1._id,
+  game_id: game2._id,
+  comment_id: [comment_stardew1._id, comment_stardew2._id],
+  title: 'Looking for players to start a new farm in Stardew Valley',
+  description: 'Hello everyone, I am looking for a few players who are interested in starting a new farm in Stardew Valley. We can coordinate and work together to make it the best farm ever!'
+})
+  
+const stardewvalley2 = new Post({
+  author_id: user3._id,
+  game_id: game2._id,
+  comment_id: [comment_stardew3._id],
+  title: 'Looking for a player to join my Stardew Valley farm',
+  description: 'Hey there, I am looking for a player to join my existing farm in Stardew Valley. We can work together to improve the farm and have fun!'
+})
+  
+const stardewvalley3 = new Post({
+  author_id: user5._id,
+  game_id: game2._id,
+  comment_id: [comment_stardew4._id, comment_stardew5._id],
+  title: 'Casual Stardew Valley players wanted',
+  description: 'Hi there, I am a casual player of Stardew Valley and I am looking for other casual players to play with. We can hang out, farm, and do whatever we feel like doing in the game. Let me know if you want to join me!'
+})
+  
+const stardewvalley4 = new Post({
+  author_id: user4._id,
+  game_id: game2._id,
+  comment_id: [comment_stardew6._id],
+  title: 'Looking for someone to play Stardew Valley with',
+  description: 'Hello, I am looking for someone to play Stardew Valley with. I am new to the game and want to learn more about it. I am interested in both co-op and multiplayer modes. Let me know if you are interested!'
+})
+  
+const stardewvalley5 = new Post({
+  author_id: user7._id,
+  game_id: game2._id,
+  comment_id: [comment_stardew7._id, comment_stardew8._id],
+  title: 'Experienced Stardew Valley players wanted',
+  description: 'Hey there, I am an experienced player of Stardew Valley and I am looking for other experienced players to play with. I am interested in optimizing our farm, exploring new areas, and completing all the challenges the game has to offer. Let me know if you want to join me!'
+})
+  
+const stardewvalley6 = new Post({
+  author_id: user6._id,
+  game_id: game2._id,
+  comment_id: [comment_stardew9._id],
+  title: 'Looking for a player to do multiplayer challenges in Stardew Valley',
+  description: 'Hey there, I am looking for a player to do multiplayer challenges with in Stardew Valley. I am interested in exploring new areas and trying out new farm layouts. Let me know if you are interested!'
+})
+
+posts.push(stardewvalley1);
+posts.push(stardewvalley2);
+posts.push(stardewvalley3);
+posts.push(stardewvalley4);
+posts.push(stardewvalley5);
+posts.push(stardewvalley6);
+
 //demo user post seeding
 // for (let i = 0; i < 10; i++) {
 //   const author_id = demoUser._id;
