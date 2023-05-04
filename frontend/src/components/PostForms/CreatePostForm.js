@@ -46,8 +46,8 @@ const CreatePostForm = ({ setShowModal, game }) => {
             setCanSubmit(false);
         }
 
-        console.log(currTitle.length, currDescription.length);
-        console.log(errors);
+        // console.log(currTitle.length, currDescription.length);
+        // console.log(errors);
     }
 
     useEffect(() => {
@@ -65,7 +65,7 @@ const CreatePostForm = ({ setShowModal, game }) => {
             title,
             description
         };
-        console.log("errors", errors);
+        // console.log("errors", errors);
         const res = dispatch(createPost(post)).then(res => {
             if (res.ok) {
             setShowModal(false);

@@ -58,7 +58,14 @@
         outline: 1px solid #555;
     }
 
+    .stars-container {
+        margin-top: 8px;
+    }
 
+    i {
+        font-size: 18px;
+        cursor: pointer;
+    }
 }
 
 // .rating {

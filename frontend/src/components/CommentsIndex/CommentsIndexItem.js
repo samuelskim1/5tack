@@ -5,6 +5,7 @@ import { useDispatch, useSelector} from 'react-redux';
 import { deleteComment, updateComment } from "../../store/comments";
 import { updatedPost } from "../../store/posts";
 import { useState } from "react";
+import { Modal } from "../../context/modal";
 
 
 const CommentsIndexItem = ({ comment, post }) => {
@@ -14,17 +15,21 @@ const CommentsIndexItem = ({ comment, post }) => {
   const dispatch = useDispatch();
   const [isEditing, setIsEditing] = useState(false);
   const [content, setContent] = useState(comment?.content);
-  const [canUpdate, setCanUpdate] = useState(false);
+  const [canUpdate, setCanUpdate] = useState(content !== comment?.content);
+  const [count, setCount] = useState(content?.length);
+  const [showConfirm, setShowConfirm] = useState(false);
   
 
   const handleDelete = async (e) => {
     dispatch(deleteComment(comment?._id))
     dispatch(updatedPost(post));
+    setShowConfirm(false);
   };
 
   const handleChange = (e) => {
     let currContent = e.target.value;
     setContent(currContent);
+    setCount(currContent.length);
     if (currContent.length > 0 && currContent.length <= 200) {
       setCanUpdate(true);
     } else {
@@ -86,21 +91,34 @@ const CommentsIndexItem = ({ comment, post }) => {
             (
               <>
                 <div className='comment-edit-section'>
-                  <textarea
-                    value={content}
-                    onKeyDown={(e) => handleEnter(e)}
-                    onChange={(e) => handleChange(e)}
-                  />
-                </div>
-                <div className="comment-buttons-holder">
-                  <i
-                    className="fa-regular fa-paper-plane"
-                    onClick={(e) => handleUpdate(e)}
-                  />
-                  <i
-                    className="fa-solid fa-xmark"
-                    onClick={() => setIsEditing(false)}
-                  />
+                  <div id="comment-text-buttons">
+                    <textarea
+                      value={content}
+                      onKeyDown={(e) => canUpdate && handleEnter(e)}
+                      onChange={(e) => handleChange(e)}
+                    />
+
+                    <div className="comment-buttons-holder">
+                      <i
+                        className={"fa-regular fa-paper-plane" + (
+                          canUpdate ? "" : " disable-btn" 
+                        )}
+                        onClick={(e) => canUpdate && handleUpdate(e)}
+                      />
+                      <i
+                        className="fa-solid fa-xmark"
+                        onClick={() => {setIsEditing(false); setContent(comment?.content)}}
+                      />
+                    </div>
+                  </div>
+                  <div id="edit-comment-count">
+                    <div 
+                      className={(count === 0 || count > 200) ? 'bad-count' : ""}
+                      >
+                      {`${count}`}
+                    </div>
+                    <p>/200</p>
+                  </div>
                 </div>
               </>
             )
@@ -115,37 +133,24 @@ const CommentsIndexItem = ({ comment, post }) => {
               <div className='comment-edit' onClick={() => setIsEditing(!isEditing)}>
                 <i className="fa-solid fa-pen" />
               </div>
-              <div className='delete-comment-btn' onClick={() => handleDelete()}>
+              <div className='delete-comment-btn' onClick={() => setShowConfirm(true)}>
                 <i className="fa-solid fa-trash" />
               </div>
             </div>
           }
+
+          {showConfirm && (
+            <Modal onClose={() => setShowConfirm(false)}>
+                <div className='create-post-container create-post-form'>
+                    <h2>Do you want to delete this comment?</h2>
+                    <div className='delete-btns'>
+                        <div className='submit-btn' onClick={handleDelete}>Delete</div>
+                        <div className='submit-btn cancel-btn' onClick={() => setShowConfirm(false)}>Cancel</div>
+                    </div>
+                </div>
+            </Modal>
+          )}
         </div>
-
-
-
-{/* 
-       { isEditing && canUpdate ? (
-          <div className='comment-edit-section'>
-            <textarea
-                value={content}
-                onChange={(e) => handleChange(e)}
-            />
-            <i
-              className="fa-regular fa-paper-plane"
-              onClick={(e) => handleUpdate(e)}
-              onKeyDown={(e) => handleEnter(e)}
-            />
-          </div>
-        )
-        : isEditing &&
-          <>
-            <div className='comment-body'>
-              {comment?.content}
-            </div> 
-            <i className="fa-regular fa-paper-plane disable-btn"/> 
-          </> 
-        } */}
       </div>
     </div>
   );

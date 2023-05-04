@@ -29,7 +29,8 @@ const UserInfo = ({user}) => {
         dispatch(fetchUser(username));
         // avgRating = dispatch(fetchAverageRating(username));
         // console.log("avg rating", avgRating);
-    }, [dispatch, username, showUser?.description]);
+    }, [dispatch, username, showUser?.description, currentUser?.profileImageUrl]);
+
 
     return (
         <div className='user-info'>

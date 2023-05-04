@@ -30,6 +30,7 @@ const UpdateReviewForm = ({ setShowModal, review }) => {
             description,
             rating
         }
+<<<<<<< HEAD
         console.log(updatedReviewInfo);
         console.log(updatedReviewInfo._id);
         const res = await dispatch(updateReview(updatedReviewInfo));
@@ -39,6 +40,15 @@ const UpdateReviewForm = ({ setShowModal, review }) => {
         // const updatedUser = {
         //     ...
         // }
+=======
+        // console.log(updatedReviewInfo);
+        // console.log(updatedReviewInfo._id);
+        dispatch(updateReview(updatedReviewInfo)).then(res => {
+            if (res.ok) {
+                setShowModal(false);
+            }
+        });
+>>>>>>> main
     }
 
     const changeHandler = (e, type) => {
@@ -66,7 +76,6 @@ const UpdateReviewForm = ({ setShowModal, review }) => {
             currRating = type;
         }
         if (currTitle.length > 0 && currTitle.length <= 50 && currDescription.length > 0 && currDescription.length <= 400 && currRating > 0) {
-            console.log("should be submittable????");
             setCanSubmit(true);
         } else {
             setCanSubmit(false);
