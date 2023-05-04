@@ -3253,35 +3253,117 @@ reviews.push(review85);
 reviews.push(review86);
 reviews.push(review87);
 
-// const comment1 = new Comment ({
+const comment1 = new Comment ({
+  author_id: user10._id,
+  content: 'Hey, I am down to play GTA V with you! I can also teach you a view things as I played for a long time.'
+})
 
-// })
+const comment2 = new Comment ({
+  author_id: user10._id,
+  content: 'I\'m sure you\'ll find someone to practice GTA V mechanics with soon! Have you tried joining any GTA V communities or forums? You might be able to find someone who\'s interested in practicing with you there.'
+})
+
+const comment3 = new Comment ({
+  author_id: user10._id,
+  content: 'I\'ve been playing GTA V for a while too, and I\'m always up for playing with new people. Let me know if you\'re interested, and we can set up a time to play together!'
+})
+
+const comment4 = new Comment ({
+  author_id: user10._id,
+  content: 'It\'s great that you\'re looking to improve your skills in GTA V. Have you tried watching any gameplay videos or reading guides online? They might give you some ideas for new strategies to try out. Good luck!'
+})
+
+comments.push(comment1);
+comments.push(comment2);
+comments.push(comment3);
+comments.push(comment4);
+
 
 const post1 = new Post({
   author_id: demoUser._id,
   game_id: game17._id,
-  comment_id: [comment_league1._id],
+  comment_id: [comment1._id, comment2._id, comment3._id, comment4._id],
   title: 'Looking for a player to practice GTA V mechanics',
   description: 'Hey there, I am looking for a player to practice GTA V mechanics with. I am interested in learning new strategies, improving my skills, and becoming a better player. Let me know if you are interested!'
 })
 
+const comment5 = new Comment ({
+  author_id: user10._id,
+  content: 'While some of these tips may seem a bit simplistic, I think the sentiment is good. Starting out as a new gamer can be intimidating, so any advice to make the process easier is appreciated. Do you have any other tips for new gamers that you\'d like to share?'
+})
+
+const comment6 = new Comment ({
+  author_id: user10._id,
+  content: 'While I don\'t necessarily agree with the "pay to win" mentality, I do think that it\'s important to remember that there\'s no shame in starting out as a beginner. Gaming is supposed to be fun, so don\'t let anyone discourage you from playing just because you\'re not an expert yet!'
+})
+
+const comment7 = new Comment ({
+  author_id: user10._id,
+  content: 'I think the best advice for new gamers is to just have fun! Don\'t worry too much about winning or losing, or about what other people think of your skills. Just enjoy the game and the experience of playing it. And if you do want to improve your skills, practice and patience are key!'
+})
+
+comments.push(comment5);
+comments.push(comment6);
+comments.push(comment7);
+
 const post2 = new Post({
   author_id: demoUser._id,
   game_id: game12._id,
+  comment_id: [comment5._id, comment6._id, comment7._id],
   title: "Tips for New Gamers",
   description: "If you're new to gaming, don't worry! Here are some tips that helped me when I first started. Tip 1: Don't die. Tip 2: Just be good. Tip 3: Pay to win! Happy gaming!"
 })
 
+const comment8 = new Comment ({
+  author_id: user10._id,
+  content: 'I completely agree with you! In my experience, working well with others is often the key to success in multiplayer games. Whether you\'re playing a shooter, a MOBA, or an MMORPG, it\'s important to communicate with your teammates and work together towards a common goal.'
+})
+
+const comment9 = new Comment ({
+  author_id: user10._id,
+  content: 'I think it\'s also worth mentioning that teamwork in gaming can be a great way to make new friends and build relationships with other players. It\'s always nice to have a group of people that you can rely on to have your back in a game. Have you made any friends through teamwork in gaming?'
+})
+
+comments.push(comment8);
+comments.push(comment9);
+
 const post3 = new Post({
   author_id: demoUser._id,
   game_id: game1._id,
+  comment_id: [comment8._id, comment9._id],
   title: "The Importance of Teamwork in Gaming",
   description: "Teamwork makes the dream work! In this post, I'll discuss the importance of teamwork in gaming and how it can lead to success."
 })
 
+const comment10 = new Comment ({
+  author_id: user10._id,
+  content: 'I\'d be interested in playing some League of Legends with you! What region do you play in, and what rank are you? It\'s always nice to have more people to queue up with.'
+})
+
+const comment11 = new Comment ({
+  author_id: user10._id,
+  content: 'I know the feeling of not having enough people to play with! Have you tried joining any League of Legends communities or Discord servers? You might be able to find some new friends to play with there.'
+})
+
+const comment12 = new Comment ({
+  author_id: user10._id,
+  content: 'I\'m always looking for more people to play League of Legends with! What positions do you and your friends usually play? Maybe I can fill in a gap and we can play a few games together.'
+})
+
+const comment13 = new Comment ({
+  author_id: user10._id,
+  content: 'It can be tough to find a full team of players for League of Legends sometimes, especially if you\'re not at a high rank. Have you considered trying out some of the game\'s other modes, like ARAM or TFT? They can be a lot of fun with a smaller group of players.'
+})
+
+comments.push(comment10);
+comments.push(comment11);
+comments.push(comment12);
+comments.push(comment13);
+
 const post4 = new Post({
   author_id: demoUser._id,
   game_id: game1._id,
+  comment_id: [comment10._id, comment11._id, comment12._id, comment13._id],
   title: "Looking for 4 more players!",
   description: "My friends are sleeping."
 })
@@ -3298,8 +3380,6 @@ posts.push(post2);
 posts.push(post3);
 posts.push(post4);
 posts.push(post5);
-
-
 
 const reviewDemo1 = new Review({
   user_id: demoUser._id,
