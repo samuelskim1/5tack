@@ -1772,6 +1772,124 @@ posts.push(stardewvalley4);
 posts.push(stardewvalley5);
 posts.push(stardewvalley6);
 
+const comment_starcraft1 = new Comment({
+  author_id: user1._id,
+  content: 'Hey, I would love to join your team! I mainly play as Protoss and enjoy micromanaging my units. Let me know if you need a teammate for some 2v2 or 3v3 matches!'
+})
+
+const comment_starcraft2 = new Comment({
+  author_id: user3._id,
+  content: 'Hey, I am also a fan of StarCraft 2! I mainly play as Zerg and love swarming my opponents with a massive army. Let me know if you want to practice strategies together!'
+})
+
+const comment_starcraft3 = new Comment({
+  author_id: user2._id,
+  content: 'Hey, I am interested in playing with you! I am a Terran player who focuses on a strong economy and a well-rounded army composition. Let me know if you want to team up and conquer the ladder!'
+})
+
+const comment_starcraft4 = new Comment({
+  author_id: user3._id,
+  content: 'Hey, I am looking for more people to play with! I enjoy playing Random and adapting to different strategies. Let me know if you want to join me in some epic battles!'
+})
+
+const comment_starcraft5 = new Comment({
+  author_id: user4._id,
+  content: 'Hey, I am also a casual player and I love playing StarCraft 2! Let me know if you want to relax and play some team games together.'
+})
+
+const comment_starcraft6 = new Comment({
+  author_id: user5._id,
+  content: 'Hey, I am interested in playing with you! I am a seasoned StarCraft 2 player who enjoys coaching and helping others improve. Let\'s work together and climb the ranks!'
+})
+
+const comment_starcraft7 = new Comment({
+  author_id: user6._id,
+  content: 'Hey, I am looking for a group to play StarCraft 2 with! I love playing in team games and enjoy executing well-coordinated strategies. Let me know if you want to form a team and dominate the battlefield!'
+})
+
+const comment_starcraft8 = new Comment({
+  author_id: user7._id,
+  content: 'Hey, I am also looking for people to play StarCraft 2 with! I am a fan of watching professional games and would love to discuss strategies and analyze replays. Let\'s learn from the pros and improve our own gameplay!'
+})
+
+const comment_starcraft9 = new Comment({
+  author_id: user8._id,
+  content: 'Hey, I am interested in joining your StarCraft 2 group! I am a passionate player who loves studying build orders and optimizing my gameplay. Let\'s work together and refine our strategies!'
+})
+
+const comment_starcraft10 = new Comment({
+  author_id: user9._id,
+  content: 'Hey, I am also new to StarCraft 2! I am still learning the ropes but would love to play with others and improve together. Let\'s have some fun and learn from each other!'
+})
+
+comments.push(comment_starcraft1);
+comments.push(comment_starcraft2);
+comments.push(comment_starcraft3);
+comments.push(comment_starcraft4);
+comments.push(comment_starcraft5);
+comments.push(comment_starcraft6);
+comments.push(comment_starcraft7);
+comments.push(comment_starcraft8);
+comments.push(comment_starcraft9);
+comments.push(comment_starcraft10);
+
+const starcraft1 = new Post({
+  author_id: user1._id,
+  game_id: game2._id,
+  comment_id: [comment_starcraft1._id, comment_starcraft2._id],
+  title: 'Looking for players to team up in StarCraft 2',
+  description: 'Hello everyone, I am looking for a few players who are interested in teaming up for some StarCraft 2 matches. We can practice strategies and work together to climb the ladder!'
+})
+
+const starcraft2 = new Post({
+  author_id: user3._id,
+  game_id: game2._id,
+  comment_id: [comment_starcraft3._id],
+  title: 'Looking for a player to practice StarCraft 2 with',
+  description: 'Hey there, I am looking for a player to practice with in StarCraft 2. We can work on our build orders, unit control, and overall gameplay. Let me know if you are interested!'
+})
+
+const starcraft3 = new Post({
+  author_id: user5._id,
+  game_id: game2._id,
+  comment_id: [comment_starcraft4._id, comment_starcraft5._id],
+  title: 'Casual StarCraft 2 players wanted',
+  description: 'Hi there, I am a casual player of StarCraft 2 and I am looking for other casual players to play with. We can play team games, co-op missions, or just mess around with fun strategies. Let me know if you want to join me!'
+})
+
+const starcraft4 = new Post({
+  author_id: user4._id,
+  game_id: game2._id,
+  comment_id: [comment_starcraft6._id],
+  title: 'Looking for someone to play StarCraft 2 with',
+  description: 'Hello, I am looking for someone to play StarCraft 2 with. I am new to the game and want to learn more about it. I am interested in both co-op and multiplayer modes. Let me know if you are interested!'
+})
+
+const starcraft5 = new Post({
+  author_id: user7._id,
+  game_id: game2._id,
+  comment_id: [comment_starcraft7._id, comment_starcraft8._id],
+  title: 'Experienced StarCraft 2 players wanted',
+  description: 'Hey there, I am an experienced player of StarCraft 2 and I am looking for other experienced players to play with. I am interested in improving my skills, discussing strategies, and competing in tournaments. Let me know if you want to join me!'
+})
+
+const starcraft6 = new Post({
+  author_id: user6._id,
+  game_id: game2._id,
+  comment_id: [comment_starcraft9._id],
+  title: 'Looking for a player to do StarCraft 2 co-op missions',
+  description: 'Hey there, I am looking for a player to do co-op missions with in StarCraft 2. I am interested in trying different commanders and mastering each mission. Let me know if you are interested!'
+})
+
+posts.push(starcraft1);
+posts.push(starcraft2);
+posts.push(starcraft3);
+posts.push(starcraft4);
+posts.push(starcraft5);
+posts.push(starcraft6);
+
+
+
 //demo user post seeding
 // for (let i = 0; i < 10; i++) {
 //   const author_id = demoUser._id;
