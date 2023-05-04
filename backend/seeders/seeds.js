@@ -46,7 +46,7 @@ const user1 = new User({
   email: 'johndoe@user.com',
   description: 'Hi, my name is John Doe and I love hiking and traveling.',
   profileImageUrl: getRandomImage(),
-  hashedPassword: bcrypt.hashSync('password1', 10)
+  hashedPassword: bcrypt.hashSync('password', 10)
 })
 
 const user2 = new User({
@@ -54,7 +54,7 @@ const user2 = new User({
   email: 'janedoe@user.com',
   description: 'Hi, I am Jane Doe and I enjoy reading and trying out new recipes.',
   profileImageUrl: getRandomImage(),
-  hashedPassword: bcrypt.hashSync('password2', 10)
+  hashedPassword: bcrypt.hashSync('password', 10)
 })
 
 const user3 = new User({
@@ -62,7 +62,7 @@ const user3 = new User({
   email: 'davidbrown@user.com',
   description: 'Hey, I am David Brown and I am a big fan of basketball and playing guitar.',
   profileImageUrl: getRandomImage(),
-  hashedPassword: bcrypt.hashSync('password3', 10)
+  hashedPassword: bcrypt.hashSync('password', 10)
 })
 
 const user4 = new User({
@@ -70,7 +70,7 @@ const user4 = new User({
   email: 'emilyjones@user.com',
   description: 'Hey, I am Emily Jones and I enjoy yoga and painting in my free time.',
   profileImageUrl: getRandomImage(),
-  hashedPassword: bcrypt.hashSync('password4', 10)
+  hashedPassword: bcrypt.hashSync('password', 10)
 })
 
 const user5 = new User({
@@ -78,7 +78,7 @@ const user5 = new User({
   email: 'chrisbrown@user.com',
   description: 'Hi, my name is Chris Brown and I love playing football and listening to hip-hop music.',
   profileImageUrl: getRandomImage(),
-  hashedPassword: bcrypt.hashSync('password5', 10)
+  hashedPassword: bcrypt.hashSync('password', 10)
 })
 
 const user6 = new User({
@@ -86,7 +86,7 @@ const user6 = new User({
   email: 'annasmith@user.com',
   description: 'Hey, I am Anna Smith and I enjoy playing tennis and going to music festivals.',
   profileImageUrl: getRandomImage(),
-  hashedPassword: bcrypt.hashSync('password6', 10)
+  hashedPassword: bcrypt.hashSync('password', 10)
 })
 
 const user7 = new User({
@@ -94,7 +94,7 @@ const user7 = new User({
   email: 'jasonwang@user.com',
   description: 'Hi, I am Jason Wang and I love hiking and trying out new restaurants.',
   profileImageUrl: getRandomImage(),
-  hashedPassword: bcrypt.hashSync('password7', 10)
+  hashedPassword: bcrypt.hashSync('password', 10)
 })
 
 const user8 = new User({
@@ -102,7 +102,7 @@ const user8 = new User({
   email: 'sarahmiller@user.com',
   description: 'Hey, I am Sarah Miller and I enjoy playing basketball and reading science fiction books.',
   profileImageUrl: getRandomImage(),
-  hashedPassword: bcrypt.hashSync('password8', 10)
+  hashedPassword: bcrypt.hashSync('password', 10)
 })
 
 const user9 = new User({
@@ -110,7 +110,7 @@ const user9 = new User({
   email: 'robertjones@user.com',
   description: 'Hi, my name is Robert Jones and I love playing video games and watching movies.',
   profileImageUrl: getRandomImage(),
-  hashedPassword: bcrypt.hashSync('password9', 10)
+  hashedPassword: bcrypt.hashSync('password', 10)
 })
 
 const user10 = new User({
@@ -118,7 +118,7 @@ const user10 = new User({
   email: 'amandasmith@user.com',
   description: 'Hi, I am Amanda Smith and I enjoy hiking and playing guitar in my free time.',
   profileImageUrl: getRandomImage(),
-  hashedPassword: bcrypt.hashSync('password10', 10)
+  hashedPassword: bcrypt.hashSync('password', 10)
 })
 
 users.push(demoUser);
@@ -373,7 +373,7 @@ const league3 = new Post({
   title: 'Looking for casual League of Legends players',
   description: 'Hey everyone, I am a casual League of Legends player and I am looking for some other casual players to play with. I am not very good, but I love the game and want to improve. Let me know if you want to play together!'
 })
-  
+
 const league4 = new Post({
   author_id: user3._id,
   game_id: game1._id,
@@ -397,7 +397,7 @@ const league6 = new Post({
   title: 'Support main looking for duo partner in League of Legends',
   description: 'Hey there, I am a Support main and I am looking for a duo partner to climb the ladder with. I am a Gold player and I am looking for someone who is serious about the game and wants to improve. Let me know if you are interested!'
 })
-  
+
 const league7 = new Post({
   author_id: user7._id,
   game_id: game1._id,
@@ -3253,30 +3253,52 @@ reviews.push(review85);
 reviews.push(review86);
 reviews.push(review87);
 
+// const comment1 = new Comment ({
+
+// })
+
 const post1 = new Post({
-  user_id: demoUser._id,
-  title: "My Top 5 Gaming Moments",
-  content: "In this post, I'm sharing my top 5 gaming moments. It's been an amazing journey, and I can't wait to see what the future holds!",
-  imageUrl: getRandomImage()
+  author_id: demoUser._id,
+  game_id: game17._id,
+  comment_id: [comment_league1._id],
+  title: 'Looking for a player to practice GTA V mechanics',
+  description: 'Hey there, I am looking for a player to practice GTA V mechanics with. I am interested in learning new strategies, improving my skills, and becoming a better player. Let me know if you are interested!'
 })
 
 const post2 = new Post({
-  user_id: demoUser._id,
+  author_id: demoUser._id,
+  game_id: game12._id,
   title: "Tips for New Gamers",
-  content: "If you're new to gaming, don't worry! Here are some tips that helped me when I first started. Happy gaming!",
-  imageUrl: getRandomImage()
+  description: "If you're new to gaming, don't worry! Here are some tips that helped me when I first started. Tip 1: Don't die. Tip 2: Just be good. Tip 3: Pay to win! Happy gaming!"
 })
 
 const post3 = new Post({
-  user_id: demoUser._id,
+  author_id: demoUser._id,
+  game_id: game1._id,
   title: "The Importance of Teamwork in Gaming",
-  content: "Teamwork makes the dream work! In this post, I'll discuss the importance of teamwork in gaming and how it can lead to success.",
-  imageUrl: getRandomImage()
+  description: "Teamwork makes the dream work! In this post, I'll discuss the importance of teamwork in gaming and how it can lead to success."
+})
+
+const post4 = new Post({
+  author_id: demoUser._id,
+  game_id: game1._id,
+  title: "Looking for 4 more players!",
+  description: "My friends are sleeping."
+})
+
+const post5 = new Post({
+  author_id: demoUser._id,
+  game_id: game6._id,
+  title: "The Importance of Building in Minecraft",
+  description: "Join my lecture of building in Minecraft. I will teach you how to make infinite water!!!"
 })
 
 posts.push(post1);
 posts.push(post2);
 posts.push(post3);
+posts.push(post4);
+posts.push(post5);
+
 
 
 const reviewDemo1 = new Review({
@@ -3303,9 +3325,28 @@ const reviewDemo3 = new Review({
   description: "The demo user is a fantastic player and a pleasure to game with. I had a great time playing with them, and I'm looking forward to more gaming sessions!"
 })
 
-posts.push(reviewDemo1);
-posts.push(reviewDemo2);
-posts.push(reviewDemo3);
+const reviewDemo4 = new Review({
+  user_id: demoUser._id,
+  reviewer_id: user5._id,
+  title: "Demo user is very funny",
+  rating: 5,
+  description: "The demo user is a fantastic funny player and funtastic to game with. I had a very fun time playing with them, and I'm looking forward to more very funny gaming sessions!"
+})
+
+const reviewDemo5 = new Review({
+  user_id: demoUser._id,
+  reviewer_id: user7._id,
+  title: "Demo user is a master of strategy!",
+  rating: 5,
+  description: "Biggest brain I have ever seen in my entire life of living in this world!!!"
+})
+
+reviews.push(reviewDemo1);
+reviews.push(reviewDemo2);
+reviews.push(reviewDemo3);
+reviews.push(reviewDemo4);
+reviews.push(reviewDemo5);
+
 
 
 mongoose
