@@ -6,7 +6,7 @@ const commentSchema = new Schema({
   content: { 
     type: String, 
     required: true,
-    maxlength: 200
+    maxlength: 300
   },
   author_id: { 
     type: Schema.Types.ObjectId, 
