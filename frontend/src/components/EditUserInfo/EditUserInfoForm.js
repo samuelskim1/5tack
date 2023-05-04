@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useReducer, useRef, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { clearSessionErrors, getCurrentUser, updateUser } from "../../store/session";
 import { useHistory, useParams } from "react-router-dom";
@@ -18,7 +18,10 @@ const EditUserInfoForm = ({ setEdit }) => {
     const [email, setEmail] = useState(currentUser?.email);
     const [description, setDescription] = useState(currentUser?.description || '');
     const [canSubmit, setCanSubmit] = useState(false);
-    // const [password, setPassword] = useState('');
+
+    const [photo, setPhoto] = useState();
+    const [profileImageUrl, setProfileImageUrl] = useState();
+    const uploadBtn = useRef();
 
     // useEffect(() => {
     //     dispatch(getCurrentUser(currentUser));
@@ -31,12 +34,10 @@ const EditUserInfoForm = ({ setEdit }) => {
             ...currentUser,
             username: showUsername,
             email,
-            description
+            description,
+            photo
         }
-        // console.log("info to update with", user);
         dispatch(updateUser(user)).then(res => {
-            // console.log(res);
-            // console.log("username", user.username)
             if (res.ok) {
                 setEdit(false);
                 history.push(`/${showUsername}`);
@@ -83,6 +84,18 @@ const EditUserInfoForm = ({ setEdit }) => {
 
     }
 
+    const handlePhoto = async ({ currentTarget }) => {
+        if (currentTarget.files[0]) {
+            setPhoto(currentTarget.files[0]);
+            const fileReader = new FileReader();
+            // sets results attr to url of photo data
+            fileReader.readAsDataURL(currentTarget.files[0]);
+            // after file is successfully read
+            fileReader.onload = () => setProfileImageUrl(fileReader.result);
+        }
+
+    }
+
     return (
         <div id="session-form-container">
             <form className="session-form">
@@ -117,6 +130,19 @@ const EditUserInfoForm = ({ setEdit }) => {
                         placeholder="Tell us about yourself!"
                     />
                 </label>
+
+                <div 
+                    onClick={() => uploadBtn.current.click()}
+                >
+                    <input
+                        ref={uploadBtn}
+                        type="file"
+                        onChange={handlePhoto}
+                        style={{display: 'none'}}
+                    />
+                    <p>Add Profile Image</p>
+                </div>
+
                 {/* {<div id="submit-login-btn" onClick={handleSubmit}>Update</div>} */}
                 { canSubmit ?
                     <div
