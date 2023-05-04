@@ -15,6 +15,7 @@ const CommentsIndexItem = ({ comment, post }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [content, setContent] = useState(comment?.content);
   const [canUpdate, setCanUpdate] = useState(content !== comment?.content);
+  const [count, setCount] = useState(content?.length);
   
 
   const handleDelete = async (e) => {
@@ -25,6 +26,7 @@ const CommentsIndexItem = ({ comment, post }) => {
   const handleChange = (e) => {
     let currContent = e.target.value;
     setContent(currContent);
+    setCount(currContent.length);
     if (currContent.length > 0 && currContent.length <= 200) {
       setCanUpdate(true);
     } else {
@@ -86,23 +88,34 @@ const CommentsIndexItem = ({ comment, post }) => {
             (
               <>
                 <div className='comment-edit-section'>
-                  <textarea
-                    value={content}
-                    onKeyDown={(e) => canUpdate && handleEnter(e)}
-                    onChange={(e) => handleChange(e)}
-                  />
-                </div>
-                <div className="comment-buttons-holder">
-                  <i
-                    className={"fa-regular fa-paper-plane" + (
-                      canUpdate ? "" : " disable-btn" 
-                    )}
-                    onClick={(e) => canUpdate && handleUpdate(e)}
-                  />
-                  <i
-                    className="fa-solid fa-xmark"
-                    onClick={() => {setIsEditing(false); setContent(comment?.content)}}
-                  />
+                  <div id="comment-text-buttons">
+                    <textarea
+                      value={content}
+                      onKeyDown={(e) => canUpdate && handleEnter(e)}
+                      onChange={(e) => handleChange(e)}
+                    />
+
+                    <div className="comment-buttons-holder">
+                      <i
+                        className={"fa-regular fa-paper-plane" + (
+                          canUpdate ? "" : " disable-btn" 
+                        )}
+                        onClick={(e) => canUpdate && handleUpdate(e)}
+                      />
+                      <i
+                        className="fa-solid fa-xmark"
+                        onClick={() => {setIsEditing(false); setContent(comment?.content)}}
+                      />
+                    </div>
+                  </div>
+                  <div id="edit-comment-count">
+                    <div 
+                      className={(count === 0 || count > 200) ? 'bad-count' : ""}
+                      >
+                      {`${count}`}
+                    </div>
+                    <p>/200</p>
+                  </div>
                 </div>
               </>
             )

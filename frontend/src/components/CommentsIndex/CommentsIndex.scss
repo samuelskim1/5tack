@@ -50,6 +50,7 @@
     min-height: 30px;
     min-width: 370px;
     width: 100%;
+    position: relative;
 
     > .author-block {
       margin-bottom: 10px;
@@ -106,6 +107,7 @@
         font-family: $default-font;
         border-radius: 8px;
         font-size: 14px;
+        margin-top: 5px;
       }
 
       textarea:hover {
@@ -221,4 +223,36 @@
     border-radius: 8px;
     font-size: 14px;
   }
+}
+
+#comment-text-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#comment-count {
+  font-size: 10px;
+  font-weight: 200;
+  margin-top: 7px;
+  margin-left: 5px;
+  display: flex;
+  flex-direction: row;
+  color: $neutral-text;
+}
+
+#edit-comment-count {
+  font-size: 10px;
+  font-weight: 200;
+  margin-top: 5px;
+  margin-left: 5px;
+  display: flex;
+  flex-direction: row;
+  color: $neutral-text;
+}
+
+.bad-count {
+  color: rgb(239, 78, 78);
+  font-weight: 300;
 }
