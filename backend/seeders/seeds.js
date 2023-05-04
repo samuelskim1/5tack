@@ -2352,8 +2352,907 @@ posts.push(gta5_4);
 posts.push(gta5_5);
 posts.push(gta5_6);
 
+const comment_maplestory_1 = new Comment({
+  author_id: user1._id,
+  content: 'Hey, I would love to join your MapleStory party! I enjoy training and leveling up my character. Let me know if you need a dedicated party member for grinding!'
+})
 
+const comment_maplestory_2 = new Comment({
+  author_id: user3._id,
+  content: 'Hey, I am also a fan of MapleStory! I like bossing and running dungeons. Let me know if you want to team up and take down the toughest bosses together!'
+})
 
+const comment_maplestory_3 = new Comment({
+  author_id: user2._id,
+  content: 'Hey, I am interested in playing with you! I enjoy trading and the in-game economy. Let me know if you want to make some Mesos together!'
+})
+
+const comment_maplestory_4 = new Comment({
+  author_id: user3._id,
+  content: 'Hey, I am looking for more people to play with! I am a quest enthusiast and love to explore the Maple World. Let me know if you want to join me on my next adventure!'
+})
+
+const comment_maplestory_5 = new Comment({
+  author_id: user4._id,
+  content: 'Hey, I am a casual player and love socializing in MapleStory! Let me know if you want to hang out, chat, and make new friends in the game together.'
+})
+
+const comment_maplestory_6 = new Comment({
+  author_id: user5._id,
+  content: 'Hey, I am interested in playing with you! I am an experienced MapleStory player and enjoy helping new players learn the ropes. Let\'s team up and grow together!'
+})
+
+const comment_maplestory_7 = new Comment({
+  author_id: user6._id,
+  content: 'Hey, I am looking for a group to play MapleStory with! I love participating in in-game events and special activities. Let me know if you want to team up and make the most of each event!'
+})
+
+const comment_maplestory_8 = new Comment({
+  author_id: user7._id,
+  content: 'Hey, I am also looking for people to play MapleStory with! I enjoy crafting and upgrading my equipment. Let\'s work together and become stronger!'
+})
+
+const comment_maplestory_9 = new Comment({
+  author_id: user8._id,
+  content: 'Hey, I am interested in joining your MapleStory group! I am a skilled player who loves to help others complete challenging quests and dungeons. Let\'s conquer the Maple World together!'
+})
+
+const comment_maplestory_10 = new Comment({
+  author_id: user9._id,
+  content: 'Hey, I am new to MapleStory but eager to learn and improve! I am open to playing any class and excited to explore the vast world of the game. Let\'s embark on this journey together!'
+})
+
+comments.push(comment_maplestory_1);
+comments.push(comment_maplestory_2);
+comments.push(comment_maplestory_3);
+comments.push(comment_maplestory_4);
+comments.push(comment_maplestory_5);
+comments.push(comment_maplestory_6);
+comments.push(comment_maplestory_7);
+comments.push(comment_maplestory_8);
+comments.push(comment_maplestory_9);
+comments.push(comment_maplestory_10);
+
+const maplestory_1 = new Post({
+  author_id: user1._id,
+  game_id: game2._id,
+  comment_id: [comment_maplestory_1._id, comment_maplestory_2._id],
+  title: 'Looking for players to form a MapleStory party',
+  description: 'Hello everyone, I am looking for a few players who are interested in forming a MapleStory party. We can train, level up, and explore the vast world of Maple together!'
+})
+
+const maplestory_2 = new Post({
+  author_id: user3._id,
+  game_id: game2._id,
+  comment_id: [comment_maplestory_3._id],
+  title: 'Looking for a player to join my MapleStory group',
+  description: 'Hey there, I am looking for a player to join my existing MapleStory group. We can work together to tackle dungeons, boss fights, and have fun!'
+})
+
+const maplestory_3 = new Post({
+  author_id: user5._id,
+  game_id: game2._id,
+  comment_id: [comment_maplestory_4._id, comment_maplestory_5._id],
+  title: 'Casual MapleStory players wanted',
+  description: 'Hi there, I am a casual player of MapleStory and I am looking for other casual players to play with. We can hang out, explore, and just have fun in the game. Let me know if you want to join me!'
+})
+
+const maplestory_4 = new Post({
+  author_id: user4._id,
+  game_id: game2._id,
+  comment_id: [comment_maplestory_6._id],
+  title: 'Looking for someone to play MapleStory with',
+  description: 'Hello, I am looking for someone to play MapleStory with. I am new to the game and want to learn more about it. I am interested in both PvE and PvP modes. Let me know if you are interested!'
+})
+
+const maplestory_5 = new Post({
+  author_id: user7._id,
+  game_id: game2._id,
+  comment_id: [comment_maplestory_7._id, comment_maplestory_8._id],
+  title: 'Experienced MapleStory players wanted',
+  description: 'Hey there, I am an experienced player of MapleStory and I am looking for other experienced players to play with. I am interested in optimizing our characters, exploring new areas, and completing all the challenges the game has to offer. Let me know if you want to join me!'
+})
+
+const maplestory_6 = new Post({
+  author_id: user6._id,
+  game_id: game2._id,
+  comment_id: [comment_maplestory_9._id],
+  title: 'Looking for a player to do multiplayer challenges in MapleStory',
+  description: 'Hey there, I am looking for a player to do multiplayer challenges with in MapleStory. I am interested in exploring new areas and trying out different character builds. Let me know if you are interested!'
+})
+
+posts.push(maplestory_1);
+posts.push(maplestory_2);
+posts.push(maplestory_3);
+posts.push(maplestory_4);
+posts.push(maplestory_5);
+posts.push(maplestory_6);
+
+const reviews = [];
+
+const review1 = new Review({
+  user_id: user1._id,
+  reviewer_id: user2._id,
+  title: "Great gaming experience with John",
+  rating: 5,
+  description: "I had a fantastic time playing with John. He's an excellent teammate and a really friendly person. Looking forward to more gaming sessions with him!"
+})
+
+const review2 = new Review({
+  user_id: user2._id,
+  reviewer_id: user1._id,
+  title: "Fun gaming session with Jane",
+  rating: 4,
+  description: "Jane is a good player and very cooperative. We had a fun gaming session together, and I'd definitely play with her again."
+})
+
+const review3 = new Review({
+  user_id: user3._id,
+  reviewer_id: user4._id,
+  title: "Enjoyed playing with David",
+  rating: 4,
+  description: "David is a skilled player and a great teammate. We had a good time playing together, and I hope to play with him again soon."
+})
+
+const review4 = new Review({
+  user_id: user4._id,
+  reviewer_id: user3._id,
+  title: "Emily is a friendly player",
+  rating: 5,
+  description: "I really enjoyed playing with Emily. She's a friendly person and a good player. I'm looking forward to more gaming sessions with her!"
+})
+
+const review5 = new Review({
+  user_id: user5._id,
+  reviewer_id: user6._id,
+  title: "Chris is a great teammate",
+  rating: 5,
+  description: "Chris is a fantastic player and a great teammate. We had a lot of fun playing together, and I'd love to team up with him again."
+})
+
+const review6 = new Review({
+  user_id: user6._id,
+  reviewer_id: user5._id,
+  title: "Had a great time playing with Anna",
+  rating: 4,
+  description: "Anna is a good player and a fun person to play with. We had a great gaming session together, and I'm looking forward to playing with her again."
+})
+
+const review7 = new Review({
+  user_id: user7._id,
+  reviewer_id: user8._id,
+  title: "Jason is a skilled player",
+  rating: 4,
+  description: "I enjoyed playing with Jason. He's a skilled player and a good teammate. I hope to play with him again soon."
+})
+
+const review8 = new Review({
+  user_id: user8._id,
+  reviewer_id: user7._id,
+  title: "Fun gaming experience with Sarah",
+  rating: 5,
+  description: "Sarah is a friendly player and a great teammate. We had a fun gaming session together, and I'd definitely play with her again."
+})
+
+const review9 = new Review({
+  user_id: user9._id,
+  reviewer_id: user10._id,
+  title: "Good gaming session with Robert",
+  rating: 4,
+  description: "Robert is a good player and very cooperative. We had a good gaming session together, and I'd definitely play with him again."
+})
+
+const review10 = new Review({
+  user_id: user10._id,
+  reviewer_id: user9._id,
+  title: "Amanda is a fantastic player",
+  rating: 5,
+  description: "I had a great time playing with Amanda. She's a fantastic player and a really friendly person. Looking forward to more gaming sessions with her!"
+})
+
+const review11 = new Review({
+  user_id: user1._id,
+  reviewer_id: user3._id,
+  title: "John is a great gaming partner",
+  rating: 4,
+  description: "I had a nice time playing with John. He's a skilled player and a helpful teammate. I'd be happy to team up with him again in the future."
+})
+
+const review12 = new Review({
+  user_id: user2._id,
+  reviewer_id: user4._id,
+  title: "Jane is a fun and cooperative player",
+  rating: 5,
+  description: "Jane is a great player who's easy to get along with. We had a blast playing together, and I look forward to our next gaming session."
+})
+
+const review13 = new Review({
+  user_id: user3._id,
+  reviewer_id: user5._id,
+  title: "Enjoyable gaming experience with David",
+  rating: 4,
+  description: "David is a skilled player and a friendly person. We had a good time playing together, and I hope to play with him again soon."
+})
+
+const review14 = new Review({
+  user_id: user4._id,
+  reviewer_id: user6._id,
+  title: "Emily is an excellent teammate",
+  rating: 5,
+  description: "Emily is a fantastic player and a pleasure to game with. I had a great time playing with her, and I'm looking forward to more gaming sessions!"
+})
+
+const review15 = new Review({
+  user_id: user5._id,
+  reviewer_id: user7._id,
+  title: "Chris is a great player",
+  rating: 4,
+  description: "Chris is an excellent player and a fun teammate. We had a great gaming session together, and I'd definitely play with him again."
+})
+
+const review16 = new Review({
+  user_id: user6._id,
+  reviewer_id: user8._id,
+  title: "Anna is a friendly and cooperative player",
+  rating: 5,
+  description: "I enjoyed playing with Anna. She's a friendly and cooperative player, and we had a great time gaming together. Looking forward to playing with her again!"
+})
+
+const review17 = new Review({
+  user_id: user7._id,
+  reviewer_id: user9._id,
+  title: "Jason is an awesome gaming partner",
+  rating: 5,
+  description: "Jason is a talented player and a great teammate. We had a blast playing together, and I'd love to team up with him again in the future."
+})
+
+const review18 = new Review({
+  user_id: user8._id,
+  reviewer_id: user10._id,
+  title: "Fun gaming session with Sarah",
+  rating: 4,
+  description: "Sarah is a good player and very cooperative. We had a fun gaming session together, and I'd definitely play with her again."
+})
+
+const review19 = new Review({
+  user_id: user9._id,
+  reviewer_id: user1._id,
+  title: "Robert is a skilled and friendly player",
+  rating: 4,
+  description: "I enjoyed playing with Robert. He's a skilled player and a friendly person. I hope to play with him again soon."
+})
+
+const review20 = new Review({
+  user_id: user10._id,
+  reviewer_id: user2._id,
+  title: "Amanda is a fantastic gaming partner",
+  rating: 5,
+  description: "I had a great time playing with Amanda. She's a fantastic player and a really friendly person."
+})
+
+const review21 = new Review({
+  user_id: user1._id,
+  reviewer_id: user4._id,
+  title: "John is an excellent gaming partner",
+  rating: 5,
+  description: "John is a skilled player and a great teammate. I enjoyed playing with him and look forward to more gaming sessions together."
+})
+
+const review22 = new Review({
+  user_id: user2._id,
+  reviewer_id: user5._id,
+  title: "Gaming with Jane was a blast",
+  rating: 4,
+  description: "Jane is a fun and friendly player. We had a good time gaming together and I'd love to play with her again."
+})
+
+const review23 = new Review({
+  user_id: user3._id,
+  reviewer_id: user6._id,
+  title: "David is a fantastic teammate",
+  rating: 5,
+  description: "David is a talented player and a great person to play with. I had a great time gaming with him and look forward to more sessions together."
+})
+
+const review24 = new Review({
+  user_id: user4._id,
+  reviewer_id: user7._id,
+  title: "Emily is a skilled and friendly player",
+  rating: 4,
+  description: "Emily is a skilled player and a friendly person. We had a good time playing together and I hope to play with her again soon."
+})
+
+const review25 = new Review({
+  user_id: user5._id,
+  reviewer_id: user8._id,
+  title: "Great gaming experience with Chris",
+  rating: 5,
+  description: "Chris is an excellent player and a fun teammate. I had a fantastic time playing with him and look forward to more gaming sessions together."
+})
+
+const review26 = new Review({
+  user_id: user6._id,
+  reviewer_id: user9._id,
+  title: "Anna is a friendly and cooperative player",
+  rating: 4,
+  description: "Anna is a friendly player and a pleasure to game with. We had a good time gaming together, and I'd definitely play with her again."
+})
+
+const review27 = new Review({
+  user_id: user7._id,
+  reviewer_id: user10._id,
+  title: "Jason is a great gaming partner",
+  rating: 5,
+  description: "Jason is a talented player and a fantastic teammate. I enjoyed playing with him and look forward to more gaming sessions together."
+})
+
+const review28 = new Review({
+  user_id: user8._id,
+  reviewer_id: user1._id,
+  title: "Sarah is a fun and skilled player",
+  rating: 4,
+  description: "Sarah is a skilled player and a fun person to play with. We had a great time gaming together and I hope to play with her again soon."
+})
+
+const review29 = new Review({
+  user_id: user9._id,
+  reviewer_id: user2._id,
+  title: "Robert is a fantastic gaming partner",
+  rating: 5,
+  description: "Robert is a skilled player and a great teammate. I had a fantastic time playing with him and look forward to more gaming sessions together."
+})
+
+const review30 = new Review({
+  user_id: user10._id,
+  reviewer_id: user3._id,
+  title: "Amanda is a friendly and cooperative player",
+  rating: 4,
+  description: "Amanda is a friendly player and a pleasure to game with. We had a good time gaming together, and I'd definitely play with her again."
+})
+
+const review31 = new Review({
+  user_id: user1._id,
+  reviewer_id: user6._id,
+  title: "Great gaming experience with John",
+  rating: 4,
+  description: "John is a skilled player and a helpful teammate. We had a fun gaming session, and I look forward to playing with him again."
+})
+
+const review32 = new Review({
+  user_id: user2._id,
+  reviewer_id: user7._id,
+  title: "Jane is an awesome gaming partner",
+  rating: 5,
+  description: "Jane is a fantastic player and a great teammate. We had a blast playing together, and I can't wait to play with her again."
+})
+
+const review33 = new Review({
+  user_id: user3._id,
+  reviewer_id: user8._id,
+  title: "David is a skilled and friendly player",
+  rating: 4,
+  description: "David is a talented player and a friendly person. We had a good time playing together, and I hope to play with him again soon."
+})
+
+const review34 = new Review({
+  user_id: user4._id,
+  reviewer_id: user9._id,
+  title: "Emily is an excellent teammate",
+  rating: 5,
+  description: "Emily is a fantastic player and a pleasure to game with. I had a great time playing with her, and I'm looking forward to more gaming sessions!"
+})
+
+const review35 = new Review({
+  user_id: user5._id,
+  reviewer_id: user10._id,
+  title: "Chris is a great player",
+  rating: 4,
+  description: "Chris is an excellent player and a fun teammate. We had a great gaming session together, and I'd definitely play with him again."
+})
+
+const review36 = new Review({
+  user_id: user6._id,
+  reviewer_id: user1._id,
+  title: "Anna is a friendly and cooperative player",
+  rating: 5,
+  description: "I enjoyed playing with Anna. She's a friendly and cooperative player, and we had a great time gaming together. Looking forward to playing with her again!"
+})
+
+const review37 = new Review({
+  user_id: user7._id,
+  reviewer_id: user2._id,
+  title: "Jason is an awesome gaming partner",
+  rating: 5,
+  description: "Jason is a talented player and a great teammate. We had a blast playing together, and I'd love to team up with him again in the future."
+})
+
+const review38 = new Review({
+  user_id: user8._id,
+  reviewer_id: user3._id,
+  title: "Fun gaming session with Sarah",
+  rating: 4,
+  description: "Sarah is a good player and very cooperative. We had a fun gaming session together, and I'd definitely play with her again."
+})
+
+const review39 = new Review({
+  user_id: user9._id,
+  reviewer_id: user4._id,
+  title: "Robert is a skilled and friendly player",
+  rating: 4,
+  description: "I enjoyed playing with Robert. He's a skilled player and a friendly person. I hope to play with him again soon."
+})
+
+const review40 = new Review({
+  user_id: user10._id,
+  reviewer_id: user5._id,
+  title: "Amanda is a fantastic player",
+  rating: 5,
+  description: "I had a great time playing with Amanda. She's a fantastic player and a really friendly person. Looking forward to more gaming sessions with her!"
+})
+
+const review41 = new Review({
+  user_id: user1._id,
+  reviewer_id: user8._id,
+  title: "John is a dependable and fun teammate",
+  rating: 4,
+  description: "John is a great player and a fun teammate. We had a good time gaming together, and I'd be happy to play with him again."
+})
+
+const review42 = new Review({
+  user_id: user2._id,
+  reviewer_id: user9._id,
+  title: "Jane is a fantastic gaming partner",
+  rating: 5,
+  description: "Jane is a skilled player and a pleasure to game with. I had a fantastic time playing with her and can't wait for more sessions together."
+})
+
+const review43 = new Review({
+  user_id: user3._id,
+  reviewer_id: user10._id,
+  title: "David is a great teammate and player",
+  rating: 4,
+  description: "David is a talented player and a great teammate. We had a good time gaming together, and I hope to play with him again soon."
+})
+
+const review44 = new Review({
+  user_id: user4._id,
+  reviewer_id: user1._id,
+  title: "Emily is an excellent gaming partner",
+  rating: 5,
+  description: "Emily is a fantastic player and a pleasure to game with. I had a great time playing with her and look forward to more gaming sessions together."
+})
+
+const review45 = new Review({
+  user_id: user5._id,
+  reviewer_id: user2._id,
+  title: "Chris is a skilled and fun teammate",
+  rating: 4,
+  description: "Chris is an excellent player and a fun teammate. We had a great gaming session together, and I'd definitely play with him again."
+})
+
+const review46 = new Review({
+  user_id: user6._id,
+  reviewer_id: user3._id,
+  title: "Anna is a friendly and cooperative player",
+  rating: 5,
+  description: "Anna is a friendly player and a pleasure to game with. We had a great time gaming together, and I'd love to play with her again."
+})
+
+const review47 = new Review({
+  user_id: user7._id,
+  reviewer_id: user4._id,
+  title: "Jason is a fantastic gaming partner",
+  rating: 5,
+  description: "Jason is a talented player and a great teammate. We had a blast playing together, and I look forward to more gaming sessions with him."
+})
+
+const review48 = new Review({
+  user_id: user8._id,
+  reviewer_id: user5._id,
+  title: "Sarah is a fun and skilled player",
+  rating: 4,
+  description: "Sarah is a skilled player and a fun person to play with. We had a great time gaming together, and I hope to play with her again soon."
+})
+
+const review49 = new Review({
+  user_id: user9._id,
+  reviewer_id: user6._id,
+  title: "Robert is a fantastic gaming partner",
+  rating: 5,
+  description: "Robert is a skilled player and a great teammate. I had a fantastic time playing with him and look forward to more gaming sessions together."
+})
+
+const review50 = new Review({
+  user_id: user10._id,
+  reviewer_id: user7._id,
+  title: "Amanda is a friendly and cooperative player",
+  rating: 4,
+  description: "Amanda is a friendly player and a pleasure to game with. We had a good time"
+})
+
+const review51 = new Review({
+  user_id: user1._id,
+  reviewer_id: user9._id,
+  title: "John is a competitive and helpful teammate",
+  rating: 4,
+  description: "John is a strong player and a supportive teammate. We had a great gaming session, and I look forward to playing with him again."
+})
+
+const review52 = new Review({
+  user_id: user2._id,
+  reviewer_id: user10._id,
+  title: "Jane is an amazing gaming partner",
+  rating: 5,
+  description: "Jane is a fantastic player and a great teammate. We had a blast playing together, and I can't wait to play with her again."
+})
+
+const review53 = new Review({
+  user_id: user3._id,
+  reviewer_id: user1._id,
+  title: "David is a skilled and friendly player",
+  rating: 4,
+  description: "David is a talented player and a friendly person. We had a good time playing together, and I hope to play with him again soon."
+})
+
+const review54 = new Review({
+  user_id: user4._id,
+  reviewer_id: user2._id,
+  title: "Emily is an excellent teammate",
+  rating: 5,
+  description: "Emily is a fantastic player and a pleasure to game with. I had a great time playing with her, and I'm looking forward to more gaming sessions!"
+})
+
+const review55 = new Review({
+  user_id: user5._id,
+  reviewer_id: user3._id,
+  title: "Chris is a great player",
+  rating: 4,
+  description: "Chris is an excellent player and a fun teammate. We had a great gaming session together, and I'd definitely play with him again."
+})
+
+const review56 = new Review({
+  user_id: user6._id,
+  reviewer_id: user4._id,
+  title: "Anna is a friendly and cooperative player",
+  rating: 5,
+  description: "I enjoyed playing with Anna. She's a friendly and cooperative player, and we had a great time gaming together. Looking forward to playing with her again!"
+})
+
+const review57 = new Review({
+  user_id: user7._id,
+  reviewer_id: user5._id,
+  title: "Jason is an awesome gaming partner",
+  rating: 5,
+  description: "Jason is a talented player and a great teammate. We had a blast playing together, and I'd love to team up with him again in the future."
+})
+
+const review58 = new Review({
+  user_id: user8._id,
+  reviewer_id: user6._id,
+  title: "Fun gaming session with Sarah",
+  rating: 4,
+  description: "Sarah is a good player and very cooperative. We had a fun gaming session together, and I'd definitely play with her again."
+})
+
+const review59 = new Review({
+  user_id: user9._id,
+  reviewer_id: user7._id,
+  title: "Robert is a skilled and friendly player",
+  rating: 4,
+  description: "I enjoyed playing with Robert. He's a skilled player and a friendly person. I hope to play with him again soon."
+})
+
+const review60 = new Review({
+  user_id: user10._id,
+  reviewer_id: user8._id,
+  title: "Amanda is a fantastic player",
+  rating: 5,
+  description: "I had a great time playing with Amanda. She's a fantastic player and a really friendly person. Looking forward to more gaming sessions with her!"
+})
+
+const review61 = new Review({
+  user_id: user1._id,
+  reviewer_id: user10._id,
+  title: "John is a great gaming buddy",
+  rating: 4,
+  description: "I had a great time playing with John. He's a skilled player and a friendly person. I'm looking forward to our next gaming session."
+})
+
+const review62 = new Review({
+  user_id: user2._id,
+  reviewer_id: user1._id,
+  title: "Jane is an outstanding teammate",
+  rating: 5,
+  description: "Jane is an excellent player and a pleasure to game with. I had a fantastic time playing with her, and I can't wait for more gaming sessions together."
+})
+
+const review63 = new Review({
+  user_id: user3._id,
+  reviewer_id: user2._id,
+  title: "David is a reliable and skilled player",
+  rating: 4,
+  description: "I enjoyed playing with David. He's a reliable and skilled player, and we had a good time gaming together. I hope to play with him again soon."
+})
+
+const review64 = new Review({
+  user_id: user4._id,
+  reviewer_id: user3._id,
+  title: "Emily is a fantastic gaming partner",
+  rating: 5,
+  description: "Emily is a fantastic player and a pleasure to game with. I had a great time playing with her, and I'm looking forward to more gaming sessions!"
+})
+
+const review65 = new Review({
+  user_id: user5._id,
+  reviewer_id: user4._id,
+  title: "Chris is a fun and talented teammate",
+  rating: 4,
+  description: "Chris is an excellent player and a fun teammate. We had a great gaming session together, and I'd definitely play with him again."
+})
+
+const review66 = new Review({
+  user_id: user6._id,
+  reviewer_id: user5._id,
+  title: "Anna is a friendly and supportive player",
+  rating: 5,
+  description: "I enjoyed playing with Anna. She's a friendly and supportive player, and we had a great time gaming together. Looking forward to playing with her again!"
+})
+
+const review67 = new Review({
+  user_id: user7._id,
+  reviewer_id: user6._id,
+  title: "Jason is a skilled and enjoyable gaming partner",
+  rating: 4,
+  description: "Jason is a talented player and a great teammate. We had a fun playing together, and I'd love to team up with him again in the future."
+})
+
+const review68 = new Review({
+  user_id: user8._id,
+  reviewer_id: user7._id,
+  title: "Sarah is a cooperative and fun player",
+  rating: 4,
+  description: "Sarah is a good player and very cooperative. We had a fun gaming session together, and I'd definitely play with her again."
+})
+
+const review69 = new Review({
+  user_id: user9._id,
+  reviewer_id: user8._id,
+  title: "Robert is a friendly and skilled player",
+  rating: 4,
+  description: "I enjoyed playing with Robert. He's a friendly and skilled player, and we had a good time gaming together. I hope to play with him again soon."
+})
+
+const review70 = new Review({
+  user_id: user10._id,
+  reviewer_id: user9._id,
+  title: "Amanda is a fantastic teammate",
+  rating: 5,
+  description: "I had a great time playing with Amanda. She's a fantastic player and a really friendly person. Looking forward to more gaming sessions with her!"
+})
+
+const review71 = new Review({
+  user_id: user1._id,
+  reviewer_id: user6._id,
+  title: "John is a fun and supportive player",
+  rating: 4,
+  description: "I enjoyed playing with John. He's a fun and supportive player, and we had a good time gaming together. I hope to play with him again soon."
+})
+
+const review72 = new Review({
+  user_id: user2._id,
+  reviewer_id: user7._id,
+  title: "Jane is a great gaming partner",
+  rating: 4,
+  description: "Jane is a talented player and a friendly person. We had a good time playing together, and I look forward to playing with her again."
+})
+
+const review73 = new Review({
+  user_id: user3._id,
+  reviewer_id: user8._id,
+  title: "David is a skilled and helpful teammate",
+  rating: 4,
+  description: "David is a strong player and a supportive teammate. We had a great gaming session, and I hope to play with him again."
+})
+
+const review74 = new Review({
+  user_id: user4._id,
+  reviewer_id: user9._id,
+  title: "Emily is an amazing gaming partner",
+  rating: 5,
+  description: "Emily is a fantastic player and a great teammate. We had a blast playing together, and I can't wait to play with her again."
+})
+
+const review75 = new Review({
+  user_id: user5._id,
+  reviewer_id: user10._id,
+  title: "Chris is a skilled and friendly player",
+  rating: 4,
+  description: "Chris is a talented player and a friendly person. We had a good time playing together, and I hope to play with him again soon."
+})
+
+const review76 = new Review({
+  user_id: user6._id,
+  reviewer_id: user1._id,
+  title: "Anna is an excellent teammate",
+  rating: 5,
+  description: "Anna is a fantastic player and a pleasure to game with. I had a great time playing with her, and I'm looking forward to more gaming sessions!"
+})
+
+const review77 = new Review({
+  user_id: user7._id,
+  reviewer_id: user2._id,
+  title: "Jason is a great player",
+  rating: 4,
+  description: "Jason is an excellent player and a fun teammate. We had a great gaming session together, and I'd definitely play with him again."
+})
+
+const review78 = new Review({
+  user_id: user8._id,
+  reviewer_id: user3._id,
+  title: "Sarah is a friendly and cooperative player",
+  rating: 5,
+  description: "I enjoyed playing with Sarah. She's a friendly and cooperative player, and we had a great time gaming together. Looking forward to playing with her again!"
+})
+
+const review79 = new Review({
+  user_id: user9._id,
+  reviewer_id: user4._id,
+  title: "Robert is an awesome gaming partner",
+  rating: 5,
+  description: "Robert is a talented player and a great teammate. We had a blast playing together, and I'd love to team up with him again in the future."
+})
+
+const review80 = new Review({
+  user_id: user10._id,
+  reviewer_id: user5._id,
+  title: "Amanda is a fun and supportive player",
+  rating: 4,
+  description: "I enjoyed playing with Amanda. She's a fun and supportive player, and we had a good time gaming together. I hope to play with her again soon."
+})
+
+const review81 = new Review({
+  user_id: user1._id,
+  reviewer_id: user8._id,
+  title: "John is an exceptional gaming buddy",
+  rating: 5,
+  description: "Playing with John was a great experience. He is a skilled player and has a friendly attitude. I'm looking forward to our future gaming sessions."
+})
+
+const review82 = new Review({
+  user_id: user2._id,
+  reviewer_id: user9._id,
+  title: "Jane is an amazing teammate",
+  rating: 5,
+  description: "Jane is a fantastic player and a pleasure to team up with. We had a great time playing together and I'm excited for more gaming sessions with her."
+})
+
+const review83 = new Review({
+  user_id: user3._id,
+  reviewer_id: user10._id,
+  title: "David is a solid and reliable player",
+  rating: 4,
+  description: "I enjoyed playing with David. He's a reliable and skilled player, and we had a good time gaming together. I'm looking forward to playing with him again."
+})
+
+const review84 = new Review({
+  user_id: user4._id,
+  reviewer_id: user1._id,
+  title: "Emily is a friendly and talented gaming partner",
+  rating: 5,
+  description: "Emily is an excellent player and a pleasure to game with. We had a fantastic time playing together, and I can't wait for more gaming sessions with her."
+})
+
+const review85 = new Review({
+  user_id: user5._id,
+  reviewer_id: user2._id,
+  title: "Chris is a great gaming buddy",
+  rating: 4,
+  description: "I had a great time playing with Chris. He's a skilled player and a friendly person. I'm looking forward to our next gaming session."
+})
+
+const review86 = new Review({
+  user_id: user6._id,
+  reviewer_id: user3._id,
+  title: "Anna is a fantastic teammate",
+  rating: 5,
+  description: "I had a great time playing with Anna. She's a fantastic player and a really friendly person. Looking forward to more gaming sessions with her!"
+})
+
+const review87 = new Review({
+  user_id: user7._id,
+  reviewer_id: user4._id,
+  title: "Jason is a skilled and enjoyable gaming partner",
+  rating: 4,
+  description: "Jason is a talented player and a great teammate. We had a fun playing together, and I'd love to team up with him again in the future."
+})
+
+reviews.push(review1);
+reviews.push(review2);
+reviews.push(review3);
+reviews.push(review4);
+reviews.push(review5);
+reviews.push(review6);
+reviews.push(review7);
+reviews.push(review8);
+reviews.push(review9);
+reviews.push(review10);
+reviews.push(review11);
+reviews.push(review12);
+reviews.push(review13);
+reviews.push(review14);
+reviews.push(review15);
+reviews.push(review16);
+reviews.push(review17);
+reviews.push(review18);
+reviews.push(review19);
+reviews.push(review20);
+reviews.push(review21);
+reviews.push(review22);
+reviews.push(review23);
+reviews.push(review24);
+reviews.push(review25);
+reviews.push(review26);
+reviews.push(review27);
+reviews.push(review28);
+reviews.push(review29);
+reviews.push(review30);
+reviews.push(review31);
+reviews.push(review32);
+reviews.push(review33);
+reviews.push(review34);
+reviews.push(review35);
+reviews.push(review36);
+reviews.push(review37);
+reviews.push(review38);
+reviews.push(review39);
+reviews.push(review40);
+reviews.push(review41);
+reviews.push(review42);
+reviews.push(review43);
+reviews.push(review44);
+reviews.push(review45);
+reviews.push(review46);
+reviews.push(review47);
+reviews.push(review48);
+reviews.push(review49);
+reviews.push(review50);
+reviews.push(review51);
+reviews.push(review52);
+reviews.push(review53);
+reviews.push(review54);
+reviews.push(review55);
+reviews.push(review56);
+reviews.push(review57);
+reviews.push(review58);
+reviews.push(review59);
+reviews.push(review60);
+reviews.push(review61);
+reviews.push(review62);
+reviews.push(review63);
+reviews.push(review64);
+reviews.push(review65);
+reviews.push(review66);
+reviews.push(review67);
+reviews.push(review68);
+reviews.push(review69);
+reviews.push(review70);
+reviews.push(review71);
+reviews.push(review72);
+reviews.push(review73);
+reviews.push(review74);
+reviews.push(review75);
+reviews.push(review76);
+reviews.push(review77);
+reviews.push(review78);
+reviews.push(review79);
+reviews.push(review80);
+reviews.push(review81);
+reviews.push(review82);
+reviews.push(review83);
+reviews.push(review84);
+reviews.push(review85);
+reviews.push(review86);
+reviews.push(review87);
 
 //demo user post seeding
 // for (let i = 0; i < 10; i++) {
@@ -2377,33 +3276,6 @@ posts.push(gta5_6);
 //   );
 // }
 
-// const reviews = [];
-// const NUM_SEED_REVIEWS = 100;
-
-// for (let i = 0; i < NUM_SEED_REVIEWS; i++) {
-//   const user_id = getRandomUser().id;
-//   let reviewer_id;
-//   reviewer_id = getRandomUser().id;
-//   while (reviewer_id === user_id) {
-//     reviewer_id = getRandomUser().id;
-//   };
-//   let title = faker.lorem.sentence(5);
-//   // Truncate the title to 50 characters if it's longer
-//   title = title.length > 50 ? title.substring(0, 50) : title;
-//   const rating = getRandomIntInclusive(1,5)
-//   const description = faker.lorem
-//     .sentences(getRandomArbitrary(1, 10))
-//     .substring(0, 400); 
-//     reviews.push(
-//       new Review({
-//         user_id: user_id,
-//         reviewer_id: reviewer_id,
-//         description: description,
-//         title: title,
-//         rating: rating
-//       })
-//     );
-// }
 
 //demoUser reviews seeding
 // for (let i = 0; i < 10; i++) {
