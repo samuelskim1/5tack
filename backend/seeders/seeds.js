@@ -1290,10 +1290,316 @@ posts.push(fifa5);
 posts.push(fifa6);
 posts.push(fifa7);
 
+const comment_smash1 = new Comment({
+  author_id: user1._id,
+  content: 'Hey, I am interested in playing with you! I main Pikachu and I enjoy playing both 1v1 and 2v2. Let me know if you want to team up!'
+})
 
+const comment_smash2 = new Comment({
+  author_id: user3._id,
+  content: 'Hey, I am also interested in playing with you! I main Mario and I mainly play 1v1. Let me know if you want to play together!'
+})
 
+const comment_smash3 = new Comment({
+  author_id: user2._id,
+  content: 'Hey, I am interested in playing with you! I main Bowser and I mainly play 1v1 and 2v2. Let me know if you want to team up or form a team!'
+})
 
+const comment_smash4 = new Comment({
+  author_id: user3._id,
+  content: 'Hey, I am a casual player too and I am looking for more people to play with! I main Sonic and enjoy playing both 1v1 and 2v2. Let me know if you want to play together and have some fun!'
+})
 
+const comment_smash5 = new Comment({
+  author_id: user4._id,
+  content: 'Hey, count me in too! I am also a casual player and I main Yoshi. Let me know when you guys are playing and I will join you!'
+})
+
+const comment_smash6 = new Comment({
+  author_id: user4._id,
+  content: 'Hey, I am interested in playing with you! I main Link and I am serious about the game. Let us team up and climb the ranks together!'
+})
+
+const comment_smash7 = new Comment({
+  author_id: user6._id,
+  content: 'Hey, I am interested in joining your team! I main Samus and I mainly play 2v2. Let me know if you want to try me out!'
+})
+
+const comment_smash8 = new Comment({
+  author_id: user8._id,
+  content: 'Hey, I am also interested in joining your team! I main Donkey Kong and I play both 1v1 and 2v2. I am serious about the game and I want to compete in tournaments as well. Let us team up and achieve great things!'
+})
+
+const comment_smash9 = new Comment({
+  author_id: user9._id,
+  content: 'Hey, I am also looking for a teammate and I mainly play 1v1. I main Kirby and I am serious about the game as well. Let us team up and climb the ranks together!'
+})
+
+const comment_smash10 = new Comment({
+  author_id: user10._id,
+  content: 'Hey, welcome to Super Smash Bros! I am also a new player and I am willing to help you learn and improve. Let us play together and have some fun!'
+})
+
+comments.push(comment_smash1);
+comments.push(comment_smash2);
+comments.push(comment_smash3);
+comments.push(comment_smash4);
+comments.push(comment_smash5);
+comments.push(comment_smash6);
+comments.push(comment_smash7);
+comments.push(comment_smash8);
+comments.push(comment_smash9);
+comments.push(comment_smash10);
+
+const smash1 = new Post({
+  author_id: user4._id,
+  game_id: game1._id,
+  comment_id: [comment_smash1._id, comment_smash2._id],
+  title: 'Looking for people to play Super Smash Bros with',
+  description: 'Hey everyone, I am looking for some new people to play Super Smash Bros with. I main Pikachu and enjoy playing both 1v1 and 2v2. Let me know if you are interested in playing together!'
+})
+
+const smash2 = new Post({
+  author_id: user1._id,
+  game_id: game1._id,
+  comment_id: [comment_smash3._id],
+  title: 'Player looking for teammates in Super Smash Bros',
+  description: 'Hey there, I main Bowser and I am looking for some teammates to play with. I mainly play 1v1 and 2v2, but I am open to playing other modes as well. Hit me up if you are interested!'
+})
+
+const smash3 = new Post({
+  author_id: user2._id,
+  game_id: game1._id,
+  comment_id: [comment_smash4._id, comment_smash5._id],
+  title: 'Looking for casual Super Smash Bros players',
+  description: 'Hey everyone, I am a casual Super Smash Bros player and I am looking for some other casual players to play with. I am not very good, but I love the game and want to improve. Let me know if you want to play together!'
+})
+
+const smash4 = new Post({
+  author_id: user3._id,
+  game_id: game1._id,
+  comment_id: [comment_smash6._id],
+  title: 'Player looking for teammates in Super Smash Bros',
+  description: 'Hey there, I main Link and I am looking for teammates to play with. I am looking for someone who is serious about the game and wants to improve. Let me know if you are interested!'
+})
+
+const smash5 = new Post({
+  author_id: user5._id,
+  game_id: game1._id,
+  comment_id: [comment_smash7._id, comment_smash8._id],
+  title: 'Looking for a team to play Super Smash Bros with',
+  description: 'Hey everyone, I am looking for a team to play Super Smash Bros with. I main Donkey Kong and I enjoy playing both 1v1 and 2v2. I am looking for a team that is serious about the game and wants to compete in tournaments. Let me know if you are interested!'
+})
+
+const smash6 = new Post({
+  author_id: user6._id,
+  game_id: game1._id,
+  comment_id: [comment_smash9._id],
+  title: 'Player looking for teammate in Super Smash Bros',
+  description: 'Hey there, I am looking for a teammate to play Super Smash Bros with. I main Kirby and I mainly play 1v1. I am looking for someone who is serious about the game and wants to improve. Let me know if you are interested!'
+})
+
+const smash7 = new Post({
+  author_id: user7._id,
+  game_id: game1._id,
+  comment_id: [comment_smash10._id],
+  title: 'New player looking for friends to play Super Smash Bros with',
+  description: 'Hey everyone, I am new to Super Smash Bros and I am looking for some friends to play with. I am not very good, but I am willing to learn and improve. Let me know if you want to play together!'
+})
+
+posts.push(smash1);
+posts.push(smash2);
+posts.push(smash3);
+posts.push(smash4);
+posts.push(smash5);
+posts.push(smash6);
+posts.push(smash7);
+
+const comment_lostark1 = new Comment({
+  author_id: user1._id,
+  content: 'Hey, I am interested in playing with you! I am a Paladin player and I enjoy doing both PvE and PvP content. Let me know if you want to team up!'
+})
+
+const comment_lostark2 = new Comment({
+  author_id: user3._id,
+  content: 'Hey, I am also interested in playing with you! I am a Berserker player and I mainly focus on PvE content. Let me know if you want to play together!'
+})
+
+const comment_lostark3 = new Comment({
+  author_id: user2._id,
+  content: 'Hey, I am interested in playing with you! I am a Gunlancer player and I mainly do PvE and PvP content. Let me know if you want to team up or form a guild!'
+})
+
+const comment_lostark4 = new Comment({
+  author_id: user3._id,
+  content: 'Hey, I am a casual player too and I am looking for more people to play with! I am a Bard player and mainly focus on PvE content. Let me know if you want to play together and have some fun!'
+})
+
+const comment_lostark5 = new Comment({
+  author_id: user4._id,
+  content: 'Hey, count me in too! I am also a casual player and I play as a Summoner. Let me know when you guys are playing and I will join you!'
+})
+
+const comment_lostark6 = new Comment({
+  author_id: user4._id,
+  content: 'Hey, I am interested in playing with you! I am a Shadowhunter player and I am serious about the game. Let us team up and conquer the content together!'
+})
+
+const comment_lostark7 = new Comment({
+  author_id: user6._id,
+  content: 'Hey, I am interested in joining your guild! I am a Sorceress player and I mainly focus on PvE content. Let me know if you want to try me out!'
+})
+
+const comment_lostark8 = new Comment({
+  author_id: user8._id,
+  content: 'Hey, I am also interested in joining your guild! I am a Demonic player and I play both PvE and PvP content. I am serious about the game and I want to compete in high-level content. Let us team up and achieve great things!'
+})
+
+const comment_lostark9 = new Comment({
+  author_id: user9._id,
+  content: 'Hey, I am also looking for a guild and I mainly focus on PvP content. I am a Deathblade player and I am serious about the game as well. Let us team up and climb the ranks together!'
+})
+
+const comment_lostark10 = new Comment({
+  author_id: user10._id,
+  content: 'Hey, welcome to Lost Ark! I am also a new player and I am willing to help you learn and improve. Let us play together and have some fun!'
+})
+
+comments.push(comment_lostark1);
+comments.push(comment_lostark2);
+comments.push(comment_lostark3);
+comments.push(comment_lostark4);
+comments.push(comment_lostark5);
+comments.push(comment_lostark6);
+comments.push(comment_lostark7);
+comments.push(comment_lostark8);
+comments.push(comment_lostark9);
+comments.push(comment_lostark10);
+
+const lostark1 = new Post({
+  author_id: user4._id,
+  game_id: game1._id,
+  comment_id: [comment_lostark1._id, comment_lostark2._id],
+  title: 'Looking for people to play Lost Ark with',
+  description: 'Hey everyone, I am looking for some new people to play Lost Ark with.'
+})
+
+const lostark2 = new Post({
+  author_id: user1._id,
+  game_id: game1._id,
+  comment_id: [comment_lostark3._id],
+  title: 'Player looking for teammates in Lost Ark',
+  description: 'Hey there, I am a Demonic player and I am looking for some teammates to play with. I play both PvE and PvP content.'
+})
+
+const lostark3 = new Post({
+  author_id: user2._id,
+  game_id: game1._id,
+  comment_id: [comment_lostark4._id, comment_lostark5._id],
+  title: 'Looking for casual Lost Ark players',
+  description: 'Hey everyone, I am a casual Lost Ark and I am looking for some other casual players to play with. I am not very good, but I love the game and want to improve. Let me know if you want to play together!'
+})
+
+const lostark4 = new Post({
+  author_id: user3._id,
+  game_id: game1._id,
+  comment_id: [comment_lostark6._id],
+  title: 'Player looking for teammates in Lost Ark',
+  description: 'Hey there, I main Berserker Class and I am looking for teammates to play with. I am looking for someone who is serious about the game and wants to improve. Let me know if you are interested!'
+})
+
+const lostark5 = new Post({
+  author_id: user5._id,
+  game_id: game1._id,
+  comment_id: [comment_lostark7._id, comment_lostark8._id],
+  title: 'Looking for a team to play Lost Ark with',
+  description: 'Hey everyone, I am looking for a team to play Lost Ark with. I am looking for a team that is serious about the game and wants to compete in tournaments. Let me know if you are interested!'
+})
+
+const lostark6 = new Post({
+  author_id: user6._id,
+  game_id: game1._id,
+  comment_id: [comment_lostark9._id],
+  title: 'Player looking for teammate in Lost Ark',
+  description: 'Hey there, I am looking for a teammate to play Lost Ark with. I am looking for someone who is serious about the game and wants to improve. Let me know if you are interested!'
+})
+
+const lostark7 = new Post({
+  author_id: user7._id,
+  game_id: game1._id,
+  comment_id: [comment_lostark10._id],
+  title: 'New player looking for friends to play Lost Ark with',
+  description: 'Hey everyone, I am new to Lost Ark and I am looking for some friends to play with. I am not very good, but I am willing to learn and improve. Let me know if you want to play together!'
+})
+
+posts.push(lostark1);
+posts.push(lostark2);
+posts.push(lostark3);
+posts.push(lostark4);
+posts.push(lostark5);
+posts.push(lostark6);
+posts.push(lostark7);
+
+const comment_nba1 = new Comment({
+  author_id: user1._id,
+  content: 'Hey, I am interested in playing with you! I am a point guard and I enjoy playing both MyCareer and Park games. Let me know if you want to team up!'
+  })
+  
+  const comment_nba2 = new Comment({
+  author_id: user3._id,
+  content: 'Hey, I am also interested in playing with you! I am a center and I mainly focus on playing MyCareer games. Let me know if you want to play together!'
+  })
+  
+  const comment_nba3 = new Comment({
+  author_id: user2._id,
+  content: 'Hey, I am interested in playing with you! I am a shooting guard and I mainly play Park games. Let me know if you want to team up or form a squad!'
+  })
+  
+  const comment_nba4 = new Comment({
+  author_id: user3._id,
+  content: 'Hey, I am a casual player too and I am looking for more people to play with! I mainly play MyCareer games as a small forward. Let me know if you want to play together and have some fun!'
+  })
+  
+  const comment_nba5 = new Comment({
+  author_id: user4._id,
+  content: 'Hey, count me in too! I am also a casual player and I play as a power forward. Let me know when you guys are playing and I will join you!'
+  })
+  
+  const comment_nba6 = new Comment({
+  author_id: user4._id,
+  content: 'Hey, I am interested in playing with you! I am a point guard and I am serious about the game. Let us team up and dominate the court together!'
+  })
+  
+  const comment_nba7 = new Comment({
+  author_id: user6._id,
+  content: 'Hey, I am interested in joining your squad! I am a small forward and I mainly focus on playing Park games. Let me know if you want to try me out!'
+  })
+  
+  const comment_nba8 = new Comment({
+  author_id: user8._id,
+  content: 'Hey, I am also interested in joining your squad! I am a shooting guard and I play both MyCareer and Park games. I am serious about the game and I want to compete in high-level tournaments. Let us team up and achieve great things!'
+  })
+  
+  const comment_nba9 = new Comment({
+  author_id: user9._id,
+  content: 'Hey, I am also looking for a squad and I mainly focus on playing MyCareer games as a center. I am serious about the game as well. Let us team up and climb the ranks together!'
+  })
+  
+  const comment_nba10 = new Comment({
+  author_id: user10._id,
+  content: 'Hey, welcome to NBA 2K23! I am also a new player and I am willing to help you learn and improve. Let us play together and have some fun!'
+  })
+
+comments.push(comment_nba1);
+comments.push(comment_nba2);
+comments.push(comment_nba3);
+comments.push(comment_nba4);
+comments.push(comment_nba5);
+comments.push(comment_nba6);
+comments.push(comment_nba7);
+comments.push(comment_nba8);
+comments.push(comment_nba9);
+comments.push(comment_nba10);
 
 //demo user post seeding
 // for (let i = 0; i < 10; i++) {
