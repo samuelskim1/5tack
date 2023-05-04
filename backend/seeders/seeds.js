@@ -3485,5 +3485,7 @@ const insertSeeds = async () => {
   
   
 
+
+
 // run seed file
 // npx dotenv node seeders/seeds.js
