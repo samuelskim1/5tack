@@ -1888,6 +1888,471 @@ posts.push(starcraft4);
 posts.push(starcraft5);
 posts.push(starcraft6);
 
+const comment_terraria1 = new Comment({
+  author_id: user1._id,
+  content: 'Hey, I would love to join your Terraria adventure! I enjoy exploring and mining for resources. Let me know if you need a partner to dig deep and uncover hidden treasures!'
+})
+
+const comment_terraria2 = new Comment({
+  author_id: user3._id,
+  content: 'Hey, I am also a fan of Terraria! I enjoy building creative structures and designing efficient farms. Let me know if you want to collaborate on some unique building projects!'
+})
+
+const comment_terraria3 = new Comment({
+  author_id: user2._id,
+  content: 'Hey, I am interested in playing with you! I am a boss-fighting enthusiast and enjoy gearing up for epic battles. Let me know if you want to team up and conquer the toughest foes!'
+})
+
+const comment_terraria4 = new Comment({
+  author_id: user3._id,
+  content: 'Hey, I am looking for more people to play with! I am an expert in wiring and crafting complex contraptions. Let me know if you want to join me in creating some amazing Terraria inventions!'
+})
+
+const comment_terraria5 = new Comment({
+  author_id: user4._id,
+  content: 'Hey, I am also a casual player and I love exploring the vast world of Terraria! Let me know if you want to venture into the unknown and discover new biomes together.'
+})
+
+const comment_terraria6 = new Comment({
+  author_id: user5._id,
+  content: 'Hey, I am interested in playing with you! I am a seasoned Terraria player and I enjoy sharing my knowledge with others. Let\'s work together and create an amazing world!'
+})
+
+const comment_terraria7 = new Comment({
+  author_id: user6._id,
+  content: 'Hey, I am looking for a group to play Terraria with! I love participating in events and tackling challenges together. Let me know if you want to form a group and experience all that Terraria has to offer!'
+})
+
+const comment_terraria8 = new Comment({
+  author_id: user7._id,
+  content: 'Hey, I am also looking for people to play Terraria with! I am a fishing enthusiast and I love collecting rare items from the depths. Let\'s cast our lines and reel in some incredible catches!'
+})
+
+const comment_terraria9 = new Comment({
+  author_id: user8._id,
+  content: 'Hey, I am interested in joining your Terraria world! I am a skilled mage who can help you defeat powerful enemies with my arsenal of spells. Let\'s work together to become the most powerful wizards in Terraria!'
+})
+
+const comment_terraria10 = new Comment({
+  author_id: user9._id,
+  content: 'Hey, I am also new to Terraria! I am still learning the ropes but would love to play with others and explore the world together. Let\'s have some fun and learn from each other!'
+})
+
+comments.push(comment_terraria1);
+comments.push(comment_terraria2);
+comments.push(comment_terraria3);
+comments.push(comment_terraria4);
+comments.push(comment_terraria5);
+comments.push(comment_terraria6);
+comments.push(comment_terraria7);
+comments.push(comment_terraria8);
+comments.push(comment_terraria9);
+comments.push(comment_terraria10);
+
+const terraria1 = new Post({
+  author_id: user1._id,
+  game_id: game2._id,
+  comment_id: [comment_terraria1._id, comment_terraria2._id],
+  title: 'Looking for players to start a new Terraria adventure',
+  description: 'Hello everyone, I am looking for a few players who are interested in starting a new Terraria adventure. We can explore, build, and work together to make the most amazing world!'
+})
+
+const terraria2 = new Post({
+  author_id: user3._id,
+  game_id: game2._id,
+  comment_id: [comment_terraria3._id],
+  title: 'Looking for a player to join my Terraria world',
+  description: 'Hey there, I am looking for a player to join my existing Terraria world. We can work together to improve our builds and have fun!'
+})
+
+const terraria3 = new Post({
+  author_id: user5._id,
+  game_id: game2._id,
+  comment_id: [comment_terraria4._id, comment_terraria5._id],
+  title: 'Casual Terraria players wanted',
+  description: 'Hi there, I am a casual player of Terraria and I am looking for other casual players to play with. We can hang out, explore, and do whatever we feel like doing in the game. Let me know if you want to join me!'
+})
+
+const terraria4 = new Post({
+  author_id: user4._id,
+  game_id: game2._id,
+  comment_id: [comment_terraria6._id],
+  title: 'Looking for someone to play Terraria with',
+  description: 'Hello, I am looking for someone to play Terraria with. I am new to the game and want to learn more about it. I am interested in both co-op and multiplayer modes. Let me know if you are interested!'
+})
+
+const terraria5 = new Post({
+  author_id: user7._id,
+  game_id: game2._id,
+  comment_id: [comment_terraria7._id, comment_terraria8._id],
+  title: 'Experienced Terraria players wanted',
+  description: 'Hey there, I am an experienced player of Terraria and I am looking for other experienced players to play with. I am interested in optimizing our builds, exploring new areas, and completing all the challenges the game has to offer. Let me know if you want to join me!'
+})
+
+const terraria6 = new Post({
+  author_id: user6._id,
+  game_id: game2._id,
+  comment_id: [comment_terraria9._id],
+  title: 'Looking for a player to do Terraria expert mode',
+  description: 'Hey there, I am looking for a player to do expert mode with in Terraria. I am interested in tackling difficult bosses and finding the best gear. Let me know if you are interested!'
+})
+
+posts.push(terraria1);
+posts.push(terraria2);
+posts.push(terraria3);
+posts.push(terraria4);
+posts.push(terraria5);
+posts.push(terraria6);
+
+const comment_dota1 = new Comment({
+  author_id: user1._id,
+  content: 'Hey, I would love to join your Dota 2 team! I am a versatile player, comfortable with both support and core roles. Let me know if you need a teammate to help secure some victories!'
+})
+
+const comment_dota2 = new Comment({
+  author_id: user3._id,
+  content: 'Hey, I am also a fan of Dota 2! I mainly play mid and carry roles. Let me know if you want to form a dynamic duo and dominate the lanes together!'
+})
+
+const comment_dota3 = new Comment({
+  author_id: user2._id,
+  content: 'Hey, I am interested in playing with you! I excel in the support role and enjoy enabling my cores to shine. Let me know if you want to team up and climb the MMR ladder!'
+})
+
+const comment_dota4 = new Comment({
+  author_id: user3._id,
+  content: 'Hey, I am looking for more people to play with! I am an offlane specialist and love creating space for my team. Let me know if you want to join forces and make a strong frontline!'
+})
+
+const comment_dota5 = new Comment({
+  author_id: user4._id,
+  content: 'Hey, I am a casual Dota 2 player and enjoy playing different heroes for fun. Let me know if you want to chill, have a good time, and maybe try out some unconventional strategies!'
+})
+
+const comment_dota6 = new Comment({
+  author_id: user5._id,
+  content: 'Hey, I am interested in playing with you! I am a seasoned Dota 2 player and have experience in various roles. Let\'s work together and improve our skills as a team!'
+})
+
+const comment_dota7 = new Comment({
+  author_id: user6._id,
+  content: 'Hey, I am looking for a group to play Dota 2 with! I am always eager to learn and practice new strategies. Let me know if you want to group up and conquer the battlefield!'
+})
+
+const comment_dota8 = new Comment({
+  author_id: user7._id,
+  content: 'Hey, I am also looking for people to play Dota 2 with! I am a dedicated roamer and enjoy making impactful plays across the map. Let\'s work together to secure early game advantages!'
+})
+
+const comment_dota9 = new Comment({
+  author_id: user8._id,
+  content: 'Hey, I am interested in joining your Dota 2 team! I am a skilled drafter and can help devise strategies to counter the enemy. Let\'s outsmart our opponents and rise through the ranks!'
+})
+
+const comment_dota10 = new Comment({
+  author_id: user9._id,
+  content: 'Hey, I am new to Dota 2 but eager to learn and improve! I am open to playing any role and excited to discover the depth and complexity of the game. Let\'s grow together as players and teammates!'
+})
+
+comments.push(comment_dota1);
+comments.push(comment_dota2);
+comments.push(comment_dota3);
+comments.push(comment_dota4);
+comments.push(comment_dota5);
+comments.push(comment_dota6);
+comments.push(comment_dota7);
+comments.push(comment_dota8);
+comments.push(comment_dota9);
+comments.push(comment_dota10);
+
+const dota1 = new Post({
+  author_id: user1._id,
+  game_id: game2._id,
+  comment_id: [comment_dota1._id, comment_dota2._id],
+  title: 'Looking for players to form a Dota 2 team',
+  description: 'Hello everyone, I am looking for a few players who are interested in forming a Dota 2 team. We can practice together, improve our skills, and climb the MMR ladder as a team!'
+})
+
+const dota2 = new Post({
+  author_id: user3._id,
+  game_id: game2._id,
+  comment_id: [comment_dota3._id],
+  title: 'Looking for a support player to join my Dota 2 stack',
+  description: 'Hey there, I am looking for a support player to join my existing Dota 2 stack. We can work together to coordinate our plays and climb the ranks!'
+})
+
+const dota3 = new Post({
+  author_id: user5._id,
+  game_id: game2._id,
+  comment_id: [comment_dota4._id, comment_dota5._id],
+  title: 'Casual Dota 2 players wanted',
+  description: 'Hi there, I am a casual player of Dota 2 and I am looking for other casual players to play with. We can chill, try different heroes, and have fun without stressing too much about winning or losing. Let me know if you want to join me!'
+})
+
+const dota4 = new Post({
+  author_id: user4._id,
+  game_id: game2._id,
+  comment_id: [comment_dota6._id],
+  title: 'Looking for someone to play Dota 2 with',
+  description: 'Hello, I am looking for someone to play Dota 2 with. I am new to the game and want to learn more about it. I am interested in both casual games and ranked matches. Let me know if you are interested!'
+})
+
+const dota5 = new Post({
+  author_id: user7._id,
+  game_id: game2._id,
+  comment_id: [comment_dota7._id, comment_dota8._id],
+  title: 'Experienced Dota 2 players wanted',
+  description: 'Hey there, I am an experienced player of Dota 2 and I am looking for other experienced players to play with. I am interested in improving our teamwork, mastering advanced strategies, and reaching higher MMR brackets. Let me know if you want to join me!'
+})
+
+const dota6 = new Post({
+  author_id: user6._id,
+  game_id: game2._id,
+  comment_id: [comment_dota9._id],
+  title: 'Looking for a player to practice Dota 2 mechanics',
+  description: 'Hey there, I am looking for a player to practice Dota 2 mechanics with. I am interested in learning new heroes, improving last hitting, and refining map awareness. Let me know if you are interested!'
+})
+
+posts.push(dota1);
+posts.push(dota2);
+posts.push(dota3);
+posts.push(dota4);
+posts.push(dota5);
+posts.push(dota6);
+
+const comment_overwatch1 = new Comment({
+  author_id: user1._id,
+  content: 'Hey, I would love to join your Overwatch team! I am a versatile player, comfortable with playing both DPS and support roles. Let me know if you need a teammate to help secure some victories!'
+})
+
+const comment_overwatch2 = new Comment({
+  author_id: user3._id,
+  content: 'Hey, I am also a fan of Overwatch! I mainly play tank heroes. Let me know if you want to team up and create a strong frontline together!'
+})
+
+const comment_overwatch3 = new Comment({
+  author_id: user2._id,
+  content: 'Hey, I am interested in playing with you! I excel in the support role and enjoy keeping my teammates alive. Let me know if you want to team up and climb the ranks together!'
+})
+
+const comment_overwatch4 = new Comment({
+  author_id: user3._id,
+  content: 'Hey, I am looking for more people to play with! I am a DPS specialist and love securing key eliminations for my team. Let me know if you want to join forces and dominate the battlefield!'
+})
+
+const comment_overwatch5 = new Comment({
+  author_id: user4._id,
+  content: 'Hey, I am a casual Overwatch player and enjoy playing different heroes for fun. Let me know if you want to chill, have a good time, and maybe try out some unconventional strategies!'
+})
+
+const comment_overwatch6 = new Comment({
+  author_id: user5._id,
+  content: 'Hey, I am interested in playing with you! I am a seasoned Overwatch player and have experience with various heroes. Let\'s work together and improve our skills as a team!'
+})
+
+const comment_overwatch7 = new Comment({
+  author_id: user6._id,
+  content: 'Hey, I am looking for a group to play Overwatch with! I am always eager to learn and practice new strategies. Let me know if you want to group up and conquer the battlefield!'
+})
+
+const comment_overwatch8 = new Comment({
+  author_id: user7._id,
+  content: 'Hey, I am also looking for people to play Overwatch with! I am a dedicated shot-caller and enjoy coordinating team fights. Let\'s work together to outsmart our opponents!'
+})
+
+const comment_overwatch9 = new Comment({
+  author_id: user8._id,
+  content: 'Hey, I am interested in joining your Overwatch team! I am a skilled player and can flex between different roles. Let\'s rise through the ranks together!'
+})
+
+const comment_overwatch10 = new Comment({
+  author_id: user9._id,
+  content: 'Hey, I am new to Overwatch but eager to learn and improve! I am open to playing any role and excited to discover the depth and complexity of the game. Let\'s grow together as players and teammates!'
+})
+
+comments.push(comment_overwatch1);
+comments.push(comment_overwatch2);
+comments.push(comment_overwatch3);
+comments.push(comment_overwatch4);
+comments.push(comment_overwatch5);
+comments.push(comment_overwatch6);
+comments.push(comment_overwatch7);
+comments.push(comment_overwatch8);
+comments.push(comment_overwatch9);
+comments.push(comment_overwatch10);
+
+const overwatch1 = new Post({
+  author_id: user1._id,
+  game_id: game2._id,
+  comment_id: [comment_overwatch1._id, comment_overwatch2._id],
+  title: 'Looking for players to form an Overwatch team',
+  description: 'Hello everyone, I am looking for a few players who are interested in forming an Overwatch team. We can practice together, improve our skills, and climb the competitive ladder as a team!'
+})
+
+const overwatch2 = new Post({
+  author_id: user3._id,
+  game_id: game2._id,
+  comment_id: [comment_overwatch3._id],
+  title: 'Looking for a support player to join my Overwatch group',
+  description: 'Hey there, I am looking for a support player to join my existing Overwatch group. We can work together to coordinate our plays and climb the ranks!'
+})
+
+const overwatch3 = new Post({
+  author_id: user5._id,
+  game_id: game2._id,
+  comment_id: [comment_overwatch4._id, comment_overwatch5._id],
+  title: 'Casual Overwatch players wanted',
+  description: 'Hi there, I am a casual player of Overwatch and I am looking for other casual players to play with. We can chill, try different heroes, and have fun without stressing too much about winning or losing. Let me know if you want to join me!'
+})
+
+const overwatch4 = new Post({
+  author_id: user4._id,
+  game_id: game2._id,
+  comment_id: [comment_overwatch6._id],
+  title: 'Looking for someone to play Overwatch with',
+  description: 'Hello, I am looking for someone to play Overwatch with. I am new to the game and want to learn more about it. I am interested in both casual games and ranked matches. Let me know if you are interested!'
+})
+
+const overwatch5 = new Post({
+  author_id: user7._id,
+  game_id: game2._id,
+  comment_id: [comment_overwatch7._id, comment_overwatch8._id],
+  title: 'Experienced Overwatch players wanted',
+  description: 'Hey there, I am an experienced player of Overwatch and I am looking for other experienced players to play with. I am interested in improving our teamwork, mastering advanced strategies, and reaching higher ranks. Let me know if you want to join me!'
+})
+
+const overwatch6 = new Post({
+  author_id: user6._id,
+  game_id: game2._id,
+  comment_id: [comment_overwatch9._id],
+  title: 'Looking for a player to practice Overwatch mechanics',
+  description: 'Hey there, I am looking for a player to practice Overwatch mechanics with. I am interested in learning new heroes, improving positioning, and refining map awareness. Let me know if you are interested!'
+})
+
+posts.push(overwatch1);
+posts.push(overwatch2);
+posts.push(overwatch3);
+posts.push(overwatch4);
+posts.push(overwatch5);
+posts.push(overwatch6);
+
+const comment_gta5_1 = new Comment({
+  author_id: user1._id,
+  content: 'Hey, I would love to join your GTA V crew! I enjoy completing heists and various missions in the game. Let me know if you need a skilled partner in crime!'
+})
+
+const comment_gta5_2 = new Comment({
+  author_id: user3._id,
+  content: 'Hey, I am also a fan of GTA V! I like participating in races and custom game modes. Let me know if you want to race together or explore the vast world of Los Santos!'
+})
+
+const comment_gta5_3 = new Comment({
+  author_id: user2._id,
+  content: 'Hey, I am interested in playing with you! I am a vehicle enthusiast and enjoy collecting and customizing cars in GTA V. Let me know if you want to team up and show off our rides!'
+})
+
+const comment_gta5_4 = new Comment({
+  author_id: user3._id,
+  content: 'Hey, I am looking for more people to play with! I am a marksman in GTA V and love taking on challenging combat missions. Let me know if you want to join me in some intense firefights!'
+})
+
+const comment_gta5_5 = new Comment({
+  author_id: user4._id,
+  content: 'Hey, I am a casual player and love exploring the world of GTA V. Let me know if you want to relax, have fun, and discover hidden secrets throughout the map together.'
+})
+
+const comment_gta5_6 = new Comment({
+  author_id: user5._id,
+  content: 'Hey, I am interested in playing with you! I am an experienced GTA V player and enjoy both cooperative and competitive gameplay. Let\'s work together and make our mark in Los Santos!'
+})
+
+const comment_gta5_7 = new Comment({
+  author_id: user6._id,
+  content: 'Hey, I am looking for a group to play GTA V with! I love participating in stunt races and custom game modes. Let me know if you want to team up and experience the thrill of high-speed racing!'
+})
+
+const comment_gta5_8 = new Comment({
+  author_id: user7._id,
+  content: 'Hey, I am also looking for people to play GTA V with! I enjoy strategizing and planning the perfect heist. Let\'s team up and secure the biggest scores in the city!'
+})
+
+const comment_gta5_9 = new Comment({
+  author_id: user8._id,
+  content: 'Hey, I am interested in joining your GTA V group! I am a skilled pilot and can provide air support during missions. Let\'s dominate the skies and rule Los Santos!'
+})
+
+const comment_gta5_10 = new Comment({
+  author_id: user9._id,
+  content: 'Hey, I am new to GTA V but eager to learn and improve! I am open to playing any role and excited to explore the depth and complexity of the game. Let\'s grow together as players and teammates!'
+})
+
+comments.push(comment_gta5_1);
+comments.push(comment_gta5_2);
+comments.push(comment_gta5_3);
+comments.push(comment_gta5_4);
+comments.push(comment_gta5_5);
+comments.push(comment_gta5_6);
+comments.push(comment_gta5_7);
+comments.push(comment_gta5_8);
+comments.push(comment_gta5_9);
+comments.push(comment_gta5_10);
+
+const gta5_1 = new Post({
+  author_id: user1._id,
+  game_id: game2._id,
+  comment_id: [comment_gta5_1._id, comment_gta5_2._id],
+  title: 'Looking for players to form a GTA V crew',
+  description: 'Hello everyone, I am looking for a few players who are interested in forming a GTA V crew. We can complete heists, missions, and various activities together!'
+})
+
+const gta5_2 = new Post({
+  author_id: user3._id,
+  game_id: game2._id,
+  comment_id: [comment_gta5_3._id],
+  title: 'Looking for a player to join my GTA V group',
+  description: 'Hey there, I am looking for a player to join my existing GTA V group. We can work together to have fun, participate in races, and explore the vast world of Los Santos!'
+})
+
+const gta5_3 = new Post({
+  author_id: user5._id,
+  game_id: game2._id,
+  comment_id: [comment_gta5_4._id, comment_gta5_5._id],
+  title: 'Casual GTA V players wanted',
+  description: 'Hi there, I am a casual player of GTA V and I am looking for other casual players to play with. We can chill, explore, and just have fun in the world of Los Santos. Let me know if you want to join me!'
+})
+
+const gta5_4 = new Post({
+  author_id: user4._id,
+  game_id: game2._id,
+  comment_id: [comment_gta5_6._id],
+  title: 'Looking for someone to play GTA V with',
+  description: 'Hello, I am looking for someone to play GTA V with. I am new to the game and want to learn more about it. I am interested in both co-op and competitive gameplay. Let me know if you are interested!'
+})
+
+const gta5_5 = new Post({
+  author_id: user7._id,
+  game_id: game2._id,
+  comment_id: [comment_gta5_7._id, comment_gta5_8._id],
+  title: 'Experienced GTA V players wanted',
+  description: 'Hey there, I am an experienced player of GTA V and I am looking for other experienced players to play with. I am interested in completing heists, dominating races, and conquering Los Santos. Let me know if you want to join me!'
+})
+
+const gta5_6 = new Post({
+  author_id: user6._id,
+  game_id: game2._id,
+  comment_id: [comment_gta5_9._id],
+  title: 'Looking for a player to practice GTA V mechanics',
+  description: 'Hey there, I am looking for a player to practice GTA V mechanics with. I am interested in learning new strategies, improving my skills, and becoming a better player. Let me know if you are interested!'
+})
+
+posts.push(gta5_1);
+posts.push(gta5_2);
+posts.push(gta5_3);
+posts.push(gta5_4);
+posts.push(gta5_5);
+posts.push(gta5_6);
+
+
 
 
 //demo user post seeding
