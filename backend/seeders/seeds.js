@@ -39,7 +39,8 @@ const demoUser = new User({
   email: 'demo@user.com',
   description: 'i am demo user',
   profileImageUrl: "https://5tack.s3.amazonaws.com/public/cartoon-dead-fish.png",
-  hashedPassword: bcrypt.hashSync('password', 10)
+  hashedPassword: bcrypt.hashSync('password', 10),
+  avgRating: 0
 })
 
 users.push(demoUser);
@@ -54,7 +55,8 @@ for (let i = 1; i < NUM_SEED_USERS; i++) {
             .sentences(getRandomArbitrary(1, 5))
             .substring(0, 200),
         profileImageUrl: getRandomImage(),
-        hashedPassword: bcrypt.hashSync('password', 10)
+        hashedPassword: bcrypt.hashSync('password', 10),
+        avgRating: 0
       })
     )
 }

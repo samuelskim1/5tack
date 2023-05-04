@@ -7,11 +7,11 @@ import { useSelector } from 'react-redux';
 const ReviewIndex = ({ reviews, user }) => {
 
     const currentUser = useSelector(state => state.session.user);
-    if (!reviews) return null;
+    if (!reviews || !reviews.length) return null;
 
     return (
         <div className="reviews-index-container">
-            {currentUser?._id !== user?._id && <CreateReviewModal user={user} />}
+            {currentUser._id !== user._id && <CreateReviewModal user={user} />}
             {reviews?.map((review, i) => (
                 <ReviewIndexItem review={review} key={i} />
             ))}

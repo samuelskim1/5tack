@@ -27,9 +27,9 @@ const userSchema = new Schema({
   },
   avgRating: {
     type: Number,
-    required: true,
+    // required: true,
     range: {
-      min: { type: Number, min: 1},
+      min: { type: Number, min: 0},
       max: { type: Number, max: 5}
     }
   }

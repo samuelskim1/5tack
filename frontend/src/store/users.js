@@ -3,6 +3,7 @@ import jwtFetch from "./jwt";
 // ACTION TYPES
 const RECEIVE_USER = 'users/RECEIVE_USER';
 const RECEIVE_ALL_USERS = 'users/RECEIVE_ALL_USERS';
+const RECEIVE_UPDATED_USER = "posts/RECEIVE_UPDATED_USER";
 const RECEIVE_USER_ERRORS = 'users/RECEIVE_USER_ERRORS';
 const CLEAR_USER_ERRORS = 'users/CLEAR_USER_ERRORS';
 
@@ -17,6 +18,11 @@ export const receiveAllUsers = users => ({
   type: RECEIVE_ALL_USERS,
   users
 });
+
+export const receiveUpdatedUser = (updatedUser) => ({
+  type: RECEIVE_UPDATED_USER,
+  updatedUser
+})
 
 const receiveUserErrors = errors => ({
   type: RECEIVE_USER_ERRORS,
@@ -56,6 +62,39 @@ export const fetchUser = username => async dispatch => {
     }
   }
 };
+
+export const fetchAverageRating = username => async dispatch => {
+  try {
+    const res = await jwtFetch(`/api/users/${username}/average`);
+    const data = await res.json();
+    console.log(data);
+    return data.averageRating;
+    // return await res.json();
+  } catch (err) {
+    const res = await err.json();
+    if (res.statusCode === 400) {
+      return dispatch(receiveUserErrors(res.errors));
+    }
+  }
+}
+
+export const updateUser = userInfo => async dispatch => {
+  try {
+    const res = await jwtFetch(`/api/users/${userInfo._id}`, {
+      method: "PATCH",
+      body: JSON.stringify(userInfo)
+    });
+    const updatedUser = await res.json();
+    console.log(updatedUser);
+    dispatch(receiveUpdatedUser(updatedUser));
+    return res;
+  } catch (err) {
+    const res = await err.json();
+    if (res.statusCode >= 400) {
+      return dispatch(receiveUserErrors(res.errors));
+    }
+  }
+}
 
 
 // REDUCER

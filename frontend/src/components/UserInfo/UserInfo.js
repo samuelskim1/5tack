@@ -5,9 +5,9 @@ import { fetchUser } from '../../store/users';
 import EditUserInfoModal from '../EditUserInfo/EditUserInfoModal';
 import Avatar from './Avatar';
 import './UserInfo.scss';
-import { fetchAverageRating } from '../../store/reviews';
+import { fetchAverageRating } from '../../store/users';
 
-const UserInfo = () => {
+const UserInfo = ({user}) => {
     const dispatch = useDispatch();
     const { username } = useParams();
     const currentUser = useSelector(state => state?.session?.user);
@@ -17,8 +17,8 @@ const UserInfo = () => {
     // let avgRating;
     //  = dispatch(fetchAverageRating(username));
     
-    const [avgRating, setAvgRating] = useState(0);
-    
+    const [avgRating, setAvgRating] = useState(user?.avgRating);
+    console.log(user?.avgRating);
     const getAverage = async () => {
         setAvgRating((await dispatch(fetchAverageRating(username)))?.toFixed(2));
         console.log("average rating for this stupid damn thing", avgRating);

@@ -5,6 +5,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
+const Review = mongoose.model('Review');
 const passport = require('passport');
 const validateRegisterInput = require('../../validations/register');
 const validateLoginInput = require('../../validations/login');
@@ -25,7 +26,7 @@ function filterUser(user) {
 
 router.get('/', async (req, res) => {
   try {
-    const users = await User.find().populate("username", "_id email description profileImageUrl").sort({ createdAt: -1 });
+    const users = await User.find().populate("username", "_id email description profileImageUrl avgRating").sort({ createdAt: -1 });
     const modifiedUsers = Object.assign({}, ...users.map(user => ({ [user.username]: filterUser(user) })));
     return res.json(modifiedUsers);
   }
@@ -74,6 +75,33 @@ router.get('/:username', async (req, res, next) => {
     return res.json([]);
   }
 })
+
+router.get('/:username/average', async (req, res, next) => {
+  let user;
+  try {
+    user = await User.findOne({ username: req.params.username });
+    if (!user) {
+      const error = new Error('User not found');
+      error.statusCode = 404;
+      error.errors = { message: "No user found with that username" };
+      return next(error);
+    }
+  } catch (err) {
+    const error = new Error('User not found');
+    error.statusCode = 404;
+    error.errors = { message: "No user found with that username" };
+    return next(error);
+  }
+
+  try {
+    const userReviews = await Review.find({ user_id: user.id });
+    const totalRating = userReviews.reduce((sum, review) => sum + review.rating, 0);
+    const averageRating = totalRating / userReviews.length;
+    return res.json({ averageRating });
+  } catch (err) {
+    return res.status(400).json({ message: err.message });
+  }
+});
 
 // POST /api/users/register
 router.post('/register', singleMulterUpload("image"), validateRegisterInput, async (req, res, next) => {

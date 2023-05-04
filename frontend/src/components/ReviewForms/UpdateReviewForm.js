@@ -5,7 +5,7 @@ import { fetchUserReviews, updateReview } from "../../store/reviews";
 
 const UpdateReviewForm = ({ setShowModal, review }) => {
     const dispatch = useDispatch();
-
+    const reviewedUser = review?.user_id;
     const { username } = useParams();
     // const errors = useSelector(state => state.errors?.reviews);
     const [errors, setErrors] = useState({title: '', description: ''})
@@ -23,7 +23,7 @@ const UpdateReviewForm = ({ setShowModal, review }) => {
         dispatch(fetchUserReviews(username));
     }, [review.title, review.description, review.rating]);
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         const updatedReviewInfo = {
             ...review,
             title,
@@ -32,11 +32,13 @@ const UpdateReviewForm = ({ setShowModal, review }) => {
         }
         console.log(updatedReviewInfo);
         console.log(updatedReviewInfo._id);
-        dispatch(updateReview(updatedReviewInfo)).then(res => {
-            if (res.ok) {
-                setShowModal(false);
-            }
-        });
+        const res = await dispatch(updateReview(updatedReviewInfo));
+        if (res.ok) {
+            setShowModal(false);
+        }
+        // const updatedUser = {
+        //     ...
+        // }
     }
 
     const changeHandler = (e, type) => {
