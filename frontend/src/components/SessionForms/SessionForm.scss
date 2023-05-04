@@ -156,3 +156,23 @@
   background-color: #555;
   cursor: not-allowed;
 }
+
+
+.session-form {
+  
+  #edit-pfp #avatar-container {
+    margin: 0;
+  }
+
+  #preview-pfp, #avatar-container > img {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px 0px #666;
+    cursor: pointer;
+  
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

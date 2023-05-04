@@ -67,7 +67,6 @@ const LoginForm = () => {
               >
               Log In
             </div>
-            {/* <div id="or-text">OR</div> */}
             <div 
               id="submit-demo-btn"
               onClick={demoLogin}

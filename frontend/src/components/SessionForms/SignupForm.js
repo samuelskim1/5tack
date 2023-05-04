@@ -1,9 +1,8 @@
-import { signup } from "../../store/session";
 import LoginForm from "./LoginForm";
 
 const { useState, useEffect } = require("react");
 const { useDispatch, useSelector } = require("react-redux");
-const { clearSessionErrors } = require("../../store/session");
+const { clearSessionErrors, login, signup } = require("../../store/session");
 
 const SignupForm = () => {
     const dispatch = useDispatch();
@@ -28,6 +27,13 @@ const SignupForm = () => {
         };
         dispatch(signup(user));
     }
+
+    const demoLogin = (e) => {
+        e.preventDefault();
+        dispatch(login({ username: "demo", password: "password" }));
+    };
+
+
     return (
         <>
             {currModal === 'signup' && (
@@ -64,11 +70,19 @@ const SignupForm = () => {
                         />
                     </label>
                     <div className="errors">{errors?.password}</div>
-                    <div 
-                        id="submit-signup-btn"
+                    <div id="log-demo-btn-holder">
+                        <div 
+                        id="submit-login-btn"
                         onClick={handleSubmit}
                         >
                         Sign Up
+                        </div>
+                        <div 
+                        id="submit-demo-btn"
+                        onClick={demoLogin}
+                        >
+                        Demo Login
+                        </div>
                     </div>
                     <div 
                         id="alternate-form"
