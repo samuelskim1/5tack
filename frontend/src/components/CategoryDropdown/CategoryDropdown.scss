@@ -15,7 +15,7 @@
     // display: none;
     .line-divider {
         border-bottom: 1px $neutral-text solid;
-        margin: 5px 0;
+        margin: 5px 0 9px 0;
     }
 }
 
@@ -24,9 +24,14 @@
     letter-spacing: 0.1em;
 }
 
+.dropdown-name:hover {
+    cursor: default;
+}
+
 .dropdown-item {
     border-radius: 4px;
     font-size: 14px;
+    margin: 4px 0;
 }
 
 .dropdown-item:hover {
