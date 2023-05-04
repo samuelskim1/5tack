@@ -92,7 +92,7 @@ const CreateReviewForm = ({ setShowModal, user }) => {
                 <label >
                     <span>Rating</span>
                     {/* <Rating setRating={setRating} setHoverRating={setHoverRating} rating={rating} hoverRating={hoverRating} /> */}
-                    <div>
+                    <div className="stars-container">
                         {[...Array(5)].map((star, i) => {
                             i += 1;
                             return (

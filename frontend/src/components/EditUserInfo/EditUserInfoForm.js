@@ -151,6 +151,7 @@ const EditUserInfoForm = ({ setEdit }) => {
                 { canSubmit ?
                     <div
                     id="submit-login-btn"
+                    className="update-profile-btn"
                         onClick={handleSubmit}
                     >
                         Update
