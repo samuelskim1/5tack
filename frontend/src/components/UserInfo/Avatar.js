@@ -3,7 +3,7 @@
 const Avatar = ({ user }) => {
 
   return (
-    <div id="avatar-container">
+    <div id="avatar-container" onClick={() => window.scrollTo(0, 0)}>
       {user?.profileImageUrl && (
         <img src={user?.profileImageUrl} alt={user?.username} />
       )}
