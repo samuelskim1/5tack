@@ -55,9 +55,15 @@ export const logout = () => dispatch => {
 
 export const updateUser = (userInfo) => async (dispatch) => {
   try {
+    const formData = new FormData();
+    formData.append('username', userInfo.username);
+    formData.append('email', userInfo.email);
+    formData.append('description', userInfo.description);
+    formData.append('profileImageUrl', userInfo.photo);
     const res = await jwtFetch(`/api/users/${userInfo._id}`, {
       method: 'PATCH',
-      body: JSON.stringify(userInfo)
+      // body: JSON.stringify(userInfo)
+      body: formData
     });
     const user = await res.json();
     dispatch(receiveCurrentUser(user));

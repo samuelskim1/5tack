@@ -105,11 +105,8 @@ export const createPost = postInfo => async dispatch => {
         dispatch(receiveNewPost(newPost));
         return res;
     } catch(err) {
-        console.log("err in createPost", err);
         const res = await err.json();
-        console.log("err from the thunk action", res);
         if (res.statusText === 400) {
-            console.log("the status code is 400", res.errors);
             return dispatch(receiveErrors(res.errors));
         }
     }
@@ -137,7 +134,6 @@ export const updatedPost = postInfo => async dispatch => {
             body: JSON.stringify(postInfo)
         });
         const updatedPost = await res.json();
-        console.log(updatedPost);
         dispatch(receiveUpdatedPost(updatedPost));
         return res;
     } catch(err) {
@@ -190,7 +186,6 @@ const postsReducer = (state = {}, action) => {
         //     // return nextState;
         //     return { [action.post._id]: action.post, ...state, [action.post._id]: action.post };
         case RECEIVE_UPDATED_POST:
-            console.log('action in the reducer', action);
             return { ...state, [action.updatedPost._id]: action.updatedPost };
         case RECEIVE_NEW_POST:
             return { [action.newPost._id]: action.newPost, ...state };

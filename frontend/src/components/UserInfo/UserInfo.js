@@ -16,7 +16,7 @@ const UserInfo = () => {
 
     useEffect(() => {
         dispatch(fetchUser(username));
-    }, [dispatch, username, showUser?.description]);
+    }, [dispatch, username, showUser?.description, currentUser?.profileImageUrl]);
 
 
     return (

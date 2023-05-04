@@ -5,8 +5,13 @@ import { fetchGamePosts, updatedPost } from "../../store/posts";
 
 const UpdatePostForm = ({ setShowModal, post }) => {
     const dispatch = useDispatch();
+    const games = useSelector(state => Object.values(state.games));
+    // console.log("oh my lord", games);
+    const game = games.find(el => el._id === post.game_id);
+    // console.log(game.nameURL);
 
-    const { nameURL } = useParams();
+    let { nameURL } = useParams();
+    nameURL ||= game.nameURL;
     // const errors = useSelector(state => state.errors?.posts);
     const [errors, setErrors] = useState({title: '', description: ''});
     
@@ -52,8 +57,8 @@ const UpdatePostForm = ({ setShowModal, post }) => {
             title,
             description
         }
-        console.log(updatedPostInfo);
-        console.log(updatedPostInfo._id);
+        // console.log(updatedPostInfo);
+        // console.log(updatedPostInfo._id);
         dispatch(updatedPost(updatedPostInfo)).then(res => {
             if (res.ok) {
                 setShowModal(false);

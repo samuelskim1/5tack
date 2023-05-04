@@ -43,7 +43,6 @@ router.get('/current', restoreUser, (req, res) => {
     const csrfToken = req.csrfToken();
     res.cookie("CSRF-TOKEN", csrfToken);
   }
-  console.log(req);
   if (!req.user) return res.json(null);
   return res.json(filterUser(req.user));
 });
@@ -76,7 +75,7 @@ router.get('/:username', async (req, res, next) => {
 })
 
 // POST /api/users/register
-router.post('/register', singleMulterUpload("image"), validateRegisterInput, async (req, res, next) => {
+router.post('/register', singleMulterUpload("profileImageUrl"), validateRegisterInput, async (req, res, next) => {
   // Check to make sure no one has already registered with the proposed email or
   // username.
   const user = await User.findOne({
@@ -145,7 +144,13 @@ router.post('/logout', (req, res) => {
 });
 
 
-router.patch('/:id', validateUpdateUser, async (req, res) => {
+router.patch('/:id', singleMulterUpload("profileImageUrl"), validateUpdateUser, async (req, res) => {
+  
+  // take image and upload
+  const profileImageUrl = req.file ?
+  await singleFileUpload({ file: req.file, public: true }) :
+  DEFAULT_PROFILE_IMAGE_URL;
+  req.body.profileImageUrl = profileImageUrl;
   try {
     const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
     if (!user) {

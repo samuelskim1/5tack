@@ -35,7 +35,7 @@ const CreateReviewForm = ({ setShowModal, user }) => {
             description,
             rating
         };
-        console.log("errors", errors);
+        // console.log("errors", errors);
         const res = dispatch(createReview(review)).then(res => {
             if (res.ok) {
                 setShowModal(false);
@@ -47,7 +47,7 @@ const CreateReviewForm = ({ setShowModal, user }) => {
         let currTitle = title;
         let currDescription = description;
         let currRating = rating;
-        console.log("rating", rating);
+        // console.log("rating", rating);
         if (type === 'title') {
             currTitle = e.target.value;
             setTitle(currTitle);
@@ -68,9 +68,8 @@ const CreateReviewForm = ({ setShowModal, user }) => {
         } else {
             currRating = type;
         }
-        console.log(currTitle.length, currRating, currDescription.length);
+        // console.log(currTitle.length, currRating, currDescription.length);
         if (currTitle.length > 0 && currTitle.length <= 50 && currDescription.length > 0 && currDescription.length <= 400 && currRating > 0) {
-            console.log("should be submittable????");
             setCanSubmit(true);
         } else {
             setCanSubmit(false);
