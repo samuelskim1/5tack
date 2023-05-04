@@ -1,12 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchUserReviews, updateReview } from "../../store/reviews";
+import { updateUser } from "../../store/users";
 
 const UpdateReviewForm = ({ setShowModal, review }) => {
     const dispatch = useDispatch();
-    const reviewedUser = review?.user_id;
     const { username } = useParams();
+    const reviewedUser = useSelector(state => state?.users[username]);
     // const errors = useSelector(state => state.errors?.reviews);
     const [errors, setErrors] = useState({title: '', description: ''})
     // const gameURL = useSelector(state => review.game)
@@ -19,11 +20,32 @@ const UpdateReviewForm = ({ setShowModal, review }) => {
     const [hoverRating, setHoverRating] = useState(0);
     const [canSubmit, setCanSubmit] = useState(false);
 
+    // Hook
+    function usePrevious(value) {
+        // The ref object is a generic container whose current property is mutable ...
+        // ... and can hold any value, similar to an instance property on a class
+        const ref = useRef();
+        // Store current value in ref
+        useEffect(() => {
+            ref.current = value;
+        }, [value]); // Only re-run if value changes
+        // Return previous value (happens before update in useEffect above)
+        return ref.current;
+    }
+
+    const prevRating = usePrevious(rating);
+    console.log(prevRating);
+
     useEffect(() => {
         dispatch(fetchUserReviews(username));
     }, [review.title, review.description, review.rating]);
 
     const handleSubmit = async () => {
+        console.log(prevRating);
+        const ratingIndex = reviewedUser?.ratings.indexOf(prevRating)
+        reviewedUser?.ratings.splice(ratingIndex, 1);
+        //this line deletes the initial rating prior to the update
+        console.log(reviewedUser?.ratings);
         const updatedReviewInfo = {
             ...review,
             title,
@@ -32,13 +54,12 @@ const UpdateReviewForm = ({ setShowModal, review }) => {
         }
         // console.log(updatedReviewInfo);
         // console.log(updatedReviewInfo._id);
-        const res = await dispatch(updateReview(updatedReviewInfo));
-        if (res.ok) {
+        const reviewData = await dispatch(updateReview(updatedReviewInfo));
+        if (reviewData.ok) {
             setShowModal(false);
         }
-        // const updatedUser = {
-        //     ...
-        // }
+        reviewedUser.ratings.push(rating);
+        dispatch(updateUser(reviewedUser));
     }
 
     const changeHandler = (e, type) => {

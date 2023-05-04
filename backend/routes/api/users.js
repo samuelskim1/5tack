@@ -26,7 +26,10 @@ function filterUser(user) {
 
 router.get('/', async (req, res) => {
   try {
-    const users = await User.find().populate("username", "_id email description profileImageUrl ratings").sort({ createdAt: -1 });
+    const users = await User.find()
+                            .populate("username", "_id email description profileImageUrl")
+                            .populate("review_id")
+                            .sort({ createdAt: -1 });
     const modifiedUsers = Object.assign({}, ...users.map(user => ({ [user.username]: filterUser(user) })));
     return res.json(modifiedUsers);
   }
@@ -67,7 +70,8 @@ router.get('/:username', async (req, res, next) => {
   try {
     const users = await User.findOne({ username: req.params.username })
                               .sort({ createdAt: -1 })
-                              .populate("email", "_id username description profileImageUrl ratings");
+                              .populate("email", "_id username description profileImageUrl")
+                              .populate("review_id")
     return res.json(filterUser(users));
   }
   catch(err) {

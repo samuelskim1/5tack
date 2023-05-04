@@ -6,6 +6,7 @@ import EditUserInfoModal from '../EditUserInfo/EditUserInfoModal';
 import Avatar from './Avatar';
 import './UserInfo.scss';
 import { fetchAverageRating } from '../../store/users';
+import { reviewsErrorsReducer } from '../../store/reviews';
 
 const UserInfo = ({user}) => {
     const dispatch = useDispatch();
@@ -17,12 +18,17 @@ const UserInfo = ({user}) => {
     // let avgRating;
     //  = dispatch(fetchAverageRating(username));
     
-    const [avgRating, setAvgRating] = useState(user?.avgRating);
-    console.log(user?.avgRating);
+    
+    const [avgRating, setAvgRating] = useState(0);
+    console.log(showUser?.ratings);
+
     const getAverage = async () => {
-        setAvgRating((await dispatch(fetchAverageRating(username)))?.toFixed(2));
+        const totalRating = showUser?.ratings?.reduce((sum, rating) => sum + rating, 0);
+        setAvgRating((totalRating / showUser?.ratings?.length)?.toFixed(2));
+        // setAvgRating((await dispatch(fetchAverageRating(username)))?.toFixed(2));
         console.log("average rating for this stupid damn thing", avgRating);
     }
+
 
     useEffect(() => {
         getAverage();
@@ -36,7 +42,9 @@ const UserInfo = ({user}) => {
         <div className='user-info'>
             <Avatar user={showUser} />
             <div className='user-info-field username'>@{showUser?.username}</div>
-            <div>{avgRating}</div>
+            {avgRating &&
+                <div>{avgRating}</div>
+            }
             <div className='user-info-field'>{showUser?.description}</div>
             {currentUser?.username === showUser?.username && (
                 <div className='user-info-field edit-user-btn' ref={button}>

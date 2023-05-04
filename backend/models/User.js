@@ -25,13 +25,10 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
-  ratings: [{
-    type: Number,
+  review_id: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Review'
     // required: true,
-    range: {
-      min: { type: Number, min: 0},
-      max: { type: Number, max: 5}
-    }
   }]
 }, {
   timestamps: true
