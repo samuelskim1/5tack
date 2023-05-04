@@ -5,6 +5,7 @@ import { useDispatch, useSelector} from 'react-redux';
 import { deleteComment, updateComment } from "../../store/comments";
 import { updatedPost } from "../../store/posts";
 import { useState } from "react";
+import { Modal } from "../../context/modal";
 
 
 const CommentsIndexItem = ({ comment, post }) => {
@@ -16,11 +17,13 @@ const CommentsIndexItem = ({ comment, post }) => {
   const [content, setContent] = useState(comment?.content);
   const [canUpdate, setCanUpdate] = useState(content !== comment?.content);
   const [count, setCount] = useState(content?.length);
+  const [showConfirm, setShowConfirm] = useState(false);
   
 
   const handleDelete = async (e) => {
     dispatch(deleteComment(comment?._id))
     dispatch(updatedPost(post));
+    setShowConfirm(false);
   };
 
   const handleChange = (e) => {
@@ -130,37 +133,24 @@ const CommentsIndexItem = ({ comment, post }) => {
               <div className='comment-edit' onClick={() => setIsEditing(!isEditing)}>
                 <i className="fa-solid fa-pen" />
               </div>
-              <div className='delete-comment-btn' onClick={() => handleDelete()}>
+              <div className='delete-comment-btn' onClick={() => setShowConfirm(true)}>
                 <i className="fa-solid fa-trash" />
               </div>
             </div>
           }
+
+          {showConfirm && (
+            <Modal onClose={() => setShowConfirm(false)}>
+                <div className='create-post-container create-post-form'>
+                    <h2>Do you want to delete this comment?</h2>
+                    <div className='delete-btns'>
+                        <div className='submit-btn' onClick={handleDelete}>Delete</div>
+                        <div className='submit-btn cancel-btn' onClick={() => setShowConfirm(false)}>Cancel</div>
+                    </div>
+                </div>
+            </Modal>
+          )}
         </div>
-
-
-
-{/* 
-       { isEditing && canUpdate ? (
-          <div className='comment-edit-section'>
-            <textarea
-                value={content}
-                onChange={(e) => handleChange(e)}
-            />
-            <i
-              className="fa-regular fa-paper-plane"
-              onClick={(e) => handleUpdate(e)}
-              onKeyDown={(e) => handleEnter(e)}
-            />
-          </div>
-        )
-        : isEditing &&
-          <>
-            <div className='comment-body'>
-              {comment?.content}
-            </div> 
-            <i className="fa-regular fa-paper-plane disable-btn"/> 
-          </> 
-        } */}
       </div>
     </div>
   );
