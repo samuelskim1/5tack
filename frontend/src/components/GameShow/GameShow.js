@@ -42,6 +42,7 @@ const GameShow = () => {
   useEffect(() => {
       grabError();
       dispatch(fetchGamePosts(nameURL));
+      window.scrollTo(0, 0);
   }, [dispatch, nameURL]);
 
 
