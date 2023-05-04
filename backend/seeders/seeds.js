@@ -353,7 +353,7 @@ const posts = [];
 const league1 = new Post({
   author_id: user4._id,
   game_id: game1._id,
-  comment_id: [comment_league1, comment_league2],
+  comment_id: [comment_league1._id, comment_league2._id],
   title: 'Looking for people to play League of Legends with',
   description: 'Hey everyone, I am looking for some new people to play League of Legends with. I am a Diamond player and enjoy playing all roles. Let me know if you are interested in playing together!'
 })
@@ -479,7 +479,7 @@ comments.push(comment_valorant10);
 const valorant1 = new Post({
   author_id: user4._id,
   game_id: game1._id,
-  comment_id: [comment_valorant1, comment_valorant2],
+  comment_id: [comment_valorant1._id, comment_valorant2._id],
   title: 'Looking for people to play Valorant with',
   description: 'Hey everyone, I am looking for some new people to play Valorant with. I am a Diamond player and enjoy playing all roles. Let me know if you are interested in playing together!'
 })
@@ -729,7 +729,7 @@ comments.push(comment_fortnite10);
 const fortnite1 = new Post({
   author_id: user4._id,
   game_id: game3._id,
-  comment_id: [comment_fortnite1, comment_fortnite2],
+  comment_id: [comment_fortnite1._id, comment_fortnite2._id],
   title: 'Looking for people to play Fortnite with',
   description: 'Hey everyone, I am looking for some new people to play Fortnite with. I am a Diamond player and enjoy playing both Battle Royale and Save the World. Let me know if you are interested in playing together!'
 })
@@ -854,7 +854,7 @@ comments.push(comment_csgo10);
 const csgo1 = new Post({
   author_id: user4._id,
   game_id: game4._id,
-  comment_id: [comment_csgo1, comment_csgo2],
+  comment_id: [comment_csgo1._id, comment_csgo2._id],
   title: 'Looking for people to play CS:GO with',
   description: 'Hey everyone, I am looking for some new people to play CS:GO with. I am a Legendary Eagle Master and enjoy playing Rifler and AWPer roles. Let me know if you are interested in playing together!'
 })
@@ -915,6 +915,382 @@ posts.push(csgo5);
 posts.push(csgo6);
 posts.push(csgo7);
 
+const comment_minecraft1 = new Comment({
+  author_id: user1._id,
+  content: 'Hey, I am interested in playing with you! I enjoy building and exploring. Let me know if you want to join my server or start a new world together!'
+})
+
+const comment_minecraft2 = new Comment({
+  author_id: user3._id,
+  content: 'Hey, I am also interested in playing with you! I like redstone engineering and farming. Let me know if you want to play together!'
+})
+
+const comment_minecraft3 = new Comment({
+  author_id: user2._id,
+  content: 'Hey, I am interested in playing with you! I mainly enjoy building and playing mini-games. Let me know if you want to join my server or form a team!'
+})
+
+const comment_minecraft4 = new Comment({
+  author_id: user3._id,
+  content: 'Hey, I am a casual player too and I am looking for more people to play with! I mainly enjoy building and exploring. Let me know if you want to play together and have some fun!'
+})
+
+const comment_minecraft5 = new Comment({
+  author_id: user4._id,
+  content: 'Hey, count me in too! I am also a casual player and I enjoy mining and adventuring. Let me know when you guys are playing and I will join you!'
+})
+
+const comment_minecraft6 = new Comment({
+  author_id: user4._id,
+  content: 'Hey, I am interested in playing with you! I am a skilled builder and I am also serious about the game. Let us team up and create amazing things together!'
+})
+
+const comment_minecraft7 = new Comment({
+  author_id: user6._id,
+  content: 'Hey, I am interested in joining your team! I am good at redstone engineering and building. Let me know if you want to try me out!'
+})
+
+const comment_minecraft8 = new Comment({
+  author_id: user8._id,
+  content: 'Hey, I am also interested in joining your team! I enjoy farming and playing mini-games. I am serious about the game and I want to compete in building contests as well. Let us team up and achieve great things!'
+})
+
+const comment_minecraft9 = new Comment({
+  author_id: user9._id,
+  content: 'Hey, I am also looking for a partner and I mainly enjoy exploring and building. I am serious about the game as well. Let us team up and have fun together!'
+})
+
+const comment_minecraft10 = new Comment({
+  author_id: user10._id,
+  content: 'Hey, welcome to Minecraft! I am also a new player and I am willing to help you learn and improve. Let us play together and have some fun!'
+})
+
+comments.push(comment_minecraft1);
+comments.push(comment_minecraft2);
+comments.push(comment_minecraft3);
+comments.push(comment_minecraft4);
+comments.push(comment_minecraft5);
+comments.push(comment_minecraft6);
+comments.push(comment_minecraft7);
+comments.push(comment_minecraft8);
+comments.push(comment_minecraft9);
+comments.push(comment_minecraft10);
+
+const minecraft1 = new Post({
+  author_id: user4._id,
+  game_id: game1._id,
+  comment_id: [comment_minecraft1._id, comment_minecraft2._id],
+  title: 'Looking for people to play Minecraft with',
+  description: 'Hey everyone, I am looking for some new people to play Minecraft with. I enjoy building and exploring. Let me know if you are interested in playing together!'
+})
+
+const minecraft2 = new Post({
+  author_id: user1._id,
+  game_id: game1._id,
+  comment_id: [comment_minecraft3._id],
+  title: 'Looking for Minecraft teammates',
+  description: 'Hey there, I am looking for some teammates to play Minecraft with. I mainly enjoy building and playing mini-games. Hit me up if you are interested!'
+})
+
+const minecraft3 = new Post({
+  author_id: user2._id,
+  game_id: game1._id,
+  comment_id: [comment_minecraft4._id, comment_minecraft5._id],
+  title: 'Looking for casual Minecraft players',
+  description: 'Hey everyone, I am a casual Minecraft player and I am looking for some other casual players to play with. I am not very good, but I love the game and want to improve. Let me know if you want to play together!'
+})
+
+const minecraft4 = new Post({
+  author_id: user3._id,
+  game_id: game1._id,
+  comment_id: [comment_minecraft6._id],
+  title: 'Skilled builder looking for partner in Minecraft',
+  description: 'Hey there, I am a skilled builder and I am looking for a partner to create amazing things with. I am looking for someone who is serious about the game and wants to improve. Let me know if you are interested!'
+})
+
+const minecraft5 = new Post({
+  author_id: user5._id,
+  game_id: game1._id,
+  comment_id: [comment_minecraft7._id, comment_minecraft8._id],
+  title: 'Looking for a team to play Minecraft with',
+  description: 'Hey everyone, I am looking for a team to play Minecraft with. I enjoy farming and playing mini-games. I am looking for a team that is serious about the game and wants to compete in building contests. Let me know if you are interested!'
+})
+
+const minecraft6 = new Post({
+  author_id: user6._id,
+  game_id: game1._id,
+  comment_id: [comment_minecraft9._id],
+  title: 'Explorer looking for partner in Minecraft',
+  description: 'Hey there, I am an explorer and I am looking for a partner to adventure with. I am serious about the game and I am looking for someone who wants to have fun and improve. Let me know if you are interested!'
+})
+
+const minecraft7 = new Post({
+  author_id: user7._id,
+  game_id: game1._id,
+  comment_id: [comment_minecraft10._id],
+  title: 'New player looking for friends to play Minecraft with',
+  description: 'Hey everyone, I am new to Minecraft and I am looking for some friends to play with. I am not very good, but I am willing to learn and improve. Let me know if you want to play together!'
+})
+
+posts.push(minecraft1);
+posts.push(minecraft2);
+posts.push(minecraft3);
+posts.push(minecraft4);
+posts.push(minecraft5);
+posts.push(minecraft6);
+posts.push(minecraft7);
+
+const comment_rocketleague1 = new Comment({
+  author_id: user1._id,
+  content: 'Hey, I am interested in playing with you! I am a Platinum player and I enjoy playing both 2v2 and 3v3. Let me know if you want to team up!'
+})
+
+const comment_rocketleague2 = new Comment({
+  author_id: user3._id,
+  content: 'Hey, I am also interested in playing with you! I am a Gold player and I mainly play 3v3. Let me know if you want to play together!'
+})
+
+const comment_rocketleague3 = new Comment({
+  author_id: user2._id,
+  content: 'Hey, I am interested in playing with you! I am a Gold player and I mainly play 2v2 and 3v3. Let me know if you want to team up or form a team!'
+})
+
+const comment_rocketleague4 = new Comment({
+  author_id: user3._id,
+  content: 'Hey, I am a casual player too and I am looking for more people to play with! I mainly play 2v2 and Rumble. Let me know if you want to play together and have some fun!'
+})
+
+const comment_rocketleague5 = new Comment({
+  author_id: user4._id,
+  content: 'Hey, count me in too! I am also a casual player and I enjoy playing 3v3 and Dropshot. Let me know when you guys are playing and I will join you!'
+})
+
+const comment_rocketleague6 = new Comment({
+  author_id: user4._id,
+  content: 'Hey, I am interested in playing with you! I am a Diamond player and I am serious about the game. Let us team up and climb the ranks together!'
+})
+
+const comment_rocketleague7 = new Comment({
+  author_id: user6._id,
+  content: 'Hey, I am interested in joining your team! I am a Platinum player and I mainly play 3v3. Let me know if you want to try me out!'
+})
+
+const comment_rocketleague8 = new Comment({
+  author_id: user8._id,
+  content: 'Hey, I am also interested in joining your team! I am a Gold player and I play 2v2 and 3v3. I am serious about the game and I want to compete in tournaments as well. Let us team up and achieve great things!'
+})
+
+const comment_rocketleague9 = new Comment({
+  author_id: user9._id,
+  content: 'Hey, I am also looking for a teammate and I mainly play 2v2. I am a Gold player and I am serious about the game as well. Let us team up and climb the ranks together!'
+})
+
+const comment_rocketleague10 = new Comment({
+  author_id: user10._id,
+  content: 'Hey, welcome to Rocket League! I am also a new player and I am willing to help you learn and improve. Let us play together and have some fun!'
+})
+
+comments.push(comment_rocketleague1);
+comments.push(comment_rocketleague2);
+comments.push(comment_rocketleague3);
+comments.push(comment_rocketleague4);
+comments.push(comment_rocketleague5);
+comments.push(comment_rocketleague6);
+comments.push(comment_rocketleague7);
+comments.push(comment_rocketleague8);
+comments.push(comment_rocketleague9);
+comments.push(comment_rocketleague10);
+
+const rocketleague1 = new Post({
+  author_id: user4._id,
+  game_id: game1._id,
+  comment_id: [comment_rocketleague1._id, comment_rocketleague2._id],
+  title: 'Looking for people to play Rocket League with',
+  description: 'Hey everyone, I am looking for some new people to play Rocket League with. I am a Diamond player and enjoy playing both 2v2 and 3v3. Let me know if you are interested in playing together!'
+})
+
+const rocketleague2 = new Post({
+  author_id: user1._id,
+  game_id: game1._id,
+  comment_id: [comment_rocketleague3._id],
+  title: 'Platinum player looking for teammates in Rocket League',
+  description: 'Hey there, I am a Platinum player and I am looking for some teammates to climb the ranks with. I mainly play 2v2 and 3v3, but I am open to playing other modes as well. Hit me up if you are interested!'
+})
+
+const rocketleague3 = new Post({
+  author_id: user2._id,
+  game_id: game1._id,
+  comment_id: [comment_rocketleague4._id, comment_rocketleague5._id],
+  title: 'Looking for casual Rocket League players',
+  description: 'Hey everyone, I am a casual Rocket League player and I am looking for some other casual players to play with. I am not very good, but I love the game and want to improve. Let me know if you want to play together!'
+})
+
+const rocketleague4 = new Post({
+  author_id: user3._id,
+  game_id: game1._id,
+  comment_id: [comment_rocketleague6._id],
+  title: 'Diamond player looking for teammates in Rocket League',
+  description: 'Hey there, I am a Diamond player and I am looking for teammates to climb the ranks with. I am looking for someone who is serious about the game and wants to improve. Let me know if you are interested!'
+})
+
+const rocketleague5 = new Post({
+  author_id: user5._id,
+  game_id: game1._id,
+  comment_id: [comment_rocketleague7._id, comment_rocketleague8._id],
+  title: 'Looking for a team to play Rocket League with',
+  description: 'Hey everyone, I am looking for a team to play Rocket League with. I am a Gold player and I enjoy playing both 2v2 and 3v3. I am looking for a team that is serious about the game and wants to compete in tournaments. Let me know if you are interested!'
+})
+
+const rocketleague6 = new Post({
+  author_id: user6._id,
+  game_id: game1._id,
+  comment_id: [comment_rocketleague9._id],
+  title: 'Player looking for teammate in Rocket League',
+  description: 'Hey there, I am looking for a teammate to climb the ranks with in Rocket League. I am a Gold player and I mainly play 2v2. I am looking for someone who is serious about the game and wants to improve. Let me know if you are interested!'
+})
+
+const rocketleague7 = new Post({
+  author_id: user7._id,
+  game_id: game1._id,
+  comment_id: [comment_rocketleague10._id],
+  title: 'New player looking for friends to play Rocket League with',
+  description: 'Hey everyone, I am new to Rocket League and I am looking for some friends to play with. I am not very good, but I am willing to learn and improve. Let me know if you want to play together!'
+})
+
+posts.push(rocketleague1);
+posts.push(rocketleague2);
+posts.push(rocketleague3);
+posts.push(rocketleague4);
+posts.push(rocketleague5);
+posts.push(rocketleague6);
+posts.push(rocketleague7);
+
+const comment_fifa1 = new Comment({
+  author_id: user1._id,
+  content: 'Hey, I am interested in playing with you! I mainly play Ultimate Team and enjoy both online and offline modes. Let me know if you want to team up!'
+})
+
+const comment_fifa2 = new Comment({
+  author_id: user3._id,
+  content: 'Hey, I am also interested in playing with you! I play Career Mode and I\'m looking for someone to share tips and tactics. Let me know if you want to play together!'
+})
+
+const comment_fifa3 = new Comment({
+  author_id: user2._id,
+  content: 'Hey, I am interested in playing with you! I enjoy playing Pro Clubs and I am looking for a new club to join. Let me know if you want to team up!'
+})
+
+const comment_fifa4 = new Comment({
+  author_id: user3._id,
+  content: 'Hey, I am a casual player too and I am looking for more people to play with! I mainly play Ultimate Team and Kick-Off. Let me know if you want to play together and have some fun!'
+})
+
+const comment_fifa5 = new Comment({
+  author_id: user4._id,
+  content: 'Hey, count me in too! I am also a casual player and I enjoy playing Co-op Seasons and Online Friendlies. Let me know when you guys are playing and I will join you!'
+})
+
+const comment_fifa6 = new Comment({
+  author_id: user4._id,
+  content: 'Hey, I am interested in playing with you! I am a serious FIFA player and I mainly play Ultimate Team. Let us team up and climb the ranks together!'
+})
+
+const comment_fifa7 = new Comment({
+  author_id: user6._id,
+  content: 'Hey, I am interested in joining your club! I play Pro Clubs and I am looking for a new team to join. Let me know if you want to try me out!'
+})
+
+const comment_fifa8 = new Comment({
+  author_id: user8._id,
+  content: 'Hey, I am also interested in playing with you! I am a serious FIFA player and I mainly play Career Mode. Let us team up and achieve great things!'
+})
+
+const comment_fifa9 = new Comment({
+  author_id: user9._id,
+  content: 'Hey, I am also looking for a teammate and I mainly play Ultimate Team. I am a serious FIFA player and I want to compete in tournaments as well. Let us team up and climb the ranks together!'
+})
+
+const comment_fifa10 = new Comment({
+  author_id: user10._id,
+  content: 'Hey, welcome to FIFA! I am also a new player and I am willing to help you learn and improve. Let us play together and have some fun!'
+})
+
+comments.push(comment_fifa1);
+comments.push(comment_fifa2);
+comments.push(comment_fifa3);
+comments.push(comment_fifa4);
+comments.push(comment_fifa5);
+comments.push(comment_fifa6);
+comments.push(comment_fifa7);
+comments.push(comment_fifa8);
+comments.push(comment_fifa9);
+comments.push(comment_fifa10);
+
+const fifa1 = new Post({
+  author_id: user4._id,
+  game_id: game1._id,
+  comment_id: [comment_fifa1._id, comment_fifa2._id],
+  title: 'Looking for people to play FIFA with',
+  description: 'Hey everyone, I am looking for some new people to play FIFA with. I mainly play Ultimate Team and enjoy both online and offline modes. Let me know   if you are interested in playing together!'
+})
+
+const fifa2 = new Post({
+  author_id: user1._id,
+  game_id: game1._id,
+  comment_id: [comment_fifa3._id],
+  title: 'FIFA player looking for teammates',
+  description: 'Hey there, I am a FIFA player and I am looking for some teammates to climb the ranks with. I mainly play Pro Clubs and Career Mode, but I am open to playing other modes as well. Hit me up if you are interested!'
+})
+
+const fifa3 = new Post({
+  author_id: user2._id,
+  game_id: game1._id,
+  comment_id: [comment_fifa4._id, comment_fifa5._id],
+  title: 'Looking for casual FIFA players',
+  description: 'Hey everyone, I am a casual FIFA player and I am looking for some other casual players to play with. I am not very good, but I love the game and want to improve. Let me know if you want to play together!'
+})
+
+const fifa4 = new Post({
+  author_id: user3._id,
+  game_id: game1._id,
+  comment_id: [comment_fifa6._id],
+  title: 'Serious FIFA player looking for teammates',
+  description: 'Hey there, I am a serious FIFA player and I am looking for teammates to climb the ranks with. I mainly play Ultimate Team and Career Mode. Let me know if you are interested!'
+})
+
+const fifa5 = new Post({
+  author_id: user5._id,
+  game_id: game1._id,
+  comment_id: [comment_fifa7._id, comment_fifa8._id],
+  title: 'Looking for a club to play FIFA with',
+  description: 'Hey everyone, I am looking for a club to play FIFA with. I mainly play Pro Clubs and I am looking for a team that is serious about the game and wants to compete in tournaments. Let me know if you are interested!'
+})
+
+const fifa6 = new Post({
+  author_id: user6._id,
+  game_id: game1._id,
+  comment_id: [comment_fifa9._id],
+  title: 'FIFA player looking for teammate',
+  description: 'Hey there, I am looking for a teammate to climb the ranks with in FIFA. I mainly play Ultimate Team and I am looking for someone who is serious about the game and wants to improve. Let me know if you are interested!'
+})
+
+const fifa7 = new Post({
+  author_id: user7._id,
+  game_id: game1._id,
+  comment_id: [comment_fifa10._id],
+  title: 'New player looking for friends to play FIFA with',
+  description: 'Hey everyone, I am new to FIFA and I am looking for some friends to play with. I am not very good, but I am willing to learn and improve. Let me know if you want to play together!'
+})
+
+posts.push(fifa1);
+posts.push(fifa2);
+posts.push(fifa3);
+posts.push(fifa4);
+posts.push(fifa5);
+posts.push(fifa6);
+posts.push(fifa7);
+
+
 
 
 
@@ -941,59 +1317,59 @@ posts.push(csgo7);
 //   );
 // }
 
-const reviews = [];
-const NUM_SEED_REVIEWS = 100;
+// const reviews = [];
+// const NUM_SEED_REVIEWS = 100;
 
-for (let i = 0; i < NUM_SEED_REVIEWS; i++) {
-  const user_id = getRandomUser().id;
-  let reviewer_id;
-  reviewer_id = getRandomUser().id;
-  while (reviewer_id === user_id) {
-    reviewer_id = getRandomUser().id;
-  };
-  let title = faker.lorem.sentence(5);
-  // Truncate the title to 50 characters if it's longer
-  title = title.length > 50 ? title.substring(0, 50) : title;
-  const rating = getRandomIntInclusive(1,5)
-  const description = faker.lorem
-    .sentences(getRandomArbitrary(1, 10))
-    .substring(0, 400); 
-    reviews.push(
-      new Review({
-        user_id: user_id,
-        reviewer_id: reviewer_id,
-        description: description,
-        title: title,
-        rating: rating
-      })
-    );
-}
+// for (let i = 0; i < NUM_SEED_REVIEWS; i++) {
+//   const user_id = getRandomUser().id;
+//   let reviewer_id;
+//   reviewer_id = getRandomUser().id;
+//   while (reviewer_id === user_id) {
+//     reviewer_id = getRandomUser().id;
+//   };
+//   let title = faker.lorem.sentence(5);
+//   // Truncate the title to 50 characters if it's longer
+//   title = title.length > 50 ? title.substring(0, 50) : title;
+//   const rating = getRandomIntInclusive(1,5)
+//   const description = faker.lorem
+//     .sentences(getRandomArbitrary(1, 10))
+//     .substring(0, 400); 
+//     reviews.push(
+//       new Review({
+//         user_id: user_id,
+//         reviewer_id: reviewer_id,
+//         description: description,
+//         title: title,
+//         rating: rating
+//       })
+//     );
+// }
 
 //demoUser reviews seeding
-for (let i = 0; i < 10; i++) {
-  const user_id = demoUser.id;
-  let reviewer_id;
-  reviewer_id = getRandomUser().id;
-  while (reviewer_id === user_id) {
-    reviewer_id = getRandomUser().id;
-  };
-  let title = faker.lorem.sentence(5);
-  // Truncate the title to 50 characters if it's longer
-  title = title.length > 50 ? title.substring(0, 50) : title;
-  const rating = getRandomIntInclusive(1, 5)
-  const description = faker.lorem
-    .sentences(getRandomArbitrary(1, 10))
-    .substring(0, 400);
-  reviews.push(
-    new Review({
-      user_id: user_id,
-      reviewer_id: reviewer_id,
-      description: description,
-      title: title,
-      rating: rating
-    })
-  );
-}
+// for (let i = 0; i < 10; i++) {
+//   const user_id = demoUser.id;
+//   let reviewer_id;
+//   reviewer_id = getRandomUser().id;
+//   while (reviewer_id === user_id) {
+//     reviewer_id = getRandomUser().id;
+//   };
+//   let title = faker.lorem.sentence(5);
+//   // Truncate the title to 50 characters if it's longer
+//   title = title.length > 50 ? title.substring(0, 50) : title;
+//   const rating = getRandomIntInclusive(1, 5)
+//   const description = faker.lorem
+//     .sentences(getRandomArbitrary(1, 10))
+//     .substring(0, 400);
+//   reviews.push(
+//     new Review({
+//       user_id: user_id,
+//       reviewer_id: reviewer_id,
+//       description: description,
+//       title: title,
+//       rating: rating
+//     })
+//   );
+// }
 
 mongoose
   .connect(db, { useNewUrlParser: true })
