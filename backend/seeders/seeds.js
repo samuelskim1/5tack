@@ -1102,7 +1102,7 @@ comments.push(comment_rocketleague10);
 
 const rocketleague1 = new Post({
   author_id: user4._id,
-  game_id: game1._id,
+  game_id: game7._id,
   comment_id: [comment_rocketleague1._id, comment_rocketleague2._id],
   title: 'Looking for people to play Rocket League with',
   description: 'Hey everyone, I am looking for some new people to play Rocket League with. I am a Diamond player and enjoy playing both 2v2 and 3v3. Let me know if you are interested in playing together!'
@@ -1110,7 +1110,7 @@ const rocketleague1 = new Post({
 
 const rocketleague2 = new Post({
   author_id: user1._id,
-  game_id: game1._id,
+  game_id: game7._id,
   comment_id: [comment_rocketleague3._id],
   title: 'Platinum player looking for teammates in Rocket League',
   description: 'Hey there, I am a Platinum player and I am looking for some teammates to climb the ranks with. I mainly play 2v2 and 3v3, but I am open to playing other modes as well. Hit me up if you are interested!'
@@ -1118,7 +1118,7 @@ const rocketleague2 = new Post({
 
 const rocketleague3 = new Post({
   author_id: user2._id,
-  game_id: game1._id,
+  game_id: game7._id,
   comment_id: [comment_rocketleague4._id, comment_rocketleague5._id],
   title: 'Looking for casual Rocket League players',
   description: 'Hey everyone, I am a casual Rocket League player and I am looking for some other casual players to play with. I am not very good, but I love the game and want to improve. Let me know if you want to play together!'
@@ -1126,7 +1126,7 @@ const rocketleague3 = new Post({
 
 const rocketleague4 = new Post({
   author_id: user3._id,
-  game_id: game1._id,
+  game_id: game7._id,
   comment_id: [comment_rocketleague6._id],
   title: 'Diamond player looking for teammates in Rocket League',
   description: 'Hey there, I am a Diamond player and I am looking for teammates to climb the ranks with. I am looking for someone who is serious about the game and wants to improve. Let me know if you are interested!'
@@ -1134,7 +1134,7 @@ const rocketleague4 = new Post({
 
 const rocketleague5 = new Post({
   author_id: user5._id,
-  game_id: game1._id,
+  game_id: game7._id,
   comment_id: [comment_rocketleague7._id, comment_rocketleague8._id],
   title: 'Looking for a team to play Rocket League with',
   description: 'Hey everyone, I am looking for a team to play Rocket League with. I am a Gold player and I enjoy playing both 2v2 and 3v3. I am looking for a team that is serious about the game and wants to compete in tournaments. Let me know if you are interested!'
@@ -1142,7 +1142,7 @@ const rocketleague5 = new Post({
 
 const rocketleague6 = new Post({
   author_id: user6._id,
-  game_id: game1._id,
+  game_id: game7._id,
   comment_id: [comment_rocketleague9._id],
   title: 'Player looking for teammate in Rocket League',
   description: 'Hey there, I am looking for a teammate to climb the ranks with in Rocket League. I am a Gold player and I mainly play 2v2. I am looking for someone who is serious about the game and wants to improve. Let me know if you are interested!'
@@ -1150,7 +1150,7 @@ const rocketleague6 = new Post({
 
 const rocketleague7 = new Post({
   author_id: user7._id,
-  game_id: game1._id,
+  game_id: game7._id,
   comment_id: [comment_rocketleague10._id],
   title: 'New player looking for friends to play Rocket League with',
   description: 'Hey everyone, I am new to Rocket League and I am looking for some friends to play with. I am not very good, but I am willing to learn and improve. Let me know if you want to play together!'
@@ -1227,7 +1227,7 @@ comments.push(comment_fifa10);
 
 const fifa1 = new Post({
   author_id: user4._id,
-  game_id: game1._id,
+  game_id: game8._id,
   comment_id: [comment_fifa1._id, comment_fifa2._id],
   title: 'Looking for people to play FIFA with',
   description: 'Hey everyone, I am looking for some new people to play FIFA with. I mainly play Ultimate Team and enjoy both online and offline modes. Let me know   if you are interested in playing together!'
@@ -1235,7 +1235,7 @@ const fifa1 = new Post({
 
 const fifa2 = new Post({
   author_id: user1._id,
-  game_id: game1._id,
+  game_id: game8._id,
   comment_id: [comment_fifa3._id],
   title: 'FIFA player looking for teammates',
   description: 'Hey there, I am a FIFA player and I am looking for some teammates to climb the ranks with. I mainly play Pro Clubs and Career Mode, but I am open to playing other modes as well. Hit me up if you are interested!'
@@ -1243,7 +1243,7 @@ const fifa2 = new Post({
 
 const fifa3 = new Post({
   author_id: user2._id,
-  game_id: game1._id,
+  game_id: game8._id,
   comment_id: [comment_fifa4._id, comment_fifa5._id],
   title: 'Looking for casual FIFA players',
   description: 'Hey everyone, I am a casual FIFA player and I am looking for some other casual players to play with. I am not very good, but I love the game and want to improve. Let me know if you want to play together!'
@@ -1251,7 +1251,7 @@ const fifa3 = new Post({
 
 const fifa4 = new Post({
   author_id: user3._id,
-  game_id: game1._id,
+  game_id: game8._id,
   comment_id: [comment_fifa6._id],
   title: 'Serious FIFA player looking for teammates',
   description: 'Hey there, I am a serious FIFA player and I am looking for teammates to climb the ranks with. I mainly play Ultimate Team and Career Mode. Let me know if you are interested!'
@@ -1259,7 +1259,7 @@ const fifa4 = new Post({
 
 const fifa5 = new Post({
   author_id: user5._id,
-  game_id: game1._id,
+  game_id: game8._id,
   comment_id: [comment_fifa7._id, comment_fifa8._id],
   title: 'Looking for a club to play FIFA with',
   description: 'Hey everyone, I am looking for a club to play FIFA with. I mainly play Pro Clubs and I am looking for a team that is serious about the game and wants to compete in tournaments. Let me know if you are interested!'
@@ -1267,7 +1267,7 @@ const fifa5 = new Post({
 
 const fifa6 = new Post({
   author_id: user6._id,
-  game_id: game1._id,
+  game_id: game8._id,
   comment_id: [comment_fifa9._id],
   title: 'FIFA player looking for teammate',
   description: 'Hey there, I am looking for a teammate to climb the ranks with in FIFA. I mainly play Ultimate Team and I am looking for someone who is serious about the game and wants to improve. Let me know if you are interested!'
@@ -1275,7 +1275,7 @@ const fifa6 = new Post({
 
 const fifa7 = new Post({
   author_id: user7._id,
-  game_id: game1._id,
+  game_id: game8._id,
   comment_id: [comment_fifa10._id],
   title: 'New player looking for friends to play FIFA with',
   description: 'Hey everyone, I am new to FIFA and I am looking for some friends to play with. I am not very good, but I am willing to learn and improve. Let me know if you want to play together!'
@@ -1352,7 +1352,7 @@ comments.push(comment_smash10);
 
 const smash1 = new Post({
   author_id: user4._id,
-  game_id: game1._id,
+  game_id: game9._id,
   comment_id: [comment_smash1._id, comment_smash2._id],
   title: 'Looking for people to play Super Smash Bros with',
   description: 'Hey everyone, I am looking for some new people to play Super Smash Bros with. I main Pikachu and enjoy playing both 1v1 and 2v2. Let me know if you are interested in playing together!'
@@ -1360,7 +1360,7 @@ const smash1 = new Post({
 
 const smash2 = new Post({
   author_id: user1._id,
-  game_id: game1._id,
+  game_id: game9._id,
   comment_id: [comment_smash3._id],
   title: 'Player looking for teammates in Super Smash Bros',
   description: 'Hey there, I main Bowser and I am looking for some teammates to play with. I mainly play 1v1 and 2v2, but I am open to playing other modes as well. Hit me up if you are interested!'
@@ -1368,7 +1368,7 @@ const smash2 = new Post({
 
 const smash3 = new Post({
   author_id: user2._id,
-  game_id: game1._id,
+  game_id: game9._id,
   comment_id: [comment_smash4._id, comment_smash5._id],
   title: 'Looking for casual Super Smash Bros players',
   description: 'Hey everyone, I am a casual Super Smash Bros player and I am looking for some other casual players to play with. I am not very good, but I love the game and want to improve. Let me know if you want to play together!'
@@ -1376,7 +1376,7 @@ const smash3 = new Post({
 
 const smash4 = new Post({
   author_id: user3._id,
-  game_id: game1._id,
+  game_id: game9._id,
   comment_id: [comment_smash6._id],
   title: 'Player looking for teammates in Super Smash Bros',
   description: 'Hey there, I main Link and I am looking for teammates to play with. I am looking for someone who is serious about the game and wants to improve. Let me know if you are interested!'
@@ -1384,7 +1384,7 @@ const smash4 = new Post({
 
 const smash5 = new Post({
   author_id: user5._id,
-  game_id: game1._id,
+  game_id: game9._id,
   comment_id: [comment_smash7._id, comment_smash8._id],
   title: 'Looking for a team to play Super Smash Bros with',
   description: 'Hey everyone, I am looking for a team to play Super Smash Bros with. I main Donkey Kong and I enjoy playing both 1v1 and 2v2. I am looking for a team that is serious about the game and wants to compete in tournaments. Let me know if you are interested!'
@@ -1392,7 +1392,7 @@ const smash5 = new Post({
 
 const smash6 = new Post({
   author_id: user6._id,
-  game_id: game1._id,
+  game_id: game9._id,
   comment_id: [comment_smash9._id],
   title: 'Player looking for teammate in Super Smash Bros',
   description: 'Hey there, I am looking for a teammate to play Super Smash Bros with. I main Kirby and I mainly play 1v1. I am looking for someone who is serious about the game and wants to improve. Let me know if you are interested!'
@@ -1400,7 +1400,7 @@ const smash6 = new Post({
 
 const smash7 = new Post({
   author_id: user7._id,
-  game_id: game1._id,
+  game_id: game9._id,
   comment_id: [comment_smash10._id],
   title: 'New player looking for friends to play Super Smash Bros with',
   description: 'Hey everyone, I am new to Super Smash Bros and I am looking for some friends to play with. I am not very good, but I am willing to learn and improve. Let me know if you want to play together!'
@@ -1477,7 +1477,7 @@ comments.push(comment_lostark10);
 
 const lostark1 = new Post({
   author_id: user4._id,
-  game_id: game1._id,
+  game_id: game10._id,
   comment_id: [comment_lostark1._id, comment_lostark2._id],
   title: 'Looking for people to play Lost Ark with',
   description: 'Hey everyone, I am looking for some new people to play Lost Ark with.'
@@ -1485,7 +1485,7 @@ const lostark1 = new Post({
 
 const lostark2 = new Post({
   author_id: user1._id,
-  game_id: game1._id,
+  game_id: game10._id,
   comment_id: [comment_lostark3._id],
   title: 'Player looking for teammates in Lost Ark',
   description: 'Hey there, I am a Demonic player and I am looking for some teammates to play with. I play both PvE and PvP content.'
@@ -1493,7 +1493,7 @@ const lostark2 = new Post({
 
 const lostark3 = new Post({
   author_id: user2._id,
-  game_id: game1._id,
+  game_id: game10._id,
   comment_id: [comment_lostark4._id, comment_lostark5._id],
   title: 'Looking for casual Lost Ark players',
   description: 'Hey everyone, I am a casual Lost Ark and I am looking for some other casual players to play with. I am not very good, but I love the game and want to improve. Let me know if you want to play together!'
@@ -1501,7 +1501,7 @@ const lostark3 = new Post({
 
 const lostark4 = new Post({
   author_id: user3._id,
-  game_id: game1._id,
+  game_id: game10._id,
   comment_id: [comment_lostark6._id],
   title: 'Player looking for teammates in Lost Ark',
   description: 'Hey there, I main Berserker Class and I am looking for teammates to play with. I am looking for someone who is serious about the game and wants to improve. Let me know if you are interested!'
@@ -1509,7 +1509,7 @@ const lostark4 = new Post({
 
 const lostark5 = new Post({
   author_id: user5._id,
-  game_id: game1._id,
+  game_id: game10._id,
   comment_id: [comment_lostark7._id, comment_lostark8._id],
   title: 'Looking for a team to play Lost Ark with',
   description: 'Hey everyone, I am looking for a team to play Lost Ark with. I am looking for a team that is serious about the game and wants to compete in tournaments. Let me know if you are interested!'
@@ -1517,7 +1517,7 @@ const lostark5 = new Post({
 
 const lostark6 = new Post({
   author_id: user6._id,
-  game_id: game1._id,
+  game_id: game10._id,
   comment_id: [comment_lostark9._id],
   title: 'Player looking for teammate in Lost Ark',
   description: 'Hey there, I am looking for a teammate to play Lost Ark with. I am looking for someone who is serious about the game and wants to improve. Let me know if you are interested!'
@@ -1525,7 +1525,7 @@ const lostark6 = new Post({
 
 const lostark7 = new Post({
   author_id: user7._id,
-  game_id: game1._id,
+  game_id: game10._id,
   comment_id: [comment_lostark10._id],
   title: 'New player looking for friends to play Lost Ark with',
   description: 'Hey everyone, I am new to Lost Ark and I am looking for some friends to play with. I am not very good, but I am willing to learn and improve. Let me know if you want to play together!'
@@ -1602,7 +1602,7 @@ comments.push(comment_nba10);
 
 const nba1 = new Post({
   author_id: user1._id,
-  game_id: game2._id,
+  game_id: game11._id,
   comment_id: [comment_nba1._id, comment_nba2._id],
   title: 'Looking for people to play NBA 2K23 with',
   description: 'Hey everyone, I am looking for some new people to play NBA 2K23 with. I play as a shooting guard and enjoy playing both online and offline modes. Let me know if you are interested in playing together!'
@@ -1610,7 +1610,7 @@ const nba1 = new Post({
   
 const nba2 = new Post({
   author_id: user2._id,
-  game_id: game2._id,
+  game_id: game11._id,
   comment_id: [comment_nba3._id],
   title: 'Player looking for teammates in NBA 2K23',
   description: 'Hey there, I am a point guard and I am looking for some teammates to play with. I mainly play online and I am interested in forming a team for competitive play. Let me know if you are interested!'
@@ -1618,7 +1618,7 @@ const nba2 = new Post({
   
 const nba3 = new Post({
   author_id: user3._id,
-  game_id: game2._id,
+  game_id: game11._id,
   comment_id: [comment_nba4._id, comment_nba5._id],
   title: 'Looking for casual NBA 2K23 players',
   description: 'Hey everyone, I am a casual NBA 2K23 player and I am looking for some other casual players to play with. I am not very good, but I love the game and want to improve. Let me know if you want to play together!'
@@ -1626,7 +1626,7 @@ const nba3 = new Post({
   
 const nba4 = new Post({
   author_id: user4._id,
-  game_id: game2._id,
+  game_id: game11._id,
   comment_id: [comment_nba6._id],
   title: 'Player looking for teammates in NBA 2K23',
   description: 'Hey there, I play as a small forward and I am looking for teammates to play with. I am looking for someone who is serious about the game and wants to improve. Let me know if you are interested!'
@@ -1634,7 +1634,7 @@ const nba4 = new Post({
   
 const nba5 = new Post({
   author_id: user5._id,
-  game_id: game2._id,
+  game_id: game11._id,
   comment_id: [comment_nba7._id, comment_nba8._id],
   title: 'Looking for a team to play NBA 2K23 with',
   description: 'Hey everyone, I am looking for a team to play NBA 2K23 with. I am looking for a team that is serious about the game and wants to compete in tournaments. I play as a power forward and enjoy playing both online and offline modes. Let me know if you are interested!'
@@ -1642,7 +1642,7 @@ const nba5 = new Post({
   
 const nba6 = new Post({
   author_id: user6._id,
-  game_id: game2._id,
+  game_id: game11._id,
   comment_id: [comment_nba9._id],
   title: 'Player looking for teammate in NBA 2K23',
   description: 'Hey there, I am looking for a teammate to play NBA 2K23 with. I play as a center and mainly play online modes. I am looking for someone who is serious about the game and wants to improve. Let me know if you are interested!'
@@ -1718,7 +1718,7 @@ comments.push(comment_stardew10);
 
 const stardewvalley1 = new Post({
   author_id: user1._id,
-  game_id: game2._id,
+  game_id: game12._id,
   comment_id: [comment_stardew1._id, comment_stardew2._id],
   title: 'Looking for players to start a new farm in Stardew Valley',
   description: 'Hello everyone, I am looking for a few players who are interested in starting a new farm in Stardew Valley. We can coordinate and work together to make it the best farm ever!'
@@ -1726,7 +1726,7 @@ const stardewvalley1 = new Post({
   
 const stardewvalley2 = new Post({
   author_id: user3._id,
-  game_id: game2._id,
+  game_id: game12._id,
   comment_id: [comment_stardew3._id],
   title: 'Looking for a player to join my Stardew Valley farm',
   description: 'Hey there, I am looking for a player to join my existing farm in Stardew Valley. We can work together to improve the farm and have fun!'
@@ -1734,7 +1734,7 @@ const stardewvalley2 = new Post({
   
 const stardewvalley3 = new Post({
   author_id: user5._id,
-  game_id: game2._id,
+  game_id: game12._id,
   comment_id: [comment_stardew4._id, comment_stardew5._id],
   title: 'Casual Stardew Valley players wanted',
   description: 'Hi there, I am a casual player of Stardew Valley and I am looking for other casual players to play with. We can hang out, farm, and do whatever we feel like doing in the game. Let me know if you want to join me!'
@@ -1742,7 +1742,7 @@ const stardewvalley3 = new Post({
   
 const stardewvalley4 = new Post({
   author_id: user4._id,
-  game_id: game2._id,
+  game_id: game12._id,
   comment_id: [comment_stardew6._id],
   title: 'Looking for someone to play Stardew Valley with',
   description: 'Hello, I am looking for someone to play Stardew Valley with. I am new to the game and want to learn more about it. I am interested in both co-op and multiplayer modes. Let me know if you are interested!'
@@ -1750,7 +1750,7 @@ const stardewvalley4 = new Post({
   
 const stardewvalley5 = new Post({
   author_id: user7._id,
-  game_id: game2._id,
+  game_id: game12._id,
   comment_id: [comment_stardew7._id, comment_stardew8._id],
   title: 'Experienced Stardew Valley players wanted',
   description: 'Hey there, I am an experienced player of Stardew Valley and I am looking for other experienced players to play with. I am interested in optimizing our farm, exploring new areas, and completing all the challenges the game has to offer. Let me know if you want to join me!'
@@ -1758,7 +1758,7 @@ const stardewvalley5 = new Post({
   
 const stardewvalley6 = new Post({
   author_id: user6._id,
-  game_id: game2._id,
+  game_id: game12._id,
   comment_id: [comment_stardew9._id],
   title: 'Looking for a player to do multiplayer challenges in Stardew Valley',
   description: 'Hey there, I am looking for a player to do multiplayer challenges with in Stardew Valley. I am interested in exploring new areas and trying out new farm layouts. Let me know if you are interested!'
@@ -1834,7 +1834,7 @@ comments.push(comment_starcraft10);
 
 const starcraft1 = new Post({
   author_id: user1._id,
-  game_id: game2._id,
+  game_id: game13._id,
   comment_id: [comment_starcraft1._id, comment_starcraft2._id],
   title: 'Looking for players to team up in StarCraft 2',
   description: 'Hello everyone, I am looking for a few players who are interested in teaming up for some StarCraft 2 matches. We can practice strategies and work together to climb the ladder!'
@@ -1842,7 +1842,7 @@ const starcraft1 = new Post({
 
 const starcraft2 = new Post({
   author_id: user3._id,
-  game_id: game2._id,
+  game_id: game13._id,
   comment_id: [comment_starcraft3._id],
   title: 'Looking for a player to practice StarCraft 2 with',
   description: 'Hey there, I am looking for a player to practice with in StarCraft 2. We can work on our build orders, unit control, and overall gameplay. Let me know if you are interested!'
@@ -1850,7 +1850,7 @@ const starcraft2 = new Post({
 
 const starcraft3 = new Post({
   author_id: user5._id,
-  game_id: game2._id,
+  game_id: game13._id,
   comment_id: [comment_starcraft4._id, comment_starcraft5._id],
   title: 'Casual StarCraft 2 players wanted',
   description: 'Hi there, I am a casual player of StarCraft 2 and I am looking for other casual players to play with. We can play team games, co-op missions, or just mess around with fun strategies. Let me know if you want to join me!'
@@ -1858,7 +1858,7 @@ const starcraft3 = new Post({
 
 const starcraft4 = new Post({
   author_id: user4._id,
-  game_id: game2._id,
+  game_id: game13._id,
   comment_id: [comment_starcraft6._id],
   title: 'Looking for someone to play StarCraft 2 with',
   description: 'Hello, I am looking for someone to play StarCraft 2 with. I am new to the game and want to learn more about it. I am interested in both co-op and multiplayer modes. Let me know if you are interested!'
@@ -1866,7 +1866,7 @@ const starcraft4 = new Post({
 
 const starcraft5 = new Post({
   author_id: user7._id,
-  game_id: game2._id,
+  game_id: game13._id,
   comment_id: [comment_starcraft7._id, comment_starcraft8._id],
   title: 'Experienced StarCraft 2 players wanted',
   description: 'Hey there, I am an experienced player of StarCraft 2 and I am looking for other experienced players to play with. I am interested in improving my skills, discussing strategies, and competing in tournaments. Let me know if you want to join me!'
@@ -1874,7 +1874,7 @@ const starcraft5 = new Post({
 
 const starcraft6 = new Post({
   author_id: user6._id,
-  game_id: game2._id,
+  game_id: game13._id,
   comment_id: [comment_starcraft9._id],
   title: 'Looking for a player to do StarCraft 2 co-op missions',
   description: 'Hey there, I am looking for a player to do co-op missions with in StarCraft 2. I am interested in trying different commanders and mastering each mission. Let me know if you are interested!'
@@ -1950,7 +1950,7 @@ comments.push(comment_terraria10);
 
 const terraria1 = new Post({
   author_id: user1._id,
-  game_id: game2._id,
+  game_id: game14._id,
   comment_id: [comment_terraria1._id, comment_terraria2._id],
   title: 'Looking for players to start a new Terraria adventure',
   description: 'Hello everyone, I am looking for a few players who are interested in starting a new Terraria adventure. We can explore, build, and work together to make the most amazing world!'
@@ -1958,7 +1958,7 @@ const terraria1 = new Post({
 
 const terraria2 = new Post({
   author_id: user3._id,
-  game_id: game2._id,
+  game_id: game14._id,
   comment_id: [comment_terraria3._id],
   title: 'Looking for a player to join my Terraria world',
   description: 'Hey there, I am looking for a player to join my existing Terraria world. We can work together to improve our builds and have fun!'
@@ -1966,7 +1966,7 @@ const terraria2 = new Post({
 
 const terraria3 = new Post({
   author_id: user5._id,
-  game_id: game2._id,
+  game_id: game14._id,
   comment_id: [comment_terraria4._id, comment_terraria5._id],
   title: 'Casual Terraria players wanted',
   description: 'Hi there, I am a casual player of Terraria and I am looking for other casual players to play with. We can hang out, explore, and do whatever we feel like doing in the game. Let me know if you want to join me!'
@@ -1974,7 +1974,7 @@ const terraria3 = new Post({
 
 const terraria4 = new Post({
   author_id: user4._id,
-  game_id: game2._id,
+  game_id: game14._id,
   comment_id: [comment_terraria6._id],
   title: 'Looking for someone to play Terraria with',
   description: 'Hello, I am looking for someone to play Terraria with. I am new to the game and want to learn more about it. I am interested in both co-op and multiplayer modes. Let me know if you are interested!'
@@ -1982,7 +1982,7 @@ const terraria4 = new Post({
 
 const terraria5 = new Post({
   author_id: user7._id,
-  game_id: game2._id,
+  game_id: game14._id,
   comment_id: [comment_terraria7._id, comment_terraria8._id],
   title: 'Experienced Terraria players wanted',
   description: 'Hey there, I am an experienced player of Terraria and I am looking for other experienced players to play with. I am interested in optimizing our builds, exploring new areas, and completing all the challenges the game has to offer. Let me know if you want to join me!'
@@ -1990,7 +1990,7 @@ const terraria5 = new Post({
 
 const terraria6 = new Post({
   author_id: user6._id,
-  game_id: game2._id,
+  game_id: game14._id,
   comment_id: [comment_terraria9._id],
   title: 'Looking for a player to do Terraria expert mode',
   description: 'Hey there, I am looking for a player to do expert mode with in Terraria. I am interested in tackling difficult bosses and finding the best gear. Let me know if you are interested!'
@@ -2066,7 +2066,7 @@ comments.push(comment_dota10);
 
 const dota1 = new Post({
   author_id: user1._id,
-  game_id: game2._id,
+  game_id: game15._id,
   comment_id: [comment_dota1._id, comment_dota2._id],
   title: 'Looking for players to form a Dota 2 team',
   description: 'Hello everyone, I am looking for a few players who are interested in forming a Dota 2 team. We can practice together, improve our skills, and climb the MMR ladder as a team!'
@@ -2074,7 +2074,7 @@ const dota1 = new Post({
 
 const dota2 = new Post({
   author_id: user3._id,
-  game_id: game2._id,
+  game_id: game15._id,
   comment_id: [comment_dota3._id],
   title: 'Looking for a support player to join my Dota 2 stack',
   description: 'Hey there, I am looking for a support player to join my existing Dota 2 stack. We can work together to coordinate our plays and climb the ranks!'
@@ -2082,7 +2082,7 @@ const dota2 = new Post({
 
 const dota3 = new Post({
   author_id: user5._id,
-  game_id: game2._id,
+  game_id: game15._id,
   comment_id: [comment_dota4._id, comment_dota5._id],
   title: 'Casual Dota 2 players wanted',
   description: 'Hi there, I am a casual player of Dota 2 and I am looking for other casual players to play with. We can chill, try different heroes, and have fun without stressing too much about winning or losing. Let me know if you want to join me!'
@@ -2090,7 +2090,7 @@ const dota3 = new Post({
 
 const dota4 = new Post({
   author_id: user4._id,
-  game_id: game2._id,
+  game_id: game15._id,
   comment_id: [comment_dota6._id],
   title: 'Looking for someone to play Dota 2 with',
   description: 'Hello, I am looking for someone to play Dota 2 with. I am new to the game and want to learn more about it. I am interested in both casual games and ranked matches. Let me know if you are interested!'
@@ -2098,7 +2098,7 @@ const dota4 = new Post({
 
 const dota5 = new Post({
   author_id: user7._id,
-  game_id: game2._id,
+  game_id: game15._id,
   comment_id: [comment_dota7._id, comment_dota8._id],
   title: 'Experienced Dota 2 players wanted',
   description: 'Hey there, I am an experienced player of Dota 2 and I am looking for other experienced players to play with. I am interested in improving our teamwork, mastering advanced strategies, and reaching higher MMR brackets. Let me know if you want to join me!'
@@ -2106,7 +2106,7 @@ const dota5 = new Post({
 
 const dota6 = new Post({
   author_id: user6._id,
-  game_id: game2._id,
+  game_id: game15._id,
   comment_id: [comment_dota9._id],
   title: 'Looking for a player to practice Dota 2 mechanics',
   description: 'Hey there, I am looking for a player to practice Dota 2 mechanics with. I am interested in learning new heroes, improving last hitting, and refining map awareness. Let me know if you are interested!'
@@ -2182,7 +2182,7 @@ comments.push(comment_overwatch10);
 
 const overwatch1 = new Post({
   author_id: user1._id,
-  game_id: game2._id,
+  game_id: game16._id,
   comment_id: [comment_overwatch1._id, comment_overwatch2._id],
   title: 'Looking for players to form an Overwatch team',
   description: 'Hello everyone, I am looking for a few players who are interested in forming an Overwatch team. We can practice together, improve our skills, and climb the competitive ladder as a team!'
@@ -2190,7 +2190,7 @@ const overwatch1 = new Post({
 
 const overwatch2 = new Post({
   author_id: user3._id,
-  game_id: game2._id,
+  game_id: game16._id,
   comment_id: [comment_overwatch3._id],
   title: 'Looking for a support player to join my Overwatch group',
   description: 'Hey there, I am looking for a support player to join my existing Overwatch group. We can work together to coordinate our plays and climb the ranks!'
@@ -2198,7 +2198,7 @@ const overwatch2 = new Post({
 
 const overwatch3 = new Post({
   author_id: user5._id,
-  game_id: game2._id,
+  game_id: game16._id,
   comment_id: [comment_overwatch4._id, comment_overwatch5._id],
   title: 'Casual Overwatch players wanted',
   description: 'Hi there, I am a casual player of Overwatch and I am looking for other casual players to play with. We can chill, try different heroes, and have fun without stressing too much about winning or losing. Let me know if you want to join me!'
@@ -2206,7 +2206,7 @@ const overwatch3 = new Post({
 
 const overwatch4 = new Post({
   author_id: user4._id,
-  game_id: game2._id,
+  game_id: game16._id,
   comment_id: [comment_overwatch6._id],
   title: 'Looking for someone to play Overwatch with',
   description: 'Hello, I am looking for someone to play Overwatch with. I am new to the game and want to learn more about it. I am interested in both casual games and ranked matches. Let me know if you are interested!'
@@ -2214,7 +2214,7 @@ const overwatch4 = new Post({
 
 const overwatch5 = new Post({
   author_id: user7._id,
-  game_id: game2._id,
+  game_id: game16._id,
   comment_id: [comment_overwatch7._id, comment_overwatch8._id],
   title: 'Experienced Overwatch players wanted',
   description: 'Hey there, I am an experienced player of Overwatch and I am looking for other experienced players to play with. I am interested in improving our teamwork, mastering advanced strategies, and reaching higher ranks. Let me know if you want to join me!'
@@ -2222,7 +2222,7 @@ const overwatch5 = new Post({
 
 const overwatch6 = new Post({
   author_id: user6._id,
-  game_id: game2._id,
+  game_id: game16._id,
   comment_id: [comment_overwatch9._id],
   title: 'Looking for a player to practice Overwatch mechanics',
   description: 'Hey there, I am looking for a player to practice Overwatch mechanics with. I am interested in learning new heroes, improving positioning, and refining map awareness. Let me know if you are interested!'
@@ -2298,7 +2298,7 @@ comments.push(comment_gta5_10);
 
 const gta5_1 = new Post({
   author_id: user1._id,
-  game_id: game2._id,
+  game_id: game17._id,
   comment_id: [comment_gta5_1._id, comment_gta5_2._id],
   title: 'Looking for players to form a GTA V crew',
   description: 'Hello everyone, I am looking for a few players who are interested in forming a GTA V crew. We can complete heists, missions, and various activities together!'
@@ -2306,7 +2306,7 @@ const gta5_1 = new Post({
 
 const gta5_2 = new Post({
   author_id: user3._id,
-  game_id: game2._id,
+  game_id: game17._id,
   comment_id: [comment_gta5_3._id],
   title: 'Looking for a player to join my GTA V group',
   description: 'Hey there, I am looking for a player to join my existing GTA V group. We can work together to have fun, participate in races, and explore the vast world of Los Santos!'
@@ -2314,7 +2314,7 @@ const gta5_2 = new Post({
 
 const gta5_3 = new Post({
   author_id: user5._id,
-  game_id: game2._id,
+  game_id: game17._id,
   comment_id: [comment_gta5_4._id, comment_gta5_5._id],
   title: 'Casual GTA V players wanted',
   description: 'Hi there, I am a casual player of GTA V and I am looking for other casual players to play with. We can chill, explore, and just have fun in the world of Los Santos. Let me know if you want to join me!'
@@ -2322,7 +2322,7 @@ const gta5_3 = new Post({
 
 const gta5_4 = new Post({
   author_id: user4._id,
-  game_id: game2._id,
+  game_id: game17._id,
   comment_id: [comment_gta5_6._id],
   title: 'Looking for someone to play GTA V with',
   description: 'Hello, I am looking for someone to play GTA V with. I am new to the game and want to learn more about it. I am interested in both co-op and competitive gameplay. Let me know if you are interested!'
@@ -2330,7 +2330,7 @@ const gta5_4 = new Post({
 
 const gta5_5 = new Post({
   author_id: user7._id,
-  game_id: game2._id,
+  game_id: game17._id,
   comment_id: [comment_gta5_7._id, comment_gta5_8._id],
   title: 'Experienced GTA V players wanted',
   description: 'Hey there, I am an experienced player of GTA V and I am looking for other experienced players to play with. I am interested in completing heists, dominating races, and conquering Los Santos. Let me know if you want to join me!'
@@ -2338,7 +2338,7 @@ const gta5_5 = new Post({
 
 const gta5_6 = new Post({
   author_id: user6._id,
-  game_id: game2._id,
+  game_id: game17._id,
   comment_id: [comment_gta5_9._id],
   title: 'Looking for a player to practice GTA V mechanics',
   description: 'Hey there, I am looking for a player to practice GTA V mechanics with. I am interested in learning new strategies, improving my skills, and becoming a better player. Let me know if you are interested!'
@@ -2414,7 +2414,7 @@ comments.push(comment_maplestory_10);
 
 const maplestory_1 = new Post({
   author_id: user1._id,
-  game_id: game2._id,
+  game_id: game18._id,
   comment_id: [comment_maplestory_1._id, comment_maplestory_2._id],
   title: 'Looking for players to form a MapleStory party',
   description: 'Hello everyone, I am looking for a few players who are interested in forming a MapleStory party. We can train, level up, and explore the vast world of Maple together!'
@@ -2422,7 +2422,7 @@ const maplestory_1 = new Post({
 
 const maplestory_2 = new Post({
   author_id: user3._id,
-  game_id: game2._id,
+  game_id: game18._id,
   comment_id: [comment_maplestory_3._id],
   title: 'Looking for a player to join my MapleStory group',
   description: 'Hey there, I am looking for a player to join my existing MapleStory group. We can work together to tackle dungeons, boss fights, and have fun!'
@@ -2430,7 +2430,7 @@ const maplestory_2 = new Post({
 
 const maplestory_3 = new Post({
   author_id: user5._id,
-  game_id: game2._id,
+  game_id: game18._id,
   comment_id: [comment_maplestory_4._id, comment_maplestory_5._id],
   title: 'Casual MapleStory players wanted',
   description: 'Hi there, I am a casual player of MapleStory and I am looking for other casual players to play with. We can hang out, explore, and just have fun in the game. Let me know if you want to join me!'
@@ -2438,7 +2438,7 @@ const maplestory_3 = new Post({
 
 const maplestory_4 = new Post({
   author_id: user4._id,
-  game_id: game2._id,
+  game_id: game18._id,
   comment_id: [comment_maplestory_6._id],
   title: 'Looking for someone to play MapleStory with',
   description: 'Hello, I am looking for someone to play MapleStory with. I am new to the game and want to learn more about it. I am interested in both PvE and PvP modes. Let me know if you are interested!'
@@ -2446,7 +2446,7 @@ const maplestory_4 = new Post({
 
 const maplestory_5 = new Post({
   author_id: user7._id,
-  game_id: game2._id,
+  game_id: game18._id,
   comment_id: [comment_maplestory_7._id, comment_maplestory_8._id],
   title: 'Experienced MapleStory players wanted',
   description: 'Hey there, I am an experienced player of MapleStory and I am looking for other experienced players to play with. I am interested in optimizing our characters, exploring new areas, and completing all the challenges the game has to offer. Let me know if you want to join me!'
@@ -2454,7 +2454,7 @@ const maplestory_5 = new Post({
 
 const maplestory_6 = new Post({
   author_id: user6._id,
-  game_id: game2._id,
+  game_id: game18._id,
   comment_id: [comment_maplestory_9._id],
   title: 'Looking for a player to do multiplayer challenges in MapleStory',
   description: 'Hey there, I am looking for a player to do multiplayer challenges with in MapleStory. I am interested in exploring new areas and trying out different character builds. Let me know if you are interested!'
