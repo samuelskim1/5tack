@@ -80,7 +80,7 @@ const EditUserInfoForm = ({ setEdit }) => {
                 break;
         }
         // const regexp = ;
-        if (currUsername.length >= 3 && currUsername.length <= 30 && currEmail.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) && currEmail.length > 0 && hasPhoto) {
+        if (currUsername.length >= 3 && currUsername.length <= 30 && currEmail.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) && currEmail.length > 0) {
             setCanSubmit(true);
         } else {
             setCanSubmit(false);

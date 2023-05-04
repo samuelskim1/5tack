@@ -14,9 +14,6 @@ const ReviewIndexItem = ({ review }) => {
                 <div className='review-rating'>
                     {review?.rating}
                     <i className="fa-solid fa-star" style={{color: `$#e4dfd5`}}></i>
-                    {
-                        console.log("is author?", user._id, review, isAuthor)
-                    }
                 </div>
                 { isAuthor &&
                     <ReviewButtons review={review} />
