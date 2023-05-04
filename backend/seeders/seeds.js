@@ -3368,9 +3368,17 @@ const post4 = new Post({
   description: "My friends are sleeping."
 })
 
+const comment14 = new Comment ({
+  author_id: user10._id,
+  content: 'That sounds like a really interesting lecture! Building in Minecraft can be a lot of fun, and I\'m sure there are plenty of players out there who would love to learn how to make infinite water. What other building tips and tricks will you be sharing during the lecture?'
+})
+
+comments.push(comment14);
+
 const post5 = new Post({
   author_id: demoUser._id,
   game_id: game6._id,
+  comment_id: [comment14._id],
   title: "The Importance of Building in Minecraft",
   description: "Join my lecture of building in Minecraft. I will teach you how to make infinite water!!!"
 })
