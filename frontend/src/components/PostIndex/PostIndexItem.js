@@ -10,7 +10,7 @@ import PostButtons from './PostButtons.js';
 const PostIndexItem = ({ post }) => {
   const dispatch = useDispatch();
   // const postComments = useSelector(state => state.posts[post._id].comment_id);
-  const user = useSelector(state => state.session.user)
+  const user = useSelector(state => state.session.user);
   const isAuthor = post?.author_id?._id === user?._id
 
   // useEffect(() => {
