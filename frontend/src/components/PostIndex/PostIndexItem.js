@@ -11,7 +11,7 @@ const PostIndexItem = ({ post }) => {
   const dispatch = useDispatch();
   // const postComments = useSelector(state => state.posts[post._id].comment_id);
   const user = useSelector(state => state.session.user)
-  const isAuthor = post?.author_id._id === user._id
+  const isAuthor = post?.author_id?._id === user?._id
 
   // useEffect(() => {
   //   dispatch(fetchAllComments());
@@ -27,12 +27,12 @@ const PostIndexItem = ({ post }) => {
       </div>
       <div className='author-block'>
         <div className='author-info'>
-          <Link to={`/${post?.author_id.username}`}>
+          <Link to={`/${post?.author_id?.username}`}>
             <Avatar user={post?.author_id} />
           </Link>
-          <Link to={`/${post?.author_id.username}`}>
+          <Link to={`/${post?.author_id?.username}`}>
             <div className='author-username'>
-              {post?.author_id.username}
+              {post?.author_id?.username}
             </div>
           </Link>
         </div>
