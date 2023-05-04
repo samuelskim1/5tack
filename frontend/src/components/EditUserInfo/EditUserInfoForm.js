@@ -61,6 +61,7 @@ const EditUserInfoForm = ({ setEdit }) => {
         let currUsername = showUsername;
         let currEmail = email;
         let currDescription = description;
+        let hasPhoto;
         switch (field) {
             case 'username':
                 currUsername = e.target.value;
@@ -74,9 +75,12 @@ const EditUserInfoForm = ({ setEdit }) => {
                 currDescription = e.target.value;
                 setDescription(currDescription);
                 break;
+            default:
+                hasPhoto = field;
+                break;
         }
         // const regexp = ;
-        if (currUsername.length >= 3 && currUsername.length <= 30 && currEmail.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) && currEmail.length > 0 ) {
+        if (currUsername.length >= 3 && currUsername.length <= 30 && currEmail.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) && currEmail.length > 0 && hasPhoto) {
             setCanSubmit(true);
         } else {
             setCanSubmit(false);
@@ -132,12 +136,12 @@ const EditUserInfoForm = ({ setEdit }) => {
                 </label>
 
                 <div 
-                    onClick={() => uploadBtn.current.click()}
+                    onClick={() => {uploadBtn.current.click()}}
                 >
                     <input
                         ref={uploadBtn}
                         type="file"
-                        onChange={handlePhoto}
+                        onChange={(e) => {handlePhoto(e); handleChange(e, e.target);}}
                         style={{display: 'none'}}
                     />
                     <p>Add Profile Image</p>
