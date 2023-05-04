@@ -3254,22 +3254,22 @@ reviews.push(review86);
 reviews.push(review87);
 
 const comment1 = new Comment ({
-  author_id: user10._id,
+  author_id: user1._id,
   content: 'Hey, I am down to play GTA V with you! I can also teach you a view things as I played for a long time.'
 })
 
 const comment2 = new Comment ({
-  author_id: user10._id,
+  author_id: user5._id,
   content: 'I\'m sure you\'ll find someone to practice GTA V mechanics with soon! Have you tried joining any GTA V communities or forums? You might be able to find someone who\'s interested in practicing with you there.'
 })
 
 const comment3 = new Comment ({
-  author_id: user10._id,
+  author_id: user8._id,
   content: 'I\'ve been playing GTA V for a while too, and I\'m always up for playing with new people. Let me know if you\'re interested, and we can set up a time to play together!'
 })
 
 const comment4 = new Comment ({
-  author_id: user10._id,
+  author_id: user3._id,
   content: 'It\'s great that you\'re looking to improve your skills in GTA V. Have you tried watching any gameplay videos or reading guides online? They might give you some ideas for new strategies to try out. Good luck!'
 })
 
@@ -3288,17 +3288,17 @@ const post1 = new Post({
 })
 
 const comment5 = new Comment ({
-  author_id: user10._id,
+  author_id: user2._id,
   content: 'While some of these tips may seem a bit simplistic, I think the sentiment is good. Starting out as a new gamer can be intimidating, so any advice to make the process easier is appreciated. Do you have any other tips for new gamers that you\'d like to share?'
 })
 
 const comment6 = new Comment ({
-  author_id: user10._id,
+  author_id: user6._id,
   content: 'While I don\'t necessarily agree with the "pay to win" mentality, I do think that it\'s important to remember that there\'s no shame in starting out as a beginner. Gaming is supposed to be fun, so don\'t let anyone discourage you from playing just because you\'re not an expert yet!'
 })
 
 const comment7 = new Comment ({
-  author_id: user10._id,
+  author_id: user9._id,
   content: 'I think the best advice for new gamers is to just have fun! Don\'t worry too much about winning or losing, or about what other people think of your skills. Just enjoy the game and the experience of playing it. And if you do want to improve your skills, practice and patience are key!'
 })
 
@@ -3308,14 +3308,14 @@ comments.push(comment7);
 
 const post2 = new Post({
   author_id: demoUser._id,
-  game_id: game12._id,
+  game_id: game7._id,
   comment_id: [comment5._id, comment6._id, comment7._id],
   title: "Tips for New Gamers",
   description: "If you're new to gaming, don't worry! Here are some tips that helped me when I first started. Tip 1: Don't die. Tip 2: Just be good. Tip 3: Pay to win! Happy gaming!"
 })
 
 const comment8 = new Comment ({
-  author_id: user10._id,
+  author_id: user5._id,
   content: 'I completely agree with you! In my experience, working well with others is often the key to success in multiplayer games. Whether you\'re playing a shooter, a MOBA, or an MMORPG, it\'s important to communicate with your teammates and work together towards a common goal.'
 })
 
@@ -3336,17 +3336,17 @@ const post3 = new Post({
 })
 
 const comment10 = new Comment ({
-  author_id: user10._id,
+  author_id: user2._id,
   content: 'I\'d be interested in playing some League of Legends with you! What region do you play in, and what rank are you? It\'s always nice to have more people to queue up with.'
 })
 
 const comment11 = new Comment ({
-  author_id: user10._id,
+  author_id: user5._id,
   content: 'I know the feeling of not having enough people to play with! Have you tried joining any League of Legends communities or Discord servers? You might be able to find some new friends to play with there.'
 })
 
 const comment12 = new Comment ({
-  author_id: user10._id,
+  author_id: user6._id,
   content: 'I\'m always looking for more people to play League of Legends with! What positions do you and your friends usually play? Maybe I can fill in a gap and we can play a few games together.'
 })
 
@@ -3369,7 +3369,7 @@ const post4 = new Post({
 })
 
 const comment14 = new Comment ({
-  author_id: user10._id,
+  author_id: user7._id,
   content: 'That sounds like a really interesting lecture! Building in Minecraft can be a lot of fun, and I\'m sure there are plenty of players out there who would love to learn how to make infinite water. What other building tips and tricks will you be sharing during the lecture?'
 })
 
