@@ -24,6 +24,14 @@ const userSchema = new Schema({
   hashedPassword: {
     type: String,
     required: true
+  },
+  avgRating: {
+    type: Number,
+    required: true,
+    range: {
+      min: { type: Number, min: 1},
+      max: { type: Number, max: 5}
+    }
   }
 }, {
   timestamps: true

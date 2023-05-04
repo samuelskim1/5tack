@@ -20,7 +20,7 @@ const UserInfo = () => {
     const [avgRating, setAvgRating] = useState(0);
     
     const getAverage = async () => {
-        setAvgRating((await dispatch(fetchAverageRating(username))).toFixed(2));
+        setAvgRating((await dispatch(fetchAverageRating(username)))?.toFixed(2));
         console.log("average rating for this stupid damn thing", avgRating);
     }
 

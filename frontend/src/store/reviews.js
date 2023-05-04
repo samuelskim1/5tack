@@ -139,6 +139,7 @@ export const fetchAverageRating = username => async dispatch => {
     try {
         const res = await jwtFetch(`/api/reviews/user/${username}/average`);
         const data = await res.json();
+        console.log(data);
         return data.averageRating;
         // return await res.json();
     } catch(err) {
