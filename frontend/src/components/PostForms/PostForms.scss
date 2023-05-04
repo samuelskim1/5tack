@@ -70,7 +70,7 @@
   border-radius: 8px;
   padding: 12px;
   background-color: #0c1398;
-  color: white;
+  color: $neutral-text;
   cursor: pointer;
 }
 
@@ -88,12 +88,12 @@
         // margin-top: 15px;
         text-align: center;
         cursor: pointer;
-        color: black;
-        background-color: transparent;
+        color: $neutral-text;
+        background-color: #999;
     }
 }
 
 .cancel-btn:hover {
-    color: white;
-    background-color: #999;
+    color: $neutral-text;
+    background-color: #666;
 }

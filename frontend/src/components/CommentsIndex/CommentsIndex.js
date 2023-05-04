@@ -1,12 +1,11 @@
 
 import { useDispatch, useSelector } from 'react-redux';
-import TimeStamp from '../TimeStamp/TimeStamp';
 import Avatar from '../UserInfo/Avatar';
 import './CommentsIndex.scss';
-import { useEffect, useState } from 'react';
-import { createComment, fetchAllComments } from '../../store/comments';
+import { useState } from 'react';
+import { createComment } from '../../store/comments';
 import { Link } from 'react-router-dom';
-import { receivePost, updatedPost } from '../../store/posts';
+import { updatedPost } from '../../store/posts';
 import CommentsIndexItem from './CommentsIndexItem';
 
 const CommentsIndex = ({ post }) => {
@@ -18,6 +17,8 @@ const CommentsIndex = ({ post }) => {
   const currentUser = useSelector(state => state.session.user)
   const [content, setContent] = useState('');
   const [canSubmit, setCanSubmit] = useState(false);
+  const [count, setCount] = useState(content?.length);
+  const [editing, setEditing] = useState(false);
 
   // useEffect(() => {
   //   dispatch(fetchAllComments());
@@ -39,6 +40,8 @@ const CommentsIndex = ({ post }) => {
     post.comment_id.push(commentData);
     dispatch(updatedPost(post));
     setContent('');
+    setCanSubmit(false);
+    setCount(0);
   };
   
   const handleEnter = async (e) => {
@@ -50,6 +53,7 @@ const CommentsIndex = ({ post }) => {
   const handleChange = (e) => {
     let currContent = e.target.value;
     setContent(currContent);
+    setCount(currContent.length);
     if (currContent.length > 0 && currContent.length <= 200) {
       setCanSubmit(true);
     } else {
@@ -76,6 +80,8 @@ const CommentsIndex = ({ post }) => {
               value={content}
               onChange={(e) => handleChange(e)}
               onKeyDown={(e) => handleEnter(e)}
+              onFocus={() => setEditing(true)}
+              onBlur={() => setEditing(false)}
             />
             {canSubmit ? <i 
               className="fa-regular fa-paper-plane" 
@@ -85,7 +91,16 @@ const CommentsIndex = ({ post }) => {
             className="fa-regular fa-paper-plane disable-btn"
           />}
           </div>
-          {!!errors?.content && <div className='errors'>{errors?.content}</div>}
+          {editing && (
+            <div id="comment-count">
+              <div 
+                className={(count === 0 || count > 200) ? 'bad-count' : ""}
+                >
+                {`${count}`}
+              </div>
+              <p>/200</p>
+            </div>
+          )}
         </div>
       </div>
     </div>
