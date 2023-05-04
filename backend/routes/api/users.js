@@ -26,7 +26,7 @@ function filterUser(user) {
 
 router.get('/', async (req, res) => {
   try {
-    const users = await User.find().populate("username", "_id email description profileImageUrl avgRating").sort({ createdAt: -1 });
+    const users = await User.find().populate("username", "_id email description profileImageUrl ratings").sort({ createdAt: -1 });
     const modifiedUsers = Object.assign({}, ...users.map(user => ({ [user.username]: filterUser(user) })));
     return res.json(modifiedUsers);
   }
@@ -68,7 +68,7 @@ router.get('/:username', async (req, res, next) => {
   try {
     const users = await User.findOne({ username: req.params.username })
                               .sort({ createdAt: -1 })
-                              .populate("email", "_id username profileImageUrl");
+                              .populate("email", "_id username description profileImageUrl ratings");
     return res.json(filterUser(users));
   }
   catch(err) {
@@ -133,7 +133,8 @@ router.post('/register', singleMulterUpload("image"), validateRegisterInput, asy
   const newUser = new User({
     username: req.body.username,
     profileImageUrl,
-    email: req.body.email
+    email: req.body.email,
+    ratings: []
   });
 
   bcrypt.genSalt(10, (err, salt) => {

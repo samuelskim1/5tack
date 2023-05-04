@@ -25,14 +25,14 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
-  avgRating: {
+  ratings: [{
     type: Number,
     // required: true,
     range: {
       min: { type: Number, min: 0},
       max: { type: Number, max: 5}
     }
-  }
+  }]
 }, {
   timestamps: true
 });
