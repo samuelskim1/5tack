@@ -37,7 +37,8 @@ const Profile = () => {
         grabError();
         dispatch(fetchUserPosts(username));
         dispatch(fetchUserReviews(username));
-    }, [dispatch, username]);
+        // console.log("user:", user);
+    }, [dispatch, username, user?.profileImageUrl]);
     
     // if (userErrors) {
     //     // console.log("yeah this doesn't exist");
