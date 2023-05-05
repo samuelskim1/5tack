@@ -85,7 +85,6 @@ export const updateUser = userInfo => async dispatch => {
       body: JSON.stringify(userInfo)
     });
     const updatedUser = await res.json();
-    console.log(updatedUser);
     dispatch(receiveUpdatedUser(updatedUser));
     return res;
   } catch (err) {
@@ -118,7 +117,7 @@ const usersReducer = (state = {}, action) => {
     case RECEIVE_USER:
       return { ...state, [action.user.username]: action.user };
     case RECEIVE_UPDATED_USER:
-      return { ...state, [action.updatedUser._id]: action.updatedUser };
+      return { ...state, [action.updatedUser.username]: action.updatedUser };
     // case RECEIVE_UPDATED_REVIEW:
     //   return { ...state, action.updatedReview }
     default:

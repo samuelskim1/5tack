@@ -4,14 +4,25 @@ import { destroyReview } from '../../store/reviews'
 import UpdateReviewModal from '../ReviewForms/UpdateReviewModal';
 import { Modal } from '../../context/modal';
 import PostForms from '../PostForms/PostForms.scss';
+import { useParams } from 'react-router-dom';
+import { updateUser } from '../../store/users';
 
 const ReviewButtons = ({ review }) => {
     const dispatch = useDispatch();
-
+    const { username } = useParams();
+    const user = useSelector(state => state?.users[username]);
     const [showConfirm, setShowConfirm] = useState(false);
 
+
+    // PLZ FIX DELETE, SPLICE NO WORK
     const handleDelete = () => {
+        const revIdx = user.review_id.indexOf(review);
+        const reviews = [ ...user.review_id ];
+        reviews.splice(revIdx, 1);
+        console.log("THIS IS REVIEWS WHEN WE DELETE", reviews);
+        user.review_id = reviews;
         dispatch(destroyReview(review._id));
+        dispatch(updateUser(user));
         setShowConfirm(false);
     }
 

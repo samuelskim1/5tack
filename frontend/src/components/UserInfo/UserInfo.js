@@ -26,16 +26,13 @@ const UserInfo = ({user}) => {
     const [avgRating, setAvgRating] = useState(0);
 
     const getAverage = async () => {
-        // dispatch(fetchUser(username));
-        console.log("getAverage is running");
         let ratings = [];
-        console.log("this is the reviews for showUser", showUser?.review_id);
         showUser?.review_id?.forEach(review => {
             ratings?.push(review?.rating);
         })
         const totalRating = ratings?.reduce((sum, rating) => sum + rating, 0);
         setAvgRating((totalRating / ratings?.length)?.toFixed(2));
-        console.log("new average rating", avgRating);
+        debugger;
     }
     
 
@@ -46,7 +43,7 @@ const UserInfo = ({user}) => {
 
     useEffect(() =>  {
         getAverage();
-    }, [reviews,showUser,username ])
+    }, [reviews, showUser])
 
 
     console.log("avgRating after useEffect",avgRating)

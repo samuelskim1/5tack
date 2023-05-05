@@ -185,7 +185,8 @@ router.patch('/:id', singleMulterUpload("profileImageUrl"), validateUpdateUser, 
   DEFAULT_PROFILE_IMAGE_URL;
   req.body.profileImageUrl = profileImageUrl;
   try {
-    const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true })
+                            .populate("review_id");
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
