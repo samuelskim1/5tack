@@ -25,7 +25,7 @@ const Navbar = () => {
     dispatch(fetchAllUsers());
     dispatch(fetchCategories());
     dispatch(fetchGames());
-    if (params.length === 2 && params[1] !== 'home') {
+    if (params.length === 2 && params[1] !== 'home' && params[1] !== '') {
       // dispatch(fetchAllPosts());
       dispatch(fetchUserPosts(params[1]));
       console.log(params[1]);

@@ -8,14 +8,20 @@ import { fetchAllComments } from '../../store/comments';
 import PostButtons from './PostButtons.js';
 
 const PostIndexItem = ({ post }) => {
-  const dispatch = useDispatch();
-  // const postComments = useSelector(state => state.posts[post._id].comment_id);
   const user = useSelector(state => state.session.user);
-  const isAuthor = post?.author_id?._id === user?._id
-
-  // useEffect(() => {
-  //   dispatch(fetchAllComments());
-  // }, [dispatch]);
+  const isAuthor = post?.author_id?._id === user?._id;
+  const games = useSelector(state => Object.values(state?.games));
+  const game = games.find(el => el._id === post.game_id);
+  const gameName = game?.name;
+  const { pathname } = useLocation();
+  const params = pathname.split('/');
+  let tag;
+  
+  useEffect(() => {
+    if (params.length === 2 && params[1] !== 'home') {
+      tag = gameName;
+    }
+  }, []);
 
   return (
     <div className='post-index-item'>
