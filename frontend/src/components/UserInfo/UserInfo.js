@@ -23,30 +23,31 @@ const UserInfo = ({user}) => {
     const [avgRating, setAvgRating] = useState(0);
 
     const getAverage = async () => {
+        // dispatch(fetchUser(username));
+        console.log("getAverage is running");
         let ratings = [];
+        console.log("this is the reviews for showUser", showUser?.review_id);
         showUser?.review_id?.forEach(review => {
             ratings?.push(review?.rating);
         })
         const totalRating = ratings?.reduce((sum, rating) => sum + rating, 0);
         setAvgRating((totalRating / ratings?.length)?.toFixed(2));
-        // setAvgRating((await dispatch(fetchAverageRating(username)))?.toFixed(2));
-        console.log("average rating for this stupid damn thing", avgRating);
+        console.log("new average rating", avgRating);
     }
 
 
     useEffect(() => {
-        getAverage();
         dispatch(fetchUser(username));
-        // dispatch(fetchUserReviews(username));
-        // avgRating = dispatch(fetchAverageRating(username));
-        // console.log("avg rating", avgRating);
-    }, [dispatch, username, showUser?.description, currentUser?.profileImageUrl, reviews]);
+    }, [dispatch, username, showUser?.description, currentUser?.profileImageUrl]);
 
-    // useEffect(() => {
-    //     dispatch(fetchUserReviews)
-    // }, [])
+
+    useEffect(() =>  {
+        getAverage();
+    }, [reviews,showUser,username ])
+
 
     console.log("avgRating after useEffect",avgRating)
+    console.log("reviews slice of state after useEffect", reviews);
 
     return (
         <div className='user-info'>

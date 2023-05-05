@@ -1,5 +1,6 @@
 import jwtFetch from "./jwt";
-
+import { receiveUpdatedReview } from "./reviews";
+import { RECEIVE_UPDATED_REVIEW } from "./reviews";
 // ACTION TYPES
 const RECEIVE_USER = 'users/RECEIVE_USER';
 const RECEIVE_ALL_USERS = 'users/RECEIVE_ALL_USERS';
@@ -116,6 +117,10 @@ const usersReducer = (state = {}, action) => {
       return { ...state, ...action.users };
     case RECEIVE_USER:
       return { ...state, [action.user.username]: action.user };
+    case RECEIVE_UPDATED_USER:
+      return { ...state, [action.updatedUser._id]: action.updatedUser };
+    // case RECEIVE_UPDATED_REVIEW:
+    //   return { ...state, action.updatedReview }
     default:
       return state;
   }
