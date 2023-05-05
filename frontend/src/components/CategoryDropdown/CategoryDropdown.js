@@ -26,14 +26,14 @@ const CategoryDropdown = ({ category, hideDrop, show, idx }) => {
             </p>
             <div className='line-divider'/>
             {category.game_id.map((game, i) => 
-                <div className="dropdown-item" key={i}>
-                    <Link 
+                <Link key={i}
                         to={`/games/${game.nameURL}`}
                         onClick={() => hideDrop(idx)}
                         >
+                    <div className="dropdown-item" >
                         {game.name} 
-                    </Link>
-                </div>
+                    </div>
+                </Link>
             )}
         </div>
     )

@@ -12,7 +12,8 @@ const EditUserInfoForm = ({ setEdit }) => {
     const currentUser = useSelector(state => state.session?.user);
     const { username } = useParams();
 
-    const errors = useSelector(state => state.errors?.session);
+    // const errors = useSelector(state => state.errors?.session);
+    const [errors, setErrors] = useState({username: '', email: '', description: ''});
     // const showUser = useSelector(state => state?.users[username]);
     const showUser = useSelector(state => state?.session.user);
     const [showUsername, setShowUsername] = useState(currentUser?.username);
@@ -67,14 +68,29 @@ const EditUserInfoForm = ({ setEdit }) => {
             case 'username':
                 currUsername = e.target.value;
                 setShowUsername(currUsername);
+                if (currUsername.length > 30) {
+                    setErrors({ ...errors, ["username"]: "Username cannot be longer than 30 characters" })
+                } else {
+                    setErrors({ ...errors, ["username"]: '' })
+                }
                 break;
             case 'email':
                 currEmail = e.target.value;
                 setEmail(currEmail);
+                if (!currEmail.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
+                    setErrors({ ...errors, ["email"]: "Email is invalid" })
+                } else {
+                    setErrors({ ...errors, ["email"]: '' })
+                }
                 break;
             case 'description':
                 currDescription = e.target.value;
                 setDescription(currDescription);
+                if (currDescription.length > 400) {
+                    setErrors({ ...errors, ["description"]: "Description cannot be longer than 400 characters" })
+                } else {
+                    setErrors({ ...errors, ["description"]: '' })
+                }
                 break;
             default:
                 hasPhoto = field;
@@ -133,7 +149,6 @@ const EditUserInfoForm = ({ setEdit }) => {
                     <p className="user-info-field edit-user-btn">Change your picture</p>
                 </div>
 
-                <div className="errors">{errors?.username}</div>
                 <label>
                     <span>Username</span>
                     <input
@@ -143,7 +158,7 @@ const EditUserInfoForm = ({ setEdit }) => {
                         placeholder="How should we call you?"
                     />
                 </label>
-                <div className="errors">{errors?.email}</div>
+                <div className="errors">{errors?.username}</div>
                 <label>
                     <span>Email</span>
                     <input
@@ -153,7 +168,7 @@ const EditUserInfoForm = ({ setEdit }) => {
                         placeholder="Tired of spam? Enter a new email"
                     />
                 </label>
-                <div className="errors">{errors?.description}</div>
+                <div className="errors">{errors?.email}</div>
                 <label>
                     <span>Description</span>
                     <input
@@ -163,7 +178,7 @@ const EditUserInfoForm = ({ setEdit }) => {
                         placeholder="Tell us about yourself!"
                     />
                 </label>
-
+                <div className="errors">{errors?.description}</div>
                 {/* {<div id="submit-login-btn" onClick={handleSubmit}>Update</div>} */}
                 { canSubmit ?
                     <div
