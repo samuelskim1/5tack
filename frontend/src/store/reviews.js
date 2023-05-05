@@ -112,7 +112,7 @@ export const updateReview = reviewInfo => async dispatch => {
         });
         const updatedReview = await res.json();
         dispatch(receiveUpdatedReview(updatedReview));
-        return res;
+        return [res, updatedReview];
     } catch(err) {
         const res = await err.json();
         if (res.statusCode === 400) {

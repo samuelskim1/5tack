@@ -13,6 +13,7 @@ const UserInfo = ({user}) => {
     const { username } = useParams();
     const currentUser = useSelector(state => state?.session?.user);
     const showUser = useSelector(state => state?.users[username]);
+    const reviews = useSelector(state => state?.reviews)
     // const showUser = useSelector(state => state?.session.user);
     const button = useRef();
     // let avgRating;
@@ -20,11 +21,14 @@ const UserInfo = ({user}) => {
     
     
     const [avgRating, setAvgRating] = useState(0);
-    console.log(showUser?.ratings);
 
     const getAverage = async () => {
-        const totalRating = showUser?.ratings?.reduce((sum, rating) => sum + rating, 0);
-        setAvgRating((totalRating / showUser?.ratings?.length)?.toFixed(2));
+        let ratings = [];
+        showUser?.review_id?.forEach(review => {
+            ratings?.push(review?.rating);
+        })
+        const totalRating = ratings?.reduce((sum, rating) => sum + rating, 0);
+        setAvgRating((totalRating / ratings?.length)?.toFixed(2));
         // setAvgRating((await dispatch(fetchAverageRating(username)))?.toFixed(2));
         console.log("average rating for this stupid damn thing", avgRating);
     }
@@ -35,22 +39,24 @@ const UserInfo = ({user}) => {
         dispatch(fetchUser(username));
         // avgRating = dispatch(fetchAverageRating(username));
         // console.log("avg rating", avgRating);
-    }, [dispatch, username, showUser?.description, currentUser?.profileImageUrl]);
+    }, [dispatch, username, showUser?.description, currentUser?.profileImageUrl, reviews]);
 
+    console.log("avgRating after useEffect",avgRating)
 
     return (
         <div className='user-info'>
             <Avatar user={showUser} />
             <div className='user-info-field username'>@{showUser?.username}</div>
-            {avgRating &&
-                <div>{avgRating}</div>
-            }
             <div className='user-info-field'>{showUser?.description}</div>
             {currentUser?.username === showUser?.username && (
                 <div className='user-info-field edit-user-btn' ref={button}>
                     <EditUserInfoModal />
                 </div>
             )}
+                <div className="user-average-rating">
+                    {avgRating}
+                    <i className="fa-solid fa-star" style={{ color: `$#e4dfd5` }}></i>
+                </div>
         </div>
     )
 }

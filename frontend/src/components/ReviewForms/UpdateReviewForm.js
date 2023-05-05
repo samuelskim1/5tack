@@ -21,44 +21,48 @@ const UpdateReviewForm = ({ setShowModal, review }) => {
     const [canSubmit, setCanSubmit] = useState(false);
 
     // Hook
-    function usePrevious(value) {
-        // The ref object is a generic container whose current property is mutable ...
-        // ... and can hold any value, similar to an instance property on a class
-        const ref = useRef();
-        // Store current value in ref
-        useEffect(() => {
-            ref.current = value;
-        }, [value]); // Only re-run if value changes
-        // Return previous value (happens before update in useEffect above)
-        return ref.current;
-    }
+    // function usePrevious(value) {
+    //     // The ref object is a generic container whose current property is mutable ...
+    //     // ... and can hold any value, similar to an instance property on a class
+    //     const ref = useRef();
+    //     // Store current value in ref
+    //     useEffect(() => {
+    //         ref.current = value;
+    //     }, [value]); // Only re-run if value changes
+    //     // Return previous value (happens before update in useEffect above)
+    //     return ref.current;
+    // }
 
-    const prevRating = usePrevious(rating);
-    console.log(prevRating);
+    // const prevRating = usePrevious(rating);
+    // console.log(prevRating);
 
     useEffect(() => {
         dispatch(fetchUserReviews(username));
     }, [review.title, review.description, review.rating]);
 
     const handleSubmit = async () => {
-        console.log(prevRating);
-        const ratingIndex = reviewedUser?.ratings.indexOf(prevRating)
-        reviewedUser?.ratings.splice(ratingIndex, 1);
-        //this line deletes the initial rating prior to the update
-        console.log(reviewedUser?.ratings);
+        // debugger;
         const updatedReviewInfo = {
             ...review,
             title,
             description,
             rating
         }
-        // console.log(updatedReviewInfo);
-        // console.log(updatedReviewInfo._id);
-        const reviewData = await dispatch(updateReview(updatedReviewInfo));
-        if (reviewData.ok) {
+
+        const returnedRequest = await dispatch(updateReview(updatedReviewInfo));
+        // debugger;
+        const res = returnedRequest[0];
+        const reviewData = returnedRequest[1];
+        if (res.ok) {
             setShowModal(false);
         }
-        reviewedUser.ratings.push(rating);
+        //reviewedUserReviews is an array of the reviews of the user that is being reviewed
+        const reviewedUserReviews = [...reviewedUser?.review_id];
+        for (let i = 0; i < reviewedUserReviews?.length; i++) {
+            if (reviewedUserReviews[i]._id === reviewData._id ) {
+                reviewedUserReviews[i].rating = reviewData.rating;
+            }
+        }
         dispatch(updateUser(reviewedUser));
     }
 
