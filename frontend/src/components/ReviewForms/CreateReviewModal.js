@@ -6,9 +6,9 @@ const CreateReviewModal = ({ user }) => {
     const [showModal, setShowModal] = useState(false);
 
     return (
-        <div className='create-review-modal-holder'>
+        <>
             <div
-                className='create-review-modal'
+                className='edit-profile-btn'
                 onClick={() => setShowModal(true)}
             >
                 Make a Review
@@ -19,7 +19,7 @@ const CreateReviewModal = ({ user }) => {
                     <CreateReviewForm user={user} setShowModal={setShowModal} />
                 </Modal>
             )}
-        </div>
+        </>
     );
 };
 
