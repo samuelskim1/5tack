@@ -4,6 +4,7 @@ import { clearSessionErrors, getCurrentUser, updateUser } from "../../store/sess
 import { useHistory, useParams } from "react-router-dom";
 import '../SessionForms/SessionForm.scss';
 import { receiveUser } from "../../store/users";
+import Avatar from "../UserInfo/Avatar";
 
 const EditUserInfoForm = ({ setEdit }) => {
     const dispatch = useDispatch();
@@ -11,7 +12,8 @@ const EditUserInfoForm = ({ setEdit }) => {
     const currentUser = useSelector(state => state.session?.user);
     const { username } = useParams();
 
-    const errors = useSelector(state => state.errors?.session);
+    // const errors = useSelector(state => state.errors?.session);
+    const [errors, setErrors] = useState({username: '', email: '', description: ''});
     // const showUser = useSelector(state => state?.users[username]);
     const showUser = useSelector(state => state?.session.user);
     const [showUsername, setShowUsername] = useState(currentUser?.username);
@@ -66,14 +68,29 @@ const EditUserInfoForm = ({ setEdit }) => {
             case 'username':
                 currUsername = e.target.value;
                 setShowUsername(currUsername);
+                if (currUsername.length > 30) {
+                    setErrors({ ...errors, ["username"]: "Username cannot be longer than 30 characters" })
+                } else {
+                    setErrors({ ...errors, ["username"]: '' })
+                }
                 break;
             case 'email':
                 currEmail = e.target.value;
                 setEmail(currEmail);
+                if (!currEmail.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
+                    setErrors({ ...errors, ["email"]: "Email is invalid" })
+                } else {
+                    setErrors({ ...errors, ["email"]: '' })
+                }
                 break;
             case 'description':
                 currDescription = e.target.value;
                 setDescription(currDescription);
+                if (currDescription.length > 400) {
+                    setErrors({ ...errors, ["description"]: "Description cannot be longer than 400 characters" })
+                } else {
+                    setErrors({ ...errors, ["description"]: '' })
+                }
                 break;
             default:
                 hasPhoto = field;
@@ -100,11 +117,38 @@ const EditUserInfoForm = ({ setEdit }) => {
 
     }
 
+    let preview = null;
+    if (profileImageUrl) {
+        preview = 
+        <img 
+            src={profileImageUrl} 
+            id="preview-pfp" 
+            alt="This is your selected profile picture." 
+            />
+    };
+
     return (
         <div id="session-form-container">
             <form className="session-form">
                 <h2>Edit your profile</h2>
-                <div className="errors">{errors?.username}</div>
+
+                <div id="edit-pfp" onClick={() => {uploadBtn.current.click()}}>
+                    {!preview && <Avatar user={currentUser} />}
+                    {preview && preview}
+                </div>
+
+                <div 
+                    onClick={() => {uploadBtn.current.click()}}
+                    >
+                    <input
+                        ref={uploadBtn}
+                        type="file"
+                        onChange={(e) => {handlePhoto(e); handleChange(e, e.target);}}
+                        style={{display: 'none'}}
+                        />
+                    <p className="user-info-field edit-user-btn">Change your picture</p>
+                </div>
+
                 <label>
                     <span>Username</span>
                     <input
@@ -114,7 +158,7 @@ const EditUserInfoForm = ({ setEdit }) => {
                         placeholder="How should we call you?"
                     />
                 </label>
-                <div className="errors">{errors?.email}</div>
+                <div className="errors">{errors?.username}</div>
                 <label>
                     <span>Email</span>
                     <input
@@ -124,7 +168,7 @@ const EditUserInfoForm = ({ setEdit }) => {
                         placeholder="Tired of spam? Enter a new email"
                     />
                 </label>
-                <div className="errors">{errors?.description}</div>
+                <div className="errors">{errors?.email}</div>
                 <label>
                     <span>Description</span>
                     <input
@@ -134,19 +178,7 @@ const EditUserInfoForm = ({ setEdit }) => {
                         placeholder="Tell us about yourself!"
                     />
                 </label>
-
-                <div 
-                    onClick={() => {uploadBtn.current.click()}}
-                >
-                    <input
-                        ref={uploadBtn}
-                        type="file"
-                        onChange={(e) => {handlePhoto(e); handleChange(e, e.target);}}
-                        style={{display: 'none'}}
-                    />
-                    <p>Add Profile Image</p>
-                </div>
-
+                <div className="errors">{errors?.description}</div>
                 {/* {<div id="submit-login-btn" onClick={handleSubmit}>Update</div>} */}
                 { canSubmit ?
                     <div
