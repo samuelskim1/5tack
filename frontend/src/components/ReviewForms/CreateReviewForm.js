@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createReview, fetchUserReviews } from "../../store/reviews";
 import { useParams } from "react-router-dom";
-import { updateUser } from "../../store/users";
+import { fetchUser, updateUser } from "../../store/users";
 import './ReviewForms.scss';
 import { clearSessionErrors } from "../../store/session";
 import Rating from "./Rating";
@@ -42,6 +42,12 @@ const CreateReviewForm = ({ setShowModal, user }) => {
         const returnedRequest = await dispatch(createReview(review));
         const res = returnedRequest[0]; //the response of the dispatch
         const reviewData = returnedRequest[1]; //the actual review object
+        // update user review array QAQ
+        user.review_id.push(reviewData);
+        // update user with new user with new reviews array QAQ
+        dispatch(updateUser(user));
+        // get reviews again bc reviews array is updated now
+        dispatch(fetchUserReviews(user.username));
         if (res.ok) {
             setShowModal(false);
         }
