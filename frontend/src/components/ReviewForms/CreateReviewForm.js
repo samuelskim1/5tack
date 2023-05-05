@@ -49,22 +49,16 @@ const CreateReviewForm = ({ setShowModal, user }) => {
         //reviewedUserReviews is an array of the reviews of the user that is being reviewed
         //we spread here to prevent the actual previous state from being altered
         const reviewedUserReviews = [...reviewedUser?.review_id];
+
+        const nextUser = {...reviewedUser};
+        console.log(nextUser);
+
+        reviewedUserReviews?.unshift(reviewData);
         console.log(reviewedUserReviews);
-
-        // const nextUser = {...reviewedUser};
-        // console.log(nextUser);
-
-        reviewedUserReviews?.push(reviewData);
-        console.log(reviewedUserReviews);
-
-        const updatedReviewedUser = {
-            ...reviewedUser,
-            review_id: reviewedUserReviews
-        }
-        // reviewedUser.review_id = reviewedUserReviews
-        console.log(updatedReviewedUser);
+        nextUser.review_id = reviewedUserReviews
+        console.log(nextUser);
         
-        dispatch(updateUser(updatedReviewedUser));
+        dispatch(updateUser(nextUser));
 
     }
 
