@@ -3,7 +3,7 @@ import jwtFetch from "./jwt";
 // ACTIONS
 const RECEIVE_REVIEWS = "reviews/RECEIVE_REVIEWS";
 const RECEIVE_REVIEW = "reviews/RECEIVE_REVIEW";
-const RECEIVE_UPDATED_REVIEW = "posts/RECEIVE_UPDATED_REVIEW";
+export const RECEIVE_UPDATED_REVIEW = "posts/RECEIVE_UPDATED_REVIEW";
 const RECEIVE_NEW_REVIEW = "posts/RECEIVE_NEW_REVIEW";
 const RECEIVE_USER_REVIEWS = "posts/RECEIVE_USER_REVIEWS";
 const REMOVE_REVIEW = "posts/DELETE_REVIEW";
@@ -95,7 +95,7 @@ export const createReview = reviewInfo => async dispatch => {
         });
         const newReview = await res.json();
         dispatch(receiveNewReview(newReview));
-        return res;
+        return [res, newReview];
     } catch(err) {
         const res = await err.json();
         if (res.statusCode === 400) {
@@ -112,7 +112,7 @@ export const updateReview = reviewInfo => async dispatch => {
         });
         const updatedReview = await res.json();
         dispatch(receiveUpdatedReview(updatedReview));
-        return res;
+        return [res, updatedReview];
     } catch(err) {
         const res = await err.json();
         if (res.statusCode === 400) {
