@@ -35,8 +35,8 @@ const UpdateReviewForm = ({ setShowModal, review }) => {
 
         const returnedRequest = await dispatch(updateReview(updatedReviewInfo));
         // debugger;
-        const res = returnedRequest[0];
-        const reviewData = returnedRequest[1];
+        const res = returnedRequest[0]; //the response of the dispatch
+        const reviewData = returnedRequest[1]; //the actual review object
         if (res.ok) {
             setShowModal(false);
         }

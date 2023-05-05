@@ -6,7 +6,7 @@ import EditUserInfoModal from '../EditUserInfo/EditUserInfoModal';
 import Avatar from './Avatar';
 import './UserInfo.scss';
 import { fetchAverageRating } from '../../store/users';
-import { reviewsErrorsReducer } from '../../store/reviews';
+import { fetchUserReviews, reviewsErrorsReducer } from '../../store/reviews';
 
 const UserInfo = ({user}) => {
     const dispatch = useDispatch();
@@ -37,9 +37,14 @@ const UserInfo = ({user}) => {
     useEffect(() => {
         getAverage();
         dispatch(fetchUser(username));
+        // dispatch(fetchUserReviews(username));
         // avgRating = dispatch(fetchAverageRating(username));
         // console.log("avg rating", avgRating);
     }, [dispatch, username, showUser?.description, currentUser?.profileImageUrl, reviews]);
+
+    // useEffect(() => {
+    //     dispatch(fetchUserReviews)
+    // }, [])
 
     console.log("avgRating after useEffect",avgRating)
 

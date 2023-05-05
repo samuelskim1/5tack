@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createReview, fetchUserReviews } from "../../store/reviews";
+import { useParams } from "react-router-dom";
+import { updateUser } from "../../store/users";
 import './ReviewForms.scss';
 import { clearSessionErrors } from "../../store/session";
 import Rating from "./Rating";
 
 const CreateReviewForm = ({ setShowModal, user }) => {
     const dispatch = useDispatch();
-
+    const { username } = useParams();
+    const reviewedUser = useSelector(state => state?.users[username]);
     // const errors = useSelector(state => state?.errors?.reviews);
     const [errors, setErrors] = useState({title: '', description: ''});
     const user_id = user._id;
@@ -27,7 +30,7 @@ const CreateReviewForm = ({ setShowModal, user }) => {
     //     }
     // }, [dispatch]);
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         const review = {
             reviewer_id,
             user_id,
@@ -36,11 +39,27 @@ const CreateReviewForm = ({ setShowModal, user }) => {
             rating
         };
         // console.log("errors", errors);
-        const res = dispatch(createReview(review)).then(res => {
-            if (res.ok) {
-                setShowModal(false);
-            }
-        });
+        const returnedRequest = await dispatch(createReview(review));
+        const res = returnedRequest[0]; //the response of the dispatch
+        const reviewData = returnedRequest[1]; //the actual review object
+        if (res.ok) {
+            setShowModal(false);
+        }
+
+        //reviewedUserReviews is an array of the reviews of the user that is being reviewed
+        //we spread here to prevent the actual previous state from being altered
+        const reviewedUserReviews = [...reviewedUser?.review_id];
+
+        const nextUser = {...reviewedUser};
+        console.log(nextUser);
+
+        reviewedUserReviews?.unshift(reviewData);
+        console.log(reviewedUserReviews);
+        nextUser.review_id = reviewedUserReviews
+        console.log(nextUser);
+        
+        dispatch(updateUser(nextUser));
+
     }
 
     const changeHandler = (e, type) => {

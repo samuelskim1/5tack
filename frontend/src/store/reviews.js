@@ -95,7 +95,7 @@ export const createReview = reviewInfo => async dispatch => {
         });
         const newReview = await res.json();
         dispatch(receiveNewReview(newReview));
-        return res;
+        return [res, newReview];
     } catch(err) {
         const res = await err.json();
         if (res.statusCode === 400) {
