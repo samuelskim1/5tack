@@ -1,12 +1,12 @@
 import { useSelector } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import './NavBar.scss';
 import { useDispatch } from "react-redux";
 import { logout } from "../../store/session";
 import CategoryNav from "./CategoryNav";
 import { useEffect } from "react";
 import { fetchCategories } from "../../store/categories";
-import { fetchAllPosts } from "../../store/posts";
+import { fetchAllPosts, fetchGamePosts, fetchUserPosts } from "../../store/posts";
 import { fetchGames } from "../../store/games";
 import { fetchAllUsers } from "../../store/users";
 import Avatar from "../../components/UserInfo/Avatar";
@@ -17,13 +17,23 @@ const Navbar = () => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory();
+  
+  const { pathname } = useLocation();
+  const params = pathname.split("/");
 
   useEffect(() => {
-    dispatch(fetchCategories());
-    dispatch(fetchAllPosts());
-    dispatch(fetchGames());
-    dispatch(fetchAllComments())
     dispatch(fetchAllUsers());
+    dispatch(fetchCategories());
+    dispatch(fetchGames());
+    if (params.length === 2 && params[1] !== 'home') {
+      // dispatch(fetchAllPosts());
+      dispatch(fetchUserPosts(params[1]));
+      console.log(params[1]);
+    } else if (params.length === 3) {
+      dispatch(fetchGamePosts(params[2]))
+      console.log(params[2]);
+    }
+    dispatch(fetchAllComments());
   }, [loggedIn]);
 
   const handleLogout = () => {
