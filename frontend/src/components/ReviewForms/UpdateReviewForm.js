@@ -1,12 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchUserReviews, updateReview } from "../../store/reviews";
+import { updateUser } from "../../store/users";
 
 const UpdateReviewForm = ({ setShowModal, review }) => {
     const dispatch = useDispatch();
-
     const { username } = useParams();
+    const reviewedUser = useSelector(state => state?.users[username]);
     // const errors = useSelector(state => state.errors?.reviews);
     const [errors, setErrors] = useState({title: '', description: ''})
     // const gameURL = useSelector(state => review.game)
@@ -23,20 +24,31 @@ const UpdateReviewForm = ({ setShowModal, review }) => {
         dispatch(fetchUserReviews(username));
     }, [review.title, review.description, review.rating]);
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
+        // debugger;
         const updatedReviewInfo = {
             ...review,
             title,
             description,
             rating
         }
-        // console.log(updatedReviewInfo);
-        // console.log(updatedReviewInfo._id);
-        dispatch(updateReview(updatedReviewInfo)).then(res => {
-            if (res.ok) {
-                setShowModal(false);
+
+        const returnedRequest = await dispatch(updateReview(updatedReviewInfo));
+        // debugger;
+        const res = returnedRequest[0]; //the response of the dispatch
+        const reviewData = returnedRequest[1]; //the actual review object
+        if (res.ok) {
+            setShowModal(false);
+        }
+        //reviewedUserReviews is an array of the reviews of the user that is being reviewed
+        //we spread here to prevent the actual previous state from being altered
+        const reviewedUserReviews = [...reviewedUser?.review_id];
+        for (let i = 0; i < reviewedUserReviews?.length; i++) {
+            if (reviewedUserReviews[i]._id === reviewData._id ) {
+                reviewedUserReviews[i].rating = reviewData.rating;
             }
-        });
+        }
+        dispatch(updateUser(reviewedUser));
     }
 
     const changeHandler = (e, type) => {
