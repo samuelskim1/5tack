@@ -6,21 +6,16 @@ import EditUserInfoModal from '../EditUserInfo/EditUserInfoModal';
 import Avatar from './Avatar';
 import CreateReviewModal from '../ReviewForms/CreateReviewModal';
 import './UserInfo.scss';
-import { fetchAverageRating } from '../../store/users';
-import { fetchUserReviews, reviewsErrorsReducer } from '../../store/reviews';
 
-const UserInfo = ({user}) => {
+
+const UserInfo = () => {
     const dispatch = useDispatch();
     const { username } = useParams();
     const currentUser = useSelector(state => state?.session?.user);
     const showUser = useSelector(state => state?.users[username]);
-
     const reviews = useSelector(state => state?.reviews)
-    // const showUser = useSelector(state => state?.session.user);
     const button = useRef();
     let moodyButton;
-    // let avgRating;
-    //  = dispatch(fetchAverageRating(username));
     
     
     const [avgRating, setAvgRating] = useState(0);
@@ -28,14 +23,11 @@ const UserInfo = ({user}) => {
     const getAverage = async () => {
         if (showUser?.review_id?.length) {
             let ratings = [];
-            // if (showUser) debugger;
             showUser?.review_id?.forEach(review => {
                 ratings?.push(review?.rating);
             })
             const totalRating = ratings?.reduce((sum, rating) => sum + rating, 0);
             setAvgRating((totalRating / ratings?.length)?.toFixed(2));
-            console.log("total rating", totalRating);
-            console.log("average", (totalRating / ratings?.length)?.toFixed(2));
         } else {
             setAvgRating(0);
         }
@@ -49,13 +41,7 @@ const UserInfo = ({user}) => {
 
     useEffect(() =>  {
         getAverage();
-        console.log(avgRating);
-        console.log(showUser?.review_id);
     }, [reviews, showUser])
-
-
-    console.log("avgRating after useEffect",avgRating)
-    console.log("reviews slice of state after useEffect", reviews);
 
 
     if (currentUser?.username === username) {

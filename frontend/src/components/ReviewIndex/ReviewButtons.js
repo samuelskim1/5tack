@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { destroyReview } from '../../store/reviews'
 import UpdateReviewModal from '../ReviewForms/UpdateReviewModal';
 import { Modal } from '../../context/modal';
-import PostForms from '../PostForms/PostForms.scss';
 import { useParams } from 'react-router-dom';
 import { updateUser } from '../../store/users';
 
@@ -16,15 +15,9 @@ const ReviewButtons = ({ review }) => {
 
     // PLZ FIX DELETE, SPLICE NO WORK
     const handleDelete = async () => {
-        const revIdx = user.review_id.indexOf(review);
-        // const reviews = [ ...user.review_id ];
-        // reviews.splice(revIdx, 1);
-        // console.log("THIS IS REVIEWS WHEN WE DELETE", reviews);
-        // user.review_id = reviews;
+        // const revIdx = user.review_id.indexOf(review);
         await dispatch(destroyReview(review._id));
-        console.log("before user", user);
         await dispatch(updateUser(user));
-        console.log("after user", user);
         setShowConfirm(false);
     }
 

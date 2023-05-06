@@ -69,7 +69,7 @@
       }
     }
 
-    > .author-username {
+    .author-username {
       font-weight: 600;
       letter-spacing: 0.05rem;
     }
@@ -83,8 +83,19 @@
   .post-index-description {
     font-size: 18px;
     line-height: 1.15em;
-    font-weight: 300;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    font-weight: 400;
+  }
+
+  .profile-post-tag {
+    display: inline-block;
+    font-style: italic;
+    font-size: 14px;
+    font-weight: 200;
+    padding: 6px 10px;
+    margin-bottom: 5px;
+    border-radius: 6px;
+    background-color: #444;
   }
 
   .post-comment-separator {

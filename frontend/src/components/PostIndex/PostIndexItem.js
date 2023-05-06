@@ -1,10 +1,8 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import CommentsIndex from '../CommentsIndex/CommentsIndex';
 import TimeStamp from '../TimeStamp/TimeStamp';
 import Avatar from '../UserInfo/Avatar';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { fetchAllComments } from '../../store/comments';
+import { useSelector } from 'react-redux';
 import PostButtons from './PostButtons.js';
 
 const PostIndexItem = ({ post }) => {
@@ -16,12 +14,12 @@ const PostIndexItem = ({ post }) => {
   const { pathname } = useLocation();
   const params = pathname.split('/');
   let tag;
-  
-  useEffect(() => {
-    if (params.length === 2 && params[1] !== 'home') {
-      tag = gameName;
-    }
-  }, []);
+
+
+  if (params.length === 2 && params[1] !== 'home') {
+    tag = gameName;
+  }
+
 
   return (
     <div className='post-index-item'>
@@ -46,6 +44,9 @@ const PostIndexItem = ({ post }) => {
       </div>
       <div className='post-index-description'>
         {post?.description}
+      </div>
+      <div className='profile-post-tag'>
+        {tag && ("#" + tag)}
       </div>
       <div className='post-comment-separator' />
       <CommentsIndex post={post} />
