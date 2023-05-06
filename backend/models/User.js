@@ -24,7 +24,12 @@ const userSchema = new Schema({
   hashedPassword: {
     type: String,
     required: true
-  }
+  },
+  review_id: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Review'
+    // required: true,
+  }]
 }, {
   timestamps: true
 });
