@@ -15,14 +15,16 @@ const ReviewButtons = ({ review }) => {
 
 
     // PLZ FIX DELETE, SPLICE NO WORK
-    const handleDelete = () => {
+    const handleDelete = async () => {
         const revIdx = user.review_id.indexOf(review);
-        const reviews = [ ...user.review_id ];
-        reviews.splice(revIdx, 1);
-        console.log("THIS IS REVIEWS WHEN WE DELETE", reviews);
-        user.review_id = reviews;
-        dispatch(destroyReview(review._id));
-        dispatch(updateUser(user));
+        // const reviews = [ ...user.review_id ];
+        // reviews.splice(revIdx, 1);
+        // console.log("THIS IS REVIEWS WHEN WE DELETE", reviews);
+        // user.review_id = reviews;
+        await dispatch(destroyReview(review._id));
+        console.log("before user", user);
+        await dispatch(updateUser(user));
+        console.log("after user", user);
         setShowConfirm(false);
     }
 

@@ -26,13 +26,19 @@ const UserInfo = ({user}) => {
     const [avgRating, setAvgRating] = useState(0);
 
     const getAverage = async () => {
-        let ratings = [];
-        showUser?.review_id?.forEach(review => {
-            ratings?.push(review?.rating);
-        })
-        const totalRating = ratings?.reduce((sum, rating) => sum + rating, 0);
-        setAvgRating((totalRating / ratings?.length)?.toFixed(2));
-        debugger;
+        if (showUser?.review_id?.length) {
+            let ratings = [];
+            // if (showUser) debugger;
+            showUser?.review_id?.forEach(review => {
+                ratings?.push(review?.rating);
+            })
+            const totalRating = ratings?.reduce((sum, rating) => sum + rating, 0);
+            setAvgRating((totalRating / ratings?.length)?.toFixed(2));
+            console.log("total rating", totalRating);
+            console.log("average", (totalRating / ratings?.length)?.toFixed(2));
+        } else {
+            setAvgRating(0);
+        }
     }
     
 
@@ -43,6 +49,8 @@ const UserInfo = ({user}) => {
 
     useEffect(() =>  {
         getAverage();
+        console.log(avgRating);
+        console.log(showUser?.review_id);
     }, [reviews, showUser])
 
 
