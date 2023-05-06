@@ -45,9 +45,13 @@ const PostIndexItem = ({ post }) => {
       <div className='post-index-description'>
         {post?.description}
       </div>
-      <div className='profile-post-tag'>
-        {tag && ("#" + tag)}
-      </div>
+      {tag && (
+        <Link to={`/games/${game.nameURL}`}>
+          <div className='profile-post-tag'>
+            {"#" + tag}
+          </div>
+        </Link>
+      )}
       <div className='post-comment-separator' />
       <CommentsIndex post={post} />
     </div>

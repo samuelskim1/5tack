@@ -10,19 +10,13 @@ const EditUserInfoForm = ({ setEdit }) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const currentUser = useSelector(state => state.session?.user);
-    const { username } = useParams();
-
-    // const errors = useSelector(state => state.errors?.session);
     const [errors, setErrors] = useState({username: '', email: '', description: ''});
-    // const showUser = useSelector(state => state?.users[username]);
-    const showUser = useSelector(state => state?.session.user);
     const [showUsername, setShowUsername] = useState(currentUser?.username);
     const [email, setEmail] = useState(currentUser?.email);
     const [description, setDescription] = useState(currentUser?.description || '');
     const [canSubmit, setCanSubmit] = useState(false);
-
     const [photo, setPhoto] = useState();
-    const [profileImageUrl, setProfileImageUrl] = useState();
+    const [profileImageUrl, setProfileImageUrl] = useState(currentUser?.profileImageUrl);
     const uploadBtn = useRef();
 
     // useEffect(() => {
@@ -37,7 +31,8 @@ const EditUserInfoForm = ({ setEdit }) => {
             username: showUsername,
             email,
             description,
-            photo
+            photo,
+            profileImageUrl
         }
         dispatch(updateUser(user)).then(res => {
             if (res.ok) {

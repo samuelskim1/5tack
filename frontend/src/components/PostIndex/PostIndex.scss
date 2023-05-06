@@ -91,11 +91,16 @@
     display: inline-block;
     font-style: italic;
     font-size: 14px;
-    font-weight: 200;
+    font-weight: 300;
     padding: 6px 10px;
     margin-bottom: 5px;
     border-radius: 6px;
     background-color: #444;
+
+    &:hover {
+      color: white;
+      background-color: #222;
+    }
   }
 
   .post-comment-separator {

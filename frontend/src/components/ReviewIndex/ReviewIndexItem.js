@@ -5,15 +5,24 @@ import ReviewButtons from './ReviewButtons';
 import { useSelector } from 'react-redux';
 
 const ReviewIndexItem = ({ review }) => {
-    const user = useSelector(state => state.session.user)
-    const isAuthor = (review?.reviewer_id._id || review?.reviewer_id) === user._id
+    const user = useSelector(state => state.session.user);
+    const isAuthor = (review?.reviewer_id._id || review?.reviewer_id) === user._id;
+    let stars = [];
+
+
+    if (review?.rating) {
+        for (let i = 0; i < review?.rating; i++) {
+            stars.push("kaiter");
+        }
+    }
 
     return (
         <div className='review-index-item'>
             <div className='review-index-rating'>
                 <div className='review-rating'>
-                    {review?.rating}
-                    <i className="fa-solid fa-star" style={{color: `$#e4dfd5`}}></i>
+                    {stars.map((el, i) => {
+                        return <i className="fa-solid fa-star" style={{color: `$#e4dfd5`}} key={i} />
+                    })}
                 </div>
                 { isAuthor &&
                     <ReviewButtons review={review} />

@@ -7,7 +7,7 @@
     height: 100%;
     min-height: calc(100vh - 350px);
     background-color: #333;
-    color: white;
+    color: $neutral-text;
     padding: 50px 25px;
     display: flex;
     flex-direction: column;
@@ -21,7 +21,7 @@
     min-height: calc(100vh - 350px);
     height: 100%;
     background-color: #333;
-    color: white;
+    color: $neutral-text;
     padding: 50px 30px;
     display: flex;
     flex-direction: row;
@@ -37,7 +37,7 @@
 
     .create-review-modal {
         background-color: #666;
-        color: white;
+        color: $neutral-text;
         padding: 10px 20px;
         font-weight: 500;
         cursor: pointer;
@@ -102,7 +102,7 @@
         max-width: 650px;
         width: 100%;
         padding: 25px;
-        color: #e4dfd5;
+        color: $neutral-text;
     }
 
 

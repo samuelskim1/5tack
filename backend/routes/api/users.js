@@ -16,7 +16,7 @@ const validateUpdateUser = require('../../validations/updateUser');
 
 const { singleFileUpload, singleMulterUpload } = require("../../awsS3");
 
-const DEFAULT_PROFILE_IMAGE_URL = "https://5tack.s3.amazonaws.com/public/0.jpeg";
+const DEFAULT_PROFILE_IMAGE_URL = "https://5tack.s3.amazonaws.com/public/16.png";
 
 function filterUser(user) {
   const filteredUser = user.toObject();
@@ -178,12 +178,15 @@ router.post('/logout', (req, res) => {
 
 
 router.patch('/:id', singleMulterUpload("profileImageUrl"), validateUpdateUser, async (req, res) => {
-  
+  console.log("REQREQREQDSKLFJIASFJEOWJFWAFOJWILFJAWJELIWJLFJAJ", req)
   // take image and upload
-  const profileImageUrl = req.file ?
-  await singleFileUpload({ file: req.file, public: true }) :
-  DEFAULT_PROFILE_IMAGE_URL;
-  req.body.profileImageUrl = profileImageUrl;
+  // const profileImageUrl = req.file ?
+  //   await singleFileUpload({ file: req.file, public: true }) :
+  //   DEFAULT_PROFILE_IMAGE_URL;
+  if (req.file) {
+    req.body.profileImageUrl = await singleFileUpload({ file: req.file, public: true });
+  }
+
   try {
     const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true })
                             .populate("review_id");

@@ -54,15 +54,22 @@ const UserInfo = () => {
     return (
         <div className='user-info'>
             <Avatar user={showUser} />
-            <div className='user-info-field username'>@{showUser?.username}</div>
-            <div className='user-info-field'>{showUser?.description}</div>
             <div className='user-info-field edit-user-btn' ref={button}>
                 {moodyButton}
             </div>
-            <div className="user-average-rating">
-                {avgRating}
-                <i className="fa-solid fa-star" style={{ color: `$#e4dfd5` }}></i>
-            </div>
+            <div className='user-info-field username'>@{showUser?.username}</div>
+            <div className='user-info-field'>{showUser?.description}</div>
+
+            {(avgRating > 0) ? (
+                <div className='user-average-rating'>
+                    {avgRating}
+                    <i className="fa-solid fa-star" style={{ color: `$#e4dfd5` }}></i>
+                </div>
+            ) : (
+                <div className='no-reviews'>
+                    {"Be the first to leave a review! :)"}
+                </div>
+            )}
             
         </div>
     )
