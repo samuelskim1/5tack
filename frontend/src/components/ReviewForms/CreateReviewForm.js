@@ -11,7 +11,6 @@ const CreateReviewForm = ({ setShowModal, user }) => {
     const dispatch = useDispatch();
     const { username } = useParams();
     const reviewedUser = useSelector(state => state?.users[username]);
-    // const errors = useSelector(state => state?.errors?.reviews);
     const [errors, setErrors] = useState({title: '', description: ''});
     const user_id = user._id;
     const reviewer_id = useSelector(state => state.session.user?._id);
@@ -24,11 +23,6 @@ const CreateReviewForm = ({ setShowModal, user }) => {
 
     const [canSubmit, setCanSubmit] = useState(false);
 
-    // useEffect(() => {
-    //     return () => {
-    //         dispatch(clearSessionErrors());
-    //     }
-    // }, [dispatch]);
 
     const handleSubmit = async () => {
         const review = {
@@ -38,7 +32,6 @@ const CreateReviewForm = ({ setShowModal, user }) => {
             description,
             rating
         };
-        // console.log("errors", errors);
         const returnedRequest = await dispatch(createReview(review));
         const res = returnedRequest[0]; //the response of the dispatch
         const reviewData = returnedRequest[1]; //the actual review object
@@ -49,24 +42,16 @@ const CreateReviewForm = ({ setShowModal, user }) => {
         //reviewedUserReviews is an array of the reviews of the user that is being reviewed
         //we spread here to prevent the actual previous state from being altered
         const reviewedUserReviews = [...reviewedUser?.review_id];
-
         const nextUser = {...reviewedUser};
-        console.log(nextUser);
-
         reviewedUserReviews?.unshift(reviewData);
-        console.log(reviewedUserReviews);
         nextUser.review_id = reviewedUserReviews
-        console.log(nextUser);
-        
         dispatch(updateUser(nextUser));
-
     }
 
     const changeHandler = (e, type) => {
         let currTitle = title;
         let currDescription = description;
         let currRating = rating;
-        // console.log("rating", rating);
         if (type === 'title') {
             currTitle = e.target.value;
             setTitle(currTitle);
@@ -87,7 +72,6 @@ const CreateReviewForm = ({ setShowModal, user }) => {
         } else {
             currRating = type;
         }
-        // console.log(currTitle.length, currRating, currDescription.length);
         if (currTitle.length > 0 && currTitle.length <= 50 && currDescription.length > 0 && currDescription.length <= 400 && currRating > 0) {
             setCanSubmit(true);
         } else {

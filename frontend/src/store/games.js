@@ -35,7 +35,6 @@ export const fetchGame = nameURL => async dispatch => {
     return dispatch(receiveGame(gameInfo));
   } catch(err) {
     const res = await err.json();
-    console.log(res);
     if (res.statusCode >= 400) {
       dispatch(receiveGameErrors(res.errors))
       return res;

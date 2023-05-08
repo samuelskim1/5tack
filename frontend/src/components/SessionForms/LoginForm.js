@@ -22,7 +22,6 @@ const LoginForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(login({ username, password }));
-    // .then(err => console.log(err));
   };
 
   const demoLogin = (e) => {

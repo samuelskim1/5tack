@@ -41,17 +41,6 @@ const EditUserInfoForm = ({ setEdit }) => {
             }
         });
         dispatch(receiveUser(user));
-        // console.log(res);
-        // if (res.ok) {
-        //     setEdit(false);
-        //     history.push(`/${showUsername}`);
-        // };
-        // .then(res => {
-        //     if (res.ok) {
-        //         console.log('testing if this part is being reached');
-        //         history.push(`/${username}`);
-        //     };
-        // });
     }
 
     const handleChange = (e, field) => {

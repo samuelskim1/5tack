@@ -48,7 +48,6 @@
 }
 
 .create-review-modal:hover {
-    // box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.3);
     background-color: #555;
 }
 
@@ -60,7 +59,6 @@
     min-width: 500px;
     max-width: 650px;
     width: 50%;
-    // padding: 0px 0px 25px 0px;
     outline: 1px solid $neutral-text;
     border-radius: 12px;
     color: $neutral-text;
@@ -154,24 +152,14 @@
         font-size: 18px;
         line-height: 1.15em;
         font-weight: 300;
-        // margin-bottom: 20px;
     }
-
-    // .review-comment-separator {
-    //     width: 100%;
-    //     height: 1px;
-    //     background-color: $neutral-text;
-    //     margin: 15px 0;
-    // }
 
     .review-buttons-holder {
         display: flex;
         width: fit-content;
         justify-content: space-between;
         position: absolute;
-        // right: 30px;
         right: 3%;
-        // bottom: 30px;
         bottom: 24px;
 
         .fa-solid {

@@ -6,15 +6,9 @@ import { clearSessionErrors } from "../../store/session";
 
 const CreatePostForm = ({ setShowModal, game }) => {
     const dispatch = useDispatch();
-
-    // const errors = useSelector(state => state?.errors?.posts);
     const [errors, setErrors] = useState({title: '', description: ''});
     const game_id = game._id;
     const author_id = useSelector(state => state.session.user?._id);
-    // const posts = useSelector(state => state.posts);
-    // console.log('game id', game.id);
-    // console.log('author id', author_id);
-    
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [canSubmit, setCanSubmit] = useState(false);
@@ -45,15 +39,11 @@ const CreatePostForm = ({ setShowModal, game }) => {
         } else {
             setCanSubmit(false);
         }
-
-        // console.log(currTitle.length, currDescription.length);
-        // console.log(errors);
     }
 
     useEffect(() => {
         return () => {
             dispatch(clearSessionErrors());
-            // dispatch(fetchGamePosts(game.gameURL));
         }
     }, [dispatch]);
 
@@ -65,7 +55,6 @@ const CreatePostForm = ({ setShowModal, game }) => {
             title,
             description
         };
-        // console.log("errors", errors);
         const res = dispatch(createPost(post)).then(res => {
             if (res.ok) {
             setShowModal(false);

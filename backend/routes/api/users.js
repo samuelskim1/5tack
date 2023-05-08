@@ -178,11 +178,6 @@ router.post('/logout', (req, res) => {
 
 
 router.patch('/:id', singleMulterUpload("profileImageUrl"), validateUpdateUser, async (req, res) => {
-  console.log("REQREQREQDSKLFJIASFJEOWJFWAFOJWILFJAWJELIWJLFJAJ", req)
-  // take image and upload
-  // const profileImageUrl = req.file ?
-  //   await singleFileUpload({ file: req.file, public: true }) :
-  //   DEFAULT_PROFILE_IMAGE_URL;
   if (req.file) {
     req.body.profileImageUrl = await singleFileUpload({ file: req.file, public: true });
   }

@@ -11,14 +11,8 @@ const { io } = require('../../app');
 const { multipleFilesUpload, multipleMulterUpload } = require("../../awsS3");
 
 router.post('/', multipleMulterUpload("images"), multipleMulterUpload("videos"), requireUser, async (req, res) => {
-  // await console.log("req", req);
-  // const imageUrls = await multipleFilesUpload({ files: req.files.images, public: true });
-  // const videoUrls = await multipleFilesUpload({ files: req.files.videos, public: true });
-
   const postData = {
     ...req.body
-    // imageUrls,
-    // videoUrls
   };
   
   try {
@@ -27,7 +21,6 @@ router.post('/', multipleMulterUpload("images"), multipleMulterUpload("videos"),
                                           .populate("author_id", "_id username profileImageUrl")
                                           .populate("comment_id");
     res.status(201).json(findNewPost);
-    // await console.log("res", res);
 
     // Emit a WebSocket event when a new post is created
     // io.emit('newPost', newPost);
