@@ -37,15 +37,8 @@ const Profile = () => {
         grabError();
         dispatch(fetchUserPosts(username));
         dispatch(fetchUserReviews(username));
-        // console.log("user:", user);
     }, [dispatch, username, user?.profileImageUrl]);
     
-    // if (userErrors) {
-    //     // console.log("yeah this doesn't exist");
-    //     // dispatch(clearUserErrors())
-    //     return <Redirect to='/uh-oh/404' />
-
-    // }
     
     return (
         <div id="profile-container">

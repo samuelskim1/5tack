@@ -64,7 +64,6 @@ const CommentsIndexItem = ({ comment, post }) => {
     post.comment_id.forEach((element, i) => {
       if (element._id === commentData._id)
       post.comment_id[i] = updatedComment;
-      console.log(element);
     })
     dispatch(updatedPost(post));
     setIsEditing(false);
