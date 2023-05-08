@@ -4,7 +4,7 @@ import PostIndexItem from './PostIndexItem';
 
 const PostIndex = ({ posts }) => {
 
-  if (!posts || !posts.length) return null;
+  if (!posts) return null;
 
   return (
     <div className="posts-index-container">

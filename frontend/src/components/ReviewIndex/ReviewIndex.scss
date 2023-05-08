@@ -7,7 +7,7 @@
     height: 100%;
     min-height: calc(100vh - 350px);
     background-color: #333;
-    color: white;
+    color: $neutral-text;
     padding: 50px 25px;
     display: flex;
     flex-direction: column;
@@ -21,7 +21,7 @@
     min-height: calc(100vh - 350px);
     height: 100%;
     background-color: #333;
-    color: white;
+    color: $neutral-text;
     padding: 50px 30px;
     display: flex;
     flex-direction: row;
@@ -37,7 +37,7 @@
 
     .create-review-modal {
         background-color: #666;
-        color: white;
+        color: $neutral-text;
         padding: 10px 20px;
         font-weight: 500;
         cursor: pointer;
@@ -91,9 +91,8 @@
         align-items: center;
     }
 
-    .review-index-rating i {
-        margin-left: 12px;
-        font-size: 24px;
+    .review-index-rating .fa-star {
+        font-size: 26px;
     }
 
     .review-index-item-information {
@@ -102,7 +101,7 @@
         max-width: 650px;
         width: 100%;
         padding: 25px;
-        color: #e4dfd5;
+        color: $neutral-text;
     }
 
 
@@ -171,22 +170,24 @@
         justify-content: space-between;
         position: absolute;
         // right: 30px;
-        right: 5%;
+        right: 3%;
         // bottom: 30px;
-        bottom: 35%;
-    }
+        bottom: 24px;
 
-    .delete-review-btn {
-        padding-left: 15px;
-    }
-
-    .delete-review-btn,
-    .update-review-modal {
-        cursor: pointer;
-        padding: 0;
         .fa-solid {
-            font-size: 20px;
-        }
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 6px;
+            padding: 8px;
+            
+          }
+        
+          .fa-solid:hover {
+            background-color: #666;
+          }
     }
     
 }

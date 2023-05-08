@@ -1,21 +1,25 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import CommentsIndex from '../CommentsIndex/CommentsIndex';
 import TimeStamp from '../TimeStamp/TimeStamp';
 import Avatar from '../UserInfo/Avatar';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { fetchAllComments } from '../../store/comments';
+import { useSelector } from 'react-redux';
 import PostButtons from './PostButtons.js';
 
 const PostIndexItem = ({ post }) => {
-  const dispatch = useDispatch();
-  // const postComments = useSelector(state => state.posts[post._id].comment_id);
   const user = useSelector(state => state.session.user);
-  const isAuthor = post?.author_id?._id === user?._id
+  const isAuthor = post?.author_id?._id === user?._id;
+  const games = useSelector(state => Object.values(state?.games));
+  const game = games.find(el => el._id === post.game_id);
+  const gameName = game?.name;
+  const { pathname } = useLocation();
+  const params = pathname.split('/');
+  let tag;
 
-  // useEffect(() => {
-  //   dispatch(fetchAllComments());
-  // }, [dispatch]);
+
+  if (params.length === 2 && params[1] !== 'home') {
+    tag = gameName;
+  }
+
 
   return (
     <div className='post-index-item'>
@@ -41,6 +45,13 @@ const PostIndexItem = ({ post }) => {
       <div className='post-index-description'>
         {post?.description}
       </div>
+      {tag && (
+        <Link to={`/games/${game.nameURL}`}>
+          <div className='profile-post-tag'>
+            {"#" + tag}
+          </div>
+        </Link>
+      )}
       <div className='post-comment-separator' />
       <CommentsIndex post={post} />
     </div>

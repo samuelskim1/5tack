@@ -56,14 +56,14 @@
 .user-average-rating {
     display: flex;
     align-items: center;
-    padding: 50px 0px 50px;
+    padding: 10px;
     font-size: 30px;
     font-weight: 600;
-}
 
-.user-average-rating i{
-    margin-left: 12px;
-    font-size: 26px;
+    i {
+        margin-left: 12px;
+        font-size: 26px;
+    }
 }
 
 .user-info-field.edit-user-btn {

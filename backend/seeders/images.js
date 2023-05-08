@@ -7,7 +7,7 @@ const { mongoURI: db } = require('../config/keys.js');
 const User = require('../models/User');
 const Post = require('../models/Post');
 
-const DEFAULT_PROFILE_IMAGE_URL = 'https://5tack.s3.amazonaws.com/public/cartoon-dead-fish.png'; // <- Insert the S3 URL that you copied above here
+const DEFAULT_PROFILE_IMAGE_URL = 'https://5tack.s3.amazonaws.com/public/16.png'; // <- Insert the S3 URL that you copied above here
 const DEFAULT_PROFILE_VIDEO_URL = 'https://5tack.s3.amazonaws.com/public/The+Capybara+Song+Official+Music+Video+%F0%9F%8E%B6%F0%9F%8E%B6+%23capybara+%23capybaras+%23shorts+%23capybarasong.mp4';
 
 // Connect to database

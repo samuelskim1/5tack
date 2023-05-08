@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchUserReviews, updateReview } from "../../store/reviews";
@@ -8,24 +8,18 @@ const UpdateReviewForm = ({ setShowModal, review }) => {
     const dispatch = useDispatch();
     const { username } = useParams();
     const reviewedUser = useSelector(state => state?.users[username]);
-    // const errors = useSelector(state => state.errors?.reviews);
     const [errors, setErrors] = useState({title: '', description: ''})
-    // const gameURL = useSelector(state => review.game)
-
     const [title, setTitle] = useState(review.title);
     const [description, setDescription] = useState(review.description);
-    // const [rating, setRating] = useState(review.rating);
-    
     const [rating, setRating] = useState(review.rating);
     const [hoverRating, setHoverRating] = useState(0);
     const [canSubmit, setCanSubmit] = useState(false);
 
     useEffect(() => {
         dispatch(fetchUserReviews(username));
-    }, [review.title, review.description, review.rating]);
+    }, [review.title, review.description, review.rating, dispatch, username]);
 
     const handleSubmit = async () => {
-        // debugger;
         const updatedReviewInfo = {
             ...review,
             title,
@@ -34,7 +28,6 @@ const UpdateReviewForm = ({ setShowModal, review }) => {
         }
 
         const returnedRequest = await dispatch(updateReview(updatedReviewInfo));
-        // debugger;
         const res = returnedRequest[0]; //the response of the dispatch
         const reviewData = returnedRequest[1]; //the actual review object
         if (res.ok) {
