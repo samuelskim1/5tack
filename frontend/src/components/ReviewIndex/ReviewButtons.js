@@ -13,9 +13,7 @@ const ReviewButtons = ({ review }) => {
     const [showConfirm, setShowConfirm] = useState(false);
 
 
-    // PLZ FIX DELETE, SPLICE NO WORK
     const handleDelete = async () => {
-        // const revIdx = user.review_id.indexOf(review);
         await dispatch(destroyReview(review._id));
         await dispatch(updateUser(user));
         setShowConfirm(false);

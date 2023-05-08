@@ -26,12 +26,9 @@ const Navbar = () => {
     dispatch(fetchCategories());
     dispatch(fetchGames());
     if (params.length === 2 && params[1] !== 'home' && params[1] !== '') {
-      // dispatch(fetchAllPosts());
       dispatch(fetchUserPosts(params[1]));
-      console.log(params[1]);
     } else if (params.length === 3) {
       dispatch(fetchGamePosts(params[2]))
-      console.log(params[2]);
     }
     dispatch(fetchAllComments());
   }, [loggedIn]);

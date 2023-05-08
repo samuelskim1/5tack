@@ -91,9 +91,8 @@
         align-items: center;
     }
 
-    .review-index-rating i {
-        margin-left: 12px;
-        font-size: 24px;
+    .review-index-rating .fa-star {
+        font-size: 26px;
     }
 
     .review-index-item-information {
@@ -171,22 +170,24 @@
         justify-content: space-between;
         position: absolute;
         // right: 30px;
-        right: 5%;
+        right: 3%;
         // bottom: 30px;
-        bottom: 35%;
-    }
+        bottom: 24px;
 
-    .delete-review-btn {
-        padding-left: 15px;
-    }
-
-    .delete-review-btn,
-    .update-review-modal {
-        cursor: pointer;
-        padding: 0;
         .fa-solid {
-            font-size: 20px;
-        }
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 6px;
+            padding: 8px;
+            
+          }
+        
+          .fa-solid:hover {
+            background-color: #666;
+          }
     }
     
 }
