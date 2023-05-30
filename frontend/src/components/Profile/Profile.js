@@ -39,6 +39,7 @@ const Profile = () => {
         dispatch(fetchUserReviews(username));
     }, [dispatch, username, user?.profileImageUrl]);
     
+    window.scrollTo(0, 0);
     
     return (
         <div id="profile-container">
