@@ -34,11 +34,18 @@ const Profile = () => {
     }
 
     useEffect(() => {
-        grabError();
-        dispatch(fetchUserPosts(username));
-        dispatch(fetchUserReviews(username));
+        // grabError();
+        dispatch(fetchUserPosts(username))
+        .then(data => {
+            if (data.errors) history.push('/uh-oh/404');
+        });
+        dispatch(fetchUserReviews(username))
+        .then(data => {
+            if (data.errors) history.push('uh-oh/404');
+        });
     }, [dispatch, username, user?.profileImageUrl]);
     
+    if (!user) return null;
     
     return (
         <div id="profile-container">

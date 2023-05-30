@@ -110,7 +110,8 @@ const serverErrorLogger = debug('backend:error');
 // middleware throws an error or invokes the `next` function with a truthy value
 app.use((err, req, res, next) => {
   serverErrorLogger(err);
-  const statusCode = err.statusCode || 500;
+  // const statusCode = err.statusCode || 500;
+  const statusCode = 200;
   res.status(statusCode);
   res.json({
     message: err.message,
