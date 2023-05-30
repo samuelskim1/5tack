@@ -5,7 +5,7 @@ import UpdatePostModal from '../PostForms/UpdatePostModal';
 import { Modal } from '../../context/modal';
 import PostForms from '../PostForms/PostForms.scss';
 
-const PostButtons = ({ post }) => {
+const PostButtons = ({ post, type }) => {
     const dispatch = useDispatch();
 
     const [showConfirm, setShowConfirm] = useState(false);
@@ -17,7 +17,7 @@ const PostButtons = ({ post }) => {
 
     return (
         <div className='post-buttons-holder'>
-            <UpdatePostModal post={post} />
+            <UpdatePostModal post={post} type={type} />
             <div className='delete-post-btn' onClick={() => setShowConfirm(true)}>
                 <i className="fa-solid fa-trash"></i>
             </div>

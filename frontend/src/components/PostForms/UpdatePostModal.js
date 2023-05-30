@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Modal } from "../../context/modal";
 import UpdatePostForm from './UpdatePostForm';
 
-const UpdatePostModal = ({ post }) => {
+const UpdatePostModal = ({ post, type }) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -15,7 +15,7 @@ const UpdatePostModal = ({ post }) => {
       </div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)} >
-          <UpdatePostForm post={post} setShowModal={setShowModal} />
+          <UpdatePostForm post={post} setShowModal={setShowModal} type={type}/>
         </Modal>
       )}
     </div>

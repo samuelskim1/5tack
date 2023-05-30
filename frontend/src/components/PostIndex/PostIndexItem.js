@@ -5,7 +5,7 @@ import Avatar from '../UserInfo/Avatar';
 import { useSelector } from 'react-redux';
 import PostButtons from './PostButtons.js';
 
-const PostIndexItem = ({ post }) => {
+const PostIndexItem = ({ post, type }) => {
   const user = useSelector(state => state.session.user);
   const isAuthor = post?.author_id?._id === user?._id;
   const games = useSelector(state => Object.values(state?.games));
@@ -26,7 +26,7 @@ const PostIndexItem = ({ post }) => {
       <div className='post-index-title'>
         {post?.title}
         { isAuthor && 
-          <PostButtons post={post} />
+          <PostButtons post={post} type={type} />
         }
       </div>
       <div className='author-block'>

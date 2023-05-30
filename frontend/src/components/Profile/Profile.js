@@ -43,12 +43,11 @@ const Profile = () => {
         .then(data => {
             if (data.errors) history.push('uh-oh/404');
         });
+        window.scrollTo(0,0);
     }, [dispatch, username, user?.profileImageUrl]);
     
 
-    window.scrollTo(0, 0);
     if (!user) return null
-    
   
     return (
         <div id="profile-container">
@@ -81,7 +80,7 @@ const Profile = () => {
             )}
 
             {tab === 'posts' && (
-                <PostIndex posts={posts} />
+                <PostIndex posts={posts} type="profile" />
             )}
         </div>
     )
