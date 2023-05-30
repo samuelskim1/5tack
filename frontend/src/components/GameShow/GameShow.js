@@ -14,6 +14,7 @@ import "../../components/Swiper/pagination.scss";
 import { register } from 'swiper/element/bundle';
 import { clearGameErrors } from "../../store/games";
 import { Redirect, useHistory } from "react-router-dom";
+import LostPage from "../LostPage/LostPage.js";
 
 const GameShow = () => {
   // register();
@@ -94,7 +95,8 @@ const GameShow = () => {
           </div>
         </div>
       ) : (
-        <h3>Game not found</h3>
+        // <h3>Game not found</h3>
+        <LostPage />
       )}
     </div>
   );
