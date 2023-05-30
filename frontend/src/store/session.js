@@ -32,16 +32,12 @@ export const signup = user => startSession(user, 'api/users/register');
 export const login = user => startSession(user, 'api/users/login');
 
 const startSession = (userInfo, route) => async dispatch => {
-  // try {  
     const res = await jwtFetch(route, {
       method: "POST",
       body: JSON.stringify(userInfo)
     })
     .then(async res => {
-      console.log("ewuighpwgupgh", res);
       const data = await res.json();
-      console.log("data QAQ", data);
-      console.log("errors QAQ", data.errors);
 
       if (!data.errors) {
         const { user, token } = data;
@@ -51,18 +47,7 @@ const startSession = (userInfo, route) => async dispatch => {
         dispatch(receiveErrors(data.errors))
       }
     });
-    // console.log("ioewghwigubguibgrewuigbw", res.errors);
 
-    // const { user, token } = await res.json();
-    // localStorage.setItem('jwtToken', token);
-    // return dispatch(receiveCurrentUser(user));
-  // }
-  //  catch(err) {
-  //   const res = await err.json();
-  //   if (res.statusCode === 400) {
-  //     return dispatch(receiveErrors(res.errors));
-  //   }
-  // }
 };
 
 export const logout = () => dispatch => {
