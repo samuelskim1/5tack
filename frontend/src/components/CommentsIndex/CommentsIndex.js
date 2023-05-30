@@ -45,9 +45,10 @@ const CommentsIndex = ({ post }) => {
   };
   
   const handleEnter = async (e) => {
-    if (e.key === 'Enter' && canSubmit) {
-      handleSubmit();
-    };
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      if (canSubmit) handleSubmit();
+    }
   };
   
   const handleChange = (e) => {
