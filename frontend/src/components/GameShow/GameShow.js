@@ -14,11 +14,13 @@ import "../../components/Swiper/pagination.scss";
 import { register } from 'swiper/element/bundle';
 import { clearGameErrors } from "../../store/games";
 import { Redirect, useHistory } from "react-router-dom";
+import LostPage from "../LostPage/LostPage.js";
 
 const GameShow = () => {
   // register();
   // SwiperCore.use([Navigation, Pagination, Autoplay]);
 
+  // const errors = useSelector(state => state.errors?.posts);
   const history = useHistory();
   const { nameURL } = useParams();
   const game = useSelector(state => state?.games[nameURL]);
@@ -37,11 +39,14 @@ const GameShow = () => {
     }
   }
 
-  // dispatch(fetchGame(nameURL)).then(() => setLoading(false));
-
   useEffect(() => {
-      grabError();
-      dispatch(fetchGamePosts(nameURL));
+      // grabError();
+      dispatch(fetchGamePosts(nameURL))
+      .then(data => {
+        if (data.errors) {
+          history.push('/uh-oh/404');
+        } else setLoading(false);
+      });
       window.scrollTo(0, 0);
   }, [dispatch, nameURL]);
 
@@ -66,12 +71,11 @@ const GameShow = () => {
     }
   };
   
+  if (!game || !gamePosts) return null;
 
   return (
     <div className="game-show-container">
-      {loading ? (
-        <h3>Loading...</h3>
-      ) : game ? (
+      
         <div className="game-show-content">
           {/* <Swiper
             // navigation
@@ -93,9 +97,7 @@ const GameShow = () => {
           <PostIndex posts={gamePosts} />
           </div>
         </div>
-      ) : (
-        <h3>Game not found</h3>
-      )}
+      
     </div>
   );
 };

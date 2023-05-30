@@ -29,8 +29,8 @@ const CommentsIndexItem = ({ comment, post }) => {
   const handleChange = (e) => {
     let currContent = e.target.value;
     setContent(currContent);
-    setCount(currContent.length);
-    if (currContent.length > 0 && currContent.length <= 200) {
+    setCount(currContent.trim().length);
+    if (currContent.trim().length > 0 && currContent.trim().length <= 200) {
       setCanUpdate(true);
     } else {
       setCanUpdate(false);
@@ -38,10 +38,11 @@ const CommentsIndexItem = ({ comment, post }) => {
   };
 
   const handleEnter = async (e) => {
-    if (e.key === 'Enter') {
-      handleUpdate();
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      if (canUpdate) handleUpdate();
     }
-    if (e.keyCode === 27) {
+    if (e.key === 'Escape') {
       setIsEditing(false);
       setContent(comment?.content);
     }
@@ -55,11 +56,12 @@ const CommentsIndexItem = ({ comment, post }) => {
         username: currentUser.username,
         _id: currentUser._id
       },
-      content: content,
+      content: content.trim(),
       post_id: {
         _id: post._id
       }
     }
+    setContent(content.trim());
     const commentData = await dispatch(updateComment(updatedComment));
     post.comment_id.forEach((element, i) => {
       if (element._id === commentData._id)
@@ -67,6 +69,7 @@ const CommentsIndexItem = ({ comment, post }) => {
     })
     dispatch(updatedPost(post));
     setIsEditing(false);
+    setCanUpdate(false);
   };
 
 
@@ -93,7 +96,7 @@ const CommentsIndexItem = ({ comment, post }) => {
                   <div id="comment-text-buttons">
                     <textarea
                       value={content}
-                      onKeyDown={(e) => canUpdate && handleEnter(e)}
+                      onKeyDown={(e) => handleEnter(e)}
                       onChange={(e) => handleChange(e)}
                     />
 

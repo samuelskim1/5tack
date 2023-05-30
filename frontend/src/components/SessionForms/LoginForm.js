@@ -26,6 +26,7 @@ const LoginForm = () => {
 
   const demoLogin = (e) => {
     e.preventDefault();
+    dispatch(clearSessionErrors());
     dispatch(login({ username: "demo", password: "password" }));
   };
 
