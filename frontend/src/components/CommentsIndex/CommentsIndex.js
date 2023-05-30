@@ -31,7 +31,7 @@ const CommentsIndex = ({ post }) => {
         username: currentUser.username,
         _id: currentUser._id
       },
-      content: content,
+      content: content.trim(),
       post_id: {
         _id: post._id
       }
@@ -45,7 +45,7 @@ const CommentsIndex = ({ post }) => {
   };
   
   const handleEnter = async (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' && canSubmit) {
       handleSubmit();
     };
   };
@@ -53,8 +53,8 @@ const CommentsIndex = ({ post }) => {
   const handleChange = (e) => {
     let currContent = e.target.value;
     setContent(currContent);
-    setCount(currContent.length);
-    if (currContent.length > 0 && currContent.length <= 200) {
+    setCount(currContent.trim().length);
+    if (currContent.trim().length > 0 && currContent.trim().length <= 200) {
       setCanSubmit(true);
     } else {
       setCanSubmit(false);
