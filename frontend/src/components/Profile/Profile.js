@@ -45,8 +45,11 @@ const Profile = () => {
         });
     }, [dispatch, username, user?.profileImageUrl]);
     
-    if (!user) return null;
+
+    window.scrollTo(0, 0);
+    if (!user) return null
     
+  
     return (
         <div id="profile-container">
             <UserInfo user={user} />
