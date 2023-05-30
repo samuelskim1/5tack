@@ -59,8 +59,13 @@ export const fetchAllPosts = () =>  async dispatch => {
 
 export const fetchUserPosts = (username) => async dispatch => {
     const res = await jwtFetch(`/api/posts/user/${username}`);
-    const userPosts = await res.json();
-    return dispatch(receiveUserPosts(userPosts));
+
+    const data = res.json();
+    if (!data.errors) dispatch(receiveUserPosts(data));
+    else dispatch(receiveErrors(data.errors));
+    // const userPosts = await res.json();
+    // return dispatch(receiveUserPosts(userPosts));
+    return data;
 }
 
 export const fetchGamePosts = (nameURL) => async dispatch => {
