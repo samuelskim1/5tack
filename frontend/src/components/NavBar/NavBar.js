@@ -41,18 +41,14 @@ const Navbar = () => {
   return (
     <>
       {!loggedIn && (
-        <button className="about-button">
-          <Link to="/" className="about-go-back">
-            Go Back
-          </Link>
-        </button>
+        <Link to="/" className="about-button">
+          Go Back
+        </Link>
       )}
       {loggedIn && (
-        <button className="about-button">
-          <Link to="/about" className="meet-the-team">
-            Meet the Team
-          </Link>
-        </button>
+        <Link to="/about" className="about-button">
+          Meet the Team
+        </Link>
       )}
       {loggedIn && (
         <nav id="nav-container">

@@ -3,6 +3,7 @@ import garyhor from './garyhor.jpg';
 import samkim from './samkim.jpg';
 import milnerchen from './milnerchen.jpg';
 import './AboutPage.scss';
+import { useEffect } from 'react';
 
 const AboutPage = () => {
 
@@ -45,6 +46,10 @@ const AboutPage = () => {
     }
   ];
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+
   return (
     <div className="aboutPageContainer">
       <h1>Meet Our Team</h1>
@@ -54,7 +59,6 @@ const AboutPage = () => {
             <img src={member.image} alt={member.name} style={{width: member.width, height: member.height}} />
             <h2>{member.name}</h2>
             <p className="member-role">{member.role}</p>
-            <p>{member.bio}</p>
             <p className="member-email">{member.email}</p>
             <div className="social-buttons">
               <a href={member.github} target="_blank" rel="noopener noreferrer">
