@@ -60,7 +60,7 @@ export const fetchAllPosts = () =>  async dispatch => {
 export const fetchUserPosts = (username) => async dispatch => {
     const res = await jwtFetch(`/api/posts/user/${username}`);
 
-    const data = res.json();
+    const data = await res.json();
     if (!data.errors) dispatch(receiveUserPosts(data));
     else dispatch(receiveErrors(data.errors));
     // const userPosts = await res.json();
