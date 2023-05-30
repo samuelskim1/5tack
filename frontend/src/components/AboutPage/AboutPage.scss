@@ -1,5 +1,6 @@
 @import '../../App.scss';
 
+
 .aboutPageContainer {
   display: flex;
   flex-direction: column;
@@ -17,7 +18,6 @@
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  max-width: 1400px;
 }
 
 .team-member {
@@ -31,8 +31,8 @@
 }
 
 .team-member img {
-  width: 299px;
-  height: 299px;
+  width: 300px;
+  height: 300px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease-in-out;
 }
@@ -57,7 +57,7 @@
   font-size: 18px;
   margin-top: 5px;
   color: #141414;
-  max-width: 299px;
+  max-width: 300px;
   padding-bottom: 10px;
   box-sizing: border-box;
   padding-left: 15px;
@@ -89,4 +89,10 @@
 
 .social-buttons a:hover {
   color: #333;
+}
+
+@media screen and (min-width: 1337px) and (max-width: 1678px) {
+  .aboutContainer {
+    max-width: 1000px;
+  }
 }
