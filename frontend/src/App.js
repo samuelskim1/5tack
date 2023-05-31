@@ -17,7 +17,9 @@ import { useSelector } from 'react-redux';
 const App = () => {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
-  const userErrors = useSelector(state => state?.errors?.users)
+  const userErrors = useSelector(state => state?.errors?.users);
+  const currentUser = useSelector(getCurrentUser);
+
   useEffect(() => {
     dispatch(getCurrentUser()).then(() => setLoaded(true));
   }, [dispatch]);
@@ -26,7 +28,9 @@ const App = () => {
     <div id='entire-app'>
       <NavBar />
 
-      <div className='main-content'>
+      <div 
+        className={currentUser ? 'main-conntent' : 'unlogged-main-content'}
+        >
         <Switch>
           <AuthRoute exact path="/" component={SplashPage} />
           <ProtectedRoute exact path="/home" component={HomePage} />
