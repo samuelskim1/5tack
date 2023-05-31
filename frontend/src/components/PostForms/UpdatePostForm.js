@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { fetchGamePosts, updatedPost } from "../../store/posts";
+import { fetchGamePosts, fetchUserPosts, updatedPost } from "../../store/posts";
 
-const UpdatePostForm = ({ setShowModal, post }) => {
+const UpdatePostForm = ({ setShowModal, post, type }) => {
     const dispatch = useDispatch();
     const games = useSelector(state => Object.values(state.games));
     const game = games.find(el => el._id === post.game_id);
@@ -44,7 +44,8 @@ const UpdatePostForm = ({ setShowModal, post }) => {
     }
 
     useEffect(() => {
-        dispatch(fetchGamePosts(nameURL));
+        if (type === 'profile') dispatch(fetchUserPosts(post?.author_id.username));
+        else dispatch(fetchGamePosts(nameURL));
     }, [post.title, post.description]);
 
     const handleSubmit = () => {
