@@ -54,9 +54,11 @@ const UserInfo = () => {
     return (
         <div className='user-info'>
             <Avatar user={showUser} />
-            <div className='user-info-field edit-user-btn' ref={button}>
+            {/* <div className='user-info-field edit-user-btn' ref={button}> */}
+            <>
                 {moodyButton}
-            </div>
+            </>
+            {/* </div> */}
             <div className='user-info-field username'>@{showUser?.username}</div>
             <div className='user-info-field'>{showUser?.description}</div>
 
