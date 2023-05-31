@@ -39,11 +39,10 @@ const SplashPage = () => {
       <div id="splash-stack-4" ref={stack4}>5TACK</div>
       <div id="splash-stack-5" ref={stack5}>5TACK</div>
 
-      <button className="about-button">
-        <Link to="/about" className="about-link">
-          Meet the Team
-        </Link>
-      </button>
+
+      <Link to="/about" className="about-button">
+        Meet the Team
+      </Link>
       
       <div id="splash-bottom-container" ref={bar}>
 
