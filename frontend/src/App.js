@@ -1,23 +1,23 @@
-import { Route, Switch, Redirect } from 'react-router-dom';
-import { AuthRoute, ProtectedRoute } from './components/Routes/Routes';
+import { Route, Switch } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCurrentUser } from './store/session';
+import { AuthRoute, ProtectedRoute } from './components/Routes/Routes';
 import NavBar from './components/NavBar/NavBar';
 import SplashPage from './components/SplashPage/SplashPage';
 import HomePage from './components/HomePage/HomePage';
 import Profile from './components/Profile/Profile';
 import GameShow from './components/GameShow/GameShow'; 
-import { getCurrentUser } from './store/session';
-import CategoryNav from './components/NavBar/CategoryNav';
 import AboutPage from './components/AboutPage/AboutPage'; 
 import LostPage from './components/LostPage/LostPage';
-import { fetchUser } from './store/users';
-import { useSelector } from 'react-redux';
+
 
 const App = () => {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
-  const userErrors = useSelector(state => state?.errors?.users)
+  const userErrors = useSelector(state => state?.errors?.users);
+  const currentUser = useSelector(state => state?.session?.user);
+
   useEffect(() => {
     dispatch(getCurrentUser()).then(() => setLoaded(true));
   }, [dispatch]);
@@ -26,7 +26,9 @@ const App = () => {
     <div id='entire-app'>
       <NavBar />
 
-      <div className='main-content'>
+      <div 
+        className={currentUser ? 'main-content' : 'unlogged-main-content'}
+        >
         <Switch>
           <AuthRoute exact path="/" component={SplashPage} />
           <ProtectedRoute exact path="/home" component={HomePage} />

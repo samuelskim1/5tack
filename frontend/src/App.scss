@@ -12,7 +12,11 @@ div {
     .main-content {
         width: calc(100vw - 250px);
         min-height: 100vh;
-        // z-index: 0;
+    }
+
+    .unlogged-main-content {
+        width: 100%;
+        min-height: 100vh;
     }
 }
 
