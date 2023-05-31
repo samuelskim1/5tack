@@ -15,7 +15,7 @@ const SignupForm = () => {
 
     useEffect(() => {
         return () => {
-            dispatch(clearSessionErrors());
+            // dispatch(clearSessionErrors());
         };
     }, [dispatch]);
 
@@ -87,7 +87,7 @@ const SignupForm = () => {
                     <div 
                         id="alternate-form"
                     >
-                        Already have an account?<span onClick={() => setCurrModal('login')}>Click here to log in!</span>
+                        Already have an account?<span onClick={() => {setCurrModal('login'); dispatch(clearSessionErrors())}}>Click here to log in!</span>
                     </div>
                 </form>
             </div>
