@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchUser } from '../../store/users';
@@ -14,7 +14,6 @@ const UserInfo = () => {
     const currentUser = useSelector(state => state?.session?.user);
     const showUser = useSelector(state => state?.users[username]);
     const reviews = useSelector(state => state?.reviews)
-    const button = useRef();
     let moodyButton;
     
     

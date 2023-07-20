@@ -15,7 +15,6 @@ import LostPage from './components/LostPage/LostPage';
 const App = () => {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
-  const userErrors = useSelector(state => state?.errors?.users);
   const currentUser = useSelector(state => state?.session?.user);
 
   useEffect(() => {
