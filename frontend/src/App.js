@@ -22,22 +22,22 @@ const App = () => {
   }, [dispatch]);
 
   return loaded && (
-    <div id='entire-app'>
-      <NavBar />
+    <div>
+      {/* LOGIC THAT WE WANT, nav bars themselves will contain the "Meet the Team" button */}
+      {/* {loggedIn ? <LoggedNav /> : <UnauthNav />} */}
 
-      <div 
-        className={currentUser ? 'main-content' : 'unlogged-main-content'}
-        >
-        <Switch>
-          <AuthRoute exact path="/" component={SplashPage} />
-          <ProtectedRoute exact path="/home" component={HomePage} />
-          <Route exact path="/about" component={AboutPage} />
-          <ProtectedRoute exact path="/games/:nameURL" component={GameShow} />
-          <ProtectedRoute exact path="/:username" component={Profile} />
-          <ProtectedRoute exact path="/uh-oh/404" component={LostPage} />
-          <ProtectedRoute component={LostPage} />
-        </Switch>
-      </div>
+      {/* what we had before */}
+      {/* <NavBar /> */}
+
+      <Switch>
+        {/* <AuthRoute exact path="/" component={SplashPage} />
+        <ProtectedRoute exact path="/home" component={HomePage} />
+        <Route exact path="/about" component={AboutPage} />
+        <ProtectedRoute exact path="/games/:nameURL" component={GameShow} />
+        <ProtectedRoute exact path="/:username" component={Profile} />
+        <ProtectedRoute exact path="/uh-oh/404" component={LostPage} />
+        <ProtectedRoute component={LostPage} /> */}
+      </Switch>
     </div>
   );
 }
