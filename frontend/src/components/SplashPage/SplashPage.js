@@ -5,6 +5,7 @@ import SignupModal from '../SessionForms/SignupModal';
 import './SplashPage.scss';
 import '../SessionForms/SessionForm.scss';
 import SplashBox from '../SplashBox/SplashBox';
+import UnauthNavbar from '../NavBar/UnauthNavbar'
 
 const SplashPage = () => {
   const stack1 = useRef();
@@ -32,7 +33,6 @@ const SplashPage = () => {
 
   return (
     <div id="splash-page-container">
-      
       <div id="splash-stack-1" ref={stack1}>5TACK</div>
       <div id="splash-stack-2" ref={stack2}>5TACK</div>
       <div id="splash-stack-3" ref={stack3}>5TACK</div>

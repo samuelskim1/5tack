@@ -14,19 +14,19 @@ div {
     overflow-wrap: break-word;
 }
 
-#entire-app {
-    display: flex;
-    .main-content {
-        width: calc(100vw - 250px);
-        min-height: 100vh;
-    }
+// #entire-app {
+//     display: flex;
+//     .main-content {
+//         width: calc(100vw - 250px);
+//         min-height: 100vh;
+//     }
 
-    .unlogged-main-content {
-        width: 100%;
-        min-height: 100vh;
-    }
-}
+//     .unlogged-main-content {
+//         width: 100%;
+//         min-height: 100vh;
+//     }
+// }
 
-.main-content {
-    background-color: #222;
-}
+// .main-content {
+//     background-color: #222;
+// }
