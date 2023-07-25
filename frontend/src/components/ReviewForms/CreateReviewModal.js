@@ -8,7 +8,8 @@ const CreateReviewModal = ({ user }) => {
     return (
         <>
             <div
-                className='edit-profile-btn'
+                // className='edit-profile-btn'
+                className='user-info-field edit-user-btn'
                 onClick={() => setShowModal(true)}
             >
                 Make a Review
