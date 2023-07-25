@@ -1,0 +1,50 @@
+@import '../../App.scss';
+
+#nav-container {
+    background-color: $default-white;
+    display: flex;
+    position: sticky;
+    top: 0;
+    align-items: center;
+    justify-content: space-between;
+    
+    height: 80px;
+    padding: 0 50px;
+}
+
+#icon {
+    height: 39px;
+    // position: relative;
+    // top: 50%;
+    // transform: translateY(-50%);
+}
+
+#temp-avatar {
+    height: 40px;
+    width: 40px;
+    // border: 1px black solid;
+    border-radius: 5px;
+}
+
+// Category Nav
+#category-nav {
+    display: flex;
+    width: calc(100vw - 100px);
+    margin: 0 30px;
+    // border: 1px solid black;
+}
+
+// Category Button
+.category-button {
+    border: 1px solid black;
+    width: fit-content;
+    font-weight: bold;
+    
+    margin-right: 10px;
+    border-radius: 8px;
+    padding: 8px 12px;
+}
+
+.category-button:last-child {
+    margin-right: 0px;
+}

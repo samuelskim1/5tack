@@ -14,7 +14,10 @@ div {
     overflow-wrap: break-word;
 }
 
-// #entire-app {
+#entire-app {
+    background-color: $default-bg;
+    font-family: $default-font;
+    height: 100vh;
 //     display: flex;
 //     .main-content {
 //         width: calc(100vw - 250px);
@@ -25,7 +28,7 @@ div {
 //         width: 100%;
 //         min-height: 100vh;
 //     }
-// }
+}
 
 // .main-content {
 //     background-color: #222;

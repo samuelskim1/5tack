@@ -2,15 +2,15 @@ import { Route, Switch } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentUser } from './store/session';
-import { AuthRoute, ProtectedRoute } from './components/Routes/Routes';
-import NavBar from './components/NavBar/NavBar';
-import SplashPage from './components/SplashPage/SplashPage';
-import HomePage from './components/HomePage/HomePage';
-import Profile from './components/Profile/Profile';
-import GameShow from './components/GameShow/GameShow'; 
-import AboutPage from './components/AboutPage/AboutPage'; 
-import LostPage from './components/LostPage/LostPage';
-
+// import { AuthRoute, ProtectedRoute } from './components/Routes/Routes';
+// import NavBar from './components/NavBar/NavBar';
+// import SplashPage from './components/SplashPage/SplashPage';
+// import HomePage from './components/HomePage/HomePage';
+// import Profile from './components/Profile/Profile';
+// import GameShow from './components/GameShow/GameShow'; 
+// import AboutPage from './components/AboutPage/AboutPage'; 
+// import LostPage from './components/LostPage/LostPage';
+import AuthNavBar from './components/AuthNavBar/AuthNavBar';
 
 const App = () => {
   const [loaded, setLoaded] = useState(false);
@@ -22,9 +22,10 @@ const App = () => {
   }, [dispatch]);
 
   return loaded && (
-    <div>
+    <div id='entire-app'>
       {/* LOGIC THAT WE WANT, nav bars themselves will contain the "Meet the Team" button */}
       {/* {loggedIn ? <LoggedNav /> : <UnauthNav />} */}
+      <AuthNavBar />
 
       {/* what we had before */}
       {/* <NavBar /> */}
