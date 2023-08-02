@@ -1,0 +1,67 @@
+@import '../../App.scss';
+
+#unauth-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  background-color: $default-white;
+}
+
+#unauth-content-container {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+#unauth-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 50px;
+    height: 50px;
+    margin-right: 12px;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 36px;
+    font-weight: 600;
+    color: $darkest-blue;
+    margin-right: 6px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    font-weight: 300;
+    color: $darker-blue;
+  }
+}
+
+#unauth-buttons-holder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 280px;
+
+  li {
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid $darkest-blue;
+    color: $darkest-blue;
+    cursor: pointer;
+  }
+
+  li:hover {
+    background-color: $medium-blue;
+    color: $default-white;
+  }
+}
