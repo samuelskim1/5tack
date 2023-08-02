@@ -12,9 +12,10 @@ const SplashPage = () => {
           <div className="splash-card-content">
             <h3>Connect with others to create the most stacked team!</h3>
 
+            <img></img>
+
             <p>
-              Craft the ultimate gaming experience by creating posts to find teammates with similar interests and gaming style.
-              Feeling shy? No problem! Browse through posts made by other users and leave comments.
+              Craft the ultimate gaming experience by creating posts or comments to find teammates with similar interests and gaming style.
             </p>
           </div>
         </section>
@@ -23,8 +24,10 @@ const SplashPage = () => {
           <div className="splash-card-content">
             <h3>Promote accountability within gaming communities!</h3>
 
+            <img></img>
+
             <p>
-              Are ur friends toxic??//? u caam eot the rihgt place xd
+              Tired of toxic players and poorly moderated platforms? Us too. Eliminate the fear of a random uncooperative teammate by leaving reviews on a profile to let others know if you enjoyed gaming with that person!
             </p>
           </div>
         </section>

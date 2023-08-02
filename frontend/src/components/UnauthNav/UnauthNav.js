@@ -13,7 +13,10 @@ const UnauthNav = () => {
 
           <Link to="/">
             <h1>5TACK</h1>
-            <h2>: where gamers unite against toxicity</h2>
+          </Link>
+
+          <Link to="/"> 
+            <h2> where gamers unite against toxicity</h2>
           </Link>
         </div>
 
