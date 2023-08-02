@@ -1,0 +1,49 @@
+@import '../../App.scss';
+
+#splash-container {
+  background-color: $darkest-blue;
+  height: 100vh;
+  // overflow: hidden;
+}
+
+#splash-cards-container {
+  display: flex;
+  justify-content: space-around;
+  height: 100%;
+  max-height: calc(100vh - 180px);
+  margin-top: 80px;
+}
+
+.splash-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 100%;
+  width: 40%;
+  padding: 30px 50px;
+  border-radius: 12px 12px 0 0;
+}
+
+.posts-card {
+  background-color: $default-white;
+  color: $darkest-blue;
+}
+
+.reviews-card {
+  background-color: $medium-blue;
+  color: $default-white;
+}
+
+.splash-card-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  
+    h3 {
+      font-size: 18px;
+      font-weight: 500;
+    }
+}
