@@ -1,23 +1,55 @@
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import './UnauthNav.scss';
+import { useEffect, useRef } from 'react';
 
 const UnauthNav = () => {
+  const T = useRef();
+  const A = useRef();
+  const C = useRef();
+  const K = useRef();
+  const slogan = useRef();
+
+  useEffect(() => {
+    setTimeout(() => {
+      T?.current?.classList.remove('hidden');
+      T?.current?.classList.add('animated');
+    }, 300);
+    setTimeout(() => {
+      A?.current?.classList.remove('hidden');
+      A?.current?.classList.add('animated');
+    }, 600);  
+    setTimeout(() => {
+      C?.current?.classList.remove('hidden');
+      C?.current?.classList.add('animated');
+    }, 900);
+    setTimeout(() => {
+      K?.current?.classList.remove('hidden');
+      K?.current?.classList.add('animated');
+    }, 1200);
+
+    setTimeout(() => {
+      slogan?.current?.classList.remove('hidden');
+      slogan?.current?.classList.add('animated');
+    }, 2200)
+  }, [])
 
   return (
     <nav id="unauth-nav">
       <div id="unauth-content-container">
         <div id="unauth-title">
           <Link to="/">
-            <img src="../../../apple-touch-icon.png"></img>
+            <img src="../../../apple-touch-icon.png" alt="5TACK logo" />
           </Link>
 
           <Link to="/">
-            <h1>5TACK</h1>
+            <h1 className="animated bounce-in-right">5</h1>
+            <h1 className="hidden bounce-in-right" ref={T}>T</h1>
+            <h1 className="hidden bounce-in-right" ref={A}>A</h1>
+            <h1 className="hidden bounce-in-right" ref={C}>C</h1>
+            <h1 className="hidden bounce-in-right" ref={K}>K</h1>
           </Link>
 
-          <Link to="/"> 
-            <h2> where gamers unite against toxicity</h2>
-          </Link>
+          <h2 className='hidden fade-in-right' ref={slogan}> where gamers unite against toxicity</h2>
         </div>
 
         <ul id="unauth-buttons-holder">
