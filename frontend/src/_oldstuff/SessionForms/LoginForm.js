@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { clearSessionErrors, login } from "../../store/session";
 import SignupForm from "./SignupForm";
-import './SessionForm.scss';
 
 
 const LoginForm = () => {
@@ -13,6 +12,12 @@ const LoginForm = () => {
   const [loginForm, setLoginForm] = useState(true);
   const [signupForm, setSignupForm] = useState(false);
 
+
+  useEffect(() => {
+    // return () => {
+    //   dispatch(clearSessionErrors());
+    // };
+  }, [dispatch]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,35 +40,33 @@ const LoginForm = () => {
     {loginForm && (
       <div id="session-form-container">
         <form className="session-form">
-          <img src="../../../apple-touch-icon.png" alt="5TACK logo" />
-          <h2>5TACK</h2>
+          <h2>Welcome back, gamer!</h2>
           <div className="errors">{errors?.credentials}</div>
-            <label>
-              <span>Username</span>
-              <input type="text"
-                value={username}
-                onChange={update('username')}
-                placeholder="Enter your username"
-              />
-            </label>
+          <label>
+            <span>Username</span>
+            <input type="text"
+              value={username}
+              onChange={update('username')}
+              placeholder="Enter your username"
+            />
+          </label>
           <div className="errors">{errors?.username}</div>
-            <label>
-              <span>Password</span>
-              <input type="password"
-                value={password}
-                onChange={update('password')}
-                placeholder="Enter your password"
-              />
-            </label>
+          <label>
+            <span>Password</span>
+            <input type="password"
+              value={password}
+              onChange={update('password')}
+              placeholder="Enter your password"
+            />
+          </label>
           <div className="errors">{errors?.password}</div>
           <div id="log-demo-btn-holder">
-            <input 
-              type="submit"
-              value="Log In"
+            <div 
               id="submit-login-btn"
               onClick={handleSubmit}
               >
-            </input>
+              Log In
+            </div>
             <div 
               id="submit-demo-btn"
               onClick={demoLogin}
@@ -74,7 +77,7 @@ const LoginForm = () => {
           <div 
             id="alternate-form"
           >
-            Don't have an account yet? <span onClick={() => {setLoginForm(false); setSignupForm(true); dispatch(clearSessionErrors());}}>Click here to sign up! </span>
+            Don't have an account yet?<span onClick={() => {setLoginForm(false); setSignupForm(true); dispatch(clearSessionErrors());}}>Click here to sign up!</span>
           </div>
         </form>
       </div>

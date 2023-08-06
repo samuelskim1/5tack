@@ -1,0 +1,201 @@
+@import '../../App.scss';
+
+#unauth-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  min-width: 1000px;
+  background-color: $default-white;
+}
+
+#unauth-content-container {
+  display: flex;
+  justify-content: space-between;
+  width: 92%;
+}
+
+#unauth-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .hidden {
+    display: none;
+  }
+
+  img {
+    width: 36px;
+    height: 36px;
+    margin-right: 14px;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+  }
+
+  h1 {
+    height: 50px;
+    font-size: 48px;
+    font-weight: 700;
+    color: $darkest-blue;
+    letter-spacing: -3px;
+  }
+
+  h2 {
+    height: 10px;
+    font-size: 24px;
+    font-weight: 500;
+    color: $darker-blue;
+    margin-left: 16px;
+    cursor: default;
+  }
+}
+
+#unauth-buttons-holder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 280px;
+
+  li {
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid $darkest-blue;
+    color: $darkest-blue;
+    cursor: pointer;
+  }
+
+  li:hover {
+    background-color: $darker-blue;
+    color: $default-white;
+  }
+}
+
+
+// ANIMATION CODE TAKEN FROM https://sarthology.github.io/Animatopy/
+// ALL CREDIT GOES TO https://daneden.me/
+
+@-webkit-keyframes bounce-in-right {
+  from, 60%, 75%, 90%, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(3000px, 0, 0);
+    transform: translate3d(3000px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(-25px, 0, 0);
+    transform: translate3d(-25px, 0, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(-5px, 0, 0);
+    transform: translate3d(-5px, 0, 0);
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes bounce-in-right {
+  from, 60%, 75%, 90%, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(3000px, 0, 0);
+    transform: translate3d(3000px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(-25px, 0, 0);
+    transform: translate3d(-25px, 0, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(-5px, 0, 0);
+    transform: translate3d(-5px, 0, 0);
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.bounce-in-right {
+  -webkit-animation-name: bounce-in-right;
+  animation-name: bounce-in-right;
+}
+
+.bounce-in-right.animated {
+  -webkit-animation-duration: 1.2s;
+  animation-duration: 1.2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+
+@-webkit-keyframes fade-in-right {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fade-in-right {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fade-in-right {
+  -webkit-animation-name: fade-in-right;
+  animation-name: fade-in-right;
+}
+
+.fade-in-right.animated {
+  -webkit-animation-duration: 1.8s;
+  animation-duration: 1.8s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}

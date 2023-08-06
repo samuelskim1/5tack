@@ -1,7 +1,6 @@
 import LoginForm from "./LoginForm";
-import './SessionForm.scss';
 
-const { useState } = require("react");
+const { useState, useEffect } = require("react");
 const { useDispatch, useSelector } = require("react-redux");
 const { clearSessionErrors, login, signup } = require("../../store/session");
 
@@ -14,6 +13,11 @@ const SignupForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    useEffect(() => {
+        return () => {
+            // dispatch(clearSessionErrors());
+        };
+    }, [dispatch]);
 
     const handleSubmit = () => {
         const user = {
@@ -35,8 +39,7 @@ const SignupForm = () => {
             {currModal === 'signup' && (
             <div id="session-form-container">
                 <form className="session-form">
-                <img src="../../../apple-touch-icon.png" alt="5TACK logo" />
-                <h2>5TACK</h2>
+                <h2>Welcome to 5TACK!</h2>
                     <label>
                         <span>Email</span>
                         <input
@@ -68,13 +71,12 @@ const SignupForm = () => {
                     </label>
                     <div className="errors">{errors?.password}</div>
                     <div id="log-demo-btn-holder">
-                        <input 
-                        type="submit"
+                        <div 
                         id="submit-login-btn"
-                        value="Sign Up"
                         onClick={handleSubmit}
                         >
-                        </input>
+                        Sign Up
+                        </div>
                         <div 
                         id="submit-demo-btn"
                         onClick={demoLogin}
@@ -85,7 +87,7 @@ const SignupForm = () => {
                     <div 
                         id="alternate-form"
                     >
-                        Already have an account? <span onClick={() => {setCurrModal('login'); dispatch(clearSessionErrors())}}>Click here to log in!</span>
+                        Already have an account?<span onClick={() => {setCurrModal('login'); dispatch(clearSessionErrors())}}>Click here to log in!</span>
                     </div>
                 </form>
             </div>
