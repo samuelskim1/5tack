@@ -1,9 +1,35 @@
 @import '../../App.scss';
 
+#login-btn {
+  padding: 12px 36px;
+  border-radius: 8px;
+  background-color: #777;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+#login-btn:hover {
+  box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.3);
+  background-color: #111;
+}
+
+#signup-btn {
+  padding: 12px 36px;
+  border-radius: 8px;
+  background-color: #444;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+#signup-btn:hover {
+  box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.3);
+  background-color: #111;
+}
+
 #session-form-container {
-  width: 420px;
+  width: 400px;
   height: 100%;
-  background-color: $default-white;
+  background-color: rgb(245, 245, 245);
   border-radius: 8px;
   padding: 30px;
 }
@@ -12,21 +38,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: $darkest-blue;
-}
-
-.session-form img {
-  height: 30px;
-  width: 30px;
-  margin: 10px 0 15px 0;
 }
 
 .session-form h2 {
-  letter-spacing: -1px;
   font-size: 36px;
-  font-weight: 700;
+  font-weight: 500;
   text-align: center;
-  margin-bottom: 20px;
+  margin: 30px 0;
 }
 
 .errors {
@@ -40,15 +58,15 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  width: 200px;
   height: 100px;
 }
 
 .session-form span {
   font-size: 12px;
   font-weight: 300;
-  margin: 8px 12px;
+  margin: 8px;
 }
-
 
 .session-form label {
   display: flex;
@@ -60,37 +78,30 @@
 .session-form input {
   box-sizing: border-box;
   border: none;
-  font-size: 16px;
-  // width: 100%;
+  font-size: 18px;
+  width: 100%;
   padding: 12px;
   border-radius: 4px;
 }
 
-// .session-form input[type="text"], .session-form input[type="password"] {
-//   outline: 1px solid $lightest-blue;
-// }
+.session-form input[type="text"], .session-form input[type="password"] {
+  outline: 1px solid #999;
+}
 
 .session-form input[type="text"]:hover, .session-form input[type="password"]:hover {
-  outline: 1px solid $lighter-blue;
+  outline: 1px solid #555;
 }
 
 .session-form input[type="text"]:focus, .session-form input[type="password"]:focus {
-  outline: 2px solid $lightest-blue;
+  outline: 2px solid #333;
 }
 
 #submit-login-btn {
-  height: 40px;
-  font-weight: 500;
   border-radius: 8px;
-  margin-right: 20px;
   padding: 12px;
-  background-color: $lightest-blue;
+  background-color: #0c1398;
   color: white;
   cursor: pointer;
-}
-
-#submit-login-btn:hover {
-  background-color: $darker-blue;
 }
 
 #submit-login-btn.update-profile-btn {
@@ -98,18 +109,12 @@
 }
 
 #submit-signup-btn {
-  font-weight: 500;
   margin-top: 30px;
-  margin-right: 20px;
   border-radius: 8px;
   padding: 12px;
-  background-color: $lightest-blue;
+  background-color: #0c1398;
   color: white;
   cursor: pointer;
-}
-
-#submit-signup-btn:hover {
-  background-color: $darker-blue;
 }
 
 #or-text {
@@ -119,16 +124,11 @@
 }
 
 #submit-demo-btn {
-  font-weight: 500;
   border-radius: 8px;
   padding: 12px;
-  background-color: $lighter-blue;
+  background-color: #070a54;
   color: white;
   cursor: pointer;
-}
-
-#submit-demo-btn:hover {
-  background-color: $darker-blue;
 }
 
 #alternate-form {
@@ -142,11 +142,6 @@
   cursor: pointer;
   color: #111;
   font-weight: 600;
-  margin: 0;
-}
-
-#alternate-form > span:hover {
-  text-decoration: underline;
 }
 
 #edit-profile-btn {

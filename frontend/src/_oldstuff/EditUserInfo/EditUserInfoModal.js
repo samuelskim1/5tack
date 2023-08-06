@@ -9,7 +9,8 @@ const EditUserInfoModal = () => {
   return (
     <>
       <div
-        id="edit-profile-btn"
+        // id="edit-profile-btn"
+        className='user-info-field edit-user-btn'
         onClick={() => setEdit(true)}
       >
         Edit Profile

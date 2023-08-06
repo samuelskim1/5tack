@@ -1,0 +1,117 @@
+@import '../../App.scss';
+
+#splash-page-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: $default-bg;
+  color: white;
+  position: relative;
+  font-size: 35vh;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+  overflow: hidden;
+  // z-index: 420;
+}
+
+.stacked {
+  width: 0;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#splash-stack-1 {
+  position: absolute;
+  top: 10vh;
+  left: -50vw;
+  transition: transform 1.4s ease-in;
+  opacity: 0.2;
+}
+
+#splash-stack-1.stacked {
+  transform: translateX(100vw);
+}
+
+#splash-stack-2 {
+  position: absolute;
+  top: -90vh;
+  left: -50vw;
+  transition: transform 1.7s ease-in 0.2s;
+  opacity: 0.3;
+}
+
+#splash-stack-2.stacked {
+  transform: translate(100vw, 100vh);
+}
+
+#splash-stack-3 {
+  position: absolute;
+  top: -90vh;
+  left: 50vw;
+  transition: transform 1.9s ease-in 0.3s;
+  opacity: 0.3;
+}
+
+#splash-stack-3.stacked {
+  transform: translateY(100vh);
+}
+
+#splash-stack-4 {
+  position: absolute;
+  top: -90vh;
+  right: -50vw;
+  transition: transform 2.1s ease-in 0.4s;
+  opacity: 0.4;
+}
+
+#splash-stack-4.stacked {
+  transform: translate(-100vw, 100vh);
+}
+
+#splash-stack-5 {
+  position: absolute;
+  top: 10vh;
+  right: -50vw;
+  transition: transform 2s ease-in 0.5s;
+  opacity: 0.7;
+}
+
+#splash-stack-5.stacked {
+  transform: translateX(-100vw);
+}
+
+#splash-bottom-container {
+  position: absolute;
+  top: 45vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 1.8s ease-in 2.5s;
+}
+
+#splash-description {
+  font-size: 28px;
+  font-size: 3vh;
+  font-weight: 200;
+  letter-spacing: 0.1rem;
+  width: 100vw;
+  text-align: center;
+  margin-bottom: 5vh;
+}
+
+#splash-bottom-container.fade-in {
+  opacity: 1;
+}
+
+#splash-btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 25vw;
+  min-width: 300px;
+  font-size: 24px;
+  letter-spacing: normal;
+}
