@@ -22,6 +22,7 @@
 }
 
 .session-form h2 {
+  letter-spacing: -1px;
   font-size: 36px;
   font-weight: 700;
   text-align: center;
@@ -48,6 +49,7 @@
   margin: 8px 12px;
 }
 
+
 .session-form label {
   display: flex;
   flex-direction: column;
@@ -69,11 +71,11 @@
 // }
 
 .session-form input[type="text"]:hover, .session-form input[type="password"]:hover {
-  outline: 1px solid $lightest-blue;
+  outline: 1px solid $lighter-blue;
 }
 
 .session-form input[type="text"]:focus, .session-form input[type="password"]:focus {
-  outline: 2px solid $lighter-blue;
+  outline: 2px solid $lightest-blue;
 }
 
 #submit-login-btn {
@@ -140,6 +142,10 @@
   color: #111;
   font-weight: 600;
   margin: 0;
+}
+
+#alternate-form > span:hover {
+  text-decoration: underline;
 }
 
 #edit-profile-btn {

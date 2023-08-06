@@ -63,7 +63,6 @@ const LoginForm = () => {
               id="submit-login-btn"
               onClick={handleSubmit}
               >
-              {/* Log In */}
             </input>
             <div 
               id="submit-demo-btn"
@@ -75,7 +74,7 @@ const LoginForm = () => {
           <div 
             id="alternate-form"
           >
-            Don't have an account yet?<span onClick={() => {setLoginForm(false); setSignupForm(true); dispatch(clearSessionErrors());}}> Click here to sign up! </span>
+            Don't have an account yet? <span onClick={() => {setLoginForm(false); setSignupForm(true); dispatch(clearSessionErrors());}}>Click here to sign up! </span>
           </div>
         </form>
       </div>

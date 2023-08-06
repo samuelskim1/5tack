@@ -68,12 +68,13 @@ const SignupForm = () => {
                     </label>
                     <div className="errors">{errors?.password}</div>
                     <div id="log-demo-btn-holder">
-                        <div 
+                        <input 
+                        type="submit"
                         id="submit-login-btn"
+                        value="Sign Up"
                         onClick={handleSubmit}
                         >
-                        Sign Up
-                        </div>
+                        </input>
                         <div 
                         id="submit-demo-btn"
                         onClick={demoLogin}
