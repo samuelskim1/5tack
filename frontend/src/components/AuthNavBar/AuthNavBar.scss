@@ -35,6 +35,27 @@
 }
 
 // Category Button
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes moveLeft {
+    100% { transform: translateX(var(--distLeft, 0)); }
+    // 100% { width: 0px; }
+}
+
+// @keyframes collapseButton {
+//     100% {
+//         border: none;
+//         width: 0;
+//         margin-right: 0;
+//         border-radius: 0;
+//         padding: 0;
+//     }
+// }
+
 .category-button {
     border: 1px solid black;
     width: fit-content;
@@ -43,6 +64,41 @@
     margin-right: 10px;
     border-radius: 8px;
     padding: 8px 12px;
+    // visibility: visible;
+}
+
+.inactive {
+    // animation: fadeOut 1s;
+    transition-property: width, height, margin-right, opacity, border-width;
+    transition-duration: 0.5s;
+    // transition-timing-function: ease-out;
+    // transition-delay: 0.5s;
+    width: 0;
+    // transition: visibility 0.5s;
+    // visibility: hidden;
+    // display: none;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    margin-right: 0;
+    // padding: 0;
+    // border-width: none;
+    // color: transparent;
+}
+
+.category-button:not(.inactive):hover {
+    color: $default-white;
+    background-color: $default-bg;
+}
+
+.active-category-button {
+    /* @keyframes duration | easing-function | delay | name */
+    // animation: 3s linear 1s slidein;
+    // animation-timing-function: ease-out;
+    // animation: 0.5s ease-out 0s moveLeft;
+    color: $default-white;
+    background-color: $default-bg;
+
 }
 
 .category-button:last-child {

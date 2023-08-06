@@ -16,7 +16,7 @@ const CategoryNav = () => {
     return (
         <div id="category-nav">
             {categories.map((cat, i) => 
-                <CategoryButton category={cat} />
+                <CategoryButton category={cat} key={i} />
             )}
         </div>
     )
