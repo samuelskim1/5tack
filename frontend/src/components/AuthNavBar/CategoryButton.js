@@ -48,19 +48,37 @@ const CategoryButton = ({category}) => {
         // currBut.current.animation = `${xLocation => moveLeft(xLocation)} 1s`
 
         for (let but of test) {
-            but.classList.add('inactive');
+            if (but.innerText != currBut.current.innerText) but.classList.add('inactive');
         }
         console.log(test);
         console.log(test[9].classList);
 
 
-        setTimeout(() => {
-            const otherButs = document.getElementsByClassName('inactive');
-            for (let but of otherButs) {
-                but.style.position = "absolute";
-                but.style.opacity = "0";
-            }
-        }, 500)
+        // setTimeout(() => {
+        //     const otherButs = document.getElementsByClassName('inactive');
+        //     for (let but of otherButs) {
+        //         but.style.position = "absolute";
+        //         // but.style.opacity = "0";
+        //     }
+        // }, 500)
+
+        // setTimeout(() => {
+        //     const otherButs = document.getElementsByClassName('inactive');
+        //     for (let but of otherButs) {
+        //         but.style.display = "none";
+        //     }
+        // }, 700)
+
+        const otherButs = document.getElementsByClassName('inactive');
+        for (let but of otherButs) {
+            // FOR COLLAPSING EFFECT
+            // const thisXLocation = holder - but.getBoundingClientRect().left;
+            // but.style.cssText = `--distLeft: ${thisXLocation}px;`;
+
+            but.addEventListener('animationend', () => {
+                but.style.display = "none";
+            })
+        }
 
         // getElementById -> active-category button -> get the x-value of this and move to this
     }
