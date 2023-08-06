@@ -6,10 +6,16 @@
     position: sticky;
     top: 0;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     
     height: 80px;
-    padding: 0 50px;
+}
+
+#nav-content-container {
+    width: 92%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 #icon {
@@ -17,6 +23,7 @@
     // position: relative;
     // top: 50%;
     // transform: translateY(-50%);
+    margin-right: 50px;
 }
 
 #temp-avatar {
@@ -24,13 +31,15 @@
     width: 40px;
     // border: 1px black solid;
     border-radius: 5px;
+    margin-left: 50px;
 }
 
 // Category Nav
 #category-nav {
     display: flex;
-    width: calc(100vw - 100px);
-    margin: 0 30px;
+    align-items: center;
+    justify-content: space-between;
+    width: 92%;
     // border: 1px solid black;
 }
 
@@ -38,7 +47,7 @@
 
 @keyframes fadeOut {
     0% { opacity: 1; }
-    50% { opacity: 0; }
+    100% { opacity: 0; }
 }
 
 @keyframes moveLeft {
@@ -61,29 +70,34 @@
     width: fit-content;
     font-weight: bold;
     
-    margin-right: 10px;
+    // margin-right: 10px;
     border-radius: 8px;
     padding: 8px 12px;
     // visibility: visible;
 }
 
 .inactive {
-    // animation: fadeOut 1s;
-    transition-property: width, height, margin-right, opacity, border-width;
-    transition-duration: 0.5s;
-    // transition-timing-function: ease-out;
-    // transition-delay: 0.5s;
-    width: 0;
-    // transition: visibility 0.5s;
-    // visibility: hidden;
-    // display: none;
-    opacity: 0;
-    height: 0;
-    width: 0;
-    margin-right: 0;
-    // padding: 0;
-    // border-width: none;
-    // color: transparent;
+    // // animation: fadeOut 1s;
+    // transition-property: width, height, margin-right, opacity, border-width;
+    // transition-duration: 0.5s;
+    // // transition-timing-function: ease-out;
+    // // transition-delay: 0.5s;
+    // width: 0;
+    // // transition: visibility 0.5s;
+    // // visibility: hidden;
+    // // display: none;
+    // opacity: 0;
+    // height: 0;
+    // width: 0;
+    // margin-right: 0;
+    // // padding: 0;
+    // // border-width: none;
+    // // color: transparent;
+    
+    // my attempt:
+    
+    animation: fadeOut 0.5s;
+
 }
 
 .category-button:not(.inactive):hover {
@@ -95,7 +109,7 @@
     /* @keyframes duration | easing-function | delay | name */
     // animation: 3s linear 1s slidein;
     // animation-timing-function: ease-out;
-    // animation: 0.5s ease-out 0s moveLeft;
+    animation: 0.5s ease-out 0s moveLeft;
     color: $default-white;
     background-color: $default-bg;
 

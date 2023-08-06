@@ -5,9 +5,11 @@ import CategoryNav from './CategoryNav';
 const AuthNavBar = () => {
     return (
         <nav id='nav-container'>
-            <img id='icon' src='../../../apple-touch-icon.png' />
-            <CategoryNav />
-            <img id='temp-avatar' src='../../../cleffa.jpg' />
+            <div id="nav-content-container">
+                <img id='icon' src='../../../apple-touch-icon.png' />
+                <CategoryNav />
+                <img id='temp-avatar' src='../../../cleffa.jpg' />
+            </div>
         </nav>
     )
 }

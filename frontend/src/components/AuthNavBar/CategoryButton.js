@@ -57,9 +57,10 @@ const CategoryButton = ({category}) => {
         setTimeout(() => {
             const otherButs = document.getElementsByClassName('inactive');
             for (let but of otherButs) {
-                but.style.display = "none";
+                but.style.position = "absolute";
+                but.style.opacity = "0";
             }
-        }, 1001)
+        }, 500)
 
         // getElementById -> active-category button -> get the x-value of this and move to this
     }
