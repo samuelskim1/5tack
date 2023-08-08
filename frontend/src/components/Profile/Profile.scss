@@ -1,2 +1,48 @@
 @import '../../App.scss';
 
+#user-top-section {
+  height: 40%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-bottom: 0.5px solid $medium-blue;
+
+  img {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    box-shadow: -4px 4px 8px rgba(33, 45, 64, 0.5); // $medium-blue at 50% opacity
+  }
+}
+
+#user-info-username {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 15px 0 10px 0;
+}
+
+#user-info-description {
+  margin-bottom: 10px;
+}
+
+#user-average-rating {
+  font-size: 18px;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: $medium-blue;
+  color: $default-white;
+}
+
+#user-bottom-section {
+  height: 60%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

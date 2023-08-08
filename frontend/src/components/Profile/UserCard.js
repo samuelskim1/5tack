@@ -10,8 +10,8 @@ const UserCard = () => {
   const currentUser = useSelector(state => state?.session?.user);
   const showUser = useSelector(state => state?.users[username]);
   const reviews = useSelector(state => state?.reviews);
-
   const [avgRating, setAvgRating] = useState(0);
+
 
   const getAverage = async () => {
     if (showUser?.review_id?.length) {
@@ -32,14 +32,38 @@ const UserCard = () => {
 
   useEffect(() =>  {
       getAverage();
-  }, [reviews, showUser, getAverage])
+  }, [reviews, showUser, getAverage]);
+
 
   return (
-    <section className="splash-card" id="user-card">
-      <div className="splash-card-content">
-        <h3></h3>
+    <>
+      <div id="user-top-section">
+        <img src={showUser?.profileImageUrl} alt={showUser?.username} />
+        
+        <p id="user-info-username">
+          @{showUser?.username}
+        </p>
+
+        {(avgRating > 0) && (
+            <p id='user-average-rating'>
+                {avgRating + " "}
+                <i className="fa-solid fa-star" style={{ color: `$#e4dfd5` }}></i>
+            </p>
+        )}
+
+        {(avgRating === 0) && (showUser?.username !== currentUser?.username) && (
+            <p id='no-reviews'>
+                {"Be the first to leave a review! :)"}
+            </p>
+        )}
       </div>
-    </section>
+
+      <div id="user-bottom-section">
+        <p id="user-info-description">
+          {showUser?.description}
+        </p>
+      </div>
+    </>
   )
 };
 

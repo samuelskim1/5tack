@@ -6,7 +6,7 @@ import './Profile.scss';
 const Profile = () => {
 
   return (
-    <AuthCards card1={UserCard} />
+    <AuthCards card1={<UserCard />} />
   )
 };
 
