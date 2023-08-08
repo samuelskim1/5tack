@@ -14,7 +14,7 @@ const CategoryButton = ({category}) => {
 
 
 
-        const xLocation = holder - currBut.current.getBoundingClientRect().left;
+        let xLocation = holder - currBut.current.getBoundingClientRect().left;
         console.log('this is where the element is located', xLocation);
         const test = document.getElementsByClassName('category-button');
 
@@ -40,9 +40,15 @@ const CategoryButton = ({category}) => {
         }
 
         const games = document.getElementsByClassName('game-button');
+        const nav = document.getElementById('category-nav');
         currBut.current.addEventListener('animationend', () => {
+            nav.style['justify-content'] = 'left';
+            xLocation = currBut.current.getBoundingClientRect().right + 50;
             for (let game of games) {
+                game.style.cssText = `--distLeft: -${xLocation}px;`;
                 game.style.display = "block";
+                xLocation += game.getBoundingClientRect().right;
+                // xLocation += 50;
             }
         })
 

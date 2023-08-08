@@ -41,6 +41,8 @@
     justify-content: space-between;
     width: 92%;
     // border: 1px solid black;
+
+    overflow: hidden;
 }
 
 // Category Button
@@ -58,6 +60,12 @@
 @keyframes moveLeft {
     100% { transform: translateX(var(--distLeft, 0)); }
     // 100% { width: 0px; }
+}
+
+
+@keyframes fromRight {
+    0% { transform: translateX(100vw); }
+    100% { transform:100vw - translateX(var(--distLeft, 0)); }
 }
 
 // @keyframes collapseButton {
@@ -126,7 +134,9 @@
 }
 
 .game-button {
-    animation: fadeIn 0.5s;
+    animation: fadeIn 0.5s, fromRight 1s;
+    margin-left: 20px;
     text-decoration: none;
+    color: inherit;
     display: none;
 }
