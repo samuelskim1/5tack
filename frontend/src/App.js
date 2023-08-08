@@ -29,6 +29,8 @@ const App = () => {
       {/* what we had before */}
       {/* <NavBar /> */}
 
+      {currentUser && <div id="auth-nav-placeholder" />}
+
       <Switch>
         <AuthRoute exact path="/" component={SplashPage} />
         {/* <ProtectedRoute exact path="/home" component={HomePage} /> */}
