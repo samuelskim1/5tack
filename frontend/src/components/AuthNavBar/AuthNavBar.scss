@@ -50,6 +50,11 @@
     100% { opacity: 0; }
 }
 
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
 @keyframes moveLeft {
     100% { transform: translateX(var(--distLeft, 0)); }
     // 100% { width: 0px; }
@@ -65,7 +70,7 @@
 //     }
 // }
 
-.category-button {
+.style-button {
     border: 1px solid black;
     width: fit-content;
     font-weight: bold;
@@ -101,7 +106,7 @@
 
 }
 
-.category-button:not(.inactive):hover {
+.style-button:not(.inactive):hover {
     color: $default-white;
     background-color: $default-bg;
 }
@@ -116,6 +121,12 @@
 
 }
 
-.category-button:last-child {
+.style-button:last-child {
     margin-right: 0px;
+}
+
+.game-button {
+    animation: fadeIn 0.5s;
+    text-decoration: none;
+    display: none;
 }
