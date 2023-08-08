@@ -2,57 +2,102 @@
 
 #user-top-section {
   height: 40%;
-  width: 100%;
+  width: 260px;
   min-height: 205px;
 
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 
   padding: 20px 0;
+  border-radius: 8px;
+  border: 1px solid $lighter-blue;
 
   img {
     width: 120px;
     height: 120px;
     border-radius: 8px;
-    box-shadow: -4px 4px 4px rgba(33, 45, 64, 0.5); // $medium-blue at 50% opacity
+    box-shadow: -2px 2px 4px rgba(33, 45, 64, 0.5); // $medium-blue at 50% opacity
   }
 }
 
 #user-info-username {
   font-size: 24px;
-  font-weight: 600;
-  margin: 15px 0 10px 0;
+  font-weight: 500;
+  color: $darkest-blue;
 }
 
 #user-average-rating {
-  font-size: 18px;
-  padding: 8px;
+  width: 154px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 14px;
+  // padding: 8px;
   border-radius: 8px;
-  background-color: $darker-blue;
-  color: $default-white;
+
+  .fa-star {
+    color: $default-white;
+    z-index: 1;
+    position: absolute;
+    top: 6.5px;
+    left: 6.5px;
+  }
+}
+
+.star-holder {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  position: relative;
+}
+
+.star-first-half {
+  width: 14px;
+  height: 28px;
+
+  border-radius: 4px 0 0 4px;
+  background-color: $medium-blue;
+}
+
+.star-second-half {
+  width: 14px;
+  height: 28px;
+
+  border-radius: 0 4px 4px 0;
+  background-color: $medium-blue;
+}
+
+#rating-number {
+  font-weight: 600;
+}
+
+#no-reviews {
+  font-style: italic;
+  font-weight: 300;
 }
 
 #user-bottom-section {
   height: 60%;
   width: 100%;
 
-  // display: grid;
-  // grid-template-columns: 30% 70%;
-  display: flex;
-  flex-direction: column;
-  // align-items: center;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-around;
 
-  border: 1px solid $medium-blue;
+  // border: 1px solid $medium-blue;
   border-radius: 8px;
 
-  // div {
-  //   display: flex;
-  //   align-items: center;
-  //   padding: 0 12px;
-  // }
+  div {
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+  }
 }
 
 .user-info-label {

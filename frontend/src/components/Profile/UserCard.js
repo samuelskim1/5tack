@@ -21,6 +21,7 @@ const UserCard = () => {
         })
         const totalRating = ratings?.reduce((sum, rating) => sum + rating, 0);
         setAvgRating((totalRating / ratings?.length)?.toFixed(2));
+        console.log(ratings?.length)
     } else {
         setAvgRating(0);
     }
@@ -43,50 +44,81 @@ const UserCard = () => {
         <p id="user-info-username">
           @{showUser?.username}
         </p>
+        <div id="user-average-rating">
+          <div className="star-holder">
+            <div className="star-half star-first-half" />
+            <div className="star-half star-second-half" />
+            <i className="fa-solid fa-star" />
+          </div>
+
+          <div className="star-holder">
+            <div className="star-half star-first-half" />
+            <div className="star-half star-second-half" />
+            <i className="fa-solid fa-star" />
+          </div>
+
+          <div className="star-holder">
+            <div className="star-half star-first-half" />
+            <div className="star-half star-second-half" />
+            <i className="fa-solid fa-star" />
+          </div>
+
+          <div className="star-holder">
+            <div className="star-half star-first-half" />
+            <div className="star-half star-second-half" />
+            <i className="fa-solid fa-star" />
+          </div>
+
+          <div className="star-holder">
+            <div className="star-half star-first-half" />
+            <div className="star-half star-second-half" />
+            <i className="fa-solid fa-star" />
+          </div>
+        </div>
 
         {(avgRating > 0) && (
-            <p id='user-average-rating'>
-                {avgRating + " "}
-                <i className="fa-solid fa-star" style={{ color: `$#e4dfd5` }}></i>
-            </p>
+          <div>
+            <span id="rating-number">4.8</span>
+            <span> (5 reviews)</span>
+          </div>
         )}
 
         {(avgRating === 0) && (showUser?.username !== currentUser?.username) && (
-            <p id='no-reviews'>
-                {"Be the first to leave a review! :)"}
-            </p>
+          <p id='no-reviews'>
+              {"Be the first to leave a review! :)"}
+          </p>
         )}
       </div>
 
       <div id="user-bottom-section">
-        <div className="user-info-wrapper">
+        {/* <div className="user-info-wrapper"> */}
           <div className="user-info-label">About: </div>
           <div>
             {showUser?.description}
           </div>
-        </div>
+        {/* </div> */}
 
-        <div className="user-info-wrapper">
+        {/* <div className="user-info-wrapper"> */}
           <div className="user-info-label">Favorites: </div>
           <div>
             #LeagueOfLegends, #MapleStory
           </div>
-        </div>
+        {/* </div> */}
 
-        <div className="user-info-wrapper">
+        {/* <div className="user-info-wrapper"> */}
           <div className="user-info-label">Play style: </div>
           <div>
-            #Troll, #Casual, fjeslkfjeiao;gheoa;j
+            #Troll, #Casual
           </div>
-        </div>
+        {/* </div> */}
         
-        <div className="user-info-wrapper">
+        {/* <div className="user-info-wrapper"> */}
           <div className="user-info-label">Usual times: </div>
           <div>
             #Night
           </div>
         </div>
-      </div>
+      {/* </div> */}
     </>
   )
 };
