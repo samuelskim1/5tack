@@ -1,0 +1,41 @@
+@import '../../App.scss';
+
+#auth-cards-background {
+  background-color: $darkest-blue;
+  height: 100vh;
+}
+
+#auth-cards-container {
+  display: flex;
+  justify-content: space-around;
+  height: 100%;
+  min-width: 1000px;
+  max-height: calc(100vh - 130px);
+  margin-top: 50px;
+}
+
+.auth-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 100%;
+  width: 42%;
+  padding: 30px 50px;
+  border-radius: 12px 12px 0 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.left-card {
+  background-color: $default-white;
+  color: $darkest-blue;
+}
+
+.right-card {
+  background-color: $darkest-blue;
+  color: $default-white;
+  border: 1px solid $lighter-blue;
+}
