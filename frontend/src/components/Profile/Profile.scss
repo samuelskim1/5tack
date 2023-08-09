@@ -1,7 +1,7 @@
 @import '../../App.scss';
 
 #user-top-section {
-  height: 40%;
+  height: calc(40% - 10px);
   width: 260px;
   min-height: 205px;
 
@@ -14,6 +14,7 @@
   padding: 20px 0;
   border-radius: 8px;
   border: 1px solid $lighter-blue;
+  margin-bottom: 10px;
 
   img {
     width: 120px;
@@ -81,37 +82,36 @@
 }
 
 #user-bottom-section {
-  height: 60%;
+  height: calc(60% - 10px);
   width: 100%;
 
-  display: grid;
-  grid-template-columns: 30% 70%;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 
   // border: 1px solid $medium-blue;
   border-radius: 8px;
-
-  div {
-    display: flex;
-    align-items: center;
-    padding: 0 12px;
-  }
-}
-
-.user-info-label {
-  font-weight: 600;
-  font-size: 14px;
-  width: 50%;
 }
 
 .user-info-wrapper {
   display: flex;
   width: 100%;
-  padding: 20px;
-  border-radius: 8px;
-  background-color: $darker-blue;
+  padding: 12px;
   box-sizing: border-box;
-  color: $default-white;
+}
+
+.user-info-label {
+  font-weight: 600;
+  font-size: 14px;
+  width: 35%;
+}
+
+.user-info-content {
+  width: 65%;
+}
+
+.user-info-divider {
+  width: 100%;
+  height: 1px;
+  background-color: $medium-blue;
 }

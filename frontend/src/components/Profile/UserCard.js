@@ -91,34 +91,40 @@ const UserCard = () => {
       </div>
 
       <div id="user-bottom-section">
-        {/* <div className="user-info-wrapper"> */}
+        <div className="user-info-wrapper">
           <div className="user-info-label">About: </div>
-          <div>
+          <div className="user-info-content">
             {showUser?.description}
           </div>
-        {/* </div> */}
+        </div>
 
-        {/* <div className="user-info-wrapper"> */}
+        <div className="user-info-divider" />
+
+        <div className="user-info-wrapper">
           <div className="user-info-label">Favorites: </div>
-          <div>
+          <div className="user-info-content">
             #LeagueOfLegends, #MapleStory
           </div>
-        {/* </div> */}
+        </div>
 
-        {/* <div className="user-info-wrapper"> */}
+        <div className="user-info-divider" />
+
+        <div className="user-info-wrapper">
           <div className="user-info-label">Play style: </div>
-          <div>
+          <div className="user-info-content">
             #Troll, #Casual
           </div>
-        {/* </div> */}
+        </div>
+
+        <div className="user-info-divider" />
         
-        {/* <div className="user-info-wrapper"> */}
+        <div className="user-info-wrapper">
           <div className="user-info-label">Usual times: </div>
-          <div>
+          <div className="user-info-content">
             #Night
           </div>
         </div>
-      {/* </div> */}
+      </div>
     </>
   )
 };
