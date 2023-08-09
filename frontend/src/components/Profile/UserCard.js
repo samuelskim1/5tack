@@ -103,7 +103,11 @@ const UserCard = () => {
         <div className="user-info-wrapper">
           <div className="user-info-label">Favorites: </div>
           <div className="user-info-content">
-            #LeagueOfLegends, #MapleStory
+            <p className="user-info-tag">#League of Legos</p>
+            <p className="user-info-tag">#Maple Story</p>
+            <p className="user-info-tag">#DOTA</p>
+            <p className="user-info-tag">#Grand Theft Auto V</p>
+            <p className="user-info-tag">#Minecraft</p>
           </div>
         </div>
 
@@ -112,7 +116,8 @@ const UserCard = () => {
         <div className="user-info-wrapper">
           <div className="user-info-label">Play style: </div>
           <div className="user-info-content">
-            #Troll, #Casual
+            <p className="user-info-tag">#Casual</p>
+            <p className="user-info-tag">#Troll</p>
           </div>
         </div>
 
@@ -121,7 +126,11 @@ const UserCard = () => {
         <div className="user-info-wrapper">
           <div className="user-info-label">Usual times: </div>
           <div className="user-info-content">
-            #Night
+            <p className="user-info-tag">#Night</p>
+            <p className="user-info-tag">#Day</p>
+            <p className="user-info-tag">#9pm - 12am</p>
+            <p className="user-info-tag">#6pm - 9pm</p>
+            <p className="user-info-tag">#12am - 3am</p>
           </div>
         </div>
       </div>

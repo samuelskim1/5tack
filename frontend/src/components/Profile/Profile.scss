@@ -1,31 +1,32 @@
 @import '../../App.scss';
 
 #user-top-section {
-  height: calc(40% - 10px);
-  width: 260px;
-  min-height: 205px;
+  height: calc(30% - 15px);
+  width: fit-content;
+  min-height: 215px;
+  min-width: 215px;
 
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 
-  padding: 20px 0;
+  box-sizing: border-box;
+  padding: 20px;
   border-radius: 8px;
   border: 1px solid $lighter-blue;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 
   img {
-    width: 120px;
-    height: 120px;
+    width: 90px;
+    height: 90px;
     border-radius: 8px;
-    box-shadow: -2px 2px 4px rgba(33, 45, 64, 0.5); // $medium-blue at 50% opacity
   }
 }
 
 #user-info-username {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 500;
   color: $darkest-blue;
 }
@@ -82,8 +83,9 @@
 }
 
 #user-bottom-section {
-  height: calc(60% - 10px);
+  height: calc(70% - 15px);
   width: 100%;
+  max-width: 450px;
 
   display: flex;
   flex-direction: column;
@@ -96,22 +98,38 @@
 .user-info-wrapper {
   display: flex;
   width: 100%;
-  padding: 12px;
+  padding: 0 12px;
   box-sizing: border-box;
 }
 
 .user-info-label {
   font-weight: 600;
   font-size: 14px;
-  width: 35%;
+  width: 33%;
 }
 
 .user-info-content {
-  width: 65%;
+  width: 67%;
+  height: 100%;
+}
+
+.user-info-tag {
+  display: inline-block;
+
+  background-color: $medium-blue;
+  color: $default-white;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 300;
+
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin: 4px 4px 4px 0;
 }
 
 .user-info-divider {
   width: 100%;
   height: 1px;
   background-color: $medium-blue;
+  margin: 2px 0;
 }
