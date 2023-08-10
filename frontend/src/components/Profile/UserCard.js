@@ -101,7 +101,7 @@ const UserCard = () => {
         <div className="user-info-divider" />
 
         <div className="user-info-wrapper">
-          <div className="user-info-label">Favorites: </div>
+          <div className="user-info-label tags-label">Favorites: </div>
           <div className="user-info-content">
             <p className="user-info-tag">#League of Legos</p>
             <p className="user-info-tag">#Maple Story</p>
@@ -114,20 +114,20 @@ const UserCard = () => {
         <div className="user-info-divider" />
 
         <div className="user-info-wrapper">
-          <div className="user-info-label">Play style: </div>
+          <div className="user-info-label tags-label">Play style: </div>
           <div className="user-info-content">
-            <p className="user-info-tag">#Casual</p>
-            <p className="user-info-tag">#Troll</p>
+            <p className="user-info-tag">#casual</p>
+            <p className="user-info-tag">#troll</p>
           </div>
         </div>
 
         <div className="user-info-divider" />
         
         <div className="user-info-wrapper">
-          <div className="user-info-label">Usual times: </div>
+          <div className="user-info-label tags-label">Usual times: </div>
           <div className="user-info-content">
-            <p className="user-info-tag">#Night</p>
-            <p className="user-info-tag">#Day</p>
+            <p className="user-info-tag">#night</p>
+            <p className="user-info-tag">#day</p>
             <p className="user-info-tag">#9pm - 12am</p>
             <p className="user-info-tag">#6pm - 9pm</p>
             <p className="user-info-tag">#12am - 3am</p>
