@@ -1,7 +1,7 @@
 import LoginForm from "./LoginForm";
 import './SessionForm.scss';
 
-const { useState } = require("react");
+const { useState, useEffect } = require("react");
 const { useDispatch, useSelector } = require("react-redux");
 const { clearSessionErrors, login, signup } = require("../../store/session");
 
@@ -31,6 +31,9 @@ const SignupForm = () => {
         dispatch(login({ username: "demo", password: "password" }));
     };
 
+    useEffect(() => {
+        return () => dispatch(clearSessionErrors());
+    }, [dispatch])
 
     return (
         <>
@@ -47,8 +50,8 @@ const SignupForm = () => {
                         onChange={e => setEmail(e.target.value)}
                         placeholder="Email"
                         />
-                    </label>
                     <div className="errors">{errors?.email}</div>
+                    </label>
                     <label>
                         <span>Username</span>  
                         <input
@@ -57,8 +60,8 @@ const SignupForm = () => {
                         onChange={e => setUsername(e.target.value)}
                         placeholder="Username"
                         />
-                    </label>
                     <div className="errors">{errors?.username}</div>
+                    </label>
                     <label>
                         <span>Password</span>
                         <input
@@ -67,8 +70,8 @@ const SignupForm = () => {
                         onChange={e => setPassword(e.target.value)}
                         placeholder="Password"
                         />
-                    </label>
                     <div className="errors">{errors?.password}</div>
+                    </label>
                     <div id="log-demo-btn-holder">
                         <input 
                         type="submit"

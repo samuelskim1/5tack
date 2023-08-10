@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { clearSessionErrors, login } from "../../store/session";
 import SignupForm from "./SignupForm";
@@ -30,32 +30,40 @@ const LoginForm = () => {
     return (e) => setField(e.currentTarget.value);
   };
 
+  useEffect(() => {
+    return () => dispatch(clearSessionErrors());
+  }, [dispatch])
+
+
   return (
     <>
     {loginForm && (
       <div id="session-form-container">
         <form className="session-form">
+
           <img src="../../../apple-touch-icon.png" alt="5TACK logo" />
           <h2>5TACK</h2>
+
           <div className="errors">{errors?.credentials}</div>
-            <label>
-              <span>Username</span>
-              <input type="text"
-                value={username}
-                onChange={update('username')}
-                placeholder="Enter your username"
-              />
-            </label>
-          <div className="errors">{errors?.username}</div>
-            <label>
-              <span>Password</span>
-              <input type="password"
-                value={password}
-                onChange={update('password')}
-                placeholder="Enter your password"
-              />
-            </label>
-          <div className="errors">{errors?.password}</div>
+
+          <label>
+            <span>Username</span>
+            <input type="text"
+              value={username}
+              onChange={update('username')}
+              placeholder="Enter your username"
+            />
+            <div className="errors">{errors?.username}</div>
+          </label>
+          <label>
+            <span>Password</span>
+            <input type="password"
+              value={password}
+              onChange={update('password')}
+              placeholder="Enter your password"
+            />
+            <div className="errors">{errors?.password}</div>
+          </label>
           <div id="log-demo-btn-holder">
             <input 
               type="submit"
