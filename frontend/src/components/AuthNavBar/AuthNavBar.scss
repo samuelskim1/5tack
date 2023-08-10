@@ -90,6 +90,24 @@
     cursor: pointer;
 }
 
+.style-button:last-child {
+    margin-right: 0px;
+}
+
+.game-button {
+    // animation: fadeIn 0.5s, fromRight 0.5s;
+    animation: fadeIn 1.2s, fromRight 0.5s;
+    margin-left: 20px;
+    text-decoration: none;
+    color: inherit;
+    display: none;
+}
+
+.active-style-button {
+    color: $default-white;
+    background-color: $default-bg;
+}
+
 .inactive {
     // // animation: fadeOut 1s;
     // transition-property: width, height, margin-right, opacity, border-width;
@@ -110,7 +128,7 @@
     
     // my attempt:
     
-    animation: fadeOut 0.5s, moveLeft 0.5s;
+    animation: fadeOut 0.5s, moveLeft var(--time, 0.5s);
 
 }
 
@@ -127,16 +145,4 @@
     color: $default-white;
     background-color: $default-bg;
 
-}
-
-.style-button:last-child {
-    margin-right: 0px;
-}
-
-.game-button {
-    animation: fadeIn 0.5s, fromRight 1s;
-    margin-left: 20px;
-    text-decoration: none;
-    color: inherit;
-    display: none;
 }
