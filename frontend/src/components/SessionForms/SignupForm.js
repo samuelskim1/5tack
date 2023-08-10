@@ -15,7 +15,8 @@ const SignupForm = () => {
     const [password, setPassword] = useState('');
 
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
         const user = {
             email,
             username,
