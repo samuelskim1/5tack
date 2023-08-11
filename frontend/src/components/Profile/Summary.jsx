@@ -11,16 +11,16 @@ const Summary = ({ moodyButton }) => {
   const showUser = useSelector(state => state?.users[username]);
   const reviews = useSelector(state => state?.reviews);
   const [avgRating, setAvgRating] = useState(0);
+  const [stars, setStars] = useState([]);
 
   const getAverage = async () => {
     if (showUser?.review_id?.length) {
-        let ratings = [];
-        showUser?.review_id?.forEach(review => {
-            ratings?.push(review?.rating);
-        })
+      let ratings = [];
+      showUser?.review_id?.forEach(review => {
+          ratings?.push(review?.rating);
+      })
         const totalRating = ratings?.reduce((sum, rating) => sum + rating, 0);
         setAvgRating((totalRating / ratings?.length)?.toFixed(2));
-        console.log(ratings?.length)
     } else {
         setAvgRating(0);
     }
@@ -31,8 +31,12 @@ const Summary = ({ moodyButton }) => {
   }, [dispatch, username, showUser?.description, currentUser?.profileImageUrl]);
 
   useEffect(() =>  {
-      getAverage();
-  }, [reviews, showUser, getAverage]);
+    getAverage();
+  }, [reviews, showUser, getAverage, stars]);
+
+  useEffect(() => {
+    setStars(Array(Math.floor(avgRating / 0.5)).fill(true));
+  }, [avgRating]);
 
 
   return (
@@ -45,40 +49,40 @@ const Summary = ({ moodyButton }) => {
         </p>
         <div id="user-average-rating">
           <div className="star-holder">
-            <div className="star-half star-first-half" />
-            <div className="star-half star-second-half" />
+            <div className={stars[0] ? "star-half star-first-half fill-star" : "star-half star-first-half"}/>
+            <div className={stars[1] ? "star-half star-second-half fill-star" : "star-half star-second-half"} />
             <i className="fa-solid fa-star" />
           </div>
 
           <div className="star-holder">
-            <div className="star-half star-first-half" />
-            <div className="star-half star-second-half" />
+            <div className={stars[2] ? "star-half star-first-half fill-star" : "star-half star-first-half"} />
+            <div className={stars[3] ? "star-half star-second-half fill-star" : "star-half star-second-half"} />
             <i className="fa-solid fa-star" />
           </div>
 
           <div className="star-holder">
-            <div className="star-half star-first-half" />
-            <div className="star-half star-second-half" />
+            <div className={stars[4] ? "star-half star-first-half fill-star" : "star-half star-first-half"} />
+            <div className={stars[5] ? "star-half star-second-half fill-star" : "star-half star-second-half"} />
             <i className="fa-solid fa-star" />
           </div>
 
           <div className="star-holder">
-            <div className="star-half star-first-half" />
-            <div className="star-half star-second-half" />
+            <div className={stars[6] ? "star-half star-first-half fill-star" : "star-half star-first-half"} />
+            <div className={stars[7] ? "star-half star-second-half fill-star" : "star-half star-second-half"} />
             <i className="fa-solid fa-star" />
           </div>
 
           <div className="star-holder">
-            <div className="star-half star-first-half" />
-            <div className="star-half star-second-half" />
+            <div className={stars[8] ? "star-half star-first-half fill-star" : "star-half star-first-half"} />
+            <div className={stars[9] ? "star-half star-second-half fill-star" : "star-half star-second-half"} />
             <i className="fa-solid fa-star" />
           </div>
         </div>
 
         {(avgRating > 0) && (
           <div>
-            <span id="rating-number">4.8</span>
-            <span> (5 reviews)</span>
+            <span id="rating-number">{avgRating}</span>
+            <span> ({showUser?.review_id?.length} reviews)</span>
           </div>
         )}
 
@@ -91,8 +95,6 @@ const Summary = ({ moodyButton }) => {
 
       <div id="user-bottom-section">
         {moodyButton}
-
-        <div className="user-info-divider" />
 
         <div className="user-info-wrapper">
           <div className="user-info-label">About: </div>

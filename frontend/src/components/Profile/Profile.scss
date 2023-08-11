@@ -38,7 +38,6 @@
   justify-content: space-between;
 
   font-size: 14px;
-  // padding: 8px;
   border-radius: 8px;
 
   .fa-star {
@@ -62,7 +61,7 @@
   height: 28px;
 
   border-radius: 4px 0 0 4px;
-  background-color: $medium-blue;
+  background-color: $empty-star-blue;
 }
 
 .star-second-half {
@@ -70,6 +69,10 @@
   height: 28px;
 
   border-radius: 0 4px 4px 0;
+  background-color: $empty-star-blue;
+}
+
+.fill-star {
   background-color: $medium-blue;
 }
 
@@ -136,4 +139,23 @@
   height: 1px;
   background-color: $medium-blue;
   margin: 2px 0;
+}
+
+#moody-button {
+  align-self: center;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: $lightest-blue;
+  color: $default-white;
+  cursor: pointer;
+
+  i {
+    padding-right: 4px;
+  }
+}
+
+#moody-button:hover {
+  background-color: $medium-blue;
 }

@@ -23,13 +23,13 @@ const UserCard = () => {
 
   if (currentUser?.username === username) {
     moodyButton =
-      <div>
-        hi
+      <div id="moody-button" onClick={() => setIsEditing(true)}>
+        <i className="fa-solid fa-pen" /> Edit Profile
       </div>
   } else {
     moodyButton =
-      <div>
-        bye
+      <div id="moody-button" onClick={() => setIsReviewing(true)}>
+        <i className="fa-regular fa-star" /> Make a Review
       </div>
   }
 
@@ -37,6 +37,12 @@ const UserCard = () => {
     <>
       {(!isEditing && !isReviewing) && (
         <Summary moodyButton={moodyButton} />
+      )}
+      {isEditing && (
+        "hi"
+      )}
+      {isReviewing && (
+        "bye"
       )}
     </>
   )
