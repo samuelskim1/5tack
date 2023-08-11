@@ -47,6 +47,9 @@ const Summary = ({ moodyButton }) => {
         <p id="user-info-username">
           @{showUser?.username}
         </p>
+
+        {moodyButton}
+
         <div id="user-average-rating">
           <div className="star-holder">
             <div className={stars[0] ? "star-half star-first-half fill-star" : "star-half star-first-half"}/>
@@ -94,7 +97,6 @@ const Summary = ({ moodyButton }) => {
       </div>
 
       <div id="user-bottom-section">
-        {moodyButton}
 
         <div className="user-info-wrapper">
           <div className="user-info-label">About: </div>

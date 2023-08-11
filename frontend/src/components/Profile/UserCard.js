@@ -24,12 +24,12 @@ const UserCard = () => {
   if (currentUser?.username === username) {
     moodyButton =
       <div id="moody-button" onClick={() => setIsEditing(true)}>
-        <i className="fa-solid fa-pen" /> Edit Profile
+        <i className="fa-solid fa-pen-to-square" /> Edit Profile
       </div>
   } else {
     moodyButton =
       <div id="moody-button" onClick={() => setIsReviewing(true)}>
-        <i className="fa-regular fa-star" /> Make a Review
+        <i className="fa-solid fa-star" /> Write a Review
       </div>
   }
 

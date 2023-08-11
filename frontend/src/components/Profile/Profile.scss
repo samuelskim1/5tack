@@ -3,8 +3,8 @@
 #user-top-section {
   height: calc(30% - 15px);
   width: fit-content;
-  min-height: 215px;
-  min-width: 215px;
+  min-height: 260px;
+  min-width: 260px;
 
   position: relative;
   display: flex;
@@ -13,7 +13,7 @@
   justify-content: space-between;
 
   box-sizing: border-box;
-  padding: 20px;
+  padding: 18px;
   border-radius: 8px;
   border: 1px solid $lighter-blue;
   // margin-bottom: 15px;
@@ -141,20 +141,27 @@
 }
 
 #moody-button {
+  display: flex;
+  align-items: center;
   align-self: center;
-  padding: 8px 12px;
+  padding: 8px;
   border-radius: 6px;
-  font-size: 14px;
-  font-weight: 500;
-  background-color: $lightest-blue;
-  color: $default-white;
+  font-weight: 600;
+  border: 1px solid $medium-blue;
+  // background-color: $lightest-blue;
+  color: $medium-blue;
   cursor: pointer;
 
   i {
     padding-right: 4px;
   }
+
+  > .fa-star {
+    font-size: 14px;
+  }
 }
 
 #moody-button:hover {
   background-color: $medium-blue;
+  color: $default-white;
 }
