@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 import { fetchUser } from "../../store/users";
 import Summary from "./Summary";
+import EditProfile from "./EditProfile";
 
 
 const UserCard = () => {
@@ -39,7 +40,7 @@ const UserCard = () => {
         <Summary moodyButton={moodyButton} />
       )}
       {isEditing && (
-        "hi"
+        <EditProfile />
       )}
       {isReviewing && (
         "bye"

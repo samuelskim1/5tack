@@ -1,5 +1,7 @@
 @import '../../App.scss';
 
+// DEFAULT SUMMARY
+
 #user-top-section {
   height: calc(30% - 15px);
   width: fit-content;
@@ -16,7 +18,6 @@
   padding: 18px;
   border-radius: 8px;
   border: 1px solid $lighter-blue;
-  // margin-bottom: 15px;
 
   img {
     width: 90px;
@@ -148,7 +149,6 @@
   border-radius: 6px;
   font-weight: 600;
   border: 1px solid $medium-blue;
-  // background-color: $lightest-blue;
   color: $medium-blue;
   cursor: pointer;
 
@@ -165,3 +165,6 @@
   background-color: $medium-blue;
   color: $default-white;
 }
+
+
+// EDIT PROFILE FORM
