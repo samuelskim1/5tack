@@ -16,7 +16,7 @@
   padding: 20px;
   border-radius: 8px;
   border: 1px solid $lighter-blue;
-  margin-bottom: 15px;
+  // margin-bottom: 15px;
 
   img {
     width: 90px;
@@ -92,9 +92,8 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
 
-  // border: 1px solid $medium-blue;
   border-radius: 8px;
 }
 
