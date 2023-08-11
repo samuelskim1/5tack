@@ -40,7 +40,7 @@ const UserCard = () => {
         <Summary moodyButton={moodyButton} />
       )}
       {isEditing && (
-        <EditProfile />
+        <EditProfile setIsEditing={setIsEditing} />
       )}
       {isReviewing && (
         "bye"

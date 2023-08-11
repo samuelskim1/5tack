@@ -61,6 +61,8 @@ export const updateUser = (userInfo) => async (dispatch) => {
     formData.append('username', userInfo.username);
     formData.append('email', userInfo.email);
     formData.append('description', userInfo.description);
+    formData.append('favorites', userInfo.favorites);
+    formData.append('playStyle', userInfo.playStyle);
     formData.append('profileImageUrl', userInfo.photo || userInfo.profileImageUrl);
     const res = await jwtFetch(`/api/users/${userInfo._id}`, {
       method: 'PATCH',
