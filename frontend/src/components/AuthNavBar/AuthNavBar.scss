@@ -146,3 +146,8 @@
     background-color: $default-bg;
 
 }
+
+.move-back {
+    // animation: 5s ease-out 0s moveLeft;
+    animation: moveLeft 3s;
+}
