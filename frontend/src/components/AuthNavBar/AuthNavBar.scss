@@ -96,11 +96,13 @@
 
 .game-button {
     // animation: fadeIn 0.5s, fromRight 0.5s;
-    animation: fadeIn 1.2s, fromRight 0.5s;
+
+
+    // animation: fadeIn 1.2s, fromRight 0.5s;
     margin-left: 20px;
     text-decoration: none;
     color: inherit;
-    display: none;
+    // display: none;
 }
 
 .active-style-button {
@@ -128,7 +130,9 @@
     
     // my attempt:
     
-    animation: fadeOut 0.5s, moveLeft var(--time, 0.5s);
+
+    // animation: fadeOut 0.5s, moveLeft var(--time, 0.5s);
+    animation: fadeOut 0.5s;
 
 }
 
@@ -141,13 +145,36 @@
     /* @keyframes duration | easing-function | delay | name */
     // animation: 3s linear 1s slidein;
     // animation-timing-function: ease-out;
-    animation: 0.5s ease-out 0s moveLeft;
+
+
+    // animation: 0.5s ease-out 0s moveLeft;
     color: $default-white;
     background-color: $default-bg;
 
+    
+    animation: 1s ease-out 0.5s moveLeft;
+}
+
+// #active-category-button {
+//     /* @keyframes duration | easing-function | delay | name */
+//     // animation: 3s linear 1s slidein;
+//     // animation-timing-function: ease-out;
+
+
+//     // animation: 0.5s ease-out 0s moveLeft;
+//     color: $default-white;
+//     background-color: $default-bg;
+
+    
+//     animation: 5s ease-out 0s moveLeft;
+// }
+
+#game-nav {
+    display: flex;
+    animation: fadeIn 2s;
 }
 
 .move-back {
     // animation: 5s ease-out 0s moveLeft;
-    animation: moveLeft 3s;
+    // animation: moveLeft 3s;
 }
