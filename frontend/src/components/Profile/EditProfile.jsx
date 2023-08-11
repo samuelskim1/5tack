@@ -4,7 +4,8 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { updateUser } from "../../store/session";
 import { receiveUser } from "../../store/users";
 
-
+// THINGS TO RECONSIDER:
+// handleSubmit "curr" variables and if/else statement at the end
 
 const EditProfile = ({ setIsEditing }) => {
   const dispatch = useDispatch();
@@ -60,10 +61,53 @@ const EditProfile = ({ setIsEditing }) => {
         if (currUsername.length > 20) {
           setErrors({ ...errors, ["username"]: "Username cannot be longer than 20 characters!"});
         } else {
-          setErrors({ ...errors, ["username"]: '' })
+          setErrors({ ...errors, ["username"]: '' });
         }
+        break;
+      case 'email':
+        currEmail = e.target.value;
+        setEmail(currEmail);
+        if (!currEmail.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
+          setErrors({ ...errors, ["email"]: "Email is invalid" })
+        } else {
+          setErrors({ ...errors, ["email"]: '' })
+        }
+        break;
+      case 'description':
+        currDescription = e.target.value;
+        setDescription(currDescription);
+        if (currDescription.length > 400) {
+          setErrors({ ...errors, ["description"]: "Description cannot be longer than 400 characters" })
+        } else {
+          setErrors({ ...errors, ["description"]: '' })
+        }
+        break;
+      case 'favorites':
+        currFavorites = e.target.value;
+        setFavorites(currFavorites);
+        if (currFavorites.length > 5) {
+          setErrors({ ...errors, ["favorites"]: `Woah there gamer, that's ${currFavorites.length - 5} too many games!`});
+        } else {
+          setErrors({ ...errors, ["favorites"]: '' });
+        }
+        break;
+      case 'playstyle':
+        currPlayStyle = e.target.value;
+        setPlayStyle(currPlayStyle);
+        break;
+      default:
+        hasPhoto = field;
+        break;
+    }
+    
+    if (currUsername.length >= 3 && currUsername.length <= 30 && currEmail.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) && currEmail.length > 0) {
+      setCanSubmit(true);
+    } else {
+      setCanSubmit(false);
     }
   }
+
+  
 
 
   return (
