@@ -114,7 +114,7 @@ const CategoryButton = ({category}) => {
                         {game.name}
                 </Link>
             )}
-            <p onMouseDown={closeCategory} className="style-button game-button">{'X'}</p>
+            <p onMouseDown={closeCategory} id="x-button" className="style-button game-button"><i className="fa-solid fa-xmark"></i></p>
         </div>}
         </>
         
