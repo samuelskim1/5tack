@@ -146,13 +146,36 @@ const CategoryButton = ({category}) => {
     const openCategory = () => {
 
 
+        /*
+        const fadeDone = () => {
+            for (let btn of btns) {
+                if (btn === currBtn.current) continue;
+                btn.style.opacity = '0';
+            }
+            currBtn.current.addEventListener('animationend', removeDone);
+        }
+
+        const removeDone = () => {
+            for (let btn of btns) {
+                if (btn === currBtn.current) continue;
+                btn.style.display = 'none';
+            }
+            parent.style.justifyContent = 'unset'; // reset to space-btwn
+            setActive(true); // set to false
+        }
+        */
+
 
         currBtn.current.classList.add('active-category-button');
         for (let btn of btns) {
-            if (btn === currBtn.current) continue;
+            if (btn === currBtn.current) {
+                continue;
+            }
             btn.classList.add('inactive');
         }
-        btns[btns.length - 1].addEventListener('animationend', () => {
+        const last = btns[btns.length - 1] === currBtn.current ? btns[btns.length - 2] : btns[btns.length - 1];
+        last.addEventListener('animationend', () => {
+            console.log('this is running');
             for (let btn of btns) {
                 if (btn === currBtn.current) continue;
                 btn.style.opacity = '0';
@@ -164,8 +187,8 @@ const CategoryButton = ({category}) => {
                 }
                 parent.style.justifyContent = 'unset'; // reset to space-btwn
                 setActive(true); // set to false
-            })
-        })
+            }, {once : true})
+        }, {once : true})
         // a lot css to reset
     }
 
@@ -193,20 +216,37 @@ const CategoryButton = ({category}) => {
         if (games) {
             games.addEventListener('animationstart', () => {
                 games.style.pointerEvents = 'none';
-            })
+                currBtn.current.classList.remove('active-category-button');
+                // currBtn.current.removeEventListener('animationend', null);
+            }, {once : true})
 
 
 
             currBtn.current.style = `--distLeft: ${currBtn.current.style.x}px`;
-            console.log('currently inline', currBtn.current.style.cssText);
+            // console.log('currently inline', currBtn.current.style.cssText);
             currBtn.current.classList.add('deactive-category-button');
-
+            currBtn.current.addEventListener('animationend', () => {
+                for (let btn of btns) {
+                    if (btn === currBtn.current) continue;
+                    btn.style = null;
+                    btn.classList.remove('inactive');
+                }
+                
+                // setTimeout(() => {
+                    //     currBtn.current.classList.remove('deactive-category-button');
+                    // }, 500);
+                    
+                currBtn.current.classList.remove('active-category-button');
+                currBtn.current.classList.remove('deactive-category-button');
+                setActive(false); // set to false
+                parent.style.justifyContent = null; // reset to space-btwn
+                currBtn.current.style.cssText = null;
+            }, {once : true})
 
 
             games.style.animation = 'fadeOut 1s';
             games.addEventListener('animationend', () => {
                 games.style.display = 'none';
-                // setActive(false);
                 // currBtn.current.classList.remove('active-category-button');
                 // currBtn.current.classList.add('inactive');
         

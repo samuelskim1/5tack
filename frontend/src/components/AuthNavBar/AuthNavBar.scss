@@ -157,7 +157,7 @@
     background-color: $default-bg;
 
     
-    animation: 1s ease-out 0.5s moveLeft;
+    animation: 2s ease-out 0.5s moveLeft;
 }
 
 // .active-category-button[deactive=true] {
@@ -166,10 +166,10 @@
 // }
 
 .deactive-category-button {
-    color: $default-white;
-    background-color: $default-bg;
+    // color: $default-white;
+    // background-color: $default-bg;
 
-    animation: 1s ease-in 0.5s deactive;
+    animation: 2s ease-in 0.5s deactive;
 }
 
 // #active-category-button {
