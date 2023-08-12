@@ -69,6 +69,7 @@
 }
 
 @keyframes deactive {
+    80% { transform: translateX(var(--distLeft, 0)); }
     100% { transform: translateX(var(--distLeft, 0)); }
 }
 
@@ -115,25 +116,6 @@
 }
 
 .inactive {
-    // // animation: fadeOut 1s;
-    // transition-property: width, height, margin-right, opacity, border-width;
-    // transition-duration: 0.5s;
-    // // transition-timing-function: ease-out;
-    // // transition-delay: 0.5s;
-    // width: 0;
-    // // transition: visibility 0.5s;
-    // // visibility: hidden;
-    // // display: none;
-    // opacity: 0;
-    // height: 0;
-    // width: 0;
-    // margin-right: 0;
-    // // padding: 0;
-    // // border-width: none;
-    // // color: transparent;
-    
-    // my attempt:
-    
 
     // animation: fadeOut 0.5s, moveLeft var(--time, 0.5s);
     animation: fadeOut 0.5s;
@@ -151,47 +133,20 @@
     // animation: 3s linear 1s slidein;
     // animation-timing-function: ease-out;
 
-
-    // animation: 0.5s ease-out 0s moveLeft;
     color: $default-white;
     background-color: $default-bg;
 
-    
-    animation: 2s ease-out 0.5s moveLeft;
+    animation: 1s ease-out 0.5s moveLeft;
 }
-
-// .active-category-button[deactive=true] {
-//     animation: 3s ease-in 1s deactive;
-//     color: cadetblue; 
-// }
 
 .deactive-category-button {
     // color: $default-white;
     // background-color: $default-bg;
 
-    animation: 2s ease-in 0.5s deactive;
+    animation: 1s ease-in 0.5s deactive;
 }
-
-// #active-category-button {
-//     /* @keyframes duration | easing-function | delay | name */
-//     // animation: 3s linear 1s slidein;
-//     // animation-timing-function: ease-out;
-
-
-//     // animation: 0.5s ease-out 0s moveLeft;
-//     color: $default-white;
-//     background-color: $default-bg;
-
-    
-//     animation: 5s ease-out 0s moveLeft;
-// }
 
 #game-nav {
     display: flex;
-    animation: fadeIn 1s;
-}
-
-.move-back {
-    // animation: 5s ease-out 0s moveLeft;
-    // animation: moveLeft 3s;
+    animation: fadeIn 0.5s;
 }

@@ -127,7 +127,7 @@ const CategoryButton = ({category}) => {
     const [active, setActive] = useState(false);
 
     const buttonAnimation = () => {
-        const isActive = currBtn.current.classList.contains('active-category-button');
+        let isActive = currBtn.current.classList.contains('active-category-button');
         const dist = parent.getBoundingClientRect().left - currBtn.current.getBoundingClientRect().left;
         currBtn.current.style = `--distLeft: ${dist}px;`;
         currBtn.current.style.x = 0 - dist;
@@ -135,16 +135,19 @@ const CategoryButton = ({category}) => {
         
         
         if (isActive) {
-            console.log('closing category...', currBtn.current.innerHTML);
+            console.log('closing category...', currBtn.current.innerHTML, isActive);
             closeCategory();
         } else {
-            console.log('opening category...', currBtn.current.innerHTML);
+            console.log('opening category...', currBtn.current.innerHTML, isActive);
             openCategory();
         }
     }
     
     const openCategory = () => {
-
+        console.log('opening category...', currBtn.current.innerHTML, active);
+        const dist = parent.getBoundingClientRect().left - currBtn.current.getBoundingClientRect().left;
+        currBtn.current.style = `--distLeft: ${dist}px;`;
+        currBtn.current.style.x = 0 - dist;
 
         /*
         const fadeDone = () => {
@@ -175,7 +178,7 @@ const CategoryButton = ({category}) => {
         }
         const last = btns[btns.length - 1] === currBtn.current ? btns[btns.length - 2] : btns[btns.length - 1];
         last.addEventListener('animationend', () => {
-            console.log('this is running');
+            // console.log('this is running');
             for (let btn of btns) {
                 if (btn === currBtn.current) continue;
                 btn.style.opacity = '0';
@@ -200,7 +203,8 @@ const CategoryButton = ({category}) => {
     // lots to reset
 
     const closeCategory = () => {
-
+        
+        console.log('closing category...', currBtn.current.innerHTML, active);
         // move currBut back in place
         // after animation end
         // bring have display = block -> opacity is still 0
@@ -230,6 +234,10 @@ const CategoryButton = ({category}) => {
                     if (btn === currBtn.current) continue;
                     btn.style = null;
                     btn.classList.remove('inactive');
+                    btn.style.animation = 'fadeIn 0.5s';
+                }
+                for (let btn of btns) {
+                    btn.style = null;
                 }
                 
                 // setTimeout(() => {
@@ -244,7 +252,7 @@ const CategoryButton = ({category}) => {
             }, {once : true})
 
 
-            games.style.animation = 'fadeOut 1s';
+            games.style.animation = 'fadeOut 0.5s';
             games.addEventListener('animationend', () => {
                 games.style.display = 'none';
                 // currBtn.current.classList.remove('active-category-button');
@@ -291,7 +299,7 @@ const CategoryButton = ({category}) => {
     return (
 
         <>
-        <div onClick={buttonAnimation} className={`style-button category-button`} ref={currBtn} >
+        <div onClick={active ? closeCategory : openCategory} className={`style-button category-button`} ref={currBtn} >
             <p>{category.name.split('$')[0]}</p>
         </div>
         {active &&
