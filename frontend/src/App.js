@@ -3,13 +3,14 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentUser } from './store/session';
 import { AuthRoute, ProtectedRoute } from './components/Routes/Routes';
-import NavBar from './components/NavBar/NavBar';
+// import NavBar from './components/NavBar/NavBar';
 import SplashPage from './components/SplashPage/SplashPage';
-import HomePage from './components/HomePage/HomePage';
-import Profile from './components/Profile/Profile';
-import GameShow from './components/GameShow/GameShow'; 
-import AboutPage from './components/AboutPage/AboutPage'; 
-import LostPage from './components/LostPage/LostPage';
+import UnauthNav from './components/UnauthNav/UnauthNav';
+// import HomePage from './components/HomePage/HomePage';
+// import Profile from './components/Profile/Profile';
+// import GameShow from './components/GameShow/GameShow'; 
+// import AboutPage from './components/AboutPage/AboutPage'; 
+// import LostPage from './components/LostPage/LostPage';
 
 
 const App = () => {
@@ -24,14 +25,14 @@ const App = () => {
   return loaded && (
     <div>
       {/* LOGIC THAT WE WANT, nav bars themselves will contain the "Meet the Team" button */}
-      {/* {loggedIn ? <LoggedNav /> : <UnauthNav />} */}
+      {/* {currentUser ? <LoggedNav /> : <UnauthNav />} */}
 
       {/* what we had before */}
       {/* <NavBar /> */}
 
       <Switch>
-        {/* <AuthRoute exact path="/" component={SplashPage} />
-        <ProtectedRoute exact path="/home" component={HomePage} />
+        <AuthRoute exact path="/" component={SplashPage} />
+        {/* <ProtectedRoute exact path="/home" component={HomePage} />
         <Route exact path="/about" component={AboutPage} />
         <ProtectedRoute exact path="/games/:nameURL" component={GameShow} />
         <ProtectedRoute exact path="/:username" component={Profile} />

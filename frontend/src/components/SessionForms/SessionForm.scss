@@ -1,0 +1,183 @@
+@import '../../App.scss';
+
+#session-form-container {
+  width: 420px;
+  height: 100%;
+  background-color: $default-white;
+  border-radius: 8px;
+  padding: 30px;
+}
+
+.session-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $darkest-blue;
+}
+
+.session-form img {
+  height: 30px;
+  width: 30px;
+  margin: 10px 0 15px 0;
+}
+
+.session-form h2 {
+  letter-spacing: -1px;
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.errors {
+  color: $errors-color;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+#log-demo-btn-holder {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+}
+
+.session-form span {
+  font-size: 12px;
+  font-weight: 300;
+  margin: 8px 12px;
+}
+
+
+.session-form label {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+  width: 350px;
+}
+
+.session-form input {
+  box-sizing: border-box;
+  border: none;
+  font-size: 16px;
+  // width: 100%;
+  padding: 12px;
+  border-radius: 4px;
+}
+
+// .session-form input[type="text"], .session-form input[type="password"] {
+//   outline: 1px solid $lightest-blue;
+// }
+
+.session-form input[type="text"]:hover, .session-form input[type="password"]:hover {
+  outline: 1px solid $lighter-blue;
+}
+
+.session-form input[type="text"]:focus, .session-form input[type="password"]:focus {
+  outline: 2px solid $lightest-blue;
+}
+
+#submit-login-btn {
+  height: 40px;
+  font-weight: 500;
+  border-radius: 8px;
+  margin-right: 20px;
+  padding: 12px;
+  background-color: $lightest-blue;
+  color: white;
+  cursor: pointer;
+}
+
+#submit-login-btn:hover {
+  background-color: $darker-blue;
+}
+
+#submit-login-btn.update-profile-btn {
+  margin-top: 20px;
+}
+
+#submit-signup-btn {
+  font-weight: 500;
+  margin-top: 30px;
+  margin-right: 20px;
+  border-radius: 8px;
+  padding: 12px;
+  background-color: $lightest-blue;
+  color: white;
+  cursor: pointer;
+}
+
+#submit-signup-btn:hover {
+  background-color: $darker-blue;
+}
+
+#or-text {
+  margin: 12px 0;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+#submit-demo-btn {
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 12px;
+  background-color: $lighter-blue;
+  color: white;
+  cursor: pointer;
+}
+
+#submit-demo-btn:hover {
+  background-color: $darker-blue;
+}
+
+#alternate-form {
+  font-size: 12px;
+  font-weight: 300;
+  color: #444;
+  margin: 20px 0;
+}
+
+#alternate-form > span {
+  cursor: pointer;
+  color: #111;
+  font-weight: 600;
+  margin: 0;
+}
+
+#alternate-form > span:hover {
+  text-decoration: underline;
+}
+
+#edit-profile-btn {
+  width: 100%;
+}
+
+.disabled-btn {
+  margin-top: 20px;
+  border-radius: 8px;
+  padding: 12px;
+  color: white;
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+
+.session-form {
+  
+  #edit-pfp #avatar-container {
+    margin: 0;
+  }
+
+  #preview-pfp, #avatar-container > img {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px 0px #666;
+    cursor: pointer;
+  
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
