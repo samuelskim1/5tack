@@ -2,9 +2,10 @@ import { Route, Switch } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentUser } from './store/session';
-// import { AuthRoute, ProtectedRoute } from './components/Routes/Routes';
+import { AuthRoute, ProtectedRoute } from './components/Routes/Routes';
 // import NavBar from './components/NavBar/NavBar';
-// import SplashPage from './components/SplashPage/SplashPage';
+import SplashPage from './components/SplashPage/SplashPage';
+import UnauthNav from './components/UnauthNav/UnauthNav';
 // import HomePage from './components/HomePage/HomePage';
 // import Profile from './components/Profile/Profile';
 // import GameShow from './components/GameShow/GameShow'; 
@@ -31,8 +32,8 @@ const App = () => {
       {/* <NavBar /> */}
 
       <Switch>
-        {/* <AuthRoute exact path="/" component={SplashPage} />
-        <ProtectedRoute exact path="/home" component={HomePage} />
+        <AuthRoute exact path="/" component={SplashPage} />
+        {/* <ProtectedRoute exact path="/home" component={HomePage} />
         <Route exact path="/about" component={AboutPage} />
         <ProtectedRoute exact path="/games/:nameURL" component={GameShow} />
         <ProtectedRoute exact path="/:username" component={Profile} />

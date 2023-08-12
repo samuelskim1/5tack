@@ -4,11 +4,15 @@ $neutral-text: #eeece7;
 $default-font: "system-ui", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
 // REDESIGN VARIABLES
-$default-white: #FFFCF2;
+// $default-white: #FFFCF2;
+$default-white: #F3F3F3; // this new off-white is less yellow--colder tone matches blue theme more
 $darkest-blue: #11151C;
 $darker-blue: #19212E;
 $medium-blue: #212D40;
 $lighter-blue: #364156;
+$lightest-blue: #5e6f8f;
+
+$highlight-yellow: #F9E687;
 
 div {
     overflow-wrap: break-word;
