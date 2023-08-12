@@ -48,7 +48,8 @@ const LoginForm = () => {
 
           <label>
             <span>Username</span>
-            <input type="text"
+            <input 
+              type="text"
               value={username}
               onChange={update('username')}
               placeholder="Enter your username"
@@ -57,7 +58,8 @@ const LoginForm = () => {
           </label>
           <label>
             <span>Password</span>
-            <input type="password"
+            <input 
+              type="password"
               value={password}
               onChange={update('password')}
               placeholder="Enter your password"

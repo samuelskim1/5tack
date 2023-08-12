@@ -122,8 +122,8 @@ const EditProfile = ({ setIsEditing }) => {
     preview = 
     <img
       src={profileImageUrl}
-      id="edit-pfp"
       alt="This is your selected profile picture"
+      onClick={() => hiddenUpload.current.click()}
       />
   }
 
@@ -133,35 +133,38 @@ const EditProfile = ({ setIsEditing }) => {
       <h2>Edit Your Profile</h2>
 
 
-      <div className="edit-profile-row">
-        <div className="edit-profile-label">
-          Profile Picture:
-        </div>
+      <div className="edit-profile-row" id="edit-pfp">
+        <div className="edit-profile-label" id="edit-pfp">
+          {!preview && (
+            <img 
+              src={currentUser?.profileImageUrl} 
+              alt={currentUser?.username} 
+              onClick={() => hiddenUpload.current.click()}
+              />
+            )}
+          {preview && preview}
 
-        <div className="edit-profile-field" id="edit-pfp">
-          <div id="edit-pfp" onClick={() => hiddenUpload.current.click()}>
-            {!preview && <img src={currentUser?.profileImageUrl} alt={currentUser?.username} />}
-            {preview && preview}
+          <div 
+            id="change-pfp-btn-container" 
+            onClick={() => hiddenUpload.current.click()}
+            >
+            <i className="fa-solid fa-image" /> Change Picture
           </div>
+
+          <input
+            ref={hiddenUpload}
+            type="file"
+            accept="image/*"
+            onChange={(e) => {handlePhoto(e); handleChange(e, e.target)}}
+            style={{display: 'none'}}
+            />
         </div>
 
-        <input
-          ref={hiddenUpload}
-          type="file"
-          accept="image/*"
-          onChange={(e) => {handlePhoto(e); handleChange(e, e.target)}}
-          style={{display: 'none'}}
-          />
-      </div>
+        <div className="edit-profile-field" id="edit-username">
+          <div className="edit-profile-label">
+            Username: 
+          </div>
 
-      <div className="user-info-divider" />
-
-      <div className="edit-profile-row">
-        <div className="edit-profile-label">
-          Username: 
-        </div>
-
-        <div className="edit-profile-field">
           <input
             type="text"
             value={username}
@@ -223,7 +226,7 @@ const EditProfile = ({ setIsEditing }) => {
           </div>
         }
 
-        <div className="cancel-btn">
+        <div className="cancel-btn" onClick={() => setIsEditing(false)}>
           Cancel
         </div>
       </div>
