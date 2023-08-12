@@ -11,7 +11,7 @@ import UnauthNav from './components/UnauthNav/UnauthNav';
 // import GameShow from './components/GameShow/GameShow'; 
 // import AboutPage from './components/AboutPage/AboutPage'; 
 // import LostPage from './components/LostPage/LostPage';
-
+import AuthNavBar from './components/AuthNavBar/AuthNavBar';
 
 const App = () => {
   const [loaded, setLoaded] = useState(false);
@@ -23,9 +23,10 @@ const App = () => {
   }, [dispatch]);
 
   return loaded && (
-    <div>
+    <div id='entire-app'>
       {/* LOGIC THAT WE WANT, nav bars themselves will contain the "Meet the Team" button */}
-      {/* {currentUser ? <LoggedNav /> : <UnauthNav />} */}
+      {/* {loggedIn ? <LoggedNav /> : <UnauthNav />} */}
+      <AuthNavBar />
 
       {/* what we had before */}
       {/* <NavBar /> */}
