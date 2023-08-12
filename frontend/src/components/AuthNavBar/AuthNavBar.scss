@@ -112,7 +112,7 @@
 
 .active-style-button {
     color: $default-white;
-    background-color: $default-bg;
+    background-color: $darkest-blue;
 }
 
 .inactive {
@@ -123,15 +123,9 @@
 
 }
 
-.category-button {
-    // transition: color 1s, background-color 1s;
-    color: $default-bg;
-    background-color: $default-white;
-}
-
 .style-button:not(.inactive):hover {
     color: $default-white;
-    background-color: $default-bg;
+    background-color: $darkest-blue;
 }
 
 .active-category-button {
@@ -139,14 +133,14 @@
     // animation: 3s linear 1s slidein;
     // animation-timing-function: ease-out;
     color: $default-white;
-    background-color: $default-bg;
+    background-color: $darkest-blue;
 
     animation: 0.5s ease-out 0s moveLeft;
 }
 
 .deactive-category-button {
     transition: color 1s, background-color 1s;
-    color: $default-bg;
+    color: $darkest-blue;
     background-color: $default-white;
 
     animation: 0.5s ease-in 0s deactive;

@@ -1,6 +1,5 @@
 import { useRef, useState } from "react"
 import { Link } from "react-router-dom";
-// import styled, {keyframes} from 'styled-components';
 
 const CategoryButton = ({category}) => {
     
@@ -86,9 +85,8 @@ const CategoryButton = ({category}) => {
                     currBtn.current.classList.remove('deactive-category-button');
                     parent.style.pointerEvents = null;
                 });
-                // currBtn.current.classList.add('color-btn');
-                setActive(false); // set to false
-                parent.style.justifyContent = null; // reset to space-btwn
+                setActive(false);
+                parent.style.justifyContent = null;
                 currBtn.current.style.cssText = null;
             }, {once : true})
 
