@@ -25,8 +25,7 @@ const App = () => {
   return loaded && (
     <div id='entire-app'>
       {/* LOGIC THAT WE WANT, nav bars themselves will contain the "Meet the Team" button */}
-      {/* {loggedIn ? <LoggedNav /> : <UnauthNav />} */}
-      <AuthNavBar />
+      {currentUser && <AuthNavBar />}
 
       {/* what we had before */}
       {/* <NavBar /> */}
