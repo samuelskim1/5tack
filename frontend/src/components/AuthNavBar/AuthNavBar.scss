@@ -58,7 +58,7 @@
 }
 
 @keyframes moveLeft {
-    100% { transform: translateX(var(--distLeft, 0)); }
+    100% { transform: translateX(var(--distLeft, 500px)); }
     // 100% { width: 0px; }
 }
 
@@ -66,6 +66,10 @@
 @keyframes fromRight {
     0% { transform: translateX(100vw); }
     100% { transform:100vw - translateX(var(--distLeft, 0)); }
+}
+
+@keyframes deactive {
+    100% { transform: translateX(var(--distLeft, 0)); }
 }
 
 // @keyframes collapseButton {
@@ -133,6 +137,7 @@
 
     // animation: fadeOut 0.5s, moveLeft var(--time, 0.5s);
     animation: fadeOut 0.5s;
+    pointer-events: none;
 
 }
 
@@ -155,6 +160,18 @@
     animation: 1s ease-out 0.5s moveLeft;
 }
 
+// .active-category-button[deactive=true] {
+//     animation: 3s ease-in 1s deactive;
+//     color: cadetblue; 
+// }
+
+.deactive-category-button {
+    color: $default-white;
+    background-color: $default-bg;
+
+    animation: 1s ease-in 0.5s deactive;
+}
+
 // #active-category-button {
 //     /* @keyframes duration | easing-function | delay | name */
 //     // animation: 3s linear 1s slidein;
@@ -171,7 +188,7 @@
 
 #game-nav {
     display: flex;
-    animation: fadeIn 2s;
+    animation: fadeIn 1s;
 }
 
 .move-back {

@@ -128,7 +128,9 @@ const CategoryButton = ({category}) => {
 
     const buttonAnimation = () => {
         const isActive = currBtn.current.classList.contains('active-category-button');
-        currBtn.current.style = `--distLeft: ${parent.getBoundingClientRect().left - currBtn.current.getBoundingClientRect().left}px;`;
+        const dist = parent.getBoundingClientRect().left - currBtn.current.getBoundingClientRect().left;
+        currBtn.current.style = `--distLeft: ${dist}px;`;
+        currBtn.current.style.x = 0 - dist;
         // console.log('styling:', currBtn.current.style.cssText);
         
         
@@ -140,8 +142,11 @@ const CategoryButton = ({category}) => {
             openCategory();
         }
     }
-
+    
     const openCategory = () => {
+
+
+
         currBtn.current.classList.add('active-category-button');
         for (let btn of btns) {
             if (btn === currBtn.current) continue;
@@ -163,14 +168,65 @@ const CategoryButton = ({category}) => {
         })
         // a lot css to reset
     }
+
+
+    // fadeout the container
+    // set active to false
+    // move active back to original location
+    // fade in the others
+    // lots to reset
+
     const closeCategory = () => {
-        // fadeout the container
-        // set active to false
-        // move active back to original location
-        // fade in the others
-        // lots to reset
-        currBtn.current.classList.remove('active-category-button');
+
+        // move currBut back in place
+        // after animation end
+        // bring have display = block -> opacity is still 0
+        // fadeIn 1s
+        // clear up all the shit
+
+        // IMPORTANT
+        // might want to clear cssText of both games + parent...?
+
+
+
+        const games = document.getElementById('game-nav');
+        if (games) {
+            games.addEventListener('animationstart', () => {
+                games.style.pointerEvents = 'none';
+            })
+
+
+
+            currBtn.current.style = `--distLeft: ${currBtn.current.style.x}px`;
+            console.log('currently inline', currBtn.current.style.cssText);
+            currBtn.current.classList.add('deactive-category-button');
+
+
+
+            games.style.animation = 'fadeOut 1s';
+            games.addEventListener('animationend', () => {
+                games.style.display = 'none';
+                // setActive(false);
+                // currBtn.current.classList.remove('active-category-button');
+                // currBtn.current.classList.add('inactive');
+        
+        
+                // console.log('currently inline', currBtn.current.style.cssText);
+                
+                
+            })
+            // parent.style.justifyContent = 'space-between';
+        }
     }
+
+
+    /*
+    something crazy to try if needed
+        - make currBut pos absolute
+        - put everything back -> opacity is still 0
+        - move currBut back
+        - fade other buts back as well
+     */
 
     /*
     click on a category
@@ -205,11 +261,12 @@ const CategoryButton = ({category}) => {
                 // <Link onClick={() => {setCurrGame(i)}} className={`style-button game-button ${currGame === i ? 'active-style-button' : ''}`} key={i}
                 <Link className={`style-button game-button`} key={i}
                 to={`/games/${game.nameURL}`}
+                onClick={closeCategory}
                 >
                         {game.name}
                 </Link>
             )}
-            <p className="style-button game-button">{'X'}</p>
+            <p onClick={closeCategory} className="style-button game-button">{'X'}</p>
         </div>}
         </>
 
