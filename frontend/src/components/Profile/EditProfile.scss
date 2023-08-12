@@ -1,0 +1,94 @@
+@import '../../App.scss';
+
+
+#edit-profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 100%;
+  width: 100%;
+  max-width: 450px;
+
+  > h2 {
+    font-size: 24px;
+    font-weight: 500;
+  }
+}
+
+.edit-profile-row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 0 12px;
+  box-sizing: border-box;
+
+  :first-child {
+    align-self: center;
+  }
+}
+
+.edit-profile-label {
+  font-size: 14px;
+  font-weight: 600;
+  width: 33%;
+}
+
+.edit-profile-field {
+  width: 67%;
+  height: 100%;
+}
+
+.edit-profile-field#edit-pfp {
+  display: flex;
+  justify-content: center;
+}
+
+#edit-pfp {
+
+  > img {
+    width: 90px;
+    height: 90px;
+    border-radius: 8px;
+    margin-top: 1px;
+  }
+}
+
+#edit-profile-bottom {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.save-btn {
+  padding: 8px;
+  border-radius: 6px;
+  font-weight: 500;
+  background-color: $medium-blue;
+  color: $default-white;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background-color: $darkest-blue;
+}
+
+.cant-save {
+  background-color: $empty-star-blue;
+  color: $default-white;
+  cursor: not-allowed;
+}
+
+.cant-save:hover {
+  background-color: $empty-star-blue;
+}
+
+.cancel-btn {
+  padding: 8px;
+  border-radius: 6px;
+  font-weight: 500;
+  background-color: $lightest-blue;
+  color: $default-white;
+  cursor: pointer;
+}

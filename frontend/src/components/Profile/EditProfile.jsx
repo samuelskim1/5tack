@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { updateUser } from "../../store/session";
 import { receiveUser } from "../../store/users";
+import './EditProfile.scss';
 
 // THINGS TO RECONSIDER:
 // handleSubmit "curr" variables and if/else statement at the end
@@ -107,13 +108,126 @@ const EditProfile = ({ setIsEditing }) => {
     }
   }
 
-  
+  const handlePhoto = async ({ currentTarget }) => {
+    if (currentTarget.files[0]) {
+      setPhoto(currentTarget.files[0]);
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(currentTarget.files[0]);
+      fileReader.onload = () => setProfileImageUrl(fileReader.result);
+    }
+  }
+
+  let preview = null;
+  if (profileImageUrl) {
+    preview = 
+    <img
+      src={profileImageUrl}
+      id="edit-pfp"
+      alt="This is your selected profile picture"
+      />
+  }
 
 
   return (
-    <>
+    <div id="edit-profile-container">
+      <h2>Edit Your Profile</h2>
 
-    </>
+
+      <div className="edit-profile-row">
+        <div className="edit-profile-label">
+          Profile Picture:
+        </div>
+
+        <div className="edit-profile-field" id="edit-pfp">
+          <div id="edit-pfp" onClick={() => hiddenUpload.current.click()}>
+            {!preview && <img src={currentUser?.profileImageUrl} alt={currentUser?.username} />}
+            {preview && preview}
+          </div>
+        </div>
+
+        <input
+          ref={hiddenUpload}
+          type="file"
+          accept="image/*"
+          onChange={(e) => {handlePhoto(e); handleChange(e, e.target)}}
+          style={{display: 'none'}}
+          />
+      </div>
+
+      <div className="user-info-divider" />
+
+      <div className="edit-profile-row">
+        <div className="edit-profile-label">
+          Username: 
+        </div>
+
+        <div className="edit-profile-field">
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => handleChange(e, 'username')}
+            placeholder="How should we call you?"
+            />
+        </div>
+      </div>
+
+      <div className="user-info-divider" />
+
+      <div className="edit-profile-row">
+        <div className="edit-profile-label">
+          About: 
+        </div>
+
+        <div className="edit-profile-field">
+          <textarea
+            value={description}
+            onChange={(e) => handleChange(e, 'description')}
+            placeholder="Tell us about yourself!"
+            />
+        </div>
+      </div>
+
+      <div className="user-info-divider" />
+
+
+      <div className="edit-profile-row">
+        <div className="edit-profile-label">
+          Favorites: 
+        </div>
+
+        <div className="edit-profile-field">
+
+        </div>
+      </div>
+
+      <div className="user-info-divider" />
+
+      <div className="edit-profile-row">
+        <div className="edit-profile-label">
+          Play Style:
+        </div>
+
+        <div className="edit-profile-field">
+          
+        </div>
+      </div>
+
+      <div id="edit-profile-bottom">
+        {canSubmit ? 
+          <div className="save-btn">
+            Save
+          </div>
+          :
+          <div className="save-btn cant-save">
+            Save
+          </div>
+        }
+
+        <div className="cancel-btn">
+          Cancel
+        </div>
+      </div>
+    </div>
   )
 };
 
