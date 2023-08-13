@@ -84,6 +84,7 @@
 .edit-profile-row#edit-pfp {
   display: flex;
   justify-content: space-between;
+  height: 82.5px;
 }
 
 .edit-profile-label#edit-pfp {
@@ -133,24 +134,29 @@
   border-radius: 6px;
   font-weight: 600;
   border: 1px solid $medium-blue;
-  background-color: #212d4080;
+  background-color: #212d40be;
   color: $default-white;
   cursor: pointer;
 
   i {
     font-size: 18px;
+    margin-bottom: 4px;
   }
 }
 
 #change-pfp-btn-container:hover {
-  background-color: #212d4050;
-  // color: $default-white;
+  background-color: #212d40ef;
+}
+
+.edit-profile-row#edit-about {
+  height: 90px;
 }
 
 #edit-profile-bottom {
   width: 132px;
   display: flex;
   justify-content: space-between;
+  margin-top: 30px;
 }
 
 .save-btn {

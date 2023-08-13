@@ -60,36 +60,47 @@ const EditProfile = ({ setIsEditing }) => {
         currUsername = e.target.value;
         setUsername(currUsername);
         if (currUsername.length > 20) {
-          setErrors({ ...errors, ["username"]: "Username cannot be longer than 20 characters!"});
+          setCanSubmit(false);
+          setErrors({ ...errors, "username": "Username cannot be longer than 20 characters!"});
+        } else if (currUsername.length < 3) {
+          setCanSubmit(false);
+          setErrors({ ...errors, "username": "Username cannot be less than 3 characters!"})
         } else {
-          setErrors({ ...errors, ["username"]: '' });
+          setErrors({ ...errors, "username": '' });
+          setCanSubmit(true);
         }
         break;
       case 'email':
         currEmail = e.target.value;
         setEmail(currEmail);
         if (!currEmail.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
-          setErrors({ ...errors, ["email"]: "Email is invalid" })
+          setErrors({ ...errors, "email": "Email is invalid" })
+          setCanSubmit(false);
         } else {
-          setErrors({ ...errors, ["email"]: '' })
+          setErrors({ ...errors, "email": '' })
+          setCanSubmit(true);
         }
         break;
       case 'description':
         currDescription = e.target.value;
         setDescription(currDescription);
-        if (currDescription.length > 400) {
-          setErrors({ ...errors, ["description"]: "Description cannot be longer than 400 characters" })
+        if (currDescription.length > 200) {
+          setErrors({ ...errors, "description": "Description cannot be longer than 200 characters" })
+          setCanSubmit(false);
         } else {
-          setErrors({ ...errors, ["description"]: '' })
+          setErrors({ ...errors, "description": '' })
+          setCanSubmit(true);
         }
         break;
       case 'favorites':
         currFavorites = e.target.value;
         setFavorites(currFavorites);
         if (currFavorites.length > 5) {
-          setErrors({ ...errors, ["favorites"]: `Woah there gamer, that's ${currFavorites.length - 5} too many games!`});
+          setErrors({ ...errors, "favorites": `Woah there gamer, that's ${currFavorites.length - 5} too many games!`});
+          setCanSubmit(false);
         } else {
-          setErrors({ ...errors, ["favorites"]: '' });
+          setErrors({ ...errors, "favorites": '' });
+          setCanSubmit(true);
         }
         break;
       case 'playstyle':
@@ -99,12 +110,6 @@ const EditProfile = ({ setIsEditing }) => {
       default:
         hasPhoto = field;
         break;
-    }
-    
-    if (currUsername.length >= 3 && currUsername.length <= 30 && currEmail.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) && currEmail.length > 0) {
-      setCanSubmit(true);
-    } else {
-      setCanSubmit(false);
     }
   }
 
@@ -122,7 +127,7 @@ const EditProfile = ({ setIsEditing }) => {
     preview = 
     <img
       src={profileImageUrl}
-      alt="This is your selected profile picture"
+      alt="This is what you uploaded!"
       onClick={() => hiddenUpload.current.click()}
       />
   }
@@ -148,7 +153,7 @@ const EditProfile = ({ setIsEditing }) => {
             id="change-pfp-btn-container" 
             onClick={() => hiddenUpload.current.click()}
             >
-            <i className="fa-solid fa-image" /> Change Picture
+            <i className="fa-solid fa-image" /> Upload
           </div>
 
           <input
@@ -171,12 +176,14 @@ const EditProfile = ({ setIsEditing }) => {
             onChange={(e) => handleChange(e, 'username')}
             placeholder="How should we call you?"
             />
+
+          <div className="errors">{errors?.username}</div>
         </div>
       </div>
 
       <div className="user-info-divider" />
 
-      <div className="edit-profile-row">
+      <div className="edit-profile-row" id="edit-about">
         <div className="edit-profile-label">
           About: 
         </div>
@@ -189,6 +196,8 @@ const EditProfile = ({ setIsEditing }) => {
             />
         </div>
       </div>
+
+      <div className="errors">{errors?.description}</div>
 
       <div className="user-info-divider" />
 
