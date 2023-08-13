@@ -35,6 +35,7 @@ const Summary = ({ moodyButton }) => {
   }, [reviews, showUser, getAverage, stars]);
 
   useEffect(() => {
+    debugger;
     setStars(Array(Math.round(avgRating / 0.5)).fill(true));
   }, [avgRating]);
 

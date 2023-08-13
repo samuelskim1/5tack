@@ -61,9 +61,17 @@ export const updateUser = (userInfo) => async (dispatch) => {
     formData.append('username', userInfo.username);
     formData.append('email', userInfo.email);
     formData.append('description', userInfo.description);
-    formData.append('favorites', userInfo.favorites);
-    formData.append('playStyle', userInfo.playStyle);
     formData.append('profileImageUrl', userInfo.photo || userInfo.profileImageUrl);
+    
+    // formData requires this format in order to correctly parse data in array structure
+    userInfo.playStyle.forEach(style => {
+      formData.append('playStyle[]', style)
+    })
+    userInfo.favorites.forEach(fave => {
+      formData.append('favorites[]', fave)
+    })
+
+
     const res = await jwtFetch(`/api/users/${userInfo._id}`, {
       method: 'PATCH',
       // body: JSON.stringify(userInfo)

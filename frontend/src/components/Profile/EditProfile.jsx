@@ -2,11 +2,32 @@ import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { updateUser } from "../../store/session";
-import { receiveUser } from "../../store/users";
+import { fetchUser, receiveUser } from "../../store/users";
 import './EditProfile.scss';
 
 // THINGS TO RECONSIDER:
 // handleSubmit "curr" variables and if/else statement at the end
+
+const fullGamesList = [
+  "Apex Legends",
+  "CS:GO",
+  "DOTA 2",
+  "FIFA",
+  "Fortnite",
+  "Grand Theft Auto V",
+  "League of Legends",
+  "Lost Ark",
+  "Maple Story",
+  "Minecraft",
+  "NBA 2K23",
+  "Overwatch",
+  "Rocket League",
+  "Starcraft II",
+  "Stardew Valley",
+  "Super Smash Bros Ultimate",
+  "Terraria",
+  "Valorant"
+]
 
 const EditProfile = ({ setIsEditing }) => {
   const dispatch = useDispatch();
@@ -18,6 +39,10 @@ const EditProfile = ({ setIsEditing }) => {
   const [description, setDescription] = useState(currentUser?.description || '');
   const [favorites, setFavorites] = useState(currentUser?.favorites || []);
   const [playStyle, setPlayStyle] = useState(currentUser?.playstyle || []);
+  const [gamesList, setGamesList] = useState(fullGamesList.map(game => {
+    const faves = new Set(favorites);
+    if (!faves.has(game)) return game;
+  }));
   const [photo, setPhoto] = useState();
   const [profileImageUrl, setProfileImageUrl] = useState(currentUser?.profileImageUrl);
   const [canSubmit, setCanSubmit] = useState(false);
@@ -40,11 +65,16 @@ const EditProfile = ({ setIsEditing }) => {
       if (res.ok) {
         setIsEditing(false);
         history.push(`/${username}`);
+        dispatch(fetchUser(username));
       }
     });
-
-    dispatch(receiveUser(user));
   };
+
+
+  const removeFave = (fave) => {
+    const idx = favorites?.indexOf(fave);
+    if (idx > -1) favorites.splice(idx, 1);
+  }
 
 
   const handleChange = (e, field) => {
@@ -93,9 +123,10 @@ const EditProfile = ({ setIsEditing }) => {
         }
         break;
       case 'favorites':
-        currFavorites = e.target.value;
+        currFavorites.push(e.target.value);
         setFavorites(currFavorites);
-        if (currFavorites.length > 5) {
+        debugger
+        if (favorites.length > 5) {
           setErrors({ ...errors, "favorites": `Woah there gamer, that's ${currFavorites.length - 5} too many games!`});
           setCanSubmit(false);
         } else {
@@ -177,13 +208,14 @@ const EditProfile = ({ setIsEditing }) => {
             placeholder="How should we call you?"
             />
 
-          <div className="errors">{errors?.username}</div>
         </div>
       </div>
 
+      <div className="errors">{errors?.username}</div>
+      
       <div className="user-info-divider" />
 
-      <div className="edit-profile-row" id="edit-about">
+      <div className="edit-profile-section" id="edit-about">
         <div className="edit-profile-label">
           About: 
         </div>
@@ -202,31 +234,68 @@ const EditProfile = ({ setIsEditing }) => {
       <div className="user-info-divider" />
 
 
-      <div className="edit-profile-row">
+      <div className="edit-profile-section">
         <div className="edit-profile-label">
           Favorites: 
         </div>
 
         <div className="edit-profile-field">
+          {/* <p className="user-info-tag">#League of Legos</p>
+          <p className="user-info-tag">#Maple Story</p>
+          <p className="user-info-tag">#DOTA</p>
+          <p className="user-info-tag">#Grand Theft Auto V</p>
+          <p className="user-info-tag">#Minecraft</p> */}
+          {favorites?.map(fave => (
+            <div className="edit-fave-container" key={fave} onClick={() => removeFave(fave)}>
+              <p className="user-info-tag">#{fave}</p>
+              <i className="fa-solid fa-xmark" />
+            </div>
+          ))}
 
+          {(favorites?.length >= 5) ? (
+            <select
+              onChange={(e) => handleChange(e, 'favorites')}
+              name="favorites"
+              disabled
+              >
+              {gamesList.map(game => (
+                <option value={game} key={game}>
+                  {game}
+                </option>
+              ))}
+            </select>
+          ) : (
+            <select
+              onChange={(e) => handleChange(e, 'favorites')}
+              name="favorites"
+              >
+              {gamesList.map(game => (
+                <option value={game} key={game}>
+                  {game}
+                </option>
+              ))}
+            </select>
+          )}
         </div>
       </div>
 
       <div className="user-info-divider" />
 
-      <div className="edit-profile-row">
+      <div className="edit-profile-section">
         <div className="edit-profile-label">
           Play Style:
         </div>
 
         <div className="edit-profile-field">
-          
+          <p className="user-info-tag">#competitive</p>
+          <p className="user-info-tag">#casual</p>
+          <p className="user-info-tag">#troll</p>
         </div>
       </div>
 
       <div id="edit-profile-bottom">
         {canSubmit ? 
-          <div className="save-btn">
+          <div className="save-btn" onClick={handleSubmit}>
             Save
           </div>
           :
