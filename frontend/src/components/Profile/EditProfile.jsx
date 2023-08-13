@@ -42,6 +42,7 @@ const EditProfile = ({ setIsEditing }) => {
   const [photo, setPhoto] = useState();
   const [profileImageUrl, setProfileImageUrl] = useState(currentUser?.profileImageUrl);
   const [canSubmit, setCanSubmit] = useState(false);
+  const [maxGames, setMaxGames] = useState(favorites.length >= 5);
   const hiddenUpload = useRef();
 
 
@@ -77,6 +78,7 @@ const EditProfile = ({ setIsEditing }) => {
       if (favesHTML[i].innerText.includes(fave)) favesHTML[i].style.display = "none";
     }
     setCanSubmit(true);
+    setMaxGames(favorites.length >= 5);
   }
 
 
@@ -126,8 +128,10 @@ const EditProfile = ({ setIsEditing }) => {
         }
         break;
       case 'favorites':
-        currFavorites.push(e.target.value);
-        setFavorites(currFavorites);
+        if (!currFavorites.includes(e.target.value)) {
+          currFavorites.push(e.target.value);
+          setFavorites(currFavorites);
+        }
         if (favorites.length > 5) {
           setErrors({ ...errors, "favorites": `Woah there gamer, that's ${currFavorites.length - 5} too many games!`});
           setCanSubmit(false);
@@ -135,6 +139,7 @@ const EditProfile = ({ setIsEditing }) => {
           setErrors({ ...errors, "favorites": '' });
           setCanSubmit(true);
         }
+        setMaxGames(favorites.length >= 5);
         break;
       case 'playstyle':
         currPlayStyle = e.target.value;
@@ -250,15 +255,14 @@ const EditProfile = ({ setIsEditing }) => {
             ))}
           </div>
 
-          {(favorites?.length >= 5) ? (
+          {maxGames ? (
             <select
-              onChange={(e) => handleChange(e, 'favorites')}
               name="favorites"
               disabled
               >
-              <option value='' disabled>Add up to 5 games you usually play!</option>
+              <option value='' selected="selected" disabled>Add up to 5 games you usually play!</option>
               {gamesList.map(game => (
-                <option value={game} key={game} onCanPlay={() => console.log(this)}>
+                <option value={game} key={game} onClick={(e) => handleChange(e, 'favorites')}>
                   {game}
                 </option>
               ))}
@@ -268,8 +272,9 @@ const EditProfile = ({ setIsEditing }) => {
               onChange={(e) => handleChange(e, 'favorites')}
               name="favorites"
               >
+              <option value='' selected="selected" disabled>Add up to 5 games you usually play!</option>
               {gamesList.map(game => (
-                <option value={game} key={game}>
+                <option value={game} key={game} onClick={(e) => handleChange(e, 'favorites')}>
                   {game}
                 </option>
               ))}
@@ -277,6 +282,8 @@ const EditProfile = ({ setIsEditing }) => {
           )}
         </div>
       </div>
+
+      <div className="errors">{errors?.favorites}</div>
 
       <div className="user-info-divider" />
 

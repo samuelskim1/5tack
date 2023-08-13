@@ -110,11 +110,9 @@ const Summary = ({ moodyButton }) => {
         <div className="user-info-wrapper">
           <div className="user-info-label tags-label">Favorites: </div>
           <div className="user-info-content">
-            <p className="user-info-tag">#League of Legos</p>
-            <p className="user-info-tag">#Maple Story</p>
-            <p className="user-info-tag">#DOTA</p>
-            <p className="user-info-tag">#Grand Theft Auto V</p>
-            <p className="user-info-tag">#Minecraft</p>
+            {showUser?.favorites?.map((fave, idx) => (
+              <p className="user-info-tag" key={fave + idx}>#{fave}</p>
+            ))}
           </div>
         </div>
 
