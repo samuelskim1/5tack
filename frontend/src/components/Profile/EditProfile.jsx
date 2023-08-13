@@ -8,7 +8,7 @@ import './EditProfile.scss';
 // THINGS TO RECONSIDER:
 // handleSubmit "curr" variables and if/else statement at the end
 
-const fullGamesList = [
+const gamesList = [
   "Apex Legends",
   "CS:GO",
   "DOTA 2",
@@ -39,10 +39,6 @@ const EditProfile = ({ setIsEditing }) => {
   const [description, setDescription] = useState(currentUser?.description || '');
   const [favorites, setFavorites] = useState(currentUser?.favorites || []);
   const [playStyle, setPlayStyle] = useState(currentUser?.playstyle || []);
-  const [gamesList, setGamesList] = useState(fullGamesList.map(game => {
-    const faves = new Set(favorites);
-    if (!faves.has(game)) return game;
-  }));
   const [photo, setPhoto] = useState();
   const [profileImageUrl, setProfileImageUrl] = useState(currentUser?.profileImageUrl);
   const [canSubmit, setCanSubmit] = useState(false);
@@ -73,7 +69,14 @@ const EditProfile = ({ setIsEditing }) => {
 
   const removeFave = (fave) => {
     const idx = favorites?.indexOf(fave);
-    if (idx > -1) favorites.splice(idx, 1);
+    const dummyFaves = favorites;
+    if (idx > -1) dummyFaves.splice(idx, 1);
+    setFavorites(dummyFaves);
+    const favesHTML = document.getElementsByClassName('fave');
+    for (let i = 0; i < favesHTML.length; i++) {
+      if (favesHTML[i].innerText.includes(fave)) favesHTML[i].style.display = "none";
+    }
+    setCanSubmit(true);
   }
 
 
@@ -125,7 +128,6 @@ const EditProfile = ({ setIsEditing }) => {
       case 'favorites':
         currFavorites.push(e.target.value);
         setFavorites(currFavorites);
-        debugger
         if (favorites.length > 5) {
           setErrors({ ...errors, "favorites": `Woah there gamer, that's ${currFavorites.length - 5} too many games!`});
           setCanSubmit(false);
@@ -240,17 +242,13 @@ const EditProfile = ({ setIsEditing }) => {
         </div>
 
         <div className="edit-profile-field">
-          {/* <p className="user-info-tag">#League of Legos</p>
-          <p className="user-info-tag">#Maple Story</p>
-          <p className="user-info-tag">#DOTA</p>
-          <p className="user-info-tag">#Grand Theft Auto V</p>
-          <p className="user-info-tag">#Minecraft</p> */}
-          {favorites?.map(fave => (
-            <div className="edit-fave-container" key={fave} onClick={() => removeFave(fave)}>
-              <p className="user-info-tag">#{fave}</p>
-              <i className="fa-solid fa-xmark" />
-            </div>
-          ))}
+          <div className="display-faves-container">
+            {favorites?.map((fave, idx) => (
+              <p className="user-info-tag fave" key={fave + idx} onClick={() => removeFave(fave)}>
+                #{fave} <i className="fa-solid fa-xmark" />
+              </p>
+            ))}
+          </div>
 
           {(favorites?.length >= 5) ? (
             <select
@@ -258,8 +256,9 @@ const EditProfile = ({ setIsEditing }) => {
               name="favorites"
               disabled
               >
+              <option value='' disabled>Add up to 5 games you usually play!</option>
               {gamesList.map(game => (
-                <option value={game} key={game}>
+                <option value={game} key={game} onCanPlay={() => console.log(this)}>
                   {game}
                 </option>
               ))}
