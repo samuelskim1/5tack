@@ -121,8 +121,9 @@ const Summary = ({ moodyButton }) => {
         <div className="user-info-wrapper">
           <div className="user-info-label tags-label">Play style: </div>
           <div className="user-info-content">
-            <p className="user-info-tag">#casual</p>
-            <p className="user-info-tag">#troll</p>
+            {showUser?.playStyle?.map((style, idx) => (
+              <p className="user-info-tag" key={style + idx}>#{style}</p>
+            ))}
           </div>
         </div>
       </div>

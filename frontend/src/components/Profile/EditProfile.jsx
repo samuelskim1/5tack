@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { updateUser } from "../../store/session";
@@ -44,6 +44,9 @@ const EditProfile = ({ setIsEditing }) => {
   const [canSubmit, setCanSubmit] = useState(false);
   const [maxGames, setMaxGames] = useState(favorites.length >= 5);
   const hiddenUpload = useRef();
+  const circle1 = useRef();
+  const circle2 = useRef();
+  const circle3 = useRef();
 
 
   const handleSubmit = () => {
@@ -79,6 +82,30 @@ const EditProfile = ({ setIsEditing }) => {
     }
     setCanSubmit(true);
     setMaxGames(favorites.length >= 5);
+  }
+
+  const togglePlayStyle = (circle, style) => {
+    const classList = circle.current.classList;
+    if (classList[1] === 'selected-circle') {
+      classList.remove('selected-circle');
+      setPlayStyle(prev => {
+        let next = prev;
+        const currPlayStyle = playStyle;
+        const idx = currPlayStyle.indexOf(style);
+        currPlayStyle.splice(idx, 1);
+        next = currPlayStyle;
+        return next;
+      });
+      setCanSubmit(true);
+    } else {
+      classList.add('selected-circle');
+      setPlayStyle(prev => {
+        const next = prev;
+        next.push(style);
+        return next;
+      });
+      setCanSubmit(true);
+    }
   }
 
 
@@ -170,6 +197,14 @@ const EditProfile = ({ setIsEditing }) => {
       />
   }
 
+  useEffect(() => {
+    if (currentUser) {
+      setPlayStyle(currentUser.playStyle);
+    }
+  }, [])
+
+
+
 
   return (
     <div id="edit-profile-container">
@@ -258,9 +293,10 @@ const EditProfile = ({ setIsEditing }) => {
           {maxGames ? (
             <select
               name="favorites"
+              defaultValue='none'
               disabled
               >
-              <option value='' selected="selected" disabled>Add up to 5 games you usually play!</option>
+              <option value="none" disabled>Add up to 5 games you usually play</option>
               {gamesList.map(game => (
                 <option value={game} key={game} onClick={(e) => handleChange(e, 'favorites')}>
                   {game}
@@ -270,9 +306,10 @@ const EditProfile = ({ setIsEditing }) => {
           ) : (
             <select
               onChange={(e) => handleChange(e, 'favorites')}
+              defaultValue='none'
               name="favorites"
               >
-              <option value='' selected="selected" disabled>Add up to 5 games you usually play!</option>
+              <option value="none" disabled>Add up to 5 games you usually play</option>
               {gamesList.map(game => (
                 <option value={game} key={game} onClick={(e) => handleChange(e, 'favorites')}>
                   {game}
@@ -292,10 +329,28 @@ const EditProfile = ({ setIsEditing }) => {
           Play Style:
         </div>
 
-        <div className="edit-profile-field">
-          <p className="user-info-tag">#competitive</p>
-          <p className="user-info-tag">#casual</p>
-          <p className="user-info-tag">#troll</p>
+        <div className="edit-profile-field" id="play-style">
+          <p className="user-info-tag" onMouseUp={() => togglePlayStyle(circle1, 'competitive')} >
+            <span
+              className={playStyle?.includes('competitive') ? "select-play-style-circle selected-circle" : "select-play-style-circle" }
+              ref={circle1}
+              /> 
+            #competitive
+          </p>
+          <p className="user-info-tag" onMouseUp={() => togglePlayStyle(circle2, 'casual')} >
+            <span
+              className={playStyle?.includes('casual') ? "select-play-style-circle selected-circle" : "select-play-style-circle" }
+              ref={circle2}
+              /> 
+            #casual
+          </p>
+          <p className="user-info-tag" onMouseUp={() => togglePlayStyle(circle3, 'troll')} >
+            <span
+              className={playStyle?.includes('troll') ? "select-play-style-circle selected-circle" : "select-play-style-circle" }
+              ref={circle3}
+              /> 
+            #troll
+          </p>
         </div>
       </div>
 

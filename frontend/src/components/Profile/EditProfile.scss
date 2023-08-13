@@ -14,7 +14,7 @@
   > h2 {
     font-size: 24px;
     font-weight: 500;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 
   > .user-info-divider {
@@ -160,7 +160,7 @@
 
   .edit-profile-label {
     width: 100%;
-    margin: 0 0 4px 16px;
+    margin: 0 0 6px 16px;
   }
 
   .edit-profile-field {
@@ -194,14 +194,6 @@
   }
 }
 
-
-#edit-profile-bottom {
-  width: 150px;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 30px;
-}
-
 .display-faves-container {
   display: flex;
   align-items: center;
@@ -214,6 +206,41 @@
     text-align: center;
     margin-left: 5px;
   }
+}
+
+.edit-profile-field#play-style {
+  display: flex;
+  align-items: center;
+
+  .user-info-tag {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.select-play-style-circle {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
+  border-radius: 100%;
+  border: 1px solid $darkest-blue;
+  background-color: $default-white;
+
+  &.selected-circle {
+    background-color: $empty-star-blue;
+  }
+  
+  &:hover {
+    background-color: $empty-star-blue;
+  }
+}
+
+#edit-profile-bottom {
+  width: 150px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
 }
 
 .save-btn {
