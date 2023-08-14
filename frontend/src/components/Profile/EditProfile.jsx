@@ -225,6 +225,19 @@ const EditProfile = ({ setIsEditing }) => {
 
 
         <div className="edit-profile-row" id="edit-pfp">
+          <div className="edit-profile-field" id="edit-username">
+            <div className="edit-profile-label">
+              Username: 
+            </div>
+
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => handleChange(e, 'username')}
+              placeholder="How should we call you?"
+              />
+          </div>
+
           <div className="edit-profile-label" id="edit-pfp">
             {!preview && (
               <img 
@@ -249,20 +262,6 @@ const EditProfile = ({ setIsEditing }) => {
               onChange={(e) => {handlePhoto(e); handleChange(e, e.target)}}
               style={{display: 'none'}}
               />
-          </div>
-
-          <div className="edit-profile-field" id="edit-username">
-            <div className="edit-profile-label">
-              Username: 
-            </div>
-
-            <input
-              type="text"
-              value={username}
-              onChange={(e) => handleChange(e, 'username')}
-              placeholder="How should we call you?"
-              />
-
           </div>
         </div>
 
