@@ -111,7 +111,7 @@ const Summary = ({ moodyButton }) => {
           <div className="user-info-label tags-label">Favorites: </div>
           <div className="user-info-content">
             {showUser?.favorites?.map((fave, idx) => (
-              <p className="user-info-tag" key={fave + idx}>#{fave}</p>
+              fave && <p className="user-info-tag" key={fave + idx}>#{fave}</p>
             ))}
           </div>
         </div>
@@ -122,7 +122,7 @@ const Summary = ({ moodyButton }) => {
           <div className="user-info-label tags-label">Play style: </div>
           <div className="user-info-content">
             {showUser?.playStyle?.map((style, idx) => (
-              <p className="user-info-tag" key={style + idx}>#{style}</p>
+              style && <p className="user-info-tag" key={style + idx}>#{style}</p>
             ))}
           </div>
         </div>

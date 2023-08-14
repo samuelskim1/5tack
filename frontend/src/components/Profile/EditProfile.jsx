@@ -89,23 +89,28 @@ const EditProfile = ({ setIsEditing }) => {
     if (classList[1] === 'selected-circle') {
       classList.remove('selected-circle');
       setPlayStyle(prev => {
-        let next = prev;
-        const currPlayStyle = playStyle;
-        const idx = currPlayStyle.indexOf(style);
-        currPlayStyle.splice(idx, 1);
-        next = currPlayStyle;
+        let next = [];
+        prev.forEach(styleEle => {
+          if (styleEle !== style) next.push(styleEle);
+        })
         return next;
       });
-      setCanSubmit(true);
     } else {
       classList.add('selected-circle');
       setPlayStyle(prev => {
-        const next = prev;
-        next.push(style);
+        const next = [];
+        prev.forEach(styleEle => {
+          if (styleEle) {
+            next.push(styleEle);
+          }
+        })
+        if (!next.includes(style)) {
+          next.push(style);
+        }
         return next;
       });
-      setCanSubmit(true);
     }
+    setCanSubmit(true);
   }
 
 
@@ -159,6 +164,13 @@ const EditProfile = ({ setIsEditing }) => {
           currFavorites.push(e.target.value);
           setFavorites(currFavorites);
         }
+        setFavorites(prev => {
+          const next = [];
+          prev.forEach(fave => {
+            if (fave) next.push(fave);
+          })
+          return next;
+        })
         if (favorites.length > 5) {
           setErrors({ ...errors, "favorites": `Woah there gamer, that's ${currFavorites.length - 5} too many games!`});
           setCanSubmit(false);
@@ -284,7 +296,7 @@ const EditProfile = ({ setIsEditing }) => {
         <div className="edit-profile-field">
           <div className="display-faves-container">
             {favorites?.map((fave, idx) => (
-              <p className="user-info-tag fave" key={fave + idx} onClick={() => removeFave(fave)}>
+              fave && <p className="user-info-tag fave" key={fave + idx} onClick={() => removeFave(fave)}>
                 #{fave} <i className="fa-solid fa-xmark" />
               </p>
             ))}
@@ -330,21 +342,21 @@ const EditProfile = ({ setIsEditing }) => {
         </div>
 
         <div className="edit-profile-field" id="play-style">
-          <p className="user-info-tag" onMouseUp={() => togglePlayStyle(circle1, 'competitive')} >
+          <p className="user-info-tag" onClick={() => togglePlayStyle(circle1, 'competitive')} >
             <span
               className={playStyle?.includes('competitive') ? "select-play-style-circle selected-circle" : "select-play-style-circle" }
               ref={circle1}
               /> 
             #competitive
           </p>
-          <p className="user-info-tag" onMouseUp={() => togglePlayStyle(circle2, 'casual')} >
+          <p className="user-info-tag" onClick={() => togglePlayStyle(circle2, 'casual')} >
             <span
               className={playStyle?.includes('casual') ? "select-play-style-circle selected-circle" : "select-play-style-circle" }
               ref={circle2}
               /> 
             #casual
           </p>
-          <p className="user-info-tag" onMouseUp={() => togglePlayStyle(circle3, 'troll')} >
+          <p className="user-info-tag" onClick={() => togglePlayStyle(circle3, 'troll')} >
             <span
               className={playStyle?.includes('troll') ? "select-play-style-circle selected-circle" : "select-play-style-circle" }
               ref={circle3}
