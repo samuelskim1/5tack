@@ -1,11 +1,19 @@
 @import '../../App.scss';
 
+#summary-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 100%;
+}
 
 #user-top-section {
   height: calc(30% - 15px);
   width: fit-content;
-  min-height: 260px;
-  min-width: 260px;
+  min-height: 245px;
+  min-width: 245px;
 
   position: relative;
   display: flex;
@@ -14,7 +22,7 @@
   justify-content: space-between;
 
   box-sizing: border-box;
-  padding: 18px;
+  padding: 15px;
   border-radius: 8px;
   border: 1px solid $lighter-blue;
 
@@ -96,10 +104,13 @@
   justify-content: space-evenly;
 
   border-radius: 8px;
+  margin-top: 15px;
 }
 
 .user-info-wrapper {
   display: flex;
+  flex-direction: column;
+
   width: 100%;
   padding: 0 12px;
   box-sizing: border-box;
@@ -108,16 +119,20 @@
 .user-info-label {
   font-weight: 600;
   font-size: 14px;
-  width: 33%;
+  margin: 4px;
 }
 
-.tags-label {
-  padding-top: 6px;
-}
+// .tags-label {
+//   padding-top: 6px;
+// }
 
 .user-info-content {
-  width: 67%;
   height: 100%;
+
+  > p {
+    font-style: italic;
+    font-size: 14px;
+  }
 }
 
 .user-info-tag {

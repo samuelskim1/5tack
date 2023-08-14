@@ -40,7 +40,7 @@ const Summary = ({ moodyButton }) => {
 
 
   return (
-    <>
+    <div id="summary-container">
       <div id="user-top-section">
         <img src={showUser?.profileImageUrl} alt={showUser?.username} />
         
@@ -101,7 +101,9 @@ const Summary = ({ moodyButton }) => {
         <div className="user-info-wrapper">
           <div className="user-info-label">About: </div>
           <div className="user-info-content">
-            {showUser?.description}
+            {showUser?.description || (
+              <p>This gamer has not yet added a description.</p>
+            )}
           </div>
         </div>
 
@@ -113,6 +115,9 @@ const Summary = ({ moodyButton }) => {
             {showUser?.favorites?.map((fave, idx) => (
               fave && <p className="user-info-tag" key={fave + idx}>#{fave}</p>
             ))}
+            {(showUser?.favorites?.length === 1 && !showUser?.favorites[0]) || (!showUser?.favorites.length) && (
+              <p>This gamer doesn't play favorites...</p>
+            )}
           </div>
         </div>
 
@@ -124,10 +129,13 @@ const Summary = ({ moodyButton }) => {
             {showUser?.playStyle?.map((style, idx) => (
               style && <p className="user-info-tag" key={style + idx}>#{style}</p>
             ))}
+            {(showUser?.playStyle?.length === 1 && !showUser?.playStyle[0]) || (!showUser?.playStyle.length) && (
+              <p>This gamer has not yet added any usual play styles.</p>
+            )}
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 };
 

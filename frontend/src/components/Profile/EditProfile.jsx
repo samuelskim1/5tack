@@ -219,150 +219,152 @@ const EditProfile = ({ setIsEditing }) => {
 
 
   return (
-    <div id="edit-profile-container">
-      <h2>Edit Your Profile</h2>
+    <div id="edit-profile-container-holder">
+      <div id="edit-profile-container">
+        <h2>Edit Your Profile</h2>
 
 
-      <div className="edit-profile-row" id="edit-pfp">
-        <div className="edit-profile-label" id="edit-pfp">
-          {!preview && (
-            <img 
-              src={currentUser?.profileImageUrl} 
-              alt={currentUser?.username} 
+        <div className="edit-profile-row" id="edit-pfp">
+          <div className="edit-profile-label" id="edit-pfp">
+            {!preview && (
+              <img 
+                src={currentUser?.profileImageUrl} 
+                alt={currentUser?.username} 
+                onClick={() => hiddenUpload.current.click()}
+                />
+              )}
+            {preview && preview}
+
+            <div 
+              id="change-pfp-btn-container" 
               onClick={() => hiddenUpload.current.click()}
+              >
+              <i className="fa-solid fa-image" /> Upload
+            </div>
+
+            <input
+              ref={hiddenUpload}
+              type="file"
+              accept="image/*"
+              onChange={(e) => {handlePhoto(e); handleChange(e, e.target)}}
+              style={{display: 'none'}}
               />
-            )}
-          {preview && preview}
-
-          <div 
-            id="change-pfp-btn-container" 
-            onClick={() => hiddenUpload.current.click()}
-            >
-            <i className="fa-solid fa-image" /> Upload
           </div>
 
-          <input
-            ref={hiddenUpload}
-            type="file"
-            accept="image/*"
-            onChange={(e) => {handlePhoto(e); handleChange(e, e.target)}}
-            style={{display: 'none'}}
-            />
+          <div className="edit-profile-field" id="edit-username">
+            <div className="edit-profile-label">
+              Username: 
+            </div>
+
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => handleChange(e, 'username')}
+              placeholder="How should we call you?"
+              />
+
+          </div>
         </div>
 
-        <div className="edit-profile-field" id="edit-username">
+        <div className="errors">{errors?.username}</div>
+        
+        <div className="user-info-divider" />
+
+        <div className="edit-profile-section" id="edit-about">
           <div className="edit-profile-label">
-            Username: 
+            About: 
           </div>
 
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => handleChange(e, 'username')}
-            placeholder="How should we call you?"
-            />
-
-        </div>
-      </div>
-
-      <div className="errors">{errors?.username}</div>
-      
-      <div className="user-info-divider" />
-
-      <div className="edit-profile-section" id="edit-about">
-        <div className="edit-profile-label">
-          About: 
+          <div className="edit-profile-field">
+            <textarea
+              value={description}
+              onChange={(e) => handleChange(e, 'description')}
+              placeholder="Tell us about yourself!"
+              />
+          </div>
         </div>
 
-        <div className="edit-profile-field">
-          <textarea
-            value={description}
-            onChange={(e) => handleChange(e, 'description')}
-            placeholder="Tell us about yourself!"
-            />
-        </div>
-      </div>
+        <div className="errors">{errors?.description}</div>
 
-      <div className="errors">{errors?.description}</div>
-
-      <div className="user-info-divider" />
+        <div className="user-info-divider" />
 
 
-      <div className="edit-profile-section">
-        <div className="edit-profile-label">
-          Favorites: 
-        </div>
-
-        <div className="edit-profile-field">
-          <div className="display-faves-container">
-            {favorites?.map((fave, idx) => (
-              fave && <p className="user-info-tag fave" key={fave + idx} onClick={() => removeFave(fave)}>
-                #{fave} <i className="fa-solid fa-xmark" />
-              </p>
-            ))}
+        <div className="edit-profile-section">
+          <div className="edit-profile-label">
+            Favorites: 
           </div>
 
-          {maxGames ? (
-            <select
-              name="favorites"
-              defaultValue='none'
-              disabled
-              >
-              <option value="none" disabled>Add up to 5 games you usually play</option>
-              {gamesList.map(game => (
-                <option value={game} key={game} onClick={(e) => handleChange(e, 'favorites')}>
-                  {game}
-                </option>
+          <div className="edit-profile-field">
+            <div className="display-faves-container">
+              {favorites?.map((fave, idx) => (
+                fave && <p className="user-info-tag fave" key={fave + idx} onClick={() => removeFave(fave)}>
+                  #{fave} <i className="fa-solid fa-xmark" />
+                </p>
               ))}
-            </select>
-          ) : (
-            <select
-              onChange={(e) => handleChange(e, 'favorites')}
-              defaultValue='none'
-              name="favorites"
-              >
-              <option value="none" disabled>Add up to 5 games you usually play</option>
-              {gamesList.map(game => (
-                <option value={game} key={game} onClick={(e) => handleChange(e, 'favorites')}>
-                  {game}
-                </option>
-              ))}
-            </select>
-          )}
+            </div>
+
+            {maxGames ? (
+              <select
+                name="favorites"
+                defaultValue='none'
+                disabled
+                >
+                <option value="none" disabled>Add up to 5 games you usually play</option>
+                {gamesList.map(game => (
+                  <option value={game} key={game} onClick={(e) => handleChange(e, 'favorites')}>
+                    {game}
+                  </option>
+                ))}
+              </select>
+            ) : (
+              <select
+                onChange={(e) => handleChange(e, 'favorites')}
+                defaultValue='none'
+                name="favorites"
+                >
+                <option value="none" disabled>Add up to 5 games you usually play</option>
+                {gamesList.map(game => (
+                  <option value={game} key={game} onClick={(e) => handleChange(e, 'favorites')}>
+                    {game}
+                  </option>
+                ))}
+              </select>
+            )}
+          </div>
         </div>
-      </div>
 
-      <div className="errors">{errors?.favorites}</div>
+        <div className="errors">{errors?.favorites}</div>
 
-      <div className="user-info-divider" />
+        <div className="user-info-divider" />
 
-      <div className="edit-profile-section">
-        <div className="edit-profile-label">
-          Play Style:
-        </div>
+        <div className="edit-profile-section">
+          <div className="edit-profile-label">
+            Play Style:
+          </div>
 
-        <div className="edit-profile-field" id="play-style">
-          <p className="user-info-tag" onClick={() => togglePlayStyle(circle1, 'competitive')} >
-            <span
-              className={playStyle?.includes('competitive') ? "select-play-style-circle selected-circle" : "select-play-style-circle" }
-              ref={circle1}
-              /> 
-            #competitive
-          </p>
-          <p className="user-info-tag" onClick={() => togglePlayStyle(circle2, 'casual')} >
-            <span
-              className={playStyle?.includes('casual') ? "select-play-style-circle selected-circle" : "select-play-style-circle" }
-              ref={circle2}
-              /> 
-            #casual
-          </p>
-          <p className="user-info-tag" onClick={() => togglePlayStyle(circle3, 'troll')} >
-            <span
-              className={playStyle?.includes('troll') ? "select-play-style-circle selected-circle" : "select-play-style-circle" }
-              ref={circle3}
-              /> 
-            #troll
-          </p>
+          <div className="edit-profile-field" id="play-style">
+            <p className="user-info-tag" onClick={() => togglePlayStyle(circle1, 'competitive')} >
+              <span
+                className={playStyle?.includes('competitive') ? "select-play-style-circle selected-circle" : "select-play-style-circle" }
+                ref={circle1}
+                /> 
+              #competitive
+            </p>
+            <p className="user-info-tag" onClick={() => togglePlayStyle(circle2, 'casual')} >
+              <span
+                className={playStyle?.includes('casual') ? "select-play-style-circle selected-circle" : "select-play-style-circle" }
+                ref={circle2}
+                /> 
+              #casual
+            </p>
+            <p className="user-info-tag" onClick={() => togglePlayStyle(circle3, 'troll')} >
+              <span
+                className={playStyle?.includes('troll') ? "select-play-style-circle selected-circle" : "select-play-style-circle" }
+                ref={circle3}
+                /> 
+              #troll
+            </p>
+          </div>
         </div>
       </div>
 

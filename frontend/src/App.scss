@@ -40,4 +40,7 @@ div {
     width: 100vw;
     height: 80px;
     background-color: $default-white;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
