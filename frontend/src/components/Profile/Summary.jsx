@@ -115,7 +115,7 @@ const Summary = ({ moodyButton }) => {
             {showUser?.favorites?.map((fave, idx) => (
               fave && <p className="user-info-tag" key={fave + idx}>#{fave}</p>
             ))}
-            {(showUser?.favorites?.length === 1 && !showUser?.favorites[0]) || (!showUser?.favorites.length) && (
+            {((showUser?.favorites?.length === 1 && !showUser?.favorites[0]) || (!showUser?.favorites.length)) && (
               <p>This gamer doesn't play favorites...</p>
             )}
           </div>
@@ -129,7 +129,7 @@ const Summary = ({ moodyButton }) => {
             {showUser?.playStyle?.map((style, idx) => (
               style && <p className="user-info-tag" key={style + idx}>#{style}</p>
             ))}
-            {(showUser?.playStyle?.length === 1 && !showUser?.playStyle[0]) || (!showUser?.playStyle.length) && (
+            {((showUser?.playStyle?.length === 1 && !showUser?.playStyle[0]) || (!showUser?.playStyle.length)) && (
               <p>This gamer has not yet added any usual play styles.</p>
             )}
           </div>

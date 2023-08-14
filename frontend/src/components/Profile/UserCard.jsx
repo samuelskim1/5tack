@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom/cjs/react-router-dom";
 import { fetchUser } from "../../store/users";
 import Summary from "./Summary";
 import EditProfile from "./EditProfile";
+import ReviewUser from "./ReviewUser";
 
 
 const UserCard = () => {
@@ -43,7 +44,7 @@ const UserCard = () => {
         <EditProfile setIsEditing={setIsEditing} />
       )}
       {isReviewing && (
-        "bye"
+        <ReviewUser setIsReviewing={setIsReviewing} />
       )}
     </>
   )
