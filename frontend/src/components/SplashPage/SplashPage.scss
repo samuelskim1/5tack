@@ -46,6 +46,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  opacity: 0;
   
   h3 {
     font-size: 18px;
@@ -63,46 +64,7 @@
   }
 }
 
-
-// ANIMATION CODE TAKEN FROM https://sarthology.github.io/Animatopy/
-// ALL CREDIT GOES TO https://daneden.me/
-
-@-webkit-keyframes fadeInUp {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0);
-  }
-
-  to {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0);
-  }
-
-  to {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-.fadeInUp {
-  -webkit-animation-name: fadeInUp;
-  animation-name: fadeInUp;
-}
-
-.animated {
-  -webkit-animation-duration: 1.8s;
-  animation-duration: 1.8s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
+.fade-in {
+  opacity: 1;
+  transition: opacity 1.8s;
 }

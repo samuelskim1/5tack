@@ -66,7 +66,10 @@
     border-radius: 8px;
     border: 1px solid $darkest-blue;
     color: $darkest-blue;
+    background-color: $default-white;
     cursor: pointer;
+    position: relative;
+    z-index: 1;
   }
 
   li:hover {
@@ -93,18 +96,18 @@
 
   60% {
     opacity: 1;
-    -webkit-transform: translate3d(-25px, 0, 0);
-    transform: translate3d(-25px, 0, 0);
+    -webkit-transform: translate3d(-12px, 0, 0);
+    transform: translate3d(-12px, 0, 0);
   }
 
   75% {
-    -webkit-transform: translate3d(10px, 0, 0);
-    transform: translate3d(10px, 0, 0);
+    -webkit-transform: translate3d(8px, 0, 0);
+    transform: translate3d(8px, 0, 0);
   }
 
   90% {
-    -webkit-transform: translate3d(-5px, 0, 0);
-    transform: translate3d(-5px, 0, 0);
+    -webkit-transform: translate3d(-3px, 0, 0);
+    transform: translate3d(-3px, 0, 0);
   }
 
   to {
@@ -127,18 +130,18 @@
 
   60% {
     opacity: 1;
-    -webkit-transform: translate3d(-25px, 0, 0);
-    transform: translate3d(-25px, 0, 0);
+    -webkit-transform: translate3d(-12px, 0, 0);
+    transform: translate3d(-12px, 0, 0);
   }
 
   75% {
-    -webkit-transform: translate3d(10px, 0, 0);
-    transform: translate3d(10px, 0, 0);
+    -webkit-transform: translate3d(8px, 0, 0);
+    transform: translate3d(8px, 0, 0);
   }
 
   90% {
-    -webkit-transform: translate3d(-5px, 0, 0);
-    transform: translate3d(-5px, 0, 0);
+    -webkit-transform: translate3d(-3px, 0, 0);
+    transform: translate3d(-3px, 0, 0);
   }
 
   to {
@@ -163,28 +166,28 @@
 @-webkit-keyframes fade-in-right {
   from {
     opacity: 0;
-    -webkit-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0);
+    // -webkit-transform: translate3d(100%, 0, 0);
+    // transform: translate3d(100%, 0, 0);
   }
 
   to {
     opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+    // -webkit-transform: translate3d(0, 0, 0);
+    // transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes fade-in-right {
   from {
     opacity: 0;
-    -webkit-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0);
+    // -webkit-transform: translate3d(100%, 0, 0);
+    // transform: translate3d(100%, 0, 0);
   }
 
   to {
     opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+    // -webkit-transform: translate3d(0, 0, 0);
+    // transform: translate3d(0, 0, 0);
   }
 }
 
@@ -194,8 +197,8 @@
 }
 
 .fade-in-right.animated {
-  -webkit-animation-duration: 1.8s;
-  animation-duration: 1.8s;
+  -webkit-animation-duration: 1.2s;
+  animation-duration: 1.2s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
