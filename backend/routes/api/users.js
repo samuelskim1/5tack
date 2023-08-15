@@ -185,7 +185,6 @@ router.patch('/:id', singleMulterUpload("profileImageUrl"), validateUpdateUser, 
   try {
     const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true, $set:{'playStyle':[]}})
                             .populate("review_id");
-    console.log(req.body)
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }

@@ -1,0 +1,77 @@
+@import '../../App.scss';
+
+.review-top#user-top-section {
+  min-width: 200px;
+  min-height: 200px;
+}
+
+#create-review-container {
+  width: 100%;
+  height: calc(70% - 15px);
+  max-width: 450px;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+#create-review-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  
+  h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+}
+
+.create-review-section-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.create-review-label {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0px 5px 8px; 
+}
+
+.create-review-field {
+  > span {
+    margin: 0 2px;
+
+    &:first-child {
+      margin-left: 8px;
+    }
+
+    i {
+      color: $medium-blue;
+      font-size: 24px;
+    }
+  }
+
+  > input[type="text"] {
+    outline: 1px solid $medium-blue;
+  }
+
+  > textarea {
+    width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: 1px solid $medium-blue;
+    color: $darkest-blue;
+  }
+}

@@ -64,7 +64,8 @@ export const updateUser = (userInfo) => async (dispatch) => {
     formData.append('profileImageUrl', userInfo.photo || userInfo.profileImageUrl);
     
     // formData requires this format in order to correctly parse data in array structure
-    console.log(userInfo.playStyle.length);
+    // furthermore, formData converts empty arrays to empty strings: [] -> ''
+    // there is logic in the frontend to essentially ignore/delete the empty string
     if (userInfo.playStyle.length) {
       userInfo.playStyle.forEach(style => {
         formData.append('playStyle[]', style)
