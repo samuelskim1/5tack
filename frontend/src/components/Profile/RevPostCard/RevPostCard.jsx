@@ -5,6 +5,7 @@ import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min
 import { useEffect } from 'react';
 import { fetchUserPosts } from '../../../store/posts';
 import { fetchUserReviews } from '../../../store/reviews';
+import PostIndex from '../../Posts/PostIndex';
 
 const RevPostCard = ({ selectedTab, setSelectedTab }) => {
   const dispatch = useDispatch();
@@ -56,7 +57,7 @@ const RevPostCard = ({ selectedTab, setSelectedTab }) => {
       </div>
 
       {selectedTab === 'posts' ? (
-        <div>posts.. eventually</div>
+        <PostIndex posts={posts} type="profile" />
       ) : (
         <div>reviews.. eventually</div>
       )}

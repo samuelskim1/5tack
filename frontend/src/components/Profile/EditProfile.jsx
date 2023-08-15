@@ -288,7 +288,6 @@ const EditProfile = ({ setIsEditing }) => {
 
         <div className="user-info-divider" />
 
-
         <div className="edit-profile-section">
           <div className="edit-profile-label">
             Favorites: 
