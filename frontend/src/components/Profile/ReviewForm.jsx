@@ -184,7 +184,9 @@ const ReviewForm = ({ setIsReviewing }) => {
                 placeholder="An optional short summary about your review"
                 />
             </div>
+            <div className="errors">{errors?.title}</div> 
           </div>
+
 
           <div className="create-review-section-container">
             <div className="create-review-label">Rating:</div>
@@ -207,7 +209,9 @@ const ReviewForm = ({ setIsReviewing }) => {
                 )
               })}
             </div>
+            <div className="errors">{errors?.rating}</div>
           </div>
+
 
           <div className="create-review-section-container">
             <div className="create-review-label">Description:</div>
@@ -218,8 +222,10 @@ const ReviewForm = ({ setIsReviewing }) => {
                 placeholder="How was your experience gaming with this person?"
                 />
             </div>
+            <div className="errors">{errors?.description}</div>
           </div>
         </div>
+
 
         <div id="edit-profile-bottom">
           {canSubmit ? 
