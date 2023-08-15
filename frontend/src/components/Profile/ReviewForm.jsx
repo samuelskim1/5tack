@@ -82,37 +82,36 @@ const ReviewForm = ({ setIsReviewing }) => {
     dispatch(updateUser(nextUser));
   };
 
-  const handleChange = (e, field) => {
+  const handleChange = (e, type) => {
     let currTitle = title;
     let currDescription = description;
     let currRating = rating;
-    
-    switch (field) {
-      case "title":
+    if (type === 'title') {
         currTitle = e.target.value;
         setTitle(currTitle);
         if (currTitle.length > 50) {
-          setErrors({ ...errors, "title": "Title cannot be longer than 50 characters" });
-          setCanSubmit(false);
+            setErrors({ ...errors, ["title"]: "Title cannot be longer than 50 characters" })
         } else {
-          setErrors({ ...errors, "title": '' });
+            setErrors({ ...errors, ["title"]: '' })
         }
-        break;
-      case "description":
+    } else if (type === 'description') {
         currDescription = e.target.value;
         setDescription(currDescription);
-        if (currDescription.length > 400) {
-          setErrors({ ...errors, "description": "Description cannot be longer than 400 characters" });
-          setCanSubmit(false);
-        } else {
-          setErrors({ ...errors, "description": '' });
-        }
-    }
 
-    if (currTitle.length > 0 && currTitle.length <= 50 && currDescription.length > 0 && currDescription.length <= 400 && currRating > 0) {
-      setCanSubmit(true);
+        if (currDescription.length > 400) {
+            setErrors({ ...errors, ["description"]: "Description cannot be longer than 400 characters" })
+        } else {
+            setErrors({ ...errors, ["description"]: '' })
+        }
+    } else {
+        currRating = type;
     }
-  };
+    if (currTitle.length > 0 && currTitle.length <= 50 && currDescription.length > 0 && currDescription.length <= 400 && currRating > 0) {
+        setCanSubmit(true);
+    } else {
+        setCanSubmit(false);
+    }
+  }
 
 
   return (
@@ -181,7 +180,7 @@ const ReviewForm = ({ setIsReviewing }) => {
                 type="text"
                 value={title}
                 onChange={(e) => handleChange(e, 'title')}
-                placeholder="An optional short summary about your review"
+                placeholder="How was your experience gaming with this person?"
                 />
             </div>
             <div className="errors">{errors?.title}</div> 
@@ -196,7 +195,7 @@ const ReviewForm = ({ setIsReviewing }) => {
                 return (
                   <span
                     key={i}
-                    onClick={(e) => {setRating(i); handleChange()}}
+                    onClick={(e) => {setRating(i); handleChange(e, i)}}
                     onMouseOver={() => setHoverRating(i)}
                     onMouseOut={() => setHoverRating(0)}
                     >
@@ -219,7 +218,7 @@ const ReviewForm = ({ setIsReviewing }) => {
               <textarea
                 value={description}
                 onChange={(e) => handleChange(e, 'description')}
-                placeholder="How was your experience gaming with this person?"
+                placeholder="Provide some more details about your gaming experience"
                 />
             </div>
             <div className="errors">{errors?.description}</div>
