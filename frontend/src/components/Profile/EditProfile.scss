@@ -219,6 +219,7 @@
 
 .edit-profile-field#play-style {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 
   .user-info-tag {

@@ -21,7 +21,6 @@
   height: calc(100vh - 130px);
   min-height: 650px;
   width: 42%;
-  padding: 30px 50px;
   border-radius: 12px 12px 0 0;
 }
 
@@ -34,6 +33,7 @@
   top: 130px;
   max-height: calc(100vh - 90px);
 
+  padding: 30px 50px;
   background-color: $default-white;
   color: $darkest-blue;
 }
@@ -41,8 +41,7 @@
 .right-card {
   background-color: $darkest-blue;
   color: $default-white;
-  border: 1px solid $lighter-blue;
-  height: 150vh;
+  // border: 1px solid $lighter-blue;
 }
 
 

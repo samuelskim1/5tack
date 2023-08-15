@@ -47,6 +47,7 @@ const EditProfile = ({ setIsEditing }) => {
   const circle1 = useRef();
   const circle2 = useRef();
   const circle3 = useRef();
+  const circle4 = useRef();
 
 
   const handleSubmit = () => {
@@ -362,6 +363,13 @@ const EditProfile = ({ setIsEditing }) => {
                 ref={circle3}
                 /> 
               #troll
+            </p>
+            <p className="user-info-tag" onClick={() => togglePlayStyle(circle4, "toxic")} >
+              <span
+                className={playStyle?.includes('toxic') ? "select-play-style-circle selected-circle" : "select-play-style-circle" }
+                ref={circle4}
+                />
+              #toxic
             </p>
           </div>
         </div>
