@@ -22,36 +22,38 @@ const PostIndexItem = ({ post, type }) => {
 
   return (
     <div className="post-index-item">
-      <div className="post-index-title">
-        {post?.title}
-        {isAuthor &&
-          <PostButtons post={post} type={type} />          
-        }
-      </div>
+      <div className="post-top-section">
+        <div className="post-index-title">
+          {post?.title}
+          {isAuthor &&
+            <PostButtons post={post} type={type} />          
+          }
+        </div>
 
-      <div className='author-block'>
-        <div className='author-info'>
-          <Link to={`/${post?.author_id?.username}`}>
-            <img src={post?.author_id?.profileImageUrl} alt={post?.author_id?.username} />
-          </Link>
-          <Link to={`/${post?.author_id?.username}`}>
-            <div className='author-username'>
-              {post?.author_id?.username}
+        <div className='author-block'>
+          <div className='author-info'>
+            <Link to={`/${post?.author_id?.username}`}>
+              <img src={post?.author_id?.profileImageUrl} alt={post?.author_id?.username} />
+            </Link>
+            <Link to={`/${post?.author_id?.username}`}>
+              <div className='author-username'>
+                {post?.author_id?.username}
+              </div>
+            </Link>
+          </div>
+          <TimeStamp post={post} />
+        </div>
+        <div className='post-index-description'>
+          {post?.description}
+        </div>
+        {tag && (
+          <Link to={`/games/${game.nameURL}`}>
+            <div className='profile-post-tag'>
+              {"#" + tag}
             </div>
           </Link>
-        </div>
-        <TimeStamp post={post} />
+        )}
       </div>
-      <div className='post-index-description'>
-        {post?.description}
-      </div>
-      {tag && (
-        <Link to={`/games/${game.nameURL}`}>
-          <div className='profile-post-tag'>
-            {"#" + tag}
-          </div>
-        </Link>
-      )}
       <div className='post-comment-separator' />
     </div>
   )

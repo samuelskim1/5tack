@@ -94,8 +94,7 @@
 }
 
 #user-bottom-section {
-  height: calc(70% - 15px);
-  min-height: 300px;
+  min-height: 310px;
   width: 100%;
   max-width: 450px;
 
@@ -119,7 +118,7 @@
 .user-info-label {
   font-weight: 600;
   font-size: 14px;
-  margin: 4px;
+  margin: 0 0 6px 8px;
 }
 
 // .tags-label {

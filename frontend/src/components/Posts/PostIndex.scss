@@ -10,7 +10,7 @@
   flex-direction: column;
   align-items: center;
 
-  margin-top: 20px;
+  margin-top: 30px;
 
   color: $default-white;
 }
@@ -19,11 +19,16 @@
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  padding: 25px;
-  outline: 1px solid $neutral-text;
+  padding: 24px;
+  border: 1px solid $medium-blue;
   border-radius: 12px;
-  color: $neutral-text;
-  margin-bottom: 50px;
+  color: $default-white;
+  margin-bottom: 45px;
+
+  .post-top-section {
+    padding: 16px 16px 0 16px;
+    box-sizing: border-box;
+  }
 
   .post-index-title {
     display: flex;
@@ -35,11 +40,12 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-
+    margin: 20px 0;
 
     > .timestamp {
       font-size: 14px;
-      font-weight: 200;
+      font-weight: 300;
+      color: $empty-star-blue;
     }
   }
 
@@ -53,6 +59,7 @@
       margin-right: 20px;
       width: 40px;
       height: 40px;
+      border-radius: 4px;
     }
 
     .author-username {
@@ -62,7 +69,7 @@
   }
 
   .post-index-title {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 500;
   }
 
@@ -81,19 +88,19 @@
     padding: 6px 10px;
     margin-bottom: 5px;
     border-radius: 6px;
-    background-color: #444;
+    background-color: $medium-blue;
 
     &:hover {
       color: white;
-      background-color: #222;
+      background-color: $lighter-blue;
     }
   }
 
   .post-comment-separator {
     width: 100%;
     height: 1px;
-    background-color: $neutral-text;
-    margin: 15px 0;
+    background-color: $medium-blue;
+    margin: 20px 0;
   }
 }
 
@@ -102,7 +109,6 @@
   justify-content: center;
   align-items: center;
   height: 30px;
-  margin-left: 8px;
 
   .fa-solid {
     font-size: 16px;
@@ -110,12 +116,15 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+
+    margin-left: 5px;
     border-radius: 6px;
     padding: 8px;
-    
+    // border: 1px solid $highlight-yellow;
+    color: $highlight-yellow;
   }
 
   .fa-solid:hover {
-    background-color: #666;
+    background-color: $medium-blue;
   }
 }
