@@ -9,9 +9,9 @@ const SplashPage = () => {
   useEffect(() => {
     setTimeout(() => {
       postsCard?.current?.classList.remove('hidden');
-      postsCard?.current?.classList.add('animated');
+      postsCard?.current?.classList.add('fade-in');
       reviewsCard?.current?.classList.remove('hidden');
-      reviewsCard?.current?.classList.add('animated');
+      reviewsCard?.current?.classList.add('fade-in');
     }, 2200)
   }, [])
 
@@ -20,8 +20,8 @@ const SplashPage = () => {
       <UnauthNav />
 
       <div id="splash-cards-container">
-        <section className="splash-card posts-card hidden fadeInUp" ref={postsCard}>
-          <div className="splash-card-content">
+        <section className="splash-card posts-card">
+          <div className="splash-card-content hidden" ref={postsCard}>
             <h3>Connect with others to create the most stacked team!</h3>
 
             {/* <img></img> */}
@@ -32,8 +32,8 @@ const SplashPage = () => {
           </div>
         </section>
 
-        <section className="splash-card reviews-card hidden fadeInUp" ref={reviewsCard}>
-          <div className="splash-card-content">
+        <section className="splash-card reviews-card">
+          <div className="splash-card-content hidden" ref={reviewsCard}>
             <h3>Promote accountability within gaming communities!</h3>
 
             {/* <img></img> */}
