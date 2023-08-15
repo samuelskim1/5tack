@@ -1,5 +1,6 @@
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Link } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 const CategoryButton = ({category}) => {
     
@@ -7,10 +8,13 @@ const CategoryButton = ({category}) => {
     const parent = document.getElementById('category-nav');
     const btns = document.getElementsByClassName('category-button');
 
+    const history = useHistory();
     const [active, setActive] = useState(false);
+    const { pathname } = useLocation();
     
     const openCategory = () => {
-        console.log('opening category...', currBtn.current.innerHTML, active);
+        // history.pushState()
+        // console.log('opening category...', currBtn.current.innerHTML, active);
         parent.style.pointerEvents = 'none';
 
         const dist = parent.getBoundingClientRect().left - currBtn.current.getBoundingClientRect().left;
@@ -50,14 +54,16 @@ const CategoryButton = ({category}) => {
         }, {once : true})
     }
     
-    const closeCategory = () => {
+    const closeCategory = (newPath) => {
+        history.push(`/games/${newPath}`);
         parent.style.pointerEvents = 'none';
-        console.log('closing category...', currBtn.current.innerHTML, active);
+        
+        // console.log('closing category...', currBtn.current.innerHTML, active);
 
         const games = document.getElementById('game-nav');
         if (games) {
             games.addEventListener('animationstart', () => {
-                games.style.pointerEvents = 'none';
+                // games.style.pointerEvents = 'none';
                 currBtn.current.classList.remove('active-category-button');
                 // currBtn.current.removeEventListener('animationend', null);
             }, {once : true})
@@ -80,7 +86,6 @@ const CategoryButton = ({category}) => {
                 }
                     
                 currBtn.current.addEventListener('transitionend', () => {
-                    console.log('does this transition-end even work bro');
                     currBtn.current.classList.remove('active-category-button');
                     currBtn.current.classList.remove('deactive-category-button');
                     parent.style.pointerEvents = null;
@@ -109,7 +114,7 @@ const CategoryButton = ({category}) => {
             {category.game_id.map((game, i) =>
                 <Link className={`style-button game-button`} key={i}
                 to={`/games/${game.nameURL}`}
-                onMouseDown={closeCategory}
+                onMouseDown={() => closeCategory(game.nameURL)}
                 >
                         {game.name}
                 </Link>
