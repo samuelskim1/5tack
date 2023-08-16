@@ -5,7 +5,7 @@ import { fetchUser } from "../../store/users";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 
-const Summary = ({ moodyButton }) => {
+const Summary = ({ moodyButton, setSelectedTab, setIsReviewing }) => {
   const dispatch = useDispatch();
   const { username } = useParams();
   const currentUser = useSelector(state => state?.session?.user);
@@ -97,13 +97,13 @@ const Summary = ({ moodyButton }) => {
 
         {(avgRating > 0) && (
           <div>
-            <span id="rating-number">{avgRating}</span>
-            <span> ({showUser?.review_id?.length} reviews)</span>
+            <span id="rating-number" onClick={() => setSelectedTab('reviews')}>{avgRating}</span>
+            (<span onClick={() => setSelectedTab('reviews')}>{showUser?.review_id?.length} reviews</span>)
           </div>
         )}
 
         {(avgRating === 0) && (showUser?.username !== currentUser?.username) && (
-          <p id='no-reviews'>
+          <p id='no-reviews' onClick={() => setIsReviewing(true)}>
               {"Be the first to leave a review! :)"}
           </p>
         )}
