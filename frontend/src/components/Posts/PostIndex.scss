@@ -89,10 +89,10 @@
     padding: 6px 10px;
     margin-bottom: 5px;
     border-radius: 6px;
-    background-color: $medium-blue;
+    background-color: $lighter-blue;
 
     &:hover {
-      background-color: $lighter-blue;
+      background-color: $medium-blue;
     }
   }
 
@@ -121,7 +121,7 @@
     margin-left: 2px;
     border-radius: 6px;
     padding: 8px;
-    color: $highlight-yellow;
+    color: $highlight-orange;
   }
 
   .fa-solid:hover {
