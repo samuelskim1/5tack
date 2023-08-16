@@ -1,11 +1,8 @@
-$default-bg: #222;
 $errors-color: rgb(155, 0, 0);
-$neutral-text: #eeece7;
 $default-font: "system-ui", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
 // REDESIGN VARIABLES
-// $default-white: #FFFCF2;
-$default-white: #F3F3F3; // this new off-white is less yellow--colder tone matches blue theme more
+$default-white: #F3F3F3;
 $darkest-blue: #11151C;
 $darker-blue: #19212E;
 $medium-blue: #212D40;
@@ -13,31 +10,12 @@ $lighter-blue: #364156;
 $lightest-blue: #5e6f8f;
 $empty-star-blue: #9ba6bb;
 
-$highlight-yellow: #F9E687;
+$highlight-orange: #FFA552;
+
 
 div {
     overflow-wrap: break-word;
 }
-
-#entire-app {
-    background-color: $default-bg;
-    font-family: $default-font;
-    height: 100vh;
-//     display: flex;
-//     .main-content {
-//         width: calc(100vw - 250px);
-//         min-height: 100vh;
-//     }
-
-//     .unlogged-main-content {
-//         width: 100%;
-//         min-height: 100vh;
-//     }
-}
-
-// .main-content {
-//     background-color: #222;
-// }
 
 input[type="text"] {
     width: 100%;

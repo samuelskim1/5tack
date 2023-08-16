@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { useLocation, Link } from "react-router-dom/cjs/react-router-dom.min";
 import PostButtons from "./PostButtons";
 import TimeStamp from "./TimeStamp";
+import CommentIndex from "../Comments/CommentIndex";
 
 
 const PostIndexItem = ({ post, type }) => {
@@ -55,6 +56,7 @@ const PostIndexItem = ({ post, type }) => {
         )}
       </div>
       <div className='post-comment-separator' />
+      <CommentIndex post={post} />
     </div>
   )
 };

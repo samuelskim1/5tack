@@ -23,10 +23,16 @@ const PostButtons = ({ post, type }) => {
 
       {showConfirm && (
         <Modal onClose={() => setShowConfirm(false)} >
-          <div className="create-post-container create-post-form">
+          <div className="delete-modal">
             <h2>Do you want to delete this post?</h2>
-            <div className="delete-btns">
+            <div id="edit-profile-bottom">
+              <div className="save-btn" onClick={handleDelete}>
+                Delete
+              </div>
 
+              <div className="cancel-btn" onClick={() => setShowConfirm(false)}>
+                Cancel
+              </div>
             </div>
           </div> 
         </Modal>
