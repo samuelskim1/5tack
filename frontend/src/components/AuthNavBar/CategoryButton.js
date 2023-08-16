@@ -1,5 +1,6 @@
 import { useRef, useState } from "react"
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const CategoryButton = ({category}) => {
     
@@ -7,6 +8,7 @@ const CategoryButton = ({category}) => {
     const parent = document.getElementById('category-nav');
     const btns = document.getElementsByClassName('category-button');
 
+    const history = useHistory();
     const [active, setActive] = useState(false);
     
     const openCategory = () => {
@@ -50,7 +52,8 @@ const CategoryButton = ({category}) => {
         }, {once : true})
     }
     
-    const closeCategory = () => {
+    const closeCategory = (newPath) => {
+        if (newPath) history.push(`/games/${newPath}`);
         parent.style.pointerEvents = 'none';
         console.log('closing category...', currBtn.current.innerHTML, active);
 
@@ -101,7 +104,7 @@ const CategoryButton = ({category}) => {
     return (
 
         <>
-        <div onMouseDown={active ? closeCategory : openCategory} className={`style-button category-button`} ref={currBtn} >
+        <div onMouseDown={active ? () => closeCategory('') : openCategory} className={`style-button category-button`} ref={currBtn} >
             <p>{category.name.split('$')[0]}</p>
         </div>
         {active &&
@@ -109,12 +112,12 @@ const CategoryButton = ({category}) => {
             {category.game_id.map((game, i) =>
                 <Link className={`style-button game-button`} key={i}
                 to={`/games/${game.nameURL}`}
-                onMouseDown={closeCategory}
+                onMouseDown={() => closeCategory(game.nameURL)}
                 >
                         {game.name}
                 </Link>
             )}
-            <p onMouseDown={closeCategory} id="x-button" className="style-button game-button"><i className="fa-solid fa-xmark"></i></p>
+            <p onMouseDown={() => closeCategory('')} id="x-button" className="style-button game-button"><i className="fa-solid fa-xmark"></i></p>
         </div>}
         </>
         
