@@ -1,5 +1,31 @@
 @import '../../App.scss';
 
+
+// DELETE POST MODAL:
+
+.delete-modal {
+  width: 420px;
+  height: 100%;
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  #edit-profile-bottom {
+    width: 160px;
+  }
+}
+
+
+// UPDATE POST FORM:
+
 #create-post-container {
   width: 420px;
   height: 100%;
@@ -36,4 +62,3 @@
     margin-top: 30px;
   }
 }
-
