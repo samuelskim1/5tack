@@ -1,5 +1,7 @@
 import { useSelector } from "react-redux";
-import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import { useLocation, Link } from "react-router-dom/cjs/react-router-dom.min";
+import PostButtons from "./PostButtons";
+import TimeStamp from "./TimeStamp";
 
 
 const PostIndexItem = ({ post, type }) => {
@@ -18,7 +20,43 @@ const PostIndexItem = ({ post, type }) => {
   }
 
 
-  
+  return (
+    <div className="post-index-item">
+      <div className="post-top-section">
+        <div className="post-index-title">
+          {post?.title}
+          {isAuthor &&
+            <PostButtons post={post} type={type} />          
+          }
+        </div>
+
+        <div className='author-block'>
+          <div className='author-info'>
+            <Link to={`/${post?.author_id?.username}`}>
+              <img src={post?.author_id?.profileImageUrl} alt={post?.author_id?.username} />
+            </Link>
+            <Link to={`/${post?.author_id?.username}`}>
+              <div className='author-username'>
+                {post?.author_id?.username}
+              </div>
+            </Link>
+          </div>
+          <TimeStamp post={post} />
+        </div>
+        <div className='post-index-description'>
+          {post?.description}
+        </div>
+        {tag && (
+          <Link to={`/games/${game.nameURL}`}>
+            <div className='profile-post-tag'>
+              {"#" + tag}
+            </div>
+          </Link>
+        )}
+      </div>
+      <div className='post-comment-separator' />
+    </div>
+  )
 };
 
 export default PostIndexItem;
