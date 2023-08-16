@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { fetchCategories } from "../../store/categories";
 import { fetchGames } from "../../store/games";
 import { fetchAllUsers } from "../../store/users";
+import { fetchAllComments } from "../../store/comments";
 
 const CategoryNav = () => {
     const dispatch = useDispatch();
@@ -13,6 +14,7 @@ const CategoryNav = () => {
         dispatch(fetchAllUsers());
         dispatch(fetchCategories());
         dispatch(fetchGames());
+        dispatch(fetchAllComments());
     }, []);
 
     if (!categories) return null;
