@@ -22,14 +22,8 @@ const App = () => {
   }, [dispatch]);
 
   return loaded && (
-    <div id='entire-app'>
-      {/* LOGIC THAT WE WANT, nav bars themselves will contain the "Meet the Team" button */}
+    <div>
       {currentUser && <AuthNavBar />}
-
-      {/* what we had before */}
-      {/* <NavBar /> */}
-
-      {currentUser && <div id="auth-nav-placeholder" />}
 
       <Switch>
         <AuthRoute exact path="/" component={SplashPage} />

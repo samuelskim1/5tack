@@ -54,3 +54,6 @@ table {
 textarea {
   resize: none;
 }
+a:any-link {
+	text-decoration: none;
+}

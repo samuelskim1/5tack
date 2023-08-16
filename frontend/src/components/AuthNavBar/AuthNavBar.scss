@@ -1,14 +1,18 @@
 @import '../../App.scss';
 
 #nav-container {
-    background-color: $default-white;
-    display: flex;
     position: sticky;
     top: 0;
+    z-index: 1;
+
+    display: flex;
     align-items: center;
     justify-content: center;
     
+    width: 100vw;
+    min-width: 1000px;
     height: 80px;
+    background-color: $default-white;
 }
 
 #nav-content-container {
