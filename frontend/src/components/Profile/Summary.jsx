@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 import { fetchUser } from "../../store/users";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 
 const Summary = ({ moodyButton }) => {
@@ -10,6 +11,7 @@ const Summary = ({ moodyButton }) => {
   const currentUser = useSelector(state => state?.session?.user);
   const showUser = useSelector(state => state?.users[username]);
   const reviews = useSelector(state => state?.reviews);
+  const games = useSelector(state => Object.values(state?.games));
   const [avgRating, setAvgRating] = useState(0);
   const [stars, setStars] = useState([]);
 
@@ -26,17 +28,28 @@ const Summary = ({ moodyButton }) => {
     }
   };
 
+  const createGameLink = (game) => {
+    const url = games?.find(el => el.name === game)?.nameURL;
+    if (game) {
+      return (
+        <Link to={`/games/${url}`}>
+          <p className="user-info-tag" key={game + "fave-tag"}>#{game}</p>
+        </Link>
+      )
+    }
+  };
+
   useEffect(() => {
     dispatch(fetchUser(username));
   }, [dispatch, username, showUser?.description, currentUser?.profileImageUrl]);
 
   useEffect(() =>  {
     getAverage();
-  }, [reviews, showUser, getAverage, stars]);
+  }, [reviews, showUser, stars]);
 
   useEffect(() => {
     setStars(Array(Math.round(avgRating / 0.5)).fill(true));
-  }, [avgRating]);
+  }, [showUser, avgRating]);
 
 
   return (
@@ -112,8 +125,8 @@ const Summary = ({ moodyButton }) => {
         <div className="user-info-wrapper">
           <div className="user-info-label tags-label">Favorites: </div>
           <div className="user-info-content">
-            {showUser?.favorites?.map((fave, idx) => (
-              fave && <p className="user-info-tag" key={fave + idx}>#{fave}</p>
+            {showUser?.favorites?.map(fave => (
+              createGameLink(fave)
             ))}
             {((showUser?.favorites?.length === 1 && !showUser?.favorites[0]) || (!showUser?.favorites.length)) && (
               <p className="no-user-info">This gamer doesn't play favorites...</p>
