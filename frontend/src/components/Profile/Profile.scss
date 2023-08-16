@@ -85,12 +85,31 @@
 }
 
 #rating-number {
+  margin-right: 4px;
   font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &+ span {
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 #no-reviews {
   font-style: italic;
   font-weight: 300;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 #user-bottom-section {

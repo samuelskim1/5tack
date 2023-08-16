@@ -7,7 +7,7 @@ import EditProfile from "./EditProfile";
 import ReviewForm from "./ReviewForm";
 
 
-const UserCard = () => {
+const UserCard = ({ setSelectedTab }) => {
   const dispatch = useDispatch();
   const { username } = useParams();
   const currentUser = useSelector(state => state?.session?.user);
@@ -38,13 +38,13 @@ const UserCard = () => {
   return (
     <>
       {(!isEditing && !isReviewing) && (
-        <Summary moodyButton={moodyButton} />
+        <Summary moodyButton={moodyButton} setSelectedTab={setSelectedTab} setIsReviewing={setIsReviewing} />
       )}
       {isEditing && (
         <EditProfile setIsEditing={setIsEditing} />
       )}
       {isReviewing && (
-        <ReviewForm setIsReviewing={setIsReviewing} />
+        <ReviewForm setIsReviewing={setIsReviewing} setSelectedTab={setSelectedTab} />
       )}
     </>
   )
