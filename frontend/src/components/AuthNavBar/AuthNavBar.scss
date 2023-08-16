@@ -1,0 +1,159 @@
+@import '../../App.scss';
+
+#nav-container {
+    background-color: $default-white;
+    display: flex;
+    position: sticky;
+    top: 0;
+    align-items: center;
+    justify-content: center;
+    
+    height: 80px;
+}
+
+#nav-content-container {
+    width: 92%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#icon {
+    height: 39px;
+    // position: relative;
+    // top: 50%;
+    // transform: translateY(-50%);
+    margin-right: 50px;
+}
+
+#temp-avatar {
+    height: 40px;
+    width: 40px;
+    // border: 1px $darkest-blue solid;
+    border-radius: 5px;
+    margin-left: 50px;
+}
+
+// Category Nav
+#category-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1100px;
+    overflow: hidden;
+}
+
+// Category Button
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes moveLeft {
+    100% { transform: translateX(var(--distLeft, 500px)); }
+    // 100% { width: 0px; }
+}
+
+
+@keyframes fromRight {
+    0% { transform: translateX(100vw); }
+    100% { transform:100vw - translateX(var(--distLeft, 0)); }
+}
+
+@keyframes deactive {
+    80% { transform: translateX(var(--distLeft, 0)); }
+    100% { transform: translateX(var(--distLeft, 0)); }
+}
+
+// @keyframes collapseButton {
+//     100% {
+//         border: none;
+//         width: 0;
+//         margin-right: 0;
+//         border-radius: 0;
+//         padding: 0;
+//     }
+// }
+
+.style-button {
+    border: 1px solid $darkest-blue;
+    width: fit-content;
+    font-weight: 500;
+    
+    // margin-right: 10px;
+    border-radius: 8px;
+    padding: 8px 12px;
+    // visibility: visible;
+    cursor: pointer;
+}
+
+.style-button:last-child {
+    margin-right: 0px;
+}
+
+.game-button {
+    // animation: fadeIn 0.5s, fromRight 0.5s;
+
+
+    // animation: fadeIn 1.2s, fromRight 0.5s;
+    margin-left: 12px;
+    text-decoration: none;
+    color: inherit;
+    // display: none;
+}
+
+.active-style-button {
+    color: $default-white;
+    background-color: $darkest-blue;
+}
+
+.inactive {
+
+    // animation: fadeOut 0.5s, moveLeft var(--time, 0.5s);
+    animation: fadeOut 0.5s;
+    pointer-events: none;
+
+}
+
+.style-button:not(.inactive):hover {
+    color: $default-white;
+    background-color: $darkest-blue;
+}
+
+.active-category-button {
+    /* @keyframes duration | easing-function | delay | name */
+    // animation: 3s linear 1s slidein;
+    // animation-timing-function: ease-out;
+    color: $default-white;
+    background-color: $darkest-blue;
+
+    animation: 0.5s ease-out 0s moveLeft;
+}
+
+.deactive-category-button {
+    transition: color 1s, background-color 1s;
+    color: $darkest-blue;
+    background-color: $default-white;
+
+    animation: 0.5s ease-in 0s deactive;
+}
+
+#game-nav {
+    display: flex;
+    animation: fadeIn 0.5s;
+    align-items: center;
+}
+
+#x-button {
+    border: 1px solid $darker-blue;
+    border-radius: 7px;
+    padding: 5px 7.15px;
+    font-size: 14px;
+}

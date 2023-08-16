@@ -4,17 +4,25 @@ $neutral-text: #eeece7;
 $default-font: "system-ui", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
 // REDESIGN VARIABLES
-$default-white: #FFFCF2;
+// $default-white: #FFFCF2;
+$default-white: #F3F3F3; // this new off-white is less yellow--colder tone matches blue theme more
 $darkest-blue: #11151C;
 $darker-blue: #19212E;
 $medium-blue: #212D40;
 $lighter-blue: #364156;
+$lightest-blue: #5e6f8f;
+$empty-star-blue: #9ba6bb;
+
+$highlight-yellow: #F9E687;
 
 div {
     overflow-wrap: break-word;
 }
 
-// #entire-app {
+#entire-app {
+    background-color: $default-bg;
+    font-family: $default-font;
+    height: 100vh;
 //     display: flex;
 //     .main-content {
 //         width: calc(100vw - 250px);
@@ -25,8 +33,54 @@ div {
 //         width: 100%;
 //         min-height: 100vh;
 //     }
-// }
+}
 
 // .main-content {
 //     background-color: #222;
 // }
+
+input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 16px;
+    border: none;
+    color: $darkest-blue;
+}
+
+input[type="text"]:hover {
+    outline: 1px solid $lighter-blue;
+}
+
+input[type="text"]:focus {
+    outline: 2px solid $lightest-blue;
+}
+
+textarea {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    color: $darkest-blue;
+}
+
+textarea:hover {
+    outline: 1px solid $lighter-blue;
+}
+
+textarea:focus {
+    outline: 2px solid $lightest-blue;
+}
+
+#auth-nav-placeholder {
+    width: 100vw;
+    height: 80px;
+    background-color: $default-white;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}

@@ -1,0 +1,71 @@
+@import '../../App.scss';
+
+#splash-container {
+  background-color: $darkest-blue;
+  height: 100vh;
+  // overflow: hidden;
+}
+
+#splash-cards-container {
+  display: flex;
+  justify-content: space-around;
+  height: 100%;
+  min-width: 1000px;
+  max-height: calc(100vh - 150px);
+  margin-top: 50px;
+  overflow: hidden;
+}
+
+.splash-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 100%;
+  width: 42%;
+  padding: 30px 50px;
+  border-radius: 12px 12px 0 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.posts-card {
+  background-color: $default-white;
+  color: $darkest-blue;
+}
+
+.reviews-card {
+  background-color: $medium-blue;
+  color: $default-white;
+}
+
+.splash-card-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 0;
+  
+  h3 {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  img {
+    width: 70%;
+  }
+
+  p {
+    font-size: 16px;
+    font-weight: 400;
+    text-align: left;
+  }
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 1.8s;
+}

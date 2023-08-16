@@ -8,8 +8,8 @@ const validateUpdateUser = [
         .withMessage('Email is invalid'),
     check('username')
         .exists({ checkFalsy: true })
-        .isLength({ min: 3, max: 30 })
-        .withMessage('Username must be between 3 and 30 characters'),
+        .isLength({ min: 3, max: 20 })
+        .withMessage('Username must be between 3 and 20 characters'),
     handleValidationErrors
 ];
 

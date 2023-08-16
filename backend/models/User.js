@@ -25,6 +25,14 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
+  favorites: {
+    type: [String],
+    required: false
+  },
+  playStyle: {
+    type: [String],
+    required: false
+  },
   review_id: [{
     type: Schema.Types.ObjectId,
     ref: 'Review'

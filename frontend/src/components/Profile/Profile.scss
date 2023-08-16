@@ -1,0 +1,188 @@
+@import '../../App.scss';
+
+#summary-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  height: 100%;
+}
+
+#user-top-section {
+  height: calc(30% - 15px);
+  width: fit-content;
+  min-height: 245px;
+  min-width: 245px;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid $lighter-blue;
+
+  img {
+    width: 90px;
+    height: 90px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+}
+
+#user-info-username {
+  font-size: 18px;
+  font-weight: 500;
+  color: $darkest-blue;
+}
+
+#user-average-rating {
+  width: 154px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 14px;
+  border-radius: 8px;
+
+  .fa-star {
+    color: $default-white;
+    z-index: 1;
+    position: absolute;
+    top: 6.5px;
+    left: 6.5px;
+  }
+}
+
+.star-holder {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  position: relative;
+}
+
+.star-first-half {
+  width: 14px;
+  height: 28px;
+
+  border-radius: 4px 0 0 4px;
+  background-color: $empty-star-blue;
+}
+
+.star-second-half {
+  width: 14px;
+  height: 28px;
+
+  border-radius: 0 4px 4px 0;
+  background-color: $empty-star-blue;
+}
+
+.fill-star {
+  background-color: $medium-blue;
+}
+
+#rating-number {
+  font-weight: 600;
+}
+
+#no-reviews {
+  font-style: italic;
+  font-weight: 300;
+}
+
+#user-bottom-section {
+  min-height: 310px;
+  width: 100%;
+  max-width: 450px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+.user-info-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  padding: 0 12px;
+  box-sizing: border-box;
+}
+
+.user-info-label {
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0 0 6px 8px;
+}
+
+// .tags-label {
+//   padding-top: 6px;
+// }
+
+.user-info-content {
+  height: 100%;
+  font-size: 14px;
+
+  .no-user-info {
+    font-style: italic;
+    font-size: 12px;
+  }
+}
+
+.user-info-tag {
+  display: inline-block;
+
+  background-color: $medium-blue;
+  color: $default-white;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 300;
+
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin: 0 4px 4px 0;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: $lighter-blue;
+  }
+}
+
+.user-info-divider {
+  width: 100%;
+  height: 1px;
+  background-color: $medium-blue;
+  margin: 2px 0;
+}
+
+#moody-button {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  padding: 8px;
+  border-radius: 6px;
+  font-weight: 600;
+  border: 1px solid $medium-blue;
+  color: $medium-blue;
+  cursor: pointer;
+
+  i {
+    padding-right: 4px;
+  }
+
+  > .fa-star {
+    font-size: 14px;
+  }
+}
+
+#moody-button:hover {
+  background-color: $medium-blue;
+  color: $default-white;
+}
