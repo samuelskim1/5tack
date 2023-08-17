@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom/cjs/react-router-dom";
 import { fetchUser } from "../../store/users";
 import Summary from "./Summary";
 import EditProfile from "./EditProfile";
-import ReviewForm from "./ReviewForm";
+import CreateReviewForm from "../Reviews/CreateReviewForm";
 
 
 const UserCard = ({ setSelectedTab }) => {
@@ -44,7 +44,7 @@ const UserCard = ({ setSelectedTab }) => {
         <EditProfile setIsEditing={setIsEditing} />
       )}
       {isReviewing && (
-        <ReviewForm setIsReviewing={setIsReviewing} setSelectedTab={setSelectedTab} />
+        <CreateReviewForm setIsReviewing={setIsReviewing} setSelectedTab={setSelectedTab} />
       )}
     </>
   )

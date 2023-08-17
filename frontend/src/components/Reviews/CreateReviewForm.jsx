@@ -6,7 +6,7 @@ import './ReviewForm.scss';
 import { createReview } from "../../store/reviews";
 
 
-const ReviewForm = ({ setIsReviewing }) => {
+const CreateReviewForm = ({ setIsReviewing }) => {
   // variables needed to display top section:
   const dispatch = useDispatch();
   const { username } = useParams();
@@ -246,4 +246,4 @@ const ReviewForm = ({ setIsReviewing }) => {
   )
 };
 
-export default ReviewForm;
+export default CreateReviewForm;

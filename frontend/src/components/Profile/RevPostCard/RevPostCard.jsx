@@ -5,6 +5,7 @@ import { fetchUserPosts } from '../../../store/posts';
 import { fetchUserReviews } from '../../../store/reviews';
 import PostIndex from '../../Posts/PostIndex';
 import './RevPostCard.scss';
+import ReviewIndex from '../../Reviews/ReviewIndex';
 
 
 const RevPostCard = ({ selectedTab, setSelectedTab }) => {
@@ -58,7 +59,7 @@ const RevPostCard = ({ selectedTab, setSelectedTab }) => {
       {selectedTab === 'posts' ? (
         <PostIndex posts={posts} type="profile" />
       ) : (
-        <div>reviews.. eventually</div>
+        <ReviewIndex reviews={reviews} />
       )}
     </div>
   )

@@ -39,6 +39,17 @@ const Summary = ({ moodyButton, setSelectedTab, setIsReviewing }) => {
     }
   };
 
+  const getStarFill = (star1, star2) => {
+    if (!star1 && !star2) {
+      return "star-holder";
+    } else if (star1 && !star2) {
+      return "star-holder half-fill";
+    } else if (star1 && star2) {
+      return "star-holder full-fill";
+    }
+  };
+
+
   useEffect(() => {
     dispatch(fetchUser(username));
   }, [dispatch, username, showUser?.description, currentUser?.profileImageUrl]);
@@ -64,33 +75,23 @@ const Summary = ({ moodyButton, setSelectedTab, setIsReviewing }) => {
         {moodyButton}
 
         <div id="user-average-rating">
-          <div className="star-holder">
-            <div className={stars[0] ? "star-half star-first-half fill-star" : "star-half star-first-half"}/>
-            <div className={stars[1] ? "star-half star-second-half fill-star" : "star-half star-second-half"} />
+          <div className={getStarFill(stars[0], stars[1])}>
             <i className="fa-solid fa-star" />
           </div>
 
-          <div className="star-holder">
-            <div className={stars[2] ? "star-half star-first-half fill-star" : "star-half star-first-half"} />
-            <div className={stars[3] ? "star-half star-second-half fill-star" : "star-half star-second-half"} />
+          <div className={getStarFill(stars[2], stars[3])}>
             <i className="fa-solid fa-star" />
           </div>
 
-          <div className="star-holder">
-            <div className={stars[4] ? "star-half star-first-half fill-star" : "star-half star-first-half"} />
-            <div className={stars[5] ? "star-half star-second-half fill-star" : "star-half star-second-half"} />
+          <div className={getStarFill(stars[4], stars[5])}>
             <i className="fa-solid fa-star" />
           </div>
 
-          <div className="star-holder">
-            <div className={stars[6] ? "star-half star-first-half fill-star" : "star-half star-first-half"} />
-            <div className={stars[7] ? "star-half star-second-half fill-star" : "star-half star-second-half"} />
+          <div className={getStarFill(stars[6], stars[7])}>
             <i className="fa-solid fa-star" />
           </div>
 
-          <div className="star-holder">
-            <div className={stars[8] ? "star-half star-first-half fill-star" : "star-half star-first-half"} />
-            <div className={stars[9] ? "star-half star-second-half fill-star" : "star-half star-second-half"} />
+          <div className={getStarFill(stars[8], stars[9])}>
             <i className="fa-solid fa-star" />
           </div>
         </div>
