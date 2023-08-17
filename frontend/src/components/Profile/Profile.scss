@@ -11,8 +11,8 @@
 #user-top-section {
   height: calc(30% - 15px);
   width: fit-content;
-  min-height: 245px;
-  min-width: 245px;
+  min-height: 200px;
+  min-width: 200px;
 
   position: relative;
   display: flex;
@@ -75,7 +75,7 @@
     color: $default-white;
     // color: $medium-blue;
     // color: $highlight-orange;
-    color: #fbc089;
+    // color: #fbc089;
   }
 }
 
@@ -128,7 +128,7 @@
 }
 
 #user-bottom-section {
-  min-height: 310px;
+  min-height: 355px;
   width: 100%;
   max-width: 450px;
 

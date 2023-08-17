@@ -72,8 +72,6 @@ const Summary = ({ moodyButton, setSelectedTab, setIsReviewing }) => {
           @{showUser?.username}
         </p>
 
-        {moodyButton}
-
         <div id="user-average-rating">
           <div className={getStarFill(stars[0], stars[1])}>
             <i className="fa-solid fa-star" />
@@ -111,6 +109,7 @@ const Summary = ({ moodyButton, setSelectedTab, setIsReviewing }) => {
       </div>
 
       <div id="user-bottom-section">
+        {moodyButton}
 
         <div className="user-info-wrapper">
           <div className="user-info-label">About: </div>

@@ -238,11 +238,11 @@
   background-color: $default-white;
 
   &.selected-circle {
-    background-color: $lightest-blue;
+    background-color: $highlight-orange;
   }
   
   &:hover {
-    background-color: $empty-star-blue;
+    background-color: #fbc089;
   }
 }
 
