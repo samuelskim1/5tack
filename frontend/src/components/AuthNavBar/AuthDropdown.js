@@ -42,21 +42,24 @@ const AuthDropdown = () => {
                 <i className="fa-solid fa-angle-down" onClick={() => setShowDrop(!showDrop)} ></i>
                 {showDrop && (
                     <div className="dropdown">
-                        <div>
-                            {/* <Avatar user={currentUser} />
-                            <div> */}
-                                <p>{currentUser.username}</p>
-                                <p>{currentUser.email}</p>
-                            {/* </div> */}
-                        </div>
-                        {/* <hr></hr> */}
+                            <p className="drop-title">Welcome back!</p>
+                            <p className="drop-link">@{currentUser?.username}</p>
+                        {!!(currentUser?.favorites[0] != '') &&
+                            <>
+                            <div className="user-info-divider"></div>
+                            <div className="drop-title">My Favorites</div>
+                            {currentUser?.favorites.map((fav, i) => (
+                                <Link className='drop-link' to={`/games/${fav.split(' ').join('')}`} key={i}>
+                                    {fav}
+                                </Link>
+                                ))}
+                            </>
+                        }
                         <div className="user-info-divider"></div>
-                        <p>
-                            <Link to={'/about'}>
+                            <Link className='drop-link' to={'/about'}>
                                 About
                             </Link>
-                        </p>
-                        <p onClick={handleLogout}>Logout</p>
+                        <p className="drop-link" onClick={handleLogout}>Logout</p>
                     </div>
                 )}
             </div>

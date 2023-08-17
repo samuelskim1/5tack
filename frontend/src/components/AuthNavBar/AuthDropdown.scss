@@ -17,7 +17,6 @@
     }
     .dropdown-container {
         .dropdown {
-            // width: 120px;
             width: fit-content;
             display: flex;
             flex-direction: column;
@@ -26,50 +25,44 @@
             right: 50%;
             left: 50%;
             padding: 10px;
-            // border: 1px solid $darker-blue;
             box-shadow: -2px 2px 4px rgba(54, 65, 86, 0.25);
             border-radius: 6px;
             background-color: $default-white;
             z-index: 1;
             width: 120px;
             transform: translateX(-50%);
-            > div:first-child {
-                display: flex;
-                padding: 5px;
-                flex-direction: column;
-                p {
-                    line-height: initial;
-                }
-                p:first-child {
-                    font-weight: 500px;
-                    margin-bottom: 5px;
-                    font-size: 14px;
-                }
-                p:nth-child(2) {
-                    color: $lightest-blue;
-                    font-size: 12px;
-                }
-            }
-            .user-info-divider { margin: 3px 0; }
-            > div:hover {
-                border-radius: 4px;
-                background-color: $medium-blue;
-                color: white;
-            }
-            hr {
-                width: auto;
-                margin: 5px 0;
-            }
-            > p {
-                cursor: pointer;
-                padding: 5px;
-                border-radius: 4px;
-                color: $darkest-blue;
+            
+            .drop-title {
+                padding: 3px 5px;
+                font-size: 12px;
+                line-height: normal;
             }
 
-            > p:hover {
+            .drop-link {
+                cursor: pointer;
+                padding: 3px 5px;
+                border-radius: 4px;
+                color: $darkest-blue;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                font-size: 14px;
+                line-height: normal;
+            }
+            
+            p:nth-child(2) {
+                cursor: unset;
+                font-weight: 500;
+            }
+
+            .drop-link:hover {
                 background-color: $medium-blue;
                 color: $default-white;
+            }
+            
+            p:nth-child(2):hover {
+                background-color: initial;
+                color: initial;
             }
         }
     }
