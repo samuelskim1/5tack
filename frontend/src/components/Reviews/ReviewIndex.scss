@@ -13,6 +13,14 @@
     margin-top: 30px;
 
     color: $default-white;
+
+    .post-index-item {
+        padding: 40px 24px;
+    }
+
+    .post-index-description {
+        margin-bottom: 0;
+    }
 }
 
 .review-rating-row {
@@ -22,4 +30,22 @@
 
     padding: 0 16px;
     margin-bottom: 4px;
+
+    #user-average-rating {
+        width: 105px;
+        font-size: 12px;
+    }
+
+    .star-holder {
+        width: 19px;
+        height: 19px;
+
+        &.full-fill {
+            background-color: $highlight-orange;
+        }
+
+        .fa-star {
+            color: $darkest-blue;
+        }
+    }
 }

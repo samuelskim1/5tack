@@ -62,14 +62,19 @@
 
   &.half-fill {
     background: linear-gradient(to right,  $medium-blue 0%, $medium-blue 50%, $empty-star-blue 50%, $empty-star-blue 100%);
+    background: linear-gradient(to right,  $highlight-orange 0%, $highlight-orange 50%, $empty-star-blue 50%, $empty-star-blue 100%);
   } 
 
   &.full-fill {
     background-color: $medium-blue;
+    background-color: $highlight-orange;
+    // background-color: #ffa552c9;
   }
 
   .fa-star {
     color: $default-white;
+    color: $darkest-blue;
+    // color: $highlight-orange;
   }
 }
 
