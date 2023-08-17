@@ -5,8 +5,6 @@ import { updateUser } from "../../store/session";
 import { fetchUser, receiveUser } from "../../store/users";
 import './EditProfile.scss';
 
-// THINGS TO RECONSIDER:
-// handleSubmit "curr" variables and if/else statement at the end
 
 const gamesList = [
   "Apex Legends",

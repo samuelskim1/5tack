@@ -1,11 +1,11 @@
-
-import { useDispatch, useSelector } from 'react-redux';
-import './RevPostCard.scss';
-import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { fetchUserPosts } from '../../../store/posts';
 import { fetchUserReviews } from '../../../store/reviews';
 import PostIndex from '../../Posts/PostIndex';
+import './RevPostCard.scss';
+
 
 const RevPostCard = ({ selectedTab, setSelectedTab }) => {
   const dispatch = useDispatch();
@@ -32,7 +32,6 @@ const RevPostCard = ({ selectedTab, setSelectedTab }) => {
 
 
   if (!showUser) return null;
-
 
 
   return (

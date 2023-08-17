@@ -22,8 +22,7 @@ const App = () => {
   }, [dispatch]);
 
   return loaded && (
-    <div id='entire-app'>
-      {/* LOGIC THAT WE WANT, nav bars themselves will contain the "Meet the Team" button */}
+    <div>
       {currentUser && <AuthNavBar />}
 
       <Switch>

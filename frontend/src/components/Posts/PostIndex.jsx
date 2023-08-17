@@ -1,7 +1,9 @@
 import PostIndexItem from "./PostIndexItem";
+import './PostIndex.scss';
 
 
 const PostIndex = ({ posts, type }) => {
+
   if (!posts) {
     return (
       <div>
@@ -10,11 +12,12 @@ const PostIndex = ({ posts, type }) => {
     )
   }
 
+
   return (
     <div className="posts-index-container">
-      {posts?.map((post, idx) => {
+      {posts.map((post, idx) => (
         <PostIndexItem post={post} key={post + idx} type={type} />
-      })}
+      ))}
     </div>
   )
 };
