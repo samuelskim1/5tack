@@ -1,14 +1,18 @@
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import './AuthNavBar.scss';
 import CategoryNav from './CategoryNav';
+import AuthDropdown from './AuthDropdown';
 
 const AuthNavBar = () => {
     return (
         <nav id='nav-container'>
             <div id="nav-content-container">
-                <img id='icon' src='../../../apple-touch-icon.png' />
+                <Link
+                to='/home'>
+                    <img id='icon' src='../../../apple-touch-icon.png' />
+                </Link>
                 <CategoryNav />
-                <img id='temp-avatar' src='../../../cleffa.jpg' />
+                <AuthDropdown />
             </div>
         </nav>
     )

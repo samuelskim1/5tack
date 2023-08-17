@@ -12,7 +12,7 @@ const CategoryButton = ({category}) => {
     const [active, setActive] = useState(false);
     
     const openCategory = () => {
-        console.log('opening category...', currBtn.current.innerHTML, active);
+        // console.log('opening category...', currBtn.current.innerHTML, active);
         parent.style.pointerEvents = 'none';
 
         const dist = parent.getBoundingClientRect().left - currBtn.current.getBoundingClientRect().left;
@@ -55,7 +55,7 @@ const CategoryButton = ({category}) => {
     const closeCategory = (newPath) => {
         if (newPath) history.push(`/games/${newPath}`);
         parent.style.pointerEvents = 'none';
-        console.log('closing category...', currBtn.current.innerHTML, active);
+        // console.log('closing category...', currBtn.current.innerHTML, active);
 
         const games = document.getElementById('game-nav');
         if (games) {
@@ -83,7 +83,7 @@ const CategoryButton = ({category}) => {
                 }
                     
                 currBtn.current.addEventListener('transitionend', () => {
-                    console.log('does this transition-end even work bro');
+                    // console.log('does this transition-end even work bro');
                     currBtn.current.classList.remove('active-category-button');
                     currBtn.current.classList.remove('deactive-category-button');
                     parent.style.pointerEvents = null;
