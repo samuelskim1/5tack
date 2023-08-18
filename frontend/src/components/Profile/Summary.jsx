@@ -32,8 +32,8 @@ const Summary = ({ moodyButton, setSelectedTab, setIsReviewing }) => {
     const url = games?.find(el => el.name === game)?.nameURL;
     if (game) {
       return (
-        <Link to={`/games/${url}`}>
-          <p className="user-info-tag" key={game + "fave-tag"}>#{game}</p>
+        <Link to={`/games/${url}`} key={game + "fave-tag"}>
+          <p className="user-info-tag">#{game}</p>
         </Link>
       )
     }
@@ -128,7 +128,7 @@ const Summary = ({ moodyButton, setSelectedTab, setIsReviewing }) => {
             {showUser?.favorites?.map(fave => (
               createGameLink(fave)
             ))}
-            {((showUser?.favorites?.length === 1 && !showUser?.favorites[0]) || (!showUser?.favorites.length)) && (
+            {((showUser?.favorites?.length === 1 && !showUser?.favorites[0]) || (!showUser?.favorites?.length)) && (
               <p className="no-user-info">This gamer doesn't play favorites...</p>
             )}
           </div>
@@ -142,7 +142,7 @@ const Summary = ({ moodyButton, setSelectedTab, setIsReviewing }) => {
             {showUser?.playStyle?.map((style, idx) => (
               style && <p className="user-info-tag" key={style + idx}>#{style}</p>
             ))}
-            {((showUser?.playStyle?.length === 1 && !showUser?.playStyle[0]) || (!showUser?.playStyle.length)) && (
+            {((showUser?.playStyle?.length === 1 && !showUser?.playStyle[0]) || (!showUser?.playStyle?.length)) && (
               <p className="no-user-info">This gamer has not yet added any usual play styles.</p>
             )}
           </div>

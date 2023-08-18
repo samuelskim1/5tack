@@ -8,7 +8,7 @@ import { useEffect } from "react";
 
 const ReviewIndexItem = ({ review }) => {
   const currentUser = useSelector(state => state?.session?.user);
-  const isAuthor = (review?.reviewer_id._id || review?.reviewer_id) === currentUser?._id;
+  const isAuthor = (review?.reviewer_id?._id || review?.reviewer_id) === currentUser?._id;
   const [stars, setStars] = useState([]);
 
 

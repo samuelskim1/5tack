@@ -77,18 +77,22 @@ const CreateReviewForm = ({ setIsReviewing }) => {
         currTitle = e.target.value;
         setTitle(currTitle);
         if (currTitle.length > 50) {
-            setErrors({ ...errors, ["title"]: "Title cannot be longer than 50 characters" })
+          setErrors({ ...errors, "title": "Title cannot be longer than 50 characters" })
+        } else if (!currTitle.length) {
+          setErrors({ ...errors, "title": "Title cannot be blank"})
         } else {
-            setErrors({ ...errors, ["title"]: '' })
+          setErrors({ ...errors, "title": '' })
         }
     } else if (type === 'description') {
         currDescription = e.target.value;
         setDescription(currDescription);
 
         if (currDescription.length > 400) {
-            setErrors({ ...errors, ["description"]: "Description cannot be longer than 400 characters" })
+          setErrors({ ...errors, "description": "Description cannot be longer than 400 characters" })
+        } else if (!currDescription.length) {
+          setErrors({ ...errors, "description": "Description cannot be blank" })
         } else {
-            setErrors({ ...errors, ["description"]: '' })
+          setErrors({ ...errors, "description": '' })
         }
     } else {
         currRating = type;

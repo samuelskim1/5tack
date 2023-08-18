@@ -62,20 +62,14 @@
 
   &.half-fill {
     background: linear-gradient(to right,  $medium-blue 0%, $medium-blue 50%, $empty-star-blue 50%, $empty-star-blue 100%);
-    // background: linear-gradient(to right,  #fbc089 0%, #fbc089 50%, $empty-star-blue 50%, $empty-star-blue 100%);
   } 
 
   &.full-fill {
     background-color: $medium-blue;
-    // background-color: $highlight-orange;
-    // background-color: #fbc089;
   }
 
   .fa-star {
     color: $default-white;
-    // color: $medium-blue;
-    // color: $highlight-orange;
-    // color: #fbc089;
   }
 }
 
@@ -150,9 +144,9 @@
 }
 
 .user-info-label {
-  font-weight: 600;
+  font-weight: 300;
   font-size: 14px;
-  margin: 0 0 6px 8px;
+  margin-bottom: 6px;
 }
 
 // .tags-label {

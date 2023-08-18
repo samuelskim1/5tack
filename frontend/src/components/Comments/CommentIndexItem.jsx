@@ -143,7 +143,7 @@ const CommentIndexItem = ({ comment, post }) => {
 
           {showConfirm && (
             <Modal onClose={() => setShowConfirm(false)} >
-              <div className="delete-modal">
+              <div className="delete-modal" id="delete-comment-modal">
                 <h2>Do you want to delete this comment?</h2>
                 <div id="edit-profile-bottom">
                   <div className="save-btn" onClick={handleDelete}>

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchUserReviews, updateReview } from "../../store/reviews";
 import { updateUser } from "../../store/users";
+import './ReviewForm.scss';
 
 
 const UpdateReviewForm = ({ review, setShowModal }) => {
@@ -50,18 +51,22 @@ const UpdateReviewForm = ({ review, setShowModal }) => {
         currTitle = e.target.value;
         setTitle(currTitle);
         if (currTitle.length > 50) {
-            setErrors({ ...errors, ["title"]: "Title cannot be longer than 50 characters" })
+            setErrors({ ...errors, "title": "Title cannot be longer than 50 characters" })
+        } else if (!currTitle.length) {
+            setErrors({ ...errors, "title": 'Title cannot be blank'})
         } else {
-            setErrors({ ...errors, ["title"]: '' })
+            setErrors({ ...errors, "title": '' })
         }
     } else if (type === 'description') {
         currDescription = e.target.value;
         setDescription(currDescription);
 
         if (currDescription.length > 400) {
-            setErrors({ ...errors, ["description"]: "Description cannot be longer than 400 characters" })
+            setErrors({ ...errors, "description": "Description cannot be longer than 400 characters" })
+        } else if (!currDescription.length) {
+            setErrors({ ...errors, "description": "Description cannot be blank" })
         } else {
-            setErrors({ ...errors, ["description"]: '' })
+            setErrors({ ...errors, "description": '' })
         }
     } else {
         currRating = type;
@@ -79,9 +84,82 @@ const UpdateReviewForm = ({ review, setShowModal }) => {
   }, [review.title, review.description, review.rating, dispatch, username]);
 
 
+
   return (
-    <div>
-      
+    <div id="update-review-container">
+        <div id="create-review-container">
+            <div id="create-review-content">
+                <h2>Write a Review</h2>
+
+                <div className="create-review-section-container">
+                <div className="create-review-label">Title:</div>
+                <div className="create-review-field">
+                    <input
+                    type="text"
+                    value={title}
+                    onChange={(e) => changeHandler(e, 'title')}
+                    placeholder="How was your experience gaming with this person?"
+                    />
+                </div>
+                <div className="errors">{errors?.title}</div> 
+                </div>
+
+
+                <div className="create-review-section-container">
+                <div className="create-review-label">Rating:</div>
+                <div className="create-review-field">
+                    {[...Array(5)].map((star, i) => {
+                    i += 1;
+                    return (
+                        <div
+                        key={i}
+                        onClick={(e) => {setRating(i); changeHandler(e, i)}}
+                        onMouseOver={() => setHoverRating(i)}
+                        onMouseOut={() => setHoverRating(0)}
+                        >
+
+                        {i <= (hoverRating === 0 ? rating : hoverRating) ?
+                        <i className="fa-solid fa-star" />
+                        : <i className="fa-regular fa-star" />
+                        }
+                        </div>
+                    )
+                    })}
+                </div>
+                <div className="errors">{errors?.rating}</div>
+                </div>
+
+
+                <div className="create-review-section-container">
+                <div className="create-review-label">Description:</div>
+                <div className="create-review-field">
+                    <textarea
+                    value={description}
+                    onChange={(e) => changeHandler(e, 'description')}
+                    placeholder="Provide some more details about your gaming experience"
+                    />
+                </div>
+                <div className="errors">{errors?.description}</div>
+                </div>
+            </div>
+
+
+            <div id="edit-profile-bottom">
+                {canSubmit ? 
+                <div className="save-btn" onClick={handleSubmit}>
+                    Post
+                </div>
+                :
+                <div className="save-btn cant-save">
+                    Post
+                </div>
+                }
+
+                <div className="cancel-btn" onClick={() => setShowModal(false)}>
+                Cancel
+                </div>
+            </div>
+        </div>
     </div>
   )
 };

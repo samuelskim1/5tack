@@ -12,6 +12,7 @@ const PostIndex = ({ posts, type }) => {
     )
   }
 
+  window.scrollTo(0,0);
 
   return (
     <div className="posts-index-container">
