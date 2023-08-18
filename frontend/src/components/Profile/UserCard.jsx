@@ -19,6 +19,10 @@ const UserCard = ({ setSelectedTab }) => {
   let moodyButton;
 
   useEffect(() => {
+    // this is invoked when the "showUser" changes, ensuring a default Profile Summary view when navigating to a different user
+    setIsEditing(false);
+    setIsReviewing(false);
+
     dispatch(fetchUser(username));
   }, [dispatch, username, showUser?.description, currentUser?.profileImageUrl]);
 

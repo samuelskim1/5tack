@@ -57,9 +57,9 @@ const RevPostCard = ({ selectedTab, setSelectedTab }) => {
       </div>
 
       {selectedTab === 'posts' ? (
-        <PostIndex posts={posts} type="profile" />
+        posts?.length ? <PostIndex posts={posts} type="profile" /> : "This gamer has not made any posts yet."
       ) : (
-        <ReviewIndex reviews={reviews} />
+        reviews?.length ? <ReviewIndex reviews={reviews} /> : "This gamer does not have any reviews yet."
       )}
     </div>
   )
