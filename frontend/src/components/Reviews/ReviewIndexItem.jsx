@@ -24,9 +24,9 @@ const ReviewIndexItem = ({ review }) => {
 
 
   useEffect(() => {
-    let starFill = (review?.rating * 2);
+    let starFill = review?.rating ? (review?.rating * 2) : 0;
     setStars(Array(starFill).fill("kaiter"));
-  }, [])
+  }, [review?.rating])
   
 
   return (
@@ -66,7 +66,7 @@ const ReviewIndexItem = ({ review }) => {
             <Link to={`/${review?.reviewer_id?.username}`}>
               <img src={review?.reviewer_id?.profileImageUrl} alt={review?.reviewer_id?.username} />
             </Link>
-            <Link to={`/${review?.reviwer_id?.username}`}>
+            <Link to={`/${review?.reviewer_id?.username}`}>
               <div className='author-username'>
                 {review?.reviewer_id?.username}
               </div>
