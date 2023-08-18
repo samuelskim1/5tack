@@ -161,7 +161,7 @@ const CreateReviewForm = ({ setIsReviewing }) => {
         {(avgRating > 0) && (
           <div>
             <span id="rating-number">{avgRating}</span>
-            <span> ({showUser?.review_id?.length} reviews)</span>
+            (<span>{showUser?.review_id?.length} reviews</span>)
           </div>
         )}
 
@@ -196,7 +196,7 @@ const CreateReviewForm = ({ setIsReviewing }) => {
               {[...Array(5)].map((star, i) => {
                 i += 1;
                 return (
-                  <span
+                  <div
                     key={i}
                     onClick={(e) => {setRating(i); handleChange(e, i)}}
                     onMouseOver={() => setHoverRating(i)}
@@ -207,7 +207,7 @@ const CreateReviewForm = ({ setIsReviewing }) => {
                     <i className="fa-solid fa-star" />
                     : <i className="fa-regular fa-star" />
                     }
-                  </span>
+                  </div>
                 )
               })}
             </div>
