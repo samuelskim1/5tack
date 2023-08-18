@@ -42,14 +42,14 @@ const RevPostCard = ({ selectedTab, setSelectedTab }) => {
 
         <div 
           className={selectedTab === 'posts' ? 'rev-post-top-btn selected-tab' : 'rev-post-top-btn'}
-          onClick={() => setSelectedTab('posts')}
+          onClick={() => {setSelectedTab('posts'); window.scrollTo(0,0)}}
           id="post-idx-btn"
           >
           POSTS
         </div>
         <div 
           className={selectedTab === 'reviews' ? 'rev-post-top-btn selected-tab' : 'rev-post-top-btn'}
-          onClick={() => setSelectedTab('reviews')}
+          onClick={() => {setSelectedTab('reviews'); window.scrollTo(0,0)}}
           id="rev-idx-btn"
           >
           REVIEWS

@@ -15,6 +15,7 @@ const Summary = ({ moodyButton, setSelectedTab, setIsReviewing }) => {
   const [avgRating, setAvgRating] = useState(0);
   const [stars, setStars] = useState([]);
 
+
   const getAverage = async () => {
     if (showUser?.review_id?.length) {
       let ratings = [];
@@ -96,8 +97,8 @@ const Summary = ({ moodyButton, setSelectedTab, setIsReviewing }) => {
 
         {(avgRating > 0) && (
           <div>
-            <span id="rating-number" onClick={() => setSelectedTab('reviews')}>{avgRating}</span>
-            (<span onClick={() => setSelectedTab('reviews')}>{showUser?.review_id?.length} reviews</span>)
+            <span id="rating-number" onClick={() => {setSelectedTab('reviews'); window.scrollTo(0,0)}}>{avgRating}</span>
+            (<span onClick={() => {setSelectedTab('reviews'); window.scrollTo(0,0)}}>{showUser?.review_id?.length} reviews</span>)
           </div>
         )}
 

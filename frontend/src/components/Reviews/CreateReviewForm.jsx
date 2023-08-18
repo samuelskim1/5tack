@@ -122,7 +122,7 @@ const CreateReviewForm = ({ setIsReviewing }) => {
 
   useEffect(() =>  {
     getAverage();
-  }, [reviews, showUser, getAverage, stars]);
+  }, [reviews, showUser, stars]);
 
   useEffect(() => {
     setStars(Array(Math.round(avgRating / 0.5)).fill(true));
