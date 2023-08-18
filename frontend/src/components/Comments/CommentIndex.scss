@@ -3,7 +3,7 @@
 .comments-index-container {
   box-sizing: border-box;
   width: 100%;
-  padding: 0 10px;
+  padding: 0 16px;
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
   border-radius: 12px;
@@ -256,6 +256,10 @@
 }
 
 .bad-count {
-  color: $errors-color;
+  color: $highlight-orange;
   font-weight: 300;
+}
+
+#delete-comment-modal {
+  width: 440px;
 }

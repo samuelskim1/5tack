@@ -11,8 +11,8 @@
 #user-top-section {
   height: calc(30% - 15px);
   width: fit-content;
-  min-height: 245px;
-  min-width: 245px;
+  min-height: 200px;
+  min-width: 200px;
 
   position: relative;
   display: flex;
@@ -47,42 +47,51 @@
 
   font-size: 14px;
   border-radius: 8px;
-
-  .fa-star {
-    color: $default-white;
-    z-index: 1;
-    position: absolute;
-    top: 6.5px;
-    left: 6.5px;
-  }
 }
 
 .star-holder {
   width: 28px;
   height: 28px;
+
   display: flex;
-  position: relative;
-}
+  align-items: center;
+  justify-content: center;
 
-.star-first-half {
-  width: 14px;
-  height: 28px;
-
-  border-radius: 4px 0 0 4px;
+  border-radius: 4px;
   background-color: $empty-star-blue;
+
+  &.half-fill {
+    background: linear-gradient(to right,  $medium-blue 0%, $medium-blue 50%, $empty-star-blue 50%, $empty-star-blue 100%);
+  } 
+
+  &.full-fill {
+    background-color: $medium-blue;
+  }
+
+  .fa-star {
+    color: $default-white;
+  }
 }
 
-.star-second-half {
-  width: 14px;
-  height: 28px;
+// .star-first-half {
+//   width: 14px;
+//   height: 28px;
 
-  border-radius: 0 4px 4px 0;
-  background-color: $empty-star-blue;
-}
+//   border-radius: 4px 0 0 4px;
+//   background-color: $empty-star-blue;
+// }
 
-.fill-star {
-  background-color: $medium-blue;
-}
+// .star-second-half {
+//   width: 14px;
+//   height: 28px;
+
+//   border-radius: 0 4px 4px 0;
+//   background-color: $empty-star-blue;
+// }
+
+// .fill-star {
+//   background-color: $medium-blue;
+// }
 
 #rating-number {
   margin-right: 4px;
@@ -113,7 +122,7 @@
 }
 
 #user-bottom-section {
-  min-height: 310px;
+  min-height: 355px;
   width: 100%;
   max-width: 450px;
 
@@ -135,9 +144,9 @@
 }
 
 .user-info-label {
-  font-weight: 600;
-  font-size: 14px;
-  margin: 0 0 6px 8px;
+  font-weight: 300;
+  font-size: 12px;
+  margin-bottom: 6px;
 }
 
 // .tags-label {

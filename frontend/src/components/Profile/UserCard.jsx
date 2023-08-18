@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom/cjs/react-router-dom";
 import { fetchUser } from "../../store/users";
 import Summary from "./Summary";
 import EditProfile from "./EditProfile";
-import ReviewForm from "./ReviewForm";
+import CreateReviewForm from "../Reviews/CreateReviewForm";
 
 
 const UserCard = ({ setSelectedTab }) => {
@@ -19,6 +19,10 @@ const UserCard = ({ setSelectedTab }) => {
   let moodyButton;
 
   useEffect(() => {
+    // this is invoked when the "showUser" changes, ensuring a default Profile Summary view when navigating to a different user
+    setIsEditing(false);
+    setIsReviewing(false);
+
     dispatch(fetchUser(username));
   }, [dispatch, username, showUser?.description, currentUser?.profileImageUrl]);
 
@@ -44,7 +48,7 @@ const UserCard = ({ setSelectedTab }) => {
         <EditProfile setIsEditing={setIsEditing} />
       )}
       {isReviewing && (
-        <ReviewForm setIsReviewing={setIsReviewing} setSelectedTab={setSelectedTab} />
+        <CreateReviewForm setIsReviewing={setIsReviewing} setSelectedTab={setSelectedTab} />
       )}
     </>
   )
