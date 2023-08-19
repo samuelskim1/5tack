@@ -6,16 +6,17 @@
     align-items: center;
     
     position: relative;
-    i {
-        margin-left: 10px;
-        font-size: 20px;
-    }
     img {
         width: 39px;
         height: 39px;
         border-radius: 8px;
     }
     .dropdown-container {
+        > i {
+            margin-left: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
         .dropdown {
             width: fit-content;
             display: flex;
@@ -31,6 +32,8 @@
             z-index: 1;
             width: 120px;
             transform: translateX(-50%);
+
+            .user-info-divider { margin: 7px 0; }
             
             .drop-title {
                 padding: 3px 5px;
@@ -50,13 +53,25 @@
                 line-height: normal;
             }
             
+            .fav {
+                padding: 3px 10px;
+            }
+
             p:nth-child(2) {
                 cursor: unset;
                 font-weight: 500;
             }
 
+            div.drop-link {
+                display: flex;
+                align-items: baseline;
+                i {
+                    margin-left: 8px;
+                }
+            }
+
             .drop-link:hover {
-                background-color: $medium-blue;
+                background-color: $darkest-blue;
                 color: $default-white;
             }
             
