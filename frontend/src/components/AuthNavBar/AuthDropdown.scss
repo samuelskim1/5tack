@@ -54,7 +54,13 @@
             }
             
             .fav {
-                padding: 3px 10px;
+                padding: 3px 15px;
+            }
+
+            .none-added {
+                pointer-events: none;
+                font-style: italic;
+                font-size: 12px;
             }
 
             p:nth-child(2) {
@@ -74,7 +80,7 @@
                 background-color: $darkest-blue;
                 color: $default-white;
             }
-            
+
             p:nth-child(2):hover {
                 background-color: initial;
                 color: initial;

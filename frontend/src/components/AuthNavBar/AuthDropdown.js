@@ -48,12 +48,12 @@ const AuthDropdown = () => {
                             <p className="drop-title">Welcome back!</p>
                             <p className="drop-link">@{currentUser?.username}</p>
                             <div className="user-info-divider"></div>
-                        {!!(currentUser?.favorites?.length && currentUser?.favorites[0] !== '') &&
+                            <div className="drop-link" onClick={() => setShowFav(!showFav)} >
+                                <p>My Favorites</p>
+                                <i className="fa-solid fa-angle-down" ></i>
+                            </div>
+                        {!!(currentUser?.favorites?.length && currentUser?.favorites[0] !== '') ?
                             <>
-                                <div className="drop-link" onClick={() => setShowFav(!showFav)} >
-                                    <p>My Favorites</p>
-                                    <i className="fa-solid fa-angle-down" ></i>
-                                </div>
                                 {showFav && 
                                 <>
                                     {currentUser?.favorites.map((fav, i) => (
@@ -64,6 +64,7 @@ const AuthDropdown = () => {
                                     <div className="user-info-divider"></div>
                                 </>}
                             </>
+                            : showFav && <div className="drop-link fav none-added">None added</div>
                         }
                             <Link className='drop-link' to={'/about'}>
                                 About
