@@ -9,7 +9,7 @@
     align-items: center;
     justify-content: center;
     
-    width: 100vw;
+    // width: 100vw;
     min-width: 1000px;
     height: 80px;
     background-color: $default-white;
@@ -28,14 +28,6 @@
     // top: 50%;
     // transform: translateY(-50%);
     margin-right: 50px;
-}
-
-#temp-avatar {
-    height: 40px;
-    width: 40px;
-    // border: 1px $darkest-blue solid;
-    border-radius: 5px;
-    margin-left: 50px;
 }
 
 // Category Nav
