@@ -3,7 +3,6 @@ import './PostIndex.scss';
 
 
 const PostIndex = ({ posts, type }) => {
-
   if (!posts) {
     return (
       <div>
@@ -11,7 +10,6 @@ const PostIndex = ({ posts, type }) => {
       </div>
     )
   }
-
 
   return (
     <div className="posts-index-container">

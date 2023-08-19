@@ -15,6 +15,7 @@ const Summary = ({ moodyButton, setSelectedTab, setIsReviewing }) => {
   const [avgRating, setAvgRating] = useState(0);
   const [stars, setStars] = useState([]);
 
+
   const getAverage = async () => {
     if (showUser?.review_id?.length) {
       let ratings = [];
@@ -32,12 +33,23 @@ const Summary = ({ moodyButton, setSelectedTab, setIsReviewing }) => {
     const url = games?.find(el => el.name === game)?.nameURL;
     if (game) {
       return (
-        <Link to={`/games/${url}`}>
-          <p className="user-info-tag" key={game + "fave-tag"}>#{game}</p>
+        <Link to={`/games/${url}`} key={game + "fave-tag"}>
+          <p className="user-info-tag">#{game}</p>
         </Link>
       )
     }
   };
+
+  const getStarFill = (star1, star2) => {
+    if (!star1 && !star2) {
+      return "star-holder";
+    } else if (star1 && !star2) {
+      return "star-holder half-fill";
+    } else if (star1 && star2) {
+      return "star-holder full-fill";
+    }
+  };
+
 
   useEffect(() => {
     dispatch(fetchUser(username));
@@ -61,44 +73,32 @@ const Summary = ({ moodyButton, setSelectedTab, setIsReviewing }) => {
           @{showUser?.username}
         </p>
 
-        {moodyButton}
-
         <div id="user-average-rating">
-          <div className="star-holder">
-            <div className={stars[0] ? "star-half star-first-half fill-star" : "star-half star-first-half"}/>
-            <div className={stars[1] ? "star-half star-second-half fill-star" : "star-half star-second-half"} />
+          <div className={getStarFill(stars[0], stars[1])}>
             <i className="fa-solid fa-star" />
           </div>
 
-          <div className="star-holder">
-            <div className={stars[2] ? "star-half star-first-half fill-star" : "star-half star-first-half"} />
-            <div className={stars[3] ? "star-half star-second-half fill-star" : "star-half star-second-half"} />
+          <div className={getStarFill(stars[2], stars[3])}>
             <i className="fa-solid fa-star" />
           </div>
 
-          <div className="star-holder">
-            <div className={stars[4] ? "star-half star-first-half fill-star" : "star-half star-first-half"} />
-            <div className={stars[5] ? "star-half star-second-half fill-star" : "star-half star-second-half"} />
+          <div className={getStarFill(stars[4], stars[5])}>
             <i className="fa-solid fa-star" />
           </div>
 
-          <div className="star-holder">
-            <div className={stars[6] ? "star-half star-first-half fill-star" : "star-half star-first-half"} />
-            <div className={stars[7] ? "star-half star-second-half fill-star" : "star-half star-second-half"} />
+          <div className={getStarFill(stars[6], stars[7])}>
             <i className="fa-solid fa-star" />
           </div>
 
-          <div className="star-holder">
-            <div className={stars[8] ? "star-half star-first-half fill-star" : "star-half star-first-half"} />
-            <div className={stars[9] ? "star-half star-second-half fill-star" : "star-half star-second-half"} />
+          <div className={getStarFill(stars[8], stars[9])}>
             <i className="fa-solid fa-star" />
           </div>
         </div>
 
         {(avgRating > 0) && (
           <div>
-            <span id="rating-number" onClick={() => setSelectedTab('reviews')}>{avgRating}</span>
-            (<span onClick={() => setSelectedTab('reviews')}>{showUser?.review_id?.length} reviews</span>)
+            <span id="rating-number" onClick={() => {setSelectedTab('reviews'); window.scrollTo(0,0)}}>{avgRating}</span>
+            (<span onClick={() => {setSelectedTab('reviews'); window.scrollTo(0,0)}}>{showUser?.review_id?.length} reviews</span>)
           </div>
         )}
 
@@ -110,6 +110,7 @@ const Summary = ({ moodyButton, setSelectedTab, setIsReviewing }) => {
       </div>
 
       <div id="user-bottom-section">
+        {moodyButton}
 
         <div className="user-info-wrapper">
           <div className="user-info-label">About: </div>
@@ -128,7 +129,7 @@ const Summary = ({ moodyButton, setSelectedTab, setIsReviewing }) => {
             {showUser?.favorites?.map(fave => (
               createGameLink(fave)
             ))}
-            {((showUser?.favorites?.length === 1 && !showUser?.favorites[0]) || (!showUser?.favorites.length)) && (
+            {((showUser?.favorites?.length === 1 && !showUser?.favorites[0]) || (!showUser?.favorites?.length)) && (
               <p className="no-user-info">This gamer doesn't play favorites...</p>
             )}
           </div>
@@ -142,7 +143,7 @@ const Summary = ({ moodyButton, setSelectedTab, setIsReviewing }) => {
             {showUser?.playStyle?.map((style, idx) => (
               style && <p className="user-info-tag" key={style + idx}>#{style}</p>
             ))}
-            {((showUser?.playStyle?.length === 1 && !showUser?.playStyle[0]) || (!showUser?.playStyle.length)) && (
+            {((showUser?.playStyle?.length === 1 && !showUser?.playStyle[0]) || (!showUser?.playStyle?.length)) && (
               <p className="no-user-info">This gamer has not yet added any usual play styles.</p>
             )}
           </div>
