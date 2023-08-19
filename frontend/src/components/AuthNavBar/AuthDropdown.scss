@@ -1,0 +1,90 @@
+@import '../../App.scss';
+
+.nav-dropdown-container {
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+    
+    position: relative;
+    img {
+        width: 39px;
+        height: 39px;
+        border-radius: 8px;
+    }
+    .dropdown-container {
+        > i {
+            margin-left: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .dropdown {
+            width: fit-content;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 40px;
+            right: 50%;
+            left: 50%;
+            padding: 10px;
+            box-shadow: -2px 2px 4px rgba(54, 65, 86, 0.25);
+            border-radius: 6px;
+            background-color: $default-white;
+            z-index: 1;
+            width: 120px;
+            transform: translateX(-50%);
+
+            .user-info-divider { margin: 7px 0; }
+            
+            .drop-title {
+                padding: 3px 5px;
+                font-size: 12px;
+                line-height: normal;
+            }
+
+            .drop-link {
+                cursor: pointer;
+                padding: 3px 5px;
+                border-radius: 4px;
+                color: $darkest-blue;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                font-size: 14px;
+                line-height: normal;
+            }
+            
+            .fav {
+                padding: 3px 15px;
+            }
+
+            .none-added {
+                pointer-events: none;
+                font-style: italic;
+                font-size: 12px;
+            }
+
+            p:nth-child(2) {
+                cursor: unset;
+                font-weight: 500;
+            }
+
+            div.drop-link {
+                display: flex;
+                align-items: baseline;
+                i {
+                    margin-left: 8px;
+                }
+            }
+
+            .drop-link:hover {
+                background-color: $darkest-blue;
+                color: $default-white;
+            }
+
+            p:nth-child(2):hover {
+                background-color: initial;
+                color: initial;
+            }
+        }
+    }
+}
