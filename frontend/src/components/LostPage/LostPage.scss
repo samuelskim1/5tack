@@ -1,0 +1,28 @@
+@import '../../App.scss';
+
+#auth-cards-background {
+    text-align: center;
+    color: $default-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-width: unset;
+    > div {
+        margin: 10px 0;
+        > div {
+            font-size: 50px;
+        }
+        > img {
+            height: 50vh;
+            margin: 5vh 0;
+        }
+        > p {
+            font-size:  24px;
+    
+            > a {
+                text-decoration: underline;
+            }
+        }
+    }
+}
