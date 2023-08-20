@@ -45,7 +45,7 @@ const GameCard = ({ game }) => {
     } else {
       setCanSubmit(false);
     }
-  }
+  };
 
   const handleSubmit = () => {
     const post = {
@@ -57,15 +57,22 @@ const GameCard = ({ game }) => {
     };
 
     dispatch(createPost(post));
-  }
+  };
+
+  const handleReset = () => {
+    setErrors({title: '', description: ''});
+    setTitle(''); 
+    setDescription(''); 
+    setCanSubmit(false)
+  };
 
 
   return (
     <div className="game-show-container">
       <div className="game-show-top">
+        <h2>{game?.name?.toUpperCase()}</h2>
         <img src={game?.imageUrls[0]} alt={`${game?.name} ${1}`} />
 
-        <h2>{game?.name?.toUpperCase()}</h2>
       </div>
 
       <div className="game-show-bottom">
@@ -110,7 +117,7 @@ const GameCard = ({ game }) => {
             </div>
           }
 
-          <div className="cancel-btn" onClick={() => {setTitle(''); setDescription(''); setCanSubmit(false)}}>
+          <div className="cancel-btn" onClick={handleReset}>
             Reset
           </div>
         </div>
