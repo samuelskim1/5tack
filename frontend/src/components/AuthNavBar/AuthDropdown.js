@@ -45,8 +45,8 @@ const AuthDropdown = () => {
                 <i className="fa-solid fa-angle-down" onClick={() => {setShowDrop(!showDrop); setShowFav(false)}} ></i>
                 {showDrop && (
                     <div className="dropdown">
-                            <p className="drop-title">Welcome back!</p>
-                            <p className="drop-link">@{currentUser?.username}</p>
+                            <p className="drop-title">Welcome back,</p>
+                            <Link className="drop-link" to={`/${currentUser?.username}`}>@{currentUser?.username}</Link>
                             <div className="user-info-divider"></div>
                             <div className="drop-link" onClick={() => setShowFav(!showFav)} >
                                 <p>My Favorites</p>
