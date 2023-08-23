@@ -35,7 +35,7 @@ const demoUser = new User({
   description: "hey there, i'm the demo user! i enjoy long walks on the beach and messing around on league of legends. feel free to add me: 5TACK DEMO USER #NA1",
   profileImageUrl: "https://5tack.s3.amazonaws.com/public/cartoon-dead-fish.png",
   hashedPassword: bcrypt.hashSync('password', 10),
-  favorites: ["League of Legends", "Maple Story", "Minecraft"],
+  favorites: ["League of Legends", "Maple Story", "Minecraft", "Animal Crossing"],
   playStyle: ["casual", "competitive", "troll"],
   review_id: []
 })
@@ -46,7 +46,7 @@ const user1 = new User({
   description: 'what is up everyone, i go by the LEGEND in most games. hit me up',
   profileImageUrl: images[0],
   hashedPassword: bcrypt.hashSync('password', 10),
-  favorites: ["League of Legends"],
+  favorites: ["League of Legends", "Age of Empires IV"],
   playStyle: ["troll", "toxic"],
   review_id: []
 })
@@ -2501,6 +2501,207 @@ posts.push(maplestory_3);
 posts.push(maplestory_4);
 posts.push(maplestory_5);
 posts.push(maplestory_6);
+
+const commentAgeOfEmpires1 = new Comment({
+  author_id: user9._id,
+  content: "Time to unleash our strategic might in AoE4! I'm game, are you?"
+});
+
+const commentAgeOfEmpires2 = new Comment({
+  author_id: user1._id,
+  content: "Epic battles await! Let's dive into AoE4 and conquer it all!"
+});
+
+const commentAgeOfEmpires3 = new Comment({
+  author_id: user10._id,
+  content: "Absolutely up for the challenge! Let's build and conquer in AoE4!"
+});
+
+const commentAgeOfEmpires4 = new Comment({
+  author_id: user10._id,
+  content: "Count me in! Let's conquer together and rewrite history! "
+});
+
+const commentAgeOfEmpires5 = new Comment({
+  author_id: user8._id,
+  content: "Ready to form an unstoppable alliance! Let's dominate in AoE4!"
+});
+
+const commentAgeOfEmpires6 = new Comment({
+  author_id: user8._id,
+  content: 'Medieval tactics meet modern gaming! Count me in for AoE4 fun!'
+});
+
+comments.push(commentAgeOfEmpires1);
+comments.push(commentAgeOfEmpires2);
+comments.push(commentAgeOfEmpires3);
+comments.push(commentAgeOfEmpires4);
+comments.push(commentAgeOfEmpires5);
+comments.push(commentAgeOfEmpires6);
+
+const ageOfEmpires1 = new Post({
+  author_id: user9._id,
+  game_id: game19._id,
+  comment_id: [commentAgeOfEmpires4._id, commentAgeOfEmpires5._id],
+  title: "Seeking AoE4 Allies for Conquests!",
+  description: "Calling all Age of Empires 4 warriors! Ready to conquer lands and forge alliances in epic battles? Looking for fellow strategists to team up with and dominate the virtual world. Let's build empires, crush enemies, and have a blast! Drop your gamertags below and let's unite for some serious gaming glory! "
+});
+
+const ageOfEmpires2 = new Post({
+  author_id: user10._id,
+  game_id: game19._id,
+  comment_id: [commentAgeOfEmpires1._id, commentAgeOfEmpires2._id],
+  title: 'Join Me for Epic AoE4 Battles!',
+  description: "Seeking companions for Age of Empires 4 odyssey! If you're passionate about history, strategy, and waging unforgettable wars, join me in the virtual realm. Let's dive into the world of civilizations, from medieval majesty to technological triumph. Slide into my DMs or drop your ign – let's team up and make history, pixel by pixel!"
+});
+
+const ageOfEmpires3 = new Post({
+  author_id: user9._id,
+  game_id: game19._id,
+  comment_id: [commentAgeOfEmpires3._id, commentAgeOfEmpires6._id],
+  title: 'Forge Empires in Age of Empires 4!',
+  description: "Strategists of the digital realm, unite! Embarking on a journey through Age of Empires 4 – where cunning tactics and resource mastery pave the way to domination. Seeking comrades-in-arms to wage battles, share strategies, and maybe even enjoy a virtual feast in our pixelated castles. If you're up for the challenge, let's join forces and leave a legacy!"
+});
+
+posts.push(ageOfEmpires1);
+posts.push(ageOfEmpires2);
+posts.push(ageOfEmpires3);
+
+const commentStreetFighter1 = new Comment({
+  author_id: demoUser._id,
+  content: "Count me in! Let's unleash those epic combos and fierce specials! "
+});
+
+const commentStreetFighter2 = new Comment({
+  author_id: demoUser._id,
+  content: "Brace yourself! I'm up for the challenge – let's determine the ultimate champion!"
+});
+
+const commentStreetFighter3 = new Comment({
+  author_id: user5._id,
+  content: "Awesome, let's do it!"
+});
+
+comments.push(commentStreetFighter1);
+comments.push(commentStreetFighter2);
+comments.push(commentStreetFighter3);
+
+const streetFighter1 = new Post({
+  author_id: user5._id,
+  game_id: game20._id,
+  comment_id: [commentStreetFighter1._id],
+  title: "SF6 Throwdown: Challengers Wanted!",
+  description: "Calling all challengers! Street Fighter 6 showdown awaits! Ready to throw down in electrifying battles and showcase your combos? Looking for fellow warriors to spar with and rise through the ranks. Drop your PSN/Xbox tags below and let's bring the fight! "
+});
+
+const streetFighter2 = new Post({
+  author_id: user5._id,
+  game_id: game20._id,
+  comment_id: [commentStreetFighter2._id, commentStreetFighter3._id],
+  title: "Rise in SF6: Seeking Rivals!",
+  description: "Seeking rivals for Street Fighter 6 glory! The stage is set, the fighters are primed. If you live for intense matchups, mind games, and epic supers, it's time to join the fray. Slide into my DMs or leave your fight ID – let's bring the heat and find out who's the true champion!"
+});
+
+posts.push(streetFighter1);
+posts.push(streetFighter2);
+
+const commentAnimalCrossing1 = ({
+  author_id: user5._id,
+  content: "Count me in! Let's turn our islands into virtual paradises together!"
+});
+
+const commentAnimalCrossing2 = ({
+  author_id: user6._id,
+  content: "I'm up for some island adventures! Let's catch bugs and fish till the sun sets!"
+});
+
+const commentAnimalCrossing3 = ({
+  author_id: user6._id,
+  content: "Time to chill on our islands! Count me in for fishing, bug catching, and island hopping!"
+});
+
+const commentAnimalCrossing4 = ({
+  author_id: user7._id,
+  content: "Playdates on virtual islands? Sign me up! Let's create events and share DIYs! "
+});
+
+comments.push(commentAnimalCrossing1);
+comments.push(commentAnimalCrossing2);
+comments.push(commentAnimalCrossing3);
+comments.push(commentAnimalCrossing4);
+
+const animalCrossing1 = ({
+  author_id: demoUser._id,
+  game_id: game21._id,
+  comment_id: [commentAnimalCrossing1._id],
+  title: "Island Life Unite: ACNH Addicts Wanted!",
+  description: " Island Paradise Calling! Animal Crossing Addicts, Unite! Ready to swap fruits, design dreamy homes, and share in the joy of a peaceful virtual life? Seeking fellow villagers to trade, chat, and create memories with. Drop your friend codes below and let's build our own idyllic world!"
+});
+
+const animalCrossing2 = ({
+  author_id: user5._id,
+  game_id: game21._id,
+  comment_id: [commentAnimalCrossing2._id],
+  title: "ACNH Hangout: Fishing, Bugs, and Fun!",
+  description: "Let's Hang Out in Animal Crossing! Looking for pals to fish, catch bugs, and enjoy the simple life on our islands. Whether you're a novice or a seasoned pro, let's trade, visit, and have a blast together. DM me or leave your Dodo codes – it's time to make memories!"
+});
+
+const animalCrossing3 = ({
+  author_id: user5._id,
+  game_id: game21._id,
+  comment_id: [commentAnimalCrossing3._id, commentAnimalCrossing4._id],
+  title: "ACNH Playdate: Island Community Calling!",
+  description: "Calling all Animal Crossing enthusiasts! Who's up for a virtual playdate? Let's host events, share DIYs, and create a thriving community on our islands. Whether you're into decorating or just love hanging out, let's connect and turn our islands into bustling paradises!"
+});
+
+posts.push(animalCrossing1);
+posts.push(animalCrossing2);
+posts.push(animalCrossing3);
+
+const commentOvercooked1 = ({
+  author_id: user3._id,
+  content: "Count me in! Ready to cook up chaos and hilarity in the virtual kitchen!"
+});
+
+const commentOvercooked2 = ({
+  author_id: user5._id,
+  content: "Let's whip up some crazy dishes together! Overcooked 2 is a recipe for fun!"
+});
+
+const commentOvercooked3 = ({
+  author_id: user10._id,
+  content: "I'm up for a challenge! Let's tackle crazy orders and kitchen madness in Overcooked 2!"
+});
+
+const commentOvercooked4 = ({
+  author_id: user2._id,
+  content: "Teamwork and culinary chaos? Count me in! Let's create masterpieces and chaos together!"
+});
+
+comments.push(commentOvercooked1);
+comments.push(commentOvercooked2);
+comments.push(commentOvercooked3);
+comments.push(commentOvercooked4);
+
+const overcooked1 = ({
+  author_id: user8._id,
+  game_id: game22._id,
+  comment_id: [commentOvercooked1._id, commentOvercooked2._id],
+  title: "Join the Overcooked 2 Culinary Chaos!",
+  description: "Ready to Heat Up the Kitchen in Overcooked 2! Culinary Chaos Awaits! Grab your aprons and spatulas – it's time to team up, chop, cook, and serve our way to victory! Seeking fellow chefs to join the madness. Let's create culinary masterpieces and hilarious disasters together!"
+});
+
+const overcooked2 = ({
+  author_id: user7._id,
+  game_id: game22._id,
+  comment_id: [commentOvercooked3._id, commentOvercooked4._id],
+  title: "Calling Co-op Fans: Overcooked 2 Mayhem!",
+  description: "Calling All Co-op Fans! Let's Unleash Overcooked 2 Mayhem! If you thrive under pressure and love teamwork, join me in the virtual kitchen! From sizzling stir-fries to crazy burger stacking, it's all about timing and coordination. Slide into my DMs or drop your Steam/Nintendo IDs – let's cook up a storm!"
+});
+
+posts.push(overcooked1);
+posts.push(overcooked2);
+
 
 const reviews = [];
 
