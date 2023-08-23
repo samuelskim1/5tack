@@ -86,7 +86,7 @@ const GameCard = ({ game }) => {
                 type="text"
                 value={title}
                 onChange={(e) => handleChange(e, 'title')}
-                placeholder="How was your experience gaming with this person?"
+                placeholder="Looking for a fellow gamer?"
                 />
             </div>
             <div className="errors">{errors?.title}</div> 
@@ -98,7 +98,7 @@ const GameCard = ({ game }) => {
               <textarea
                 value={description}
                 onChange={(e) => handleChange(e, 'description')}
-                placeholder="Provide some more details about your gaming experience"
+                placeholder={`Let the world know more about how you like to play ${game?.name}!`}
                 />
             </div>
             <div className="errors">{errors?.description}</div>
