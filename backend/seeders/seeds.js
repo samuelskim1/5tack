@@ -164,7 +164,7 @@ users.push(user10);
 
 const games = [];
 
-const game1 = new Game({ name: "League of Legends", nameURL: "LeagueofLegends", imageUrls:["https://5tack.s3.amazonaws.com/public/no_text/apex.jpeg"] });
+const game1 = new Game({ name: "League of Legends", nameURL: "LeagueofLegends", imageUrls:["https://5tack.s3.amazonaws.com/public/no_text/league.jpeg"] });
 const game2 = new Game({ name: "Valorant", nameURL: "Valorant", imageUrls: ["https://5tack.s3.amazonaws.com/public/no_text/valorant.jpeg"] });
 const game3 = new Game({ name: "Apex Legends", nameURL: "ApexLegends", imageUrls: ["https://5tack.s3.amazonaws.com/public/no_text/apex.jpeg"] });
 const game4 = new Game({ name: "Fortnite", nameURL: "Fortnite", imageUrls: ["https://5tack.s3.amazonaws.com/public/no_text/fortnite.jpeg"] })
@@ -207,7 +207,11 @@ games.push(
   game15,
   game16,
   game17,
-  game18
+  game18,
+  game19,
+  game20,
+  game21,
+  game22
 )
 
 const categories = [];
@@ -2605,22 +2609,22 @@ const streetFighter2 = new Post({
 posts.push(streetFighter1);
 posts.push(streetFighter2);
 
-const commentAnimalCrossing1 = ({
+const commentAnimalCrossing1 = new Comment({
   author_id: user5._id,
   content: "Count me in! Let's turn our islands into virtual paradises together!"
 });
 
-const commentAnimalCrossing2 = ({
+const commentAnimalCrossing2 = new Comment({
   author_id: user6._id,
   content: "I'm up for some island adventures! Let's catch bugs and fish till the sun sets!"
 });
 
-const commentAnimalCrossing3 = ({
+const commentAnimalCrossing3 = new Comment({
   author_id: user6._id,
   content: "Time to chill on our islands! Count me in for fishing, bug catching, and island hopping!"
 });
 
-const commentAnimalCrossing4 = ({
+const commentAnimalCrossing4 = new Comment({
   author_id: user7._id,
   content: "Playdates on virtual islands? Sign me up! Let's create events and share DIYs! "
 });
@@ -2630,7 +2634,7 @@ comments.push(commentAnimalCrossing2);
 comments.push(commentAnimalCrossing3);
 comments.push(commentAnimalCrossing4);
 
-const animalCrossing1 = ({
+const animalCrossing1 = new Post({
   author_id: demoUser._id,
   game_id: game21._id,
   comment_id: [commentAnimalCrossing1._id],
@@ -2638,7 +2642,7 @@ const animalCrossing1 = ({
   description: " Island Paradise Calling! Animal Crossing Addicts, Unite! Ready to swap fruits, design dreamy homes, and share in the joy of a peaceful virtual life? Seeking fellow villagers to trade, chat, and create memories with. Drop your friend codes below and let's build our own idyllic world!"
 });
 
-const animalCrossing2 = ({
+const animalCrossing2 = new Post({
   author_id: user5._id,
   game_id: game21._id,
   comment_id: [commentAnimalCrossing2._id],
@@ -2646,7 +2650,7 @@ const animalCrossing2 = ({
   description: "Let's Hang Out in Animal Crossing! Looking for pals to fish, catch bugs, and enjoy the simple life on our islands. Whether you're a novice or a seasoned pro, let's trade, visit, and have a blast together. DM me or leave your Dodo codes – it's time to make memories!"
 });
 
-const animalCrossing3 = ({
+const animalCrossing3 = new Post({
   author_id: user5._id,
   game_id: game21._id,
   comment_id: [commentAnimalCrossing3._id, commentAnimalCrossing4._id],
@@ -2658,22 +2662,22 @@ posts.push(animalCrossing1);
 posts.push(animalCrossing2);
 posts.push(animalCrossing3);
 
-const commentOvercooked1 = ({
+const commentOvercooked1 = new Comment({
   author_id: user3._id,
   content: "Count me in! Ready to cook up chaos and hilarity in the virtual kitchen!"
 });
 
-const commentOvercooked2 = ({
+const commentOvercooked2 = new Comment({
   author_id: user5._id,
   content: "Let's whip up some crazy dishes together! Overcooked 2 is a recipe for fun!"
 });
 
-const commentOvercooked3 = ({
+const commentOvercooked3 = new Comment({
   author_id: user10._id,
   content: "I'm up for a challenge! Let's tackle crazy orders and kitchen madness in Overcooked 2!"
 });
 
-const commentOvercooked4 = ({
+const commentOvercooked4 = new Comment({
   author_id: user2._id,
   content: "Teamwork and culinary chaos? Count me in! Let's create masterpieces and chaos together!"
 });
@@ -2683,7 +2687,7 @@ comments.push(commentOvercooked2);
 comments.push(commentOvercooked3);
 comments.push(commentOvercooked4);
 
-const overcooked1 = ({
+const overcooked1 = new Post({
   author_id: user8._id,
   game_id: game22._id,
   comment_id: [commentOvercooked1._id, commentOvercooked2._id],
@@ -2691,7 +2695,7 @@ const overcooked1 = ({
   description: "Ready to Heat Up the Kitchen in Overcooked 2! Culinary Chaos Awaits! Grab your aprons and spatulas – it's time to team up, chop, cook, and serve our way to victory! Seeking fellow chefs to join the madness. Let's create culinary masterpieces and hilarious disasters together!"
 });
 
-const overcooked2 = ({
+const overcooked2 = new Post({
   author_id: user7._id,
   game_id: game22._id,
   comment_id: [commentOvercooked3._id, commentOvercooked4._id],
