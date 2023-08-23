@@ -31,7 +31,7 @@ const EditProfile = ({ setIsEditing }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const currentUser = useSelector(state => state?.session?.user);
-  const [errors, setErrors] = useState({username: '', email: '', description: ''});
+  const [errors, setErrors] = useState({username: currentUser?.username === "demo" ? "Sorry, the demo user's username cannot be changed" : "", email: '', description: ''});
   const [username, setUsername] = useState(currentUser?.username);
   const [email, setEmail] = useState(currentUser?.email);
   const [description, setDescription] = useState(currentUser?.description || '');
@@ -234,6 +234,7 @@ const EditProfile = ({ setIsEditing }) => {
               value={username}
               onChange={(e) => handleChange(e, 'username')}
               placeholder="How should we call you?"
+              disabled={currentUser?.username === "demo"}
               />
           </div>
 
