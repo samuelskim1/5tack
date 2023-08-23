@@ -10,9 +10,14 @@ const PostIndex = ({ posts, type }) => {
       </div>
     )
   }
-
+console.log(type);
   return (
     <div className="posts-index-container">
+      {!type && (
+        <div id="game-show-shadow-anchor">
+          <div id="game-show-shadow" />
+        </div>
+      )}
       {posts.map((post, idx) => (
         <PostIndexItem post={post} key={post + idx} type={type} />
       ))}

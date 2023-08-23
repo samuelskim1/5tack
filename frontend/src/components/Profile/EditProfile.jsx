@@ -212,7 +212,7 @@ const EditProfile = ({ setIsEditing }) => {
     if (currentUser) {
       setPlayStyle(currentUser.playStyle);
     }
-  }, [])
+  }, [currentUser])
 
 
 
