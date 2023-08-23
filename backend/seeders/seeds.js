@@ -28,107 +28,125 @@ const images = [
   "https://5tack.s3.amazonaws.com/public/15.jpeg"
 ];
 
-function getRandomImage() {
-  const randomIndex = Math.floor(Math.random() * images.length);
-  return images[randomIndex];
-}
 
 const demoUser = new User({
   username: 'demo',
   email: 'demo@user.com',
-  description: 'i am demo user',
+  description: "hey there, i'm the demo user! i enjoy long walks on the beach and messing around on league of legends. feel free to add me: 5TACK DEMO USER #NA1",
   profileImageUrl: "https://5tack.s3.amazonaws.com/public/cartoon-dead-fish.png",
   hashedPassword: bcrypt.hashSync('password', 10),
+  favorites: ["League of Legends", "Maple Story", "Minecraft"],
+  playStyle: ["casual", "competitive", "troll"],
   review_id: []
 })
 
 const user1 = new User({
-  username: 'johndoe',
-  email: 'johndoe@user.com',
-  description: 'Hi, my name is John Doe and I love hiking and traveling.',
-  profileImageUrl: getRandomImage(),
+  username: 'theLEGEND',
+  email: 'theLEGEND@user.com',
+  description: 'what is up everyone, i go by the LEGEND in most games. hit me up',
+  profileImageUrl: images[0],
   hashedPassword: bcrypt.hashSync('password', 10),
+  favorites: ["League of Legends"],
+  playStyle: ["troll", "toxic"],
   review_id: []
 })
 
 const user2 = new User({
-  username: 'janedoe',
-  email: 'janedoe@user.com',
-  description: 'Hi, I am Jane Doe and I enjoy reading and trying out new recipes.',
-  profileImageUrl: getRandomImage(),
+  username: 'gaming101',
+  email: 'gaming101@user.com',
+  description: 'comment on my posts if you would like to add me. mastering the basics is the key to being good at any game',
+  profileImageUrl: images[1],
   hashedPassword: bcrypt.hashSync('password', 10),
+  favorites: ["Terraria", "FIFA", "Rocket League", "Starcraft II"],
+  playStyle: ["competitive", "casual"],
   review_id: []
 })
 
 const user3 = new User({
-  username: 'davidbrown',
-  email: 'davidbrown@user.com',
-  description: 'Hey, I am David Brown and I am a big fan of basketball and playing guitar.',
-  profileImageUrl: getRandomImage(),
+  username: 'shank35',
+  email: 'shank35@user.com',
+  description: "i'm grandmaster on League of Legends (NA server). i mainly play Yone, and i'm online almost every day",
+  profileImageUrl: images[2],
   hashedPassword: bcrypt.hashSync('password', 10),
+  favorites: ["League of Legends", "Minecraft"],
+  playStyle: ["competitive", "toxic"],
   review_id: []
 })
 
 const user4 = new User({
-  username: 'emilyjones',
-  email: 'emilyjones@user.com',
-  description: 'Hey, I am Emily Jones and I enjoy yoga and painting in my free time.',
-  profileImageUrl: getRandomImage(),
+  username: 'GOATEDsam',
+  email: 'GOATEDsam@user.com',
+  description: "people know me as the GOAT. let's play together and you'll see what everyone is talking about",
+  profileImageUrl: images[3],
   hashedPassword: bcrypt.hashSync('password', 10),
+  favorites: ["League of Legends", "Valorant", "Fortnite"],
+  playStyle: ["troll"],
   review_id: []
 })
 
 const user5 = new User({
-  username: 'chrisbrown',
-  email: 'chrisbrown@user.com',
-  description: 'Hi, my name is Chris Brown and I love playing football and listening to hip-hop music.',
-  profileImageUrl: getRandomImage(),
+  username: 'milly',
+  email: 'milly@user.com',
+  description: '... i like games',
+  profileImageUrl: images[4],
   hashedPassword: bcrypt.hashSync('password', 10),
+  favorites: ["Super Smash Bros. Ultimate", "Lost Ark", "Stardew Valley", "DOTA 2"],
+  playStyle: ["casual"],
   review_id: []
 })
 
 const user6 = new User({
-  username: 'annasmith',
-  email: 'annasmith@user.com',
-  description: 'Hey, I am Anna Smith and I enjoy playing tennis and going to music festivals.',
-  profileImageUrl: getRandomImage(),
+  username: 'genjimain',
+  email: 'genjimain@user.com',
+  description: 'hey everyone, i play Overwatch and i main Genji. i would love to duo with an Ana main',
+  profileImageUrl: images[5],
   hashedPassword: bcrypt.hashSync('password', 10),
+  favorites: ["Overwatch", "Apex Legends"],
+  playStyle: ["competitive", "troll"],
   review_id: []
 })
 
 const user7 = new User({
-  username: 'jasonwang',
-  email: 'jasonwang@user.com',
-  description: 'Hi, I am Jason Wang and I love hiking and trying out new restaurants.',
-  profileImageUrl: getRandomImage(),
+  username: 'player1',
+  email: 'player1@user.com',
+  description: 'i like exploring new games, just looking to make some new friends',
+  profileImageUrl: images[6],
   hashedPassword: bcrypt.hashSync('password', 10),
+  favorites: ["CS:GO", "NBA 2K23", "Grand Theft Auto V"],
+  playStyle: ["casual"],
   review_id: []
 })
 
 const user8 = new User({
-  username: 'sarahmiller',
-  email: 'sarahmiller@user.com',
-  description: 'Hey, I am Sarah Miller and I enjoy playing basketball and reading science fiction books.',
-  profileImageUrl: getRandomImage(),
+  username: 'originalgamer',
+  email: 'originalgamer@user.com',
+  description: "i'm a parent of two, so i usually only have an hour or two of downtime at night. would love to meet some casual players",
+  profileImageUrl: images[7],
   hashedPassword: bcrypt.hashSync('password', 10),
+  favorites: ["Minecraft"],
+  playStyle: ["casual"],
   review_id: []
 })
 
 const user9 = new User({
-  username: 'robertjones',
-  email: 'robertjones@user.com',
-  description: 'Hi, my name is Robert Jones and I love playing video games and watching movies.',
-  profileImageUrl: getRandomImage(),
+  username: 'thetactician',
+  email: 'thetactician@user.com',
+  description: 'always looking to improve my gameplay and strategies!',
+  profileImageUrl: images[8],
   hashedPassword: bcrypt.hashSync('password', 10),
+  favorites: ["Starcraft II"],
+  playStyle: ["competitive"],
   review_id: []
 })
 
 const user10 = new User({
-  username: 'amandasmith',
-  email: 'amandasmith@user.com',
-  description: 'Hi, I am Amanda Smith and I enjoy hiking and playing guitar in my free time.',
-  profileImageUrl: getRandomImage(),
+  username: 'funlover',
+  email: 'funlover@user.com',
+  description: 'i play games to have fun. it is all just fun and games with me',
+  profileImageUrl: images[9],
   hashedPassword: bcrypt.hashSync('password', 10),
+  favorites: [],
+  playStyle: ["troll", "casual", "toxic"],
   review_id: []
 })
 
@@ -160,10 +178,16 @@ const game11 = new Game({ name: 'NBA 2K23', nameURL: "NBA2K23", imageUrls: ["htt
 const game12 = new Game({ name: 'Stardew Valley', nameURL: "StardewValley", imageUrls: ["https://5tack.s3.amazonaws.com/public/no_text/stardewvalley.jpeg"] });
 const game13 = new Game({ name: 'Starcraft II', nameURL: "StarcraftII", imageUrls: ["https://5tack.s3.amazonaws.com/public/no_text/starcraft2.jpeg"] });
 const game14 = new Game({ name: 'Terraria', nameURL: "Terraria", imageUrls: ["https://5tack.s3.amazonaws.com/public/no_text/terraria.jpeg"] });
-const game15 = new Game({ name: 'DOTA 2', nameURL: "DOTA 2", imageUrls: ["https://5tack.s3.amazonaws.com/public/no_text/dota2.jpeg"] });
+const game15 = new Game({ name: 'DOTA 2', nameURL: "DOTA2", imageUrls: ["https://5tack.s3.amazonaws.com/public/no_text/dota2.jpeg"] });
 const game16 = new Game({ name: 'Overwatch', nameURL: "Overwatch", imageUrls: ["https://5tack.s3.amazonaws.com/public/no_text/overwatch.jpeg"] });
 const game17 = new Game({ name: 'Grand Theft Auto V', nameURL: "GrandTheftAutoV", imageUrls: ["https://5tack.s3.amazonaws.com/public/no_text/gta5.jpeg"] });
 const game18 = new Game({ name: 'Maple Story', nameURL: "MapleStory", imageUrls: ["https://5tack.s3.amazonaws.com/public/no_text/maplestory.jpeg"] });
+const game19 = new Game({ name: 'Age of Empires IV', nameURL: "AgeofEmpiresIV", imageUrls: ["https://5tack.s3.amazonaws.com/public/no_text/ageofempires.jpeg"] });
+const game20 = new Game({ name: 'Street Fighter 6', nameURL: "StreetFighter6", imageUrls: ["https://5tack.s3.amazonaws.com/public/no_text/streetfighter.jpeg"] });
+const game21 = new Game({ name: 'Animal Crossing', nameURL: "AnimalCrossing", imageUrls: ["https://5tack.s3.amazonaws.com/public/no_text/animalcrossing.jpeg"] });
+const game22 = new Game({ name: 'Overcooked 2', nameURL: "Overcooked2", imageUrls: ["https://5tack.s3.amazonaws.com/public/no_text/overcooked2.jpeg"] });
+
+
 
 games.push(
   game1, 
@@ -224,12 +248,10 @@ const category4 = new Category({
 
 
 const category5 = new Category({
-  name: 'Open World',
+  name: 'Simulation',
   game_id: [
-    game6,
-    game12,
-    game14,
-    game17
+    game21,
+    game22
   ]
 })
 
@@ -271,14 +293,16 @@ const category9 = new Category({
 const category10 = new Category({
   name: 'RTS$Real-time strategy',
   game_id: [
-    game13
+    game13,
+    game19
   ]
 })
 
 const category11 = new Category({
   name: 'Fighting',
   game_id: [
-    game9
+    game9,
+    game20
   ]
 })
 
