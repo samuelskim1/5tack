@@ -3618,7 +3618,7 @@ user3.review_id.push(review83._id);
 const review84 = new Review({
   user_id: user4._id,
   reviewer_id: user1._id,
-  title: "GOATEDsam is a friendly and talented gaming partner",
+  title: "GOATEDsam is friendly and skilled",
   rating: 5,
   description: "GOATEDsam is an excellent player and a pleasure to game with. We had a fantastic time playing together, and I can't wait for more gaming sessions with her."
 })
