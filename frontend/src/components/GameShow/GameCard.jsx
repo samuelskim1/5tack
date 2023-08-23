@@ -70,10 +70,10 @@ const GameCard = ({ game }) => {
   return (
     <div className="game-show-container">
       <div className="game-show-top">
-        <h2>{game?.name?.toUpperCase()}</h2>
         <img src={game?.imageUrls[0]} alt={`${game?.name} ${1}`} />
-
       </div>
+
+      <h2>{game?.name?.toUpperCase()}</h2>
 
       <div className="game-show-bottom">
         <div id="create-review-content">
