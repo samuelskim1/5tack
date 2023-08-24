@@ -9,7 +9,7 @@ const PostIndex = ({ posts, type }) => {
   
   const handleScroll = () => {
     const scrollPosition = window.scrollY; // => scroll position
-    if (shadow && scrollPosition >= 130 && scrollPosition <= 170) {
+    if (shadow.current && scrollPosition >= 130 && scrollPosition <= 170) {
       shadow.current.style.height = scrollPosition - 80 + "px";
     }
   };
