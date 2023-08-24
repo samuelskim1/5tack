@@ -22,6 +22,8 @@
   min-height: 650px;
   width: 42%;
   border-radius: 12px 12px 0 0;
+
+  display: flex;
 }
 
 .hidden {
@@ -35,7 +37,6 @@
   max-height: calc(100vh - 90px);
   min-height: calc(100vh - 130px);
 
-  padding: 30px 50px;
   background-color: $default-white;
   color: $darkest-blue;
 }
