@@ -13,6 +13,22 @@
   color: $default-white;
 }
 
+#game-show-shadow-anchor {
+  position: sticky;
+  top: 130px;
+  width: 100%;
+  height: 0;
+}
+
+#game-show-shadow {
+  position: absolute;
+  top: -50px;
+  width: calc(100% + 2px);
+  height: 50px;
+  background-image: linear-gradient(#11151c, #11151ce6, #11151ca8, #11151c05);
+  background-image: linear-gradient(#11151c, #11151ca8, #11151c05);
+}
+
 .post-index-item {
   box-sizing: border-box;
   width: 100%;

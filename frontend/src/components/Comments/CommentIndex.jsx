@@ -16,7 +16,6 @@ const CommentIndex = ({ post }) => {
   const [content, setContent] = useState('');
   const [canSubmit, setCanSubmit] = useState(false);
   const [count, setCount] = useState(content?.length);
-  const [editing, setEditing] = useState(false);
 
 
   const handleSubmit = async (e) => {
@@ -69,18 +68,16 @@ const CommentIndex = ({ post }) => {
       ))}
 
       <div className='comment-item'>
-          <Link to={`/${currentUser?.username}`}>
-            <img src={currentUser?.profileImageUrl} alt={currentUser?.username} />
-          </Link>
         <div className='comment-text-holder'>
           <div className='comment-body'>
+            <Link to={`/${currentUser?.username}`}>
+              <img src={currentUser?.profileImageUrl} alt={currentUser?.username} />
+            </Link>
             <textarea
               placeholder='Say something to begin your premade journey!'
               value={content}
               onChange={(e) => handleChange(e)}
               onKeyDown={(e) => handleEnter(e)}
-              onFocus={() => setEditing(true)}
-              onBlur={() => setEditing(false)}
             />
             {canSubmit ? <i 
               className="fa-regular fa-paper-plane" 

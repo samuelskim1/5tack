@@ -7,9 +7,9 @@ import { AuthRoute, ProtectedRoute } from './components/Routes/Routes';
 import SplashPage from './components/SplashPage/SplashPage';
 // import HomePage from './components/HomePage/HomePage';
 import Profile from './components/Profile/Profile';
-// import GameShow from './components/GameShow/GameShow'; 
+import GameShow from './components/GameShow/GameShow'; 
 // import AboutPage from './components/AboutPage/AboutPage'; 
-// import LostPage from './components/LostPage/LostPage';
+import LostPage from './components/LostPage/LostPage';
 import AuthNavBar from './components/AuthNavBar/AuthNavBar';
 
 const App = () => {
@@ -29,10 +29,10 @@ const App = () => {
         <AuthRoute exact path="/" component={SplashPage} />
         {/* <ProtectedRoute exact path="/home" component={HomePage} /> */}
         {/* <Route exact path="/about" component={AboutPage} /> */}
-        {/* <ProtectedRoute exact path="/games/:nameURL" component={GameShow} /> */}
+        <ProtectedRoute exact path="/games/:nameURL" component={GameShow} />
         <ProtectedRoute exact path="/:username" component={Profile} />
         {/* <ProtectedRoute exact path="/uh-oh/404" component={LostPage} /> */}
-        {/* <ProtectedRoute component={LostPage} /> */}
+        <ProtectedRoute component={LostPage} />
       </Switch>
     </div>
   );

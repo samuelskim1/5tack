@@ -30,7 +30,7 @@
             border-radius: 6px;
             background-color: $default-white;
             z-index: 1;
-            width: 120px;
+            width: 140px;
             transform: translateX(-50%);
 
             .user-info-divider { margin: 7px 0; }
@@ -52,6 +52,10 @@
                 font-size: 14px;
                 line-height: normal;
             }
+
+            > .drop-link:first-of-type {
+                font-weight: 500;
+            }
             
             .fav {
                 padding: 3px 15px;
@@ -63,10 +67,10 @@
                 font-size: 12px;
             }
 
-            p:nth-child(2) {
-                cursor: unset;
-                font-weight: 500;
-            }
+            // p:nth-child(2) {
+            //     cursor: unset;
+            //     font-weight: 500;
+            // }
 
             div.drop-link {
                 display: flex;
@@ -79,6 +83,11 @@
             .drop-link:hover {
                 background-color: $darkest-blue;
                 color: $default-white;
+            }
+
+            > .drop-link:first-of-type:hover {
+                background-color: initial;
+                color: initial;
             }
 
             p:nth-child(2):hover {
