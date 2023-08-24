@@ -46,26 +46,27 @@ const GameCard = ({ game }) => {
       setCanSubmit(false);
     }
   };
-
-  const handleSubmit = () => {
-    const post = {
-      comment_id: [],
-      author_id,
-      game_id,
-      title,
-      description
-    };
-
-    dispatch(createPost(post));
-  };
-
+  
   const handleReset = () => {
     setErrors({title: '', description: ''});
     setTitle(''); 
     setDescription(''); 
     setCanSubmit(false)
   };
-
+  
+    const handleSubmit = () => {
+      const post = {
+        comment_id: [],
+        author_id,
+        game_id,
+        title,
+        description
+      };
+  
+      dispatch(createPost(post));
+      handleReset();
+    };
+  
 
   return (
     <div className="game-show-container">
