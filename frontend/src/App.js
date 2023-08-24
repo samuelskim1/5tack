@@ -10,6 +10,7 @@ import Profile from './components/Profile/Profile';
 import AboutPage from './components/AboutPage/AboutPage'; 
 import LostPage from './components/LostPage/LostPage';
 import AuthNavBar from './components/AuthNavBar/AuthNavBar';
+import UnauthNav from './components/UnauthNav/UnauthNav';
 
 const App = () => {
   const [loaded, setLoaded] = useState(false);
@@ -22,7 +23,8 @@ const App = () => {
 
   return loaded && (
     <div>
-      {currentUser && <AuthNavBar />}
+      {/* {currentUser && <AuthNavBar />} */}
+      {currentUser ? <AuthNavBar /> : <UnauthNav />}
 
       <Switch>
         <AuthRoute exact path="/" component={SplashPage} />

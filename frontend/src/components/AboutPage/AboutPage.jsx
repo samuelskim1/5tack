@@ -48,9 +48,8 @@ const AboutPage = () => {
 
     return (
         <>
-        {!currentUser && <UnauthNav />}
         <div id='about-container'>
-            <div id='auth-cards-background'>
+            <div id='auth-cards-background' style={!currentUser ? {minHeight: 'calc(100vh - 100px)'} : {minHeight: ''}}>
                 <div>
                     <div>
                         <AboutCard info={teamMembers[0]} />
