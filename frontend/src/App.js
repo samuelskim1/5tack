@@ -3,14 +3,14 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentUser } from './store/session';
 import { AuthRoute, ProtectedRoute } from './components/Routes/Routes';
-// import NavBar from './components/NavBar/NavBar';
 import SplashPage from './components/SplashPage/SplashPage';
 // import HomePage from './components/HomePage/HomePage';
 import Profile from './components/Profile/Profile';
-import GameShow from './components/GameShow/GameShow'; 
-// import AboutPage from './components/AboutPage/AboutPage'; 
+import AboutPage from './components/AboutPage/AboutPage';
+import GameShow from './components/GameShow/GameShow';
 import LostPage from './components/LostPage/LostPage';
 import AuthNavBar from './components/AuthNavBar/AuthNavBar';
+import UnauthNav from './components/UnauthNav/UnauthNav';
 
 const App = () => {
   const [loaded, setLoaded] = useState(false);
@@ -23,12 +23,13 @@ const App = () => {
 
   return loaded && (
     <div>
-      {currentUser && <AuthNavBar />}
+      {/* {currentUser && <AuthNavBar />} */}
+      {currentUser ? <AuthNavBar /> : <UnauthNav />}
 
       <Switch>
         <AuthRoute exact path="/" component={SplashPage} />
         {/* <ProtectedRoute exact path="/home" component={HomePage} /> */}
-        {/* <Route exact path="/about" component={AboutPage} /> */}
+        <Route exact path="/about" component={AboutPage} />
         <ProtectedRoute exact path="/games/:nameURL" component={GameShow} />
         <ProtectedRoute exact path="/:username" component={Profile} />
         {/* <ProtectedRoute exact path="/uh-oh/404" component={LostPage} /> */}

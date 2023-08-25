@@ -69,7 +69,9 @@ const UnauthNav = () => {
             </li>
 
             <li>
-              About us
+              <a href='/about'>
+                About us
+              </a>
             </li>
           </ul>
         </div>

@@ -3,6 +3,7 @@ import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useEffect, useRef, useState } from "react";
 import { logout } from "../../store/session";
 import './AuthDropdown.scss';
+import { useParams } from "react-router-dom/cjs/react-router-dom";
 
 const AuthDropdown = () => {
     const currentUser = useSelector(state => state.session?.user);
@@ -11,12 +12,17 @@ const AuthDropdown = () => {
     const dropdown = useRef();
     const dispatch = useDispatch();
     const history = useHistory();
+    const trigger = useParams();
+
+    useEffect(() => {
+        setShowDrop(false);
+        setShowFav(false);
+    }, [trigger])
 
     useEffect(() => {
         const closeDrop = (e) => {
             // dropdown is open and dropdown is on page and the click is not inside the dropdown
             if (showDrop && dropdown.current && !dropdown.current.contains(e.target)) {
-                console.log('when the fuck is this happening')
                 setShowDrop(false);
                 setShowFav(false);
             }
