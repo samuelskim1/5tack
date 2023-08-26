@@ -206,32 +206,19 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-router.post('/search', async (req, res) => {
-  // let user;
-  // try {
-  //   user = await User.findOne({ username: req.params.username });
-  //   if (!user) {
-  //     const error = new Error('User not found');
-  //     error.statusCode = 404;
-  //     error.errors = { message: "No user found with that username" };
-  //     return next(error);
-  //   }
-  // } catch(err) {
-  //   const error = new Error('User not found');
-  //   error.statusCode = 404;
-  //   error.errors = { message: "No user found with that username" };
-  //   return next(error);
-  // }
 
-  try {
-    let user = await User.find({playStyle: "competitive", playStyle: "troll"})
-    console.log(user);
-    return res.json(user);
-  }
-  catch(err) {
-    return res.json([]);
-  }
-})
+// EXPERIMENTAL USER SEARCH ROUTE
+
+// router.post('/search', async (req, res) => {
+//   try {
+//     let user = await User.find({playStyle: {$all: ["competitive", "troll", "casual"]}})
+//     console.log(user);
+//     return res.json(user);
+//   }
+//   catch(err) {
+//     return res.json([]);
+//   }
+// })
 
 
 module.exports = router;
