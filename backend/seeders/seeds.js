@@ -17,7 +17,7 @@ const images = [
   "https://5tack.s3.amazonaws.com/public/1.jpeg", 
   "https://5tack.s3.amazonaws.com/public/2.jpeg",
   "https://5tack.s3.amazonaws.com/public/3.jpeg",
-  "https://5tack.s3.amazonaws.com/public/3.jpeg",
+  "https://5tack.s3.amazonaws.com/public/4.jpeg",
   "https://5tack.s3.amazonaws.com/public/5.jpeg",
   "https://5tack.s3.amazonaws.com/public/6.jpeg",
   "https://5tack.s3.amazonaws.com/public/7.jpeg",
