@@ -9,7 +9,7 @@
 
 #auth-cards-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   height: 100%;
   min-width: 1000px;
   max-height: fit-content;
@@ -20,7 +20,7 @@
 .auth-card {  
   box-sizing: border-box;
   min-height: 650px;
-  width: 42%;
+  width: 42.5%;
   border-radius: 12px 12px 0 0;
 
   display: flex;
