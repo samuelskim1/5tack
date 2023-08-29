@@ -1,0 +1,31 @@
+@import '../../App.scss';
+
+#home-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 50px;
+
+  h2 {
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: -1px;
+  }
+
+  p {
+    // margin: 50px 0;
+    font-size: 18px;
+  }
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  i {
+    font-size: 2em;
+    justify-self: flex-end;
+  }
+}

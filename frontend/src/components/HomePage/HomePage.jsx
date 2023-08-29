@@ -1,10 +1,12 @@
 import AuthCards from "../AuthCards/AuthCards";
+import HomeCard from "./HomeCard";
+import './HomePage.scss';
 
 
 const HomePage = () => {
 
   return (
-    <AuthCards />
+    <AuthCards card1={<HomeCard />} />
   )
 };
 
