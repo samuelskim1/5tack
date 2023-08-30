@@ -24,7 +24,7 @@ time, mark, audio, video, textarea {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-	font-family: "Inter", "system-ui";
+	font-family: "-apple-system", "BlinkMacSystemFont", "Inter", "system-ui";
 	text-decoration: none;
 	color: inherit;
 }
