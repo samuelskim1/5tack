@@ -7,12 +7,20 @@ const SplashPage = () => {
   const reviewsCard = useRef();
 
   useEffect(() => {
-    setTimeout(() => {
-      postsCard?.current?.classList.remove('hidden');
-      postsCard?.current?.classList.add('fade-in');
-      reviewsCard?.current?.classList.remove('hidden');
-      reviewsCard?.current?.classList.add('fade-in');
-    }, 2200)
+    const fadeIn = () => {
+      setTimeout(() => {
+        postsCard?.current?.classList.remove('hidden');
+        postsCard?.current?.classList.add('fade-in');
+        reviewsCard?.current?.classList.remove('hidden');
+        reviewsCard?.current?.classList.add('fade-in');
+      }, 2200)
+    }
+
+    fadeIn();
+
+    return () => {
+      clearTimeout(fadeIn);
+    }
   }, [])
 
   return (
