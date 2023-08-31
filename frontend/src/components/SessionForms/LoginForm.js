@@ -41,7 +41,7 @@ const LoginForm = () => {
       <div id="session-form-container">
         <form className="session-form">
 
-          <img src="../../../apple-touch-icon.png" alt="5TACK logo" />
+          <img src="../../../big-logo.png" alt="5TACK logo" />
           <h2>5TACK</h2>
 
           <div className="errors">{errors?.credentials}</div>

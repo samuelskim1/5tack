@@ -45,7 +45,7 @@ const UnauthNav = () => {
         <div id="unauth-content-container">
           <div id="unauth-title">
             <Link to="/">
-              <img src="../../../apple-touch-icon.png" alt="5TACK logo" />
+              <img src="../../../big-logo.png" alt="5TACK logo" />
             </Link>
 
             <Link to="/">
