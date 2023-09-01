@@ -221,7 +221,8 @@ const category1 = new Category({
   game_id: [
     game1,
     game15
-  ]
+  ],
+  description: "Multiplayer online battle arena (MOBA) is a subgenre of strategy video games in which two teams of players compete against each other on a predefined battlefield. Each player controls a single character with a set of distinctive abilities that improve over the course of a game and which contribute to the team's overall strategy. The typical ultimate objective is for each team to destroy their opponents' main structure, located at the opposite corner of the battlefield. In some MOBA games, the objective can be defeating every player on the enemy team."
 })
 
 const category2 = new Category({
@@ -231,7 +232,8 @@ const category2 = new Category({
     game3,
     game5,
     game16
-  ]
+  ],
+  description: "First-person shooter (FPS) is a sub-genre of shooter video games centered on gun and other weapon-based combat in a first-person perspective, with the player experiencing the action through the eyes of a protagonist or antagonist which is armed, and then controlling the player character in a three-dimensional space. The genre shares common traits with other shooter games, and in turn falls under the action game genre."
 })
 
 const category3 = new Category({
@@ -239,7 +241,8 @@ const category3 = new Category({
   game_id: [
     game6,
     game14
-  ]
+  ],
+  description: "Survival games are a subgenre of video games which are usually set in hostile, intense, open-world environments. Players generally start with minimal equipment and are required to survive as long as possible by crafting tools, weapons, shelters, and collecting resources. Many survival games are based on randomly or procedurally generated persistent environments; more recently, survival games are often playable online, allowing players to interact in a single world. Survival games are generally open-ended with no set goals and often closely related to the survival horror genre, where the player must survive within a supernatural setting, such as a zombie apocalypse."
 })
 
 const category4 = new Category({
@@ -247,7 +250,8 @@ const category4 = new Category({
   game_id: [
     game4,
     game3
-  ]
+  ],
+  description: ""
 })
 
 
@@ -256,7 +260,8 @@ const category5 = new Category({
   game_id: [
     game21,
     game22
-  ]
+  ],
+  description: ""
 })
 
 const category6 = new Category({
@@ -266,7 +271,8 @@ const category6 = new Category({
     game14,
     game12,
     game17
-  ]
+  ],
+  description: ""
 })
 const category7 = new Category({
   name: 'Sports',
@@ -274,7 +280,8 @@ const category7 = new Category({
     game8,
     game7,
     game11
-  ]
+  ],
+  description: ""
 })
 const category8 = new Category({
   name: 'Role-Playing',
@@ -283,7 +290,8 @@ const category8 = new Category({
     game17,
     game18,
     game10
-  ]
+  ],
+  description: ""
 })
 
 const category9 = new Category({
@@ -291,7 +299,8 @@ const category9 = new Category({
   game_id: [
     game18,
     game10
-  ]
+  ],
+  description: ""
 })
 
 const category10 = new Category({
@@ -299,7 +308,8 @@ const category10 = new Category({
   game_id: [
     game13,
     game19
-  ]
+  ],
+  description: ""
 })
 
 const category11 = new Category({
@@ -307,7 +317,8 @@ const category11 = new Category({
   game_id: [
     game9,
     game20
-  ]
+  ],
+  description: ""
 })
 
 categories.push(

@@ -1,7 +1,5 @@
 import PostIndexItem from "./PostIndexItem";
 import './PostIndex.scss';
-import { useEffect } from "react";
-import { useRef } from "react";
 
 
 const PostIndex = ({ posts, type }) => {
@@ -21,9 +19,11 @@ const PostIndex = ({ posts, type }) => {
           <div id="game-show-shadow" />
         </div>
       )}
+
       {posts.map((post, idx) => (
         <PostIndexItem post={post} key={post + idx} type={type} />
       ))}
+
     </div>
   )
 };
