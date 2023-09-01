@@ -25,7 +25,7 @@ const SplashPage = () => {
 
   return (
     <div id="splash-container">
-      <UnauthNav />
+      {/* <UnauthNav /> */}
 
       <div id="splash-cards-container">
         <section className="splash-card posts-card">
