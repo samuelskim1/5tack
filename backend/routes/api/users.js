@@ -207,4 +207,18 @@ router.delete('/:id', async (req, res) => {
 });
 
 
+// EXPERIMENTAL USER SEARCH ROUTE
+
+// router.post('/search', async (req, res) => {
+//   try {
+//     let user = await User.find({playStyle: {$all: ["competitive", "troll", "casual"]}})
+//     console.log(user);
+//     return res.json(user);
+//   }
+//   catch(err) {
+//     return res.json([]);
+//   }
+// })
+
+
 module.exports = router;

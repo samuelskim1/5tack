@@ -141,7 +141,7 @@ const Summary = ({ moodyButton, setSelectedTab, setIsReviewing }) => {
           <div className="user-info-label tags-label">Play style: </div>
           <div className="user-info-content">
             {showUser?.playStyle?.map((style, idx) => (
-              style && <p className="user-info-tag" key={style + idx}>#{style}</p>
+              style && <p className="user-info-tag playstyle" key={style + idx}>#{style}</p>
             ))}
             {((showUser?.playStyle?.length === 1 && !showUser?.playStyle[0]) || (!showUser?.playStyle?.length)) && (
               <p className="no-user-info">This gamer has not yet added any usual play styles.</p>

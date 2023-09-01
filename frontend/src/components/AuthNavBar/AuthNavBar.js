@@ -9,7 +9,7 @@ const AuthNavBar = () => {
             <div id="nav-content-container">
                 <Link
                 to='/home'>
-                    <img id='icon' src='../../../apple-touch-icon.png' />
+                    <img id='icon' src='../../../big-logo.png' />
                 </Link>
                 <CategoryNav />
                 <AuthDropdown />

@@ -1,0 +1,52 @@
+@import '../../App.scss';
+
+#home-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+
+  div {
+    padding: 30px 50px; 
+    
+      > .user-info-divider {
+        margin-bottom: 15px;
+        padding: 0;
+      }
+    
+      h2 {
+        font-size: 96px;
+        font-weight: 700;
+        letter-spacing: -1px;
+      }
+    
+      p {
+        font-size: 18px;
+    
+        // &:first-child {
+          margin-bottom: 15px;
+        // }
+      }
+  }
+  
+  img {
+    height: 65%;
+    object-fit: cover;
+    opacity: 0;
+    position: absolute;
+    bottom: -12%;
+    right: -8%;
+  }
+
+  .fade-in {
+    opacity: 0.15;
+    transition: opacity 5s;
+  }
+
+  i {
+    font-size: 2em;
+    align-self: flex-end;
+  }
+}

@@ -94,6 +94,22 @@ export const updateUser = userInfo => async dispatch => {
 }
 
 
+// EXPERIMENTAL USER SEARCH THUNK ACTION CREATOR
+
+// export const searchUser = userInfo => async dispatch => {
+//   try {
+//     const res = await jwtFetch('/api/users/search', {
+//       method: "POST",
+//       body: JSON.stringify(userInfo)
+//     })
+//     const things = await res.json();
+//     console.log(things);
+//   } catch (err) {
+//     console.log(err.json());
+//   }
+// };
+
+
 // REDUCER
 export const userErrorsReducer = (state = null, action) => {
   switch (action.type) {

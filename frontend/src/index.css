@@ -24,7 +24,7 @@ time, mark, audio, video, textarea {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-	font-family: "system-ui", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-family: "-apple-system", "BlinkMacSystemFont", "Inter", "system-ui";
 	text-decoration: none;
 	color: inherit;
 }

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentUser } from './store/session';
 import { AuthRoute, ProtectedRoute } from './components/Routes/Routes';
 import SplashPage from './components/SplashPage/SplashPage';
-// import HomePage from './components/HomePage/HomePage';
+import HomePage from './components/HomePage/HomePage';
 import Profile from './components/Profile/Profile';
 import AboutPage from './components/AboutPage/AboutPage';
 import GameShow from './components/GameShow/GameShow';
@@ -22,7 +22,7 @@ const App = () => {
   }, [dispatch]);
 
   return loaded && (
-    <div>
+    <>
       {/* {currentUser && <AuthNavBar />} */}
       {currentUser ? <AuthNavBar /> : <UnauthNav />}
 
@@ -35,7 +35,7 @@ const App = () => {
         {/* <ProtectedRoute exact path="/uh-oh/404" component={LostPage} /> */}
         <ProtectedRoute component={LostPage} />
       </Switch>
-    </div>
+    </>
   );
 }
 
