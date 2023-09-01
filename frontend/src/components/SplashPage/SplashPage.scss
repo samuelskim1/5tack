@@ -2,7 +2,8 @@
 
 #splash-container {
   background-color: $darkest-blue;
-  height: 100vh;
+  // height: 100vh;
+  height: calc(100vh - 100px);
   // overflow: hidden;
 }
 
@@ -11,8 +12,10 @@
   justify-content: space-around;
   height: 100%;
   min-width: 1000px;
+  // max-height: calc(100vh - 150px);
   max-height: calc(100vh - 150px);
-  margin-top: 50px;
+  // margin-top: 50px;
+  padding-top: 50px;
   overflow: hidden;
 }
 
