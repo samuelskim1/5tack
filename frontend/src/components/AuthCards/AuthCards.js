@@ -16,7 +16,6 @@ const AuthCards = ({ card1, card2 }) => {
         <section className="auth-card right-card" ref={secondCard}>
           {card2}
         </section>
-
       </main>
     </div>
   )

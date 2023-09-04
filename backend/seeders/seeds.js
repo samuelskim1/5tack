@@ -222,7 +222,8 @@ const category1 = new Category({
     game1,
     game15
   ],
-  description: "Multiplayer online battle arena (MOBA) is a subgenre of strategy video games in which two teams of players compete against each other on a predefined battlefield. Each player controls a single character with a set of distinctive abilities that improve over the course of a game and which contribute to the team's overall strategy. The typical ultimate objective is for each team to destroy their opponents' main structure, located at the opposite corner of the battlefield. In some MOBA games, the objective can be defeating every player on the enemy team."
+  description: "Multiplayer online battle arena (MOBA) is a subgenre of strategy video games in which two teams of players compete against each other on a predefined battlefield. Each player controls a single character with a set of distinctive abilities that improve over the course of a game and which contribute to the team's overall strategy. The typical ultimate objective is for each team to destroy their opponents' main structure, located at the opposite corner of the battlefield.",
+  wikiLink: "https://en.wikipedia.org/wiki/Multiplayer_online_battle_arena"
 })
 
 const category2 = new Category({
@@ -233,7 +234,8 @@ const category2 = new Category({
     game5,
     game16
   ],
-  description: "First-person shooter (FPS) is a sub-genre of shooter video games centered on gun and other weapon-based combat in a first-person perspective, with the player experiencing the action through the eyes of a protagonist or antagonist which is armed, and then controlling the player character in a three-dimensional space. The genre shares common traits with other shooter games, and in turn falls under the action game genre."
+  description: "First-person shooter (FPS) is a sub-genre of shooter video games centered on gun and other weapon-based combat in a first-person perspective, with the player experiencing the action through the eyes of a protagonist or antagonist which is armed, and then controlling the player character in a three-dimensional space. The genre shares common traits with other shooter games, and in turn falls under the action game genre.",
+  wikiLink: "https://en.wikipedia.org/wiki/First-person_shooter"
 })
 
 const category3 = new Category({
@@ -242,7 +244,8 @@ const category3 = new Category({
     game6,
     game14
   ],
-  description: "Survival games are a subgenre of video games which are usually set in hostile, intense, open-world environments. Players generally start with minimal equipment and are required to survive as long as possible by crafting tools, weapons, shelters, and collecting resources. Many survival games are based on randomly or procedurally generated persistent environments; more recently, survival games are often playable online, allowing players to interact in a single world. Survival games are generally open-ended with no set goals and often closely related to the survival horror genre, where the player must survive within a supernatural setting, such as a zombie apocalypse."
+  description: "Survival games are a subgenre of video games which are usually set in hostile, intense, open-world environments. Players generally start with minimal equipment and are required to survive as long as possible by crafting tools, weapons, shelters, and collecting resources. Many survival games are based on randomly or procedurally generated persistent environments; more recently, survival games are often playable online, allowing players to interact in a single world.",
+  wikiLink: "https://en.wikipedia.org/wiki/Survival_game"
 })
 
 const category4 = new Category({
@@ -251,7 +254,8 @@ const category4 = new Category({
     game4,
     game3
   ],
-  description: ""
+  description: "A battle royale game is an online multiplayer video game genre that blends last-man-standing gameplay with the survival, exploration and scavenging elements of a survival game. Battle royale games involve dozens to hundreds of players, who start with minimal equipment and then must eliminate all other opponents while avoiding being trapped outside of a shrinking 'safe area', with the winner being the last player or team alive.",
+  wikiLink: "https://en.wikipedia.org/wiki/Battle_royale_game"
 })
 
 
@@ -261,7 +265,8 @@ const category5 = new Category({
     game21,
     game22
   ],
-  description: ""
+  description: "Simulation video games are a diverse super-category of video games, generally designed to closely simulate real world activities. A simulation game attempts to copy various activities from real life in the form of a game for various purposes such as training, analysis, prediction, or entertainment. Usually there are no strictly defined goals in the game, and the player is allowed to control a character or environment freely.",
+  wikiLink: "https://en.wikipedia.org/wiki/Simulation_video_game"
 })
 
 const category6 = new Category({
@@ -272,7 +277,8 @@ const category6 = new Category({
     game12,
     game17
   ],
-  description: ""
+  description: "A sandbox game is a video game with a gameplay element that provides players a great degree of creativity to interact with, usually without any predetermined goal, or alternatively with a goal that the players set for themselves. Sandbox games are often associated with an open world concept which gives the players freedom of movement and progression in the game's world. The term 'sandbox' derives from the nature of a sandbox that lets children create nearly anything they want within it.",
+  wikiLink: ""
 })
 const category7 = new Category({
   name: 'Sports',
@@ -281,7 +287,8 @@ const category7 = new Category({
     game7,
     game11
   ],
-  description: ""
+  description: "",
+  wikiLink: ""
 })
 const category8 = new Category({
   name: 'Role-Playing',
@@ -291,7 +298,8 @@ const category8 = new Category({
     game18,
     game10
   ],
-  description: ""
+  description: "",
+  wikiLink: ""
 })
 
 const category9 = new Category({
@@ -300,7 +308,8 @@ const category9 = new Category({
     game18,
     game10
   ],
-  description: ""
+  description: "",
+  wikiLink: ""
 })
 
 const category10 = new Category({
@@ -309,7 +318,8 @@ const category10 = new Category({
     game13,
     game19
   ],
-  description: ""
+  description: "",
+  wikiLink: ""
 })
 
 const category11 = new Category({
@@ -318,7 +328,8 @@ const category11 = new Category({
     game9,
     game20
   ],
-  description: ""
+  description: "",
+  wikiLink: ""
 })
 
 categories.push(
