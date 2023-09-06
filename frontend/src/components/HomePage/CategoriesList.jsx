@@ -9,17 +9,9 @@ const CategoriesList = () => {
     const split = category.name.split("$");
 
     if (split[0] && split[1]) {
-      return (
-        <li>
-          {split[1]} ({split[0]})
-        </li>
-      )
+      return split[1] + " (" + split[0] + ")"
     } else {
-      return (
-        <li>
-          {split[0]}
-        </li>
-      )
+      return split[0]
     }
   };
 
@@ -32,7 +24,29 @@ const CategoriesList = () => {
   return (
     <ul id="category-list">
       {categories?.map(category => (
-        generateCategory(category)
+        <li>
+          <div className="category-info">
+            <h4>
+              {generateCategory(category)}
+            </h4>
+
+            <div>
+              <p>
+                {category.description}
+              </p>
+
+              <span>
+                {category.wikiLink}
+              </span>
+            </div>
+          </div>
+
+          <div className="category-images-container">
+            {category.game_id.map(game => (
+              <img src={game.imageUrls[0]} alt={game.name} style={{width: `calc(100% / ${category.game_id.length})`}}/>
+            ))}
+          </div>
+        </li>
       ))}
     </ul>
   )
