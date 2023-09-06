@@ -50,3 +50,11 @@
     align-self: flex-end;
   }
 }
+
+#category-list {
+  flex-direction: column;
+
+  li {
+    height: 100px;
+  }
+}

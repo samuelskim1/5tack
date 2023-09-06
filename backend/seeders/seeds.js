@@ -278,7 +278,7 @@ const category6 = new Category({
     game17
   ],
   description: "A sandbox game is a video game with a gameplay element that provides players a great degree of creativity to interact with, usually without any predetermined goal, or alternatively with a goal that the players set for themselves. Sandbox games are often associated with an open world concept which gives the players freedom of movement and progression in the game's world. The term 'sandbox' derives from the nature of a sandbox that lets children create nearly anything they want within it.",
-  wikiLink: ""
+  wikiLink: "https://en.wikipedia.org/wiki/Sandbox_game"
 })
 const category7 = new Category({
   name: 'Sports',
@@ -287,8 +287,8 @@ const category7 = new Category({
     game7,
     game11
   ],
-  description: "",
-  wikiLink: ""
+  description: "A sports video game is a video game that simulates the practice of sports. Most sports have been recreated with a video games, including team sports, track and field, extreme sports, and combat sports.[1] Some games emphasize actually playing the sport (such as FIFA, Pro Evolution Soccer and Madden NFL), whilst others emphasize strategy and sport management (such as Football Manager and Out of the Park Baseball). This genre has been popular throughout the history of video games and is competitive, just like real-world sports.",
+  wikiLink: "https://en.wikipedia.org/wiki/Sports_video_game"
 })
 const category8 = new Category({
   name: 'Role-Playing',
@@ -298,8 +298,8 @@ const category8 = new Category({
     game18,
     game10
   ],
-  description: "",
-  wikiLink: ""
+  description: "A role-playing video game, commonly referred to as a role-playing game (RPG) or computer role-playing game (CRPG), is a video game genre where the player controls the actions of a character (or several party members) immersed in some well-defined world, usually involving some form of character development by way of recording statistics. Many role-playing video games have origins in tabletop role-playing games and use much of the same terminology, settings and game mechanics.",
+  wikiLink: "https://en.wikipedia.org/wiki/Role-playing_video_game"
 })
 
 const category9 = new Category({
@@ -308,8 +308,8 @@ const category9 = new Category({
     game18,
     game10
   ],
-  description: "",
-  wikiLink: ""
+  description: "A massively multiplayer online role-playing game (MMORPG) is a video game that combines aspects of a role-playing video game and a massively multiplayer online game. As in role-playing games (RPGs), the player assumes the role of a character and takes control over many of that character's actions. MMORPGs are distinguished from single-player or small multi-player online RPGs by the number of players able to interact together, and by the game's persistent world, which continues to exist and evolve while the player is offline and away from the game.",
+  wikiLink: "https://en.wikipedia.org/wiki/Massively_multiplayer_online_role-playing_game"
 })
 
 const category10 = new Category({
@@ -318,8 +318,8 @@ const category10 = new Category({
     game13,
     game19
   ],
-  description: "",
-  wikiLink: ""
+  description: "Real-time strategy (RTS) is a subgenre of strategy video games that doesn't progress incrementally in turns, but allow all players to play simultaneously, in 'real time'. By contrast, in turn-based strategy (TBS) games, players take turns to play. In a real-time strategy game, each participant positions structures and maneuvers multiple units under their indirect control to secure areas of the map and/or destroy their opponents' assets.",
+  wikiLink: "https://en.wikipedia.org/wiki/Real-time_strategy"
 })
 
 const category11 = new Category({
@@ -328,8 +328,8 @@ const category11 = new Category({
     game9,
     game20
   ],
-  description: "",
-  wikiLink: ""
+  description: "A fighting game is a genre of video game that involves combat between two or more characters. Fighting game combat often features mechanics such as blocking, grappling, counter-attacking, and chaining attacks together into 'combos'. Characters generally engage in battle using hand-to-hand combat—often some form of martial arts. The fighting game genre is related to, but distinct from, the beat 'em up genre, which pits large numbers of computer-controlled enemies against one or more player characters.",
+  wikiLink: "https://en.wikipedia.org/wiki/Fighting_game"
 })
 
 categories.push(
