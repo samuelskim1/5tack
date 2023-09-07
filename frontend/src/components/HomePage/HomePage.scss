@@ -52,11 +52,13 @@
 }
 
 #category-list {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
   
   li {
+    height: auto;
     width: 100%;
     
     display: flex;
@@ -65,12 +67,15 @@
     margin-bottom: 30px;
     box-sizing: border-box;
     background-color: $medium-blue;
-    cursor: pointer;
 
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, height 3s;
 
     &:hover {
       background-color: $darker-blue;
+    }
+
+    &:last-child {
+      margin-bottom: 20px;
     }
   }
   
@@ -83,6 +88,8 @@
 
     box-sizing: border-box;
     padding: 40px;
+
+    transition: height 3s;
     
     h4 {
       font-size: 18px;
@@ -93,24 +100,36 @@
     p {
       width: 100%;
       margin-bottom: 15px;
+      line-height: normal;
 
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 3;
+      // display: -webkit-box;
+      // -webkit-box-orient: vertical;
+      // -webkit-line-clamp: 3;
       overflow: hidden;
+
+      transition: height 3s;
     }
 
     span {
       display: inline;
       font-size: 14px;
       padding: 6px 8px;
-      border-radius: 8px;
-      border: 1px solid $default-white;
+      border-radius: 6px;
+      border: 0.1px solid $default-white;
       width: fit-content;
+      cursor: pointer;
 
       &:hover {
         background-color: $medium-blue;
       }
+    }
+
+    a {
+      display: inline-block;
+      font-size: 12px;
+      font-style: italic;
+      text-decoration: underline;
+      padding-top: 15px;
     }
   }
 
@@ -125,7 +144,18 @@
       opacity: 0.4;
       transition: opacity 0.5s;
 
+      &.expanded {
+        opacity: 0.7;
+        transition: opacity 0.5s;
+
+        &:hover {
+          opacity: 0.9;
+          transition: opacity 0.5s;
+        }
+      }
+
       &:hover {
+        transition: opacity 0.5s;
         opacity: 0.7;
       }
 

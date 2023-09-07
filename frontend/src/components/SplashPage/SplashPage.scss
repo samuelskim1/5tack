@@ -2,9 +2,9 @@
 
 #splash-container {
   background-color: $darkest-blue;
-  // height: 100vh;
-  height: calc(100vh - 100px);
-  // overflow: hidden;
+  height: calc(100vh - 100px);  
+  width: 100%;
+  min-width: 1270px;
 }
 
 #splash-cards-container {

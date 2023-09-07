@@ -234,7 +234,7 @@ const category2 = new Category({
     game5,
     game16
   ],
-  description: "First-person shooter (FPS) is a sub-genre of shooter video games centered on gun and other weapon-based combat in a first-person perspective, with the player experiencing the action through the eyes of a protagonist or antagonist which is armed, and then controlling the player character in a three-dimensional space. The genre shares common traits with other shooter games, and in turn falls under the action game genre.",
+  description: "First-person shooter (FPS) is a subgenre of shooter video games centered on gun and other weapon-based combat in a first-person perspective, with the player experiencing the action through the eyes of a protagonist or antagonist which is armed, and then controlling the player character in a three-dimensional space. The genre shares common traits with other shooter games, and in turn falls under the action game genre.",
   wikiLink: "https://en.wikipedia.org/wiki/First-person_shooter"
 })
 
