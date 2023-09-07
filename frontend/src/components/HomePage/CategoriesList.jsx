@@ -35,9 +35,7 @@ const CategoriesList = () => {
                 {category.description}
               </p>
 
-              <span>
-                {category.wikiLink}
-              </span>
+              
             </div>
           </div>
 
