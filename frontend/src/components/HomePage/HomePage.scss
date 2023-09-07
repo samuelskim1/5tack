@@ -65,6 +65,13 @@
     margin-bottom: 30px;
     box-sizing: border-box;
     background-color: $medium-blue;
+    cursor: pointer;
+
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $darker-blue;
+    }
   }
   
   .category-info {
@@ -92,6 +99,19 @@
       -webkit-line-clamp: 3;
       overflow: hidden;
     }
+
+    span {
+      display: inline;
+      font-size: 14px;
+      padding: 6px 8px;
+      border-radius: 8px;
+      border: 1px solid $default-white;
+      width: fit-content;
+
+      &:hover {
+        background-color: $medium-blue;
+      }
+    }
   }
 
   .category-images-container {
@@ -103,6 +123,11 @@
       object-fit: cover;
       height: 100%;
       opacity: 0.4;
+      transition: opacity 0.5s;
+
+      &:hover {
+        opacity: 0.7;
+      }
 
       &:last-child {
         border-radius: 0 12px 12px 0;

@@ -30,13 +30,15 @@ const CategoriesList = () => {
               {generateCategory(category)}
             </h4>
 
-            <div>
+            {/* <div> */}
               <p>
                 {category.description}
               </p>
 
-              
-            </div>
+              <span>
+                Learn more
+              </span>
+            {/* </div> */}
           </div>
 
           <div className="category-images-container">
