@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 
 const CategoriesList = () => {
   const categories = useSelector(state => Object.values(state?.categories));
   const [expanded, setExpanded] = useState(Array(11).fill(false));
+
 
   const generateCategory = (category) => {
     const split = category.name.split("$");
@@ -18,16 +20,16 @@ const CategoriesList = () => {
 
   const expandCategory = (idx) => {
     setExpanded(prev => {
-      const next = prev;
+      const next = [ ...prev ];
       next.fill(false);
       next[idx] = true;
       return next;
     })
   };
 
-  const collapseCategory = (idx) => {
+  const collapseCategory = () => {
     setExpanded(prev => {
-      const next = prev;
+      const next = [ ...prev ];
       next.fill(false);
       return next;
     })
@@ -46,14 +48,11 @@ const CategoriesList = () => {
               {generateCategory(category)}
             </h4>
 
-            {/* <p style={expanded[idx] ? {display: "inline"} : {display: "-webkit-box"}}> */}
-            <p style={expanded[idx] ? {height: "100%"} : {height: "57px"}}>
+            <p style={expanded[idx] ? {"-webkit-line-clamp": "20"} : {"-webkit-line-clamp": "3"}}>
               {category.description}
-
-              <br/>
-
-              <a href={category.wikiLink} target="_blank" rel="noreferrer noopener" >Source: Wikipedia</a>
             </p>
+
+            {expanded[idx] && <a href={category.wikiLink} target="_blank" rel="noreferrer noopener" >Source: Wikipedia</a>}
 
             {expanded[idx] ? (
               <span onClick={() => collapseCategory(idx)}>
@@ -67,12 +66,14 @@ const CategoriesList = () => {
           </div>
 
           <div className="category-images-container">
-            {category.game_id.map(game => (
-              <img 
-                src={game.imageUrls[0]} alt={game.name} 
-                style={{width: `calc(100% / ${category.game_id.length})`}}
-                className={expanded[idx] ? "expanded" : ""}
-                />
+            {category.game_id.map((game, idx) => (
+              <Link to={`/games/${game.nameURL}`} key={game._id + idx + "images"} >
+                <img 
+                  src={game.imageUrls[0]} alt={game.name} 
+                  style={{width: `calc(100% / ${category.game_id.length})`}}
+                  className={expanded[idx] ? "expanded" : ""}
+                  />
+              </Link>
             ))}
           </div>
         </li>

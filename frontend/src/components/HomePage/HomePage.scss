@@ -95,6 +95,8 @@
       font-size: 18px;
       font-weight: 500;
       margin-bottom: 15px;
+
+      cursor: default;
     }
     
     p {
@@ -102,12 +104,12 @@
       margin-bottom: 15px;
       line-height: normal;
 
-      // display: -webkit-box;
-      // -webkit-box-orient: vertical;
-      // -webkit-line-clamp: 3;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
       overflow: hidden;
 
-      transition: height 3s;
+      cursor: default;
     }
 
     span {
@@ -129,7 +131,7 @@
       font-size: 12px;
       font-style: italic;
       text-decoration: underline;
-      padding-top: 15px;
+      margin-bottom: 15px;
     }
   }
 
@@ -138,7 +140,7 @@
     height: 100%;
     width: 30%;
 
-    img {
+    a > img {
       object-fit: cover;
       height: 100%;
       opacity: 0.4;
@@ -158,10 +160,10 @@
         transition: opacity 0.5s;
         opacity: 0.7;
       }
+    }
 
-      &:last-child {
-        border-radius: 0 12px 12px 0;
-      }
+    a:last-child > img {
+      border-radius: 0 12px 12px 0;
     }
   }
 }
