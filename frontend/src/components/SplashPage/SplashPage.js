@@ -1,57 +1,91 @@
 import { useEffect, useRef } from "react";
 import UnauthNav from "../UnauthNav/UnauthNav";
-import './SplashPage.scss'
+import './SplashPage.scss';
+import SplashCard from "./SplashCard";
 
 const SplashPage = () => {
-  const postsCard = useRef();
-  const reviewsCard = useRef();
+  // const postsCard = useRef();
+  // const reviewsCard = useRef();
 
-  useEffect(() => {
-    const fadeIn = () => {
-      setTimeout(() => {
-        postsCard?.current?.classList.remove('hidden');
-        postsCard?.current?.classList.add('fade-in');
-        reviewsCard?.current?.classList.remove('hidden');
-        reviewsCard?.current?.classList.add('fade-in');
-      }, 2200)
-    }
+  // useEffect(() => {
+  //   const fadeIn = () => {
+  //     setTimeout(() => {
+  //       postsCard?.current?.classList.remove('hidden');
+  //       postsCard?.current?.classList.add('fade-in');
+  //       reviewsCard?.current?.classList.remove('hidden');
+  //       reviewsCard?.current?.classList.add('fade-in');
+  //     }, 2200)
+  //   }
 
-    fadeIn();
+  //   fadeIn();
 
-    return () => {
-      clearTimeout(fadeIn);
-    }
-  }, [])
+  //   return () => {
+  //     clearTimeout(fadeIn);
+  //   }
+  // }, [])
+
+  
+  const splashContent = [
+    {
+      title: 'title about profile',
+      text: 'Something something and more stuff about the stuff wow stuff and stuff and yeah about this length?',
+      image: '../../../big-logo.png'
+    }, {
+      title: 'title about post',
+      text: 'Something something and more stuff about the stuff wow stuff and stuff and yeah about this length?',
+      image: '../../../big-logo.png'
+    }, {
+      title: 'title about comment',
+      text: 'Something something and more stuff about the stuff wow stuff and stuff and yeah about this length?',
+      image: '../../../big-logo.png'
+    }, {
+      title: 'title about reviews',
+      text: 'Something something and more stuff about the stuff wow stuff and stuff and yeah about this length?',
+      image: '../../../big-logo.png'
+    },    
+  ];
 
   return (
-    <div id="splash-container">
-      {/* <UnauthNav /> */}
-
-      <div id="splash-cards-container">
-        <section className="splash-card posts-card">
-          <div className="splash-card-content hidden" ref={postsCard}>
-            <h3>Connect with others to create the most stacked team!</h3>
-
-            {/* <img></img> */}
-
-            <p>
-              Craft the ultimate gaming experience by creating posts or comments to find teammates with similar interests and gaming style!
-            </p>
-          </div>
-        </section>
-
-        <section className="splash-card reviews-card">
-          <div className="splash-card-content hidden" ref={reviewsCard}>
-            <h3>Promote accountability within gaming communities!</h3>
-
-            {/* <img></img> */}
-
-            <p>
-              Tired of toxic players and poorly moderated platforms? Us too. Eliminate the fear of a random uncooperative teammate by leaving reviews on a profile to let others know if you enjoyed gaming with that person!
-            </p>
-          </div>
-        </section>
+    <div id="splash-page">
+  
+  <div className="splash-section">
+        <div className="splash-section-card">
+          <p>the cool and catchy title that's about ye long</p>
+          <p>The description about the purpose of our site. For them loser adult gamers whose friends dont have time to play with them anymore. You can let people know what kind of gaming experience you’re looking for. Look for players in your favorite games by posting or commenting. And what a 5 stack is...</p>
+          {/* <p className="style-button">Sign Up Now</p> */}
+        </div>
+        <div className="splash-section-card">
+          <p>idk what's gonna happen here still tbh</p>
+          {/* <button />
+          <button />
+          <button />
+          <button /> */}
+        </div>
       </div>
+
+      {splashContent.map((section, i) => (
+        // console.log(section, i)
+        <SplashCard info={section} key={i}/>
+      ))}
+
+
+      {/* <div id="splash-container">
+
+        <div id="splash-cards-container">
+          <section className="splash-card posts-card">
+            <div className="splash-card-content hidden">
+
+            </div>
+          </section>
+
+          <section className="splash-card reviews-card">
+            <div className="splash-card-content hidden">
+
+            </div>
+          </section>
+        </div>
+      </div> */}
+
     </div>
   )
 }

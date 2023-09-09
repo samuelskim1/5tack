@@ -1,74 +1,165 @@
 @import '../../App.scss';
 
-#splash-container {
-  background-color: $darkest-blue;
-  // height: 100vh;
+#splash-page {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
   height: calc(100vh - 100px);
-  // overflow: hidden;
+  // > #splash-container {
+  //   scroll-snap-align: start;
+  // }
+  > .splash-section {
+    scroll-snap-align: start;
+  }
 }
 
-#splash-cards-container {
-  display: flex;
-  justify-content: space-around;
-  height: 100%;
+.splash-section {
+  background-color: $darkest-blue;
+  min-height: calc(100vh - 150px);
   min-width: 1000px;
-  // max-height: calc(100vh - 150px);
-  max-height: calc(100vh - 150px);
-  // margin-top: 50px;
+  display: flex;
+  justify-content: space-evenly;
   padding-top: 50px;
-  overflow: hidden;
+  // padding: 50px 0 20px;
+
+       
+  &:first-child {
+    > .splash-section-card {
+      &:first-child {
+        align-items: start;
+        text-align: left;
+        & p {
+          font-size: 18px;
+          line-height: normal;
+          margin: 20px 0;
+          
+          &:first-child {
+            max-width: 400px;
+            margin: 0;
+            font-size: 40px;
+          }
+        }
+      }
+    }
+  }
+
+  > .splash-section-card {
+    box-sizing: border-box;
+    width: 42.5%;
+    border-radius: 12px;
+    height: 610px;
+    color: $default-white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // padding-top: 50px;
+    
+    &:first-child {
+      // border: 1px solid $default-white;
+      flex-direction: column;
+      // padding: 30px 50px;
+      padding: 50px;
+      font-size: 20px;
+      text-align: center;
+      p:first-child {
+        font-weight: 500;
+        font-size: 30px;
+        text-transform: capitalize;
+        margin-bottom: 50px;
+      }
+    }
+    &:nth-child(2) {
+      background-color: $medium-blue;
+    }
+
+  }
+
+  // &:nth-child(odd) {
+  // }
+
+  &:nth-child(even) {
+    flex-direction: row-reverse;
+    // background-color: wheat;
+  }
 }
 
-.splash-card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  height: 100%;
-  width: 42%;
-  padding: 30px 50px;
-  border-radius: 12px 12px 0 0;
-}
+// #splash-container {
+//   background-color: $darkest-blue;
+//   // height: 100vh;
+//   // height: calc(100vh - 100px);
+//   min-height: calc(100vh - 100px);
+//   // overflow: hidden;
 
-.hidden {
-  display: none;
-}
+//   // border-radius: 12px 12px 0 0;
+//   // height: 100%;
+//   min-width: 1000px;
+// }
 
-.posts-card {
-  background-color: $default-white;
-  color: $darkest-blue;
-}
+// #splash-cards-container {
+//   display: flex;
+//   // justify-content: space-around;
+//   justify-content: space-evenly;
+//   height: 100%;
+//   min-width: 1000px;
+//   // max-height: calc(100vh - 150px);
+//   max-height: fit-content;
+//   min-height: 610px;
+//   // margin-top: 50px;
+//   padding-top: 50px;
+//   // overflow: hidden;
+// }
 
-.reviews-card {
-  background-color: $medium-blue;
-  color: $default-white;
-}
+// .splash-card {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   box-sizing: border-box;
+//   // height: 100%;
+//   // width: 42%;
+//   width: 42.5%;
+//   padding: 30px 50px;
+//   // border-radius: 12px 12px 0 0;
+//   border-radius: 12px;
+// }
 
-.splash-card-content {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  opacity: 0;
+// .hidden {
+//   display: none;
+// }
+
+// .posts-card {
+//   background-color: $default-white;
+//   color: $darkest-blue;
+// }
+
+// .reviews-card {
+//   background-color: $medium-blue;
+//   color: $default-white;
+// }
+
+// .splash-card-content {
+//   height: 100%;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   align-items: center;
+//   opacity: 0;
   
-  h3 {
-    font-size: 18px;
-    font-weight: 500;
-  }
+//   h3 {
+//     font-size: 18px;
+//     font-weight: 500;
+//   }
 
-  img {
-    width: 70%;
-  }
+//   img {
+//     width: 70%;
+//   }
 
-  p {
-    font-size: 16px;
-    font-weight: 400;
-    text-align: left;
-  }
-}
+//   p {
+//     font-size: 16px;
+//     font-weight: 400;
+//     text-align: left;
+//   }
+// }
 
-.fade-in {
-  opacity: 1;
-  transition: opacity 1.8s;
-}
+// .fade-in {
+//   opacity: 1;
+//   transition: opacity 1.8s;
+// }
