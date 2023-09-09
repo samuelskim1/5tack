@@ -54,16 +54,14 @@ const CategoriesList = () => {
         <div id="game-show-shadow" />
       </div>
       {categories?.map((category, idx) => (
-        <li key={category._id + idx} className={expanded[idx] ? "expanded-cat" : ""}
-          style={expanded[idx] ? {"max-height": "100%"} : {"max-height": "257px"}}
-          >
+        <li key={category._id + idx} >
           <div className="category-info">
             <h4>
               {generateCategory(category)}
             </h4>
 
             <p 
-              style={expanded[idx] ? {display: "inline-block", "max-height": "100%"} : {display: "-webkit-box", "max-height": "57px"}} 
+              style={expanded[idx] ? {display: "inline-block"} : {display: "-webkit-box"}} 
               className={expanded[idx] ? "expanded-description" : ""} 
               >
               {category.description}
