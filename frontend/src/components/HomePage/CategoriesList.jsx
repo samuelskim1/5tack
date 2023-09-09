@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
@@ -35,6 +35,18 @@ const CategoriesList = () => {
     })
   }
 
+  // useEffect(() => {
+  //   let expandedCategory = document?.querySelector('.expanded-cat');
+  //   let expandedDescription = document?.querySelector('.expanded-description');
+  //   window.requestAnimationFrame(() => {
+  //     let fullHeight = expandedDescription?.getBoundingClientRect();
+  //     // if (expandedDescription) expandedDescription.style.maxHeight = "100%";
+  //     if (expandedCategory) expandedCategory.style.maxHeight = "100%";
+  //     console.log(expandedDescription?.style);
+  //     console.log(fullHeight?.height);
+  //   })
+  // }, [expanded])
+
 
   return (
     <ul id="category-list">
@@ -42,13 +54,18 @@ const CategoriesList = () => {
         <div id="game-show-shadow" />
       </div>
       {categories?.map((category, idx) => (
-        <li key={category._id + idx} >
+        <li key={category._id + idx} className={expanded[idx] ? "expanded-cat" : ""}
+          style={expanded[idx] ? {"max-height": "100%"} : {"max-height": "257px"}}
+          >
           <div className="category-info">
             <h4>
               {generateCategory(category)}
             </h4>
 
-            <p style={expanded[idx] ? {"-webkit-line-clamp": "20"} : {"-webkit-line-clamp": "3"}}>
+            <p 
+              style={expanded[idx] ? {display: "inline-block", "max-height": "100%"} : {display: "-webkit-box", "max-height": "57px"}} 
+              className={expanded[idx] ? "expanded-description" : ""} 
+              >
               {category.description}
             </p>
 
@@ -66,8 +83,8 @@ const CategoriesList = () => {
           </div>
 
           <div className="category-images-container">
-            {category.game_id.map((game, idx) => (
-              <Link to={`/games/${game.nameURL}`} key={game._id + idx + "images"} >
+            {category.game_id.map((game, gameIdx) => (
+              <Link to={`/games/${game.nameURL}`} key={game._id + gameIdx + "images"} >
                 <img 
                   src={game.imageUrls[0]} alt={game.name} 
                   style={{width: `calc(100% / ${category.game_id.length})`}}

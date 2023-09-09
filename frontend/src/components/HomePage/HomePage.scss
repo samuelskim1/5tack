@@ -58,7 +58,8 @@
   width: 100%;
   
   li {
-    height: auto;
+    height: fit-content;
+    max-height: 257px;
     width: 100%;
     
     display: flex;
@@ -68,7 +69,7 @@
     box-sizing: border-box;
     background-color: $medium-blue;
 
-    transition: background-color 0.3s, height 3s;
+    transition: background-color 0.3s, max-height 10s;
 
     &:hover {
       background-color: $darker-blue;
@@ -89,7 +90,7 @@
     box-sizing: border-box;
     padding: 40px;
 
-    transition: height 3s;
+    transition: max-height 1s;
     
     h4 {
       font-size: 18px;
@@ -103,6 +104,7 @@
       width: 100%;
       margin-bottom: 15px;
       line-height: normal;
+      max-height: 57px;
 
       display: -webkit-box;
       -webkit-box-orient: vertical;
@@ -110,6 +112,7 @@
       overflow: hidden;
 
       cursor: default;
+      transition: max-height 1s;
     }
 
     span {
