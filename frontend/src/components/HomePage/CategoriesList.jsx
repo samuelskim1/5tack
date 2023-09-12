@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
@@ -34,18 +34,6 @@ const CategoriesList = () => {
       return next;
     })
   }
-
-  // useEffect(() => {
-  //   let expandedCategory = document?.querySelector('.expanded-cat');
-  //   let expandedDescription = document?.querySelector('.expanded-description');
-  //   window.requestAnimationFrame(() => {
-  //     let fullHeight = expandedDescription?.getBoundingClientRect();
-  //     // if (expandedDescription) expandedDescription.style.maxHeight = "100%";
-  //     if (expandedCategory) expandedCategory.style.maxHeight = "100%";
-  //     console.log(expandedDescription?.style);
-  //     console.log(fullHeight?.height);
-  //   })
-  // }, [expanded])
 
 
   return (
