@@ -10,13 +10,13 @@
     justify-content: center;
     
     // width: 100vw;
-    min-width: 1000px;
-    height: 80px;
+    min-width: 1270px;
+    height: 60px;
     background-color: $default-white;
 }
 
 #nav-content-container {
-    width: 92%;
+    width: 90%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -37,6 +37,7 @@
     justify-content: space-between;
     width: 100%;
     max-width: 1100px;
+    min-width: 950px;
     overflow: hidden;
 }
 

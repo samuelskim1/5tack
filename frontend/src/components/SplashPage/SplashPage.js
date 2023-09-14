@@ -7,17 +7,25 @@ const SplashPage = () => {
   const reviewsCard = useRef();
 
   useEffect(() => {
-    setTimeout(() => {
-      postsCard?.current?.classList.remove('hidden');
-      postsCard?.current?.classList.add('fade-in');
-      reviewsCard?.current?.classList.remove('hidden');
-      reviewsCard?.current?.classList.add('fade-in');
-    }, 2200)
+    const fadeIn = () => {
+      setTimeout(() => {
+        postsCard?.current?.classList.remove('hidden');
+        postsCard?.current?.classList.add('fade-in');
+        reviewsCard?.current?.classList.remove('hidden');
+        reviewsCard?.current?.classList.add('fade-in');
+      }, 2200)
+    }
+
+    fadeIn();
+
+    return () => {
+      clearTimeout(fadeIn);
+    }
   }, [])
 
   return (
     <div id="splash-container">
-      <UnauthNav />
+      {/* <UnauthNav /> */}
 
       <div id="splash-cards-container">
         <section className="splash-card posts-card">
