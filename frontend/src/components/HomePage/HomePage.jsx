@@ -1,4 +1,5 @@
 import AuthCards from "../AuthCards/AuthCards";
+import CategoriesList from "./CategoriesList";
 import HomeCard from "./HomeCard";
 import './HomePage.scss';
 
@@ -6,7 +7,10 @@ import './HomePage.scss';
 const HomePage = () => {
 
   return (
-    <AuthCards card1={<HomeCard />} />
+    <AuthCards 
+      card1={<HomeCard />} 
+      card2={<CategoriesList />}
+      />
   )
 };
 
