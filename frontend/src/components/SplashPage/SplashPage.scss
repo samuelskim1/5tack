@@ -21,23 +21,96 @@
   padding-top: 50px;
   // padding: 50px 0 20px;
 
+  // &:nth-child(even) {
+  // }
+
+  p {
+    line-height: normal;
+  }
+
+  &:nth-child(odd) {
+    flex-direction: row-reverse;
+    // background-color: wheat;
+  }
        
   &:first-child {
+    flex-direction: row;
     > .splash-section-card {
+      background-color: $default-white;
       &:first-child {
+        color: $darkest-blue;
         align-items: start;
         text-align: left;
         & p {
           font-size: 18px;
-          line-height: normal;
-          margin: 20px 0;
+          // line-height: normal;
+          margin: 10px 0;
           
           &:first-child {
             max-width: 400px;
             margin: 0;
             font-size: 40px;
+            font-weight: 600;
           }
         }
+      }
+      &:nth-child(2) {
+        // border: 1px solid $default-white;
+        
+        background-color: $darkest-blue;
+        display: flex;
+        align-items: start;
+        flex-direction: column;
+        align-items: center;
+        // justify-content: start;
+        // padding: 50px;
+        > div {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-around;
+          align-items: start;
+          // margin: 0 5em;
+          width: 80%;
+          height: 80%;
+          > div {
+            border: 1px solid $default-white;
+            // background-color: $darkest-blue;
+            width: 40%;
+            height: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+            flex-direction: column;
+            font-size: 18px;
+            > i {
+              margin-bottom: 15px;
+              font-size: 40px;
+            }
+            &:hover {
+              border: 1px solid $highlight-orange;
+              transform: scale(1.03);
+              // change border to highlight color?
+              // color: $lightest-blue;
+              color: $highlight-orange;
+              > i {
+                // font-weight: bold;
+              }
+            }
+          }
+        }
+        > p {
+          margin-bottom: 10px;
+        }
+      }
+    }
+    .style-button {
+      background-color: $lighter-blue;
+      color: $default-white;
+      // background-color: $medium-blue;
+      &:hover {
+        background-color: $darker-blue;
+        //   background-color: $default-white;
       }
     }
   }
@@ -62,24 +135,17 @@
       text-align: center;
       p:first-child {
         font-weight: 500;
-        font-size: 30px;
+        font-size: 36px;
         text-transform: capitalize;
         margin-bottom: 50px;
       }
     }
     &:nth-child(2) {
-      background-color: $medium-blue;
+      background-color: $default-white;
     }
 
   }
 
-  // &:nth-child(odd) {
-  // }
-
-  &:nth-child(even) {
-    flex-direction: row-reverse;
-    // background-color: wheat;
-  }
 }
 
 // #splash-container {
