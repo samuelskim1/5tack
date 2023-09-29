@@ -7,7 +7,7 @@ const validateLoginInput = [
     check('username')
         .exists({ checkFalsy: true })
         .withMessage('Username cannot be blank :(')
-        .matches(/^[^\W_]+$/) // should alphanumeric + underscore only
+        .matches(/^[^\W]+$/) // should alphanumeric + underscore only
         .withMessage('Username is invalid')
         .isLength({ min: 3, max: 30 })
         .withMessage('Username must be between 3 and 30 characters'),

@@ -50,3 +50,123 @@
     align-self: flex-end;
   }
 }
+
+#category-list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  
+  li {
+    height: fit-content;
+    // max-height: 257px;
+    width: 100%;
+    
+    display: flex;
+    
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+    background-color: $medium-blue;
+
+    transition: background-color 0.3s, max-height 10s;
+
+    &:hover {
+      background-color: $darker-blue;
+    }
+
+    &:last-child {
+      margin-bottom: 20px;
+    }
+  }
+  
+  .category-info {
+    width: 70%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
+    padding: 40px;
+
+    transition: max-height 1s;
+    
+    h4 {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 15px;
+
+      cursor: default;
+    }
+    
+    p {
+      width: 100%;
+      margin-bottom: 15px;
+      line-height: normal;
+      // max-height: 57px;
+
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+
+      cursor: default;
+      transition: max-height 1s;
+    }
+
+    span {
+      display: inline;
+      font-size: 14px;
+      padding: 6px 8px;
+      border-radius: 6px;
+      border: 0.1px solid $default-white;
+      width: fit-content;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $medium-blue;
+      }
+    }
+
+    a {
+      display: inline-block;
+      font-size: 12px;
+      font-style: italic;
+      text-decoration: underline;
+      margin-bottom: 20px;
+    }
+  }
+
+  .category-images-container {
+    box-sizing: border-box;
+    height: 100%;
+    width: 30%;
+
+    a > img {
+      object-fit: cover;
+      height: 100%;
+      opacity: 0.4;
+      transition: opacity 0.5s;
+
+      &.expanded {
+        opacity: 0.7;
+        transition: opacity 0.5s;
+
+        &:hover {
+          opacity: 0.9;
+          transition: opacity 0.5s;
+        }
+      }
+
+      &:hover {
+        transition: opacity 0.5s;
+        opacity: 0.7;
+      }
+    }
+
+    a:last-child > img {
+      border-radius: 0 12px 12px 0;
+    }
+  }
+}

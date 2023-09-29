@@ -4,7 +4,6 @@
   box-sizing: border-box;
   width: 100%;
   min-width: 410px;
-  height: 100%;
 
   display: flex;
   flex-direction: column;
@@ -25,8 +24,7 @@
   top: -50px;
   width: calc(100% + 2px);
   height: 50px;
-  background-image: linear-gradient(#11151c, #11151ce6, #11151ca8, #11151c05);
-  background-image: linear-gradient(#11151c, #11151ca8, #11151c05);
+  background-image: linear-gradient(#11151c, #11151c05);
 }
 
 .post-index-item {
@@ -37,7 +35,7 @@
   border: 1px solid $lighter-blue;
   border-radius: 12px;
   color: $default-white;
-  margin-bottom: 45px;
+  margin-bottom: 30px;
 
   .post-top-section {
     padding: 16px 16px 0 16px;
@@ -61,6 +59,10 @@
       font-weight: 300;
       color: $empty-star-blue;
     }
+  }
+
+  &:last-child {
+    margin-bottom: 20px;
   }
 
   .author-info {
