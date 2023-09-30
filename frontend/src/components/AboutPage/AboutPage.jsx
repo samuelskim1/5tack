@@ -5,7 +5,6 @@ import samkim from './samkim.jpg';
 import milnerchen from './milnerchen.jpg';
 import AboutCard from './AboutCard';
 import { useSelector } from 'react-redux';
-import UnauthNav from '../UnauthNav/UnauthNav';
 
 const AboutPage = () => {
 

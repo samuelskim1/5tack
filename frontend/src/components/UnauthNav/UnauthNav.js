@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import LoginForm from '../SessionForms/LoginForm';
 import SignupForm from '../SessionForms/SignupForm';
 import { Modal } from '../../context/modal';
 import './UnauthNav.scss';
 
 const UnauthNav = () => {
+  const history = useHistory();
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
 
@@ -68,10 +69,8 @@ const UnauthNav = () => {
               Sign up
             </li>
 
-            <li>
-              <a href='/about'>
+            <li onClick={() => history.push('/about')}>
                 About us
-              </a>
             </li>
           </ul>
         </div>

@@ -63,7 +63,7 @@ const SplashPage = () => {
         <p>The Solo Queue Struggles End Here</p>
         {/* <p>The description about the purpose of our site. For them loser adult gamers whose friends dont have time to play with them anymore. You can let people know what kind of gaming experience you’re looking for. Look for players in your favorite games by posting or commenting. And what a 5 stack is...</p> */}
         <p>
-          Your friends are busy, you have terrible luck with random players, or you're just looking to expand your gaming circle. Finding teammates for multiplayer games can be a struggle and 5TACK is here to fix that. So what is a 5-stack? Our name originates from the common team size of five in many multiplayer games, and our mission is to help complete your stack, five or otherwise, and form your dream team. 5TACK is a platform that empowers players to connect with the right individuals for a great gaming experience.        </p>
+        5TACK is a platform that empowers players to connect with the right individuals for a great gaming experience. Your friends are busy, you have terrible luck with random players, or you're just looking to expand your gaming circle. Finding teammates for multiplayer games can be a struggle and 5TACK is here to fix that. So what is a 5-stack? Our name originates from the common team size of five in many multiplayer games, and our mission is to help complete your stack, five or otherwise, and form your dream team.</p>
         <p className="style-button" onClick={() => setShowLogin(true)}>Sign up now!</p>
         {showLogin && 
         <Modal onClose={() => setShowLogin(false)} >
@@ -105,7 +105,7 @@ const SplashPage = () => {
       <div className="splash-section last-section">
         <div className="splash-section-card">
           <p>Your Dream Team Awaits!</p>
-          <p>Sign Up And Build Your 5TACK Today!</p>
+          <p>Sign Up and Build Your 5TACK Today!</p>
         </div>
         <SignupForm />
       </div>
