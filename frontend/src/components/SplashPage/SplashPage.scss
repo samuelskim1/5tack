@@ -28,26 +28,26 @@
     line-height: normal;
   }
 
-  &:nth-child(odd) {
+  &:nth-child(even) {
     flex-direction: row-reverse;
     // background-color: wheat;
   }
        
   &:first-child {
-    flex-direction: row;
+    // flex-direction: row;
     > .splash-section-card {
-      background-color: $default-white;
+      // background-color: $default-white;
       &:first-child {
-        color: $darkest-blue;
+        // color: $darkest-blue;
         align-items: start;
         text-align: left;
         & p {
-          font-size: 18px;
+          font-size: 16px;
           // line-height: normal;
           margin: 10px 0;
           
           &:first-child {
-            max-width: 400px;
+            // max-width: 400px;
             margin: 0;
             font-size: 40px;
             font-weight: 600;
@@ -57,45 +57,50 @@
       &:nth-child(2) {
         // border: 1px solid $default-white;
         
-        background-color: $darkest-blue;
-        display: flex;
-        align-items: start;
+        background-color: $default-white;
+        // display: flex;
+        // align-items: start;
         flex-direction: column;
-        align-items: center;
+        // align-items: center;
+        color: black;
         // justify-content: start;
         // padding: 50px;
         > div {
           display: flex;
           flex-wrap: wrap;
           justify-content: space-around;
-          align-items: start;
+          // align-items: start;
+          align-items: center;
           // margin: 0 5em;
-          width: 80%;
-          height: 80%;
+          width: 85%;
+          height: 85%;
           > div {
-            border: 1px solid $default-white;
+            // border: 1px solid $default-white;
             // background-color: $darkest-blue;
-            width: 40%;
-            height: 40%;
+            width: 43%;
+            height: 43%;
             display: flex;
             justify-content: center;
             align-items: center;
             border-radius: 12px;
             flex-direction: column;
             font-size: 18px;
+            background-color: $lightest-blue;
+            color: $default-white;
+            transition: background-color 0.3s, color 0.3s;
+            box-shadow: inset;
             > i {
-              margin-bottom: 15px;
+              margin-bottom: 0.5em;
               font-size: 40px;
             }
             &:hover {
-              border: 1px solid $highlight-orange;
-              transform: scale(1.03);
+              // border: 1px solid $highlight-orange;
+              // transform: scale(1.03);
               // change border to highlight color?
               // color: $lightest-blue;
-              color: $highlight-orange;
-              > i {
-                // font-weight: bold;
-              }
+              // color: $highlight-orange;
+              background-color: $lighter-blue;
+              color: $default-white;
             }
           }
         }
@@ -108,8 +113,9 @@
       background-color: $lighter-blue;
       color: $default-white;
       // background-color: $medium-blue;
+      transition: 0.3s;
       &:hover {
-        background-color: $darker-blue;
+        background-color: $medium-blue;
         //   background-color: $default-white;
       }
     }
@@ -147,85 +153,3 @@
   }
 
 }
-
-// #splash-container {
-//   background-color: $darkest-blue;
-//   // height: 100vh;
-//   // height: calc(100vh - 100px);
-//   min-height: calc(100vh - 100px);
-//   // overflow: hidden;
-
-//   // border-radius: 12px 12px 0 0;
-//   // height: 100%;
-//   min-width: 1000px;
-// }
-
-// #splash-cards-container {
-//   display: flex;
-//   // justify-content: space-around;
-//   justify-content: space-evenly;
-//   height: 100%;
-//   min-width: 1000px;
-//   // max-height: calc(100vh - 150px);
-//   max-height: fit-content;
-//   min-height: 610px;
-//   // margin-top: 50px;
-//   padding-top: 50px;
-//   // overflow: hidden;
-// }
-
-// .splash-card {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   box-sizing: border-box;
-//   // height: 100%;
-//   // width: 42%;
-//   width: 42.5%;
-//   padding: 30px 50px;
-//   // border-radius: 12px 12px 0 0;
-//   border-radius: 12px;
-// }
-
-// .hidden {
-//   display: none;
-// }
-
-// .posts-card {
-//   background-color: $default-white;
-//   color: $darkest-blue;
-// }
-
-// .reviews-card {
-//   background-color: $medium-blue;
-//   color: $default-white;
-// }
-
-// .splash-card-content {
-//   height: 100%;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-between;
-//   align-items: center;
-//   opacity: 0;
-  
-//   h3 {
-//     font-size: 18px;
-//     font-weight: 500;
-//   }
-
-//   img {
-//     width: 70%;
-//   }
-
-//   p {
-//     font-size: 16px;
-//     font-weight: 400;
-//     text-align: left;
-//   }
-// }
-
-// .fade-in {
-//   opacity: 1;
-//   transition: opacity 1.8s;
-// }

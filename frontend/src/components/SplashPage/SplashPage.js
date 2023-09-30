@@ -66,7 +66,7 @@ const SplashPage = () => {
       <div className="splash-section-card">
         <div>
           <div>
-            <i class="fa-regular fa-user" />
+            <i className="fa-regular fa-user" />
             Profile
           </div>
           <div>
