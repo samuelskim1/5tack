@@ -3,6 +3,7 @@
 #splash-page {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
+  scroll-behavior: smooth;
   height: calc(100vh - 100px);
   // > #splash-container {
   //   scroll-snap-align: start;
@@ -12,6 +13,33 @@
   }
 }
 
+@keyframes bounce {
+  0%, 100% {
+    -webkit-transform: translateY(0);
+    -ms-transform:     translateY(0);
+    transform:         translateY(0)
+  }
+  50% {
+    -webkit-transform: translateY(-5px);
+    -ms-transform:     translateY(-5px);
+    transform:         translateY(-5px)
+  }
+}
+
+.fa-solid.fa-angles-down {
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  // &:hover {
+  //   cursor: pointer;
+  //   animation-name: bounce;
+  //   -moz-animation-name: bounce;
+  // }
+}
+
 .splash-section {
   background-color: $darkest-blue;
   min-height: calc(100vh - 150px);
@@ -19,10 +47,6 @@
   display: flex;
   justify-content: space-evenly;
   padding-top: 50px;
-  // padding: 50px 0 20px;
-
-  // &:nth-child(even) {
-  // }
 
   p {
     line-height: normal;
@@ -56,13 +80,14 @@
       }
       &:nth-child(2) {
         // border: 1px solid $default-white;
-        
-        background-color: $default-white;
+        background-color: $lighter-blue;
+        // background-color: $default-white;
+        color: $default-white;
         // display: flex;
         // align-items: start;
         flex-direction: column;
         // align-items: center;
-        color: black;
+        // color: black;
         // justify-content: start;
         // padding: 50px;
         > div {
@@ -74,7 +99,8 @@
           // margin: 0 5em;
           width: 85%;
           height: 85%;
-          > div {
+          > a {
+            // scroll-snap-type: none;
             // border: 1px solid $default-white;
             // background-color: $darkest-blue;
             width: 43%;
@@ -85,8 +111,8 @@
             border-radius: 12px;
             flex-direction: column;
             font-size: 18px;
-            background-color: $lightest-blue;
-            color: $default-white;
+            background-color: $empty-star-blue;
+            // color: $darkest-blue;
             transition: background-color 0.3s, color 0.3s;
             box-shadow: inset;
             > i {
@@ -94,18 +120,25 @@
               font-size: 40px;
             }
             &:hover {
-              // border: 1px solid $highlight-orange;
-              // transform: scale(1.03);
-              // change border to highlight color?
-              // color: $lightest-blue;
-              // color: $highlight-orange;
-              background-color: $lighter-blue;
+              background-color: $medium-blue;
               color: $default-white;
             }
           }
         }
-        > p {
-          margin-bottom: 10px;
+        > span {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          > .fa-solid.fa-angles-down {
+            margin: 5px 0 10px;
+          }
+          &:hover {
+            cursor: pointer;
+            > .fa-solid.fa-angles-down {
+              animation-name: bounce;
+              -moz-animation-name: bounce;
+            }
+          }
         }
       }
     }

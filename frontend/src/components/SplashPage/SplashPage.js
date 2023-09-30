@@ -65,31 +65,33 @@ const SplashPage = () => {
       </div>
       <div className="splash-section-card">
         <div>
-          <div>
+          <a href='#section-1'>
             <i className="fa-regular fa-user" />
             Profile
-          </div>
-          <div>
+          </a>
+          <a href='#section-2'>
             <i className="fa-regular fa-pen-to-square" />
             Post
-          </div>
-          <div>
+          </a>
+          <a href='#section-3'>
             <i className="fa-regular fa-message" />
             Comment
-          </div>
-          <div>
+          </a>
+          <a href='#section-4'>
             <i className="fa-regular fa-star" />
             Review
-          </div>
+          </a>
         </div>
-        <p>Scroll down to learn more!</p>
-        <i className="fa-solid fa-angles-down" />
+        <span>
+          <p>Scroll down to learn more!</p>
+          <i className="fa-solid fa-angles-down" />
+        </span>
       </div>
     </div>
 
       {splashContent.map((section, i) => (
         // console.log(section, i)
-        <SplashCard info={section} key={i}/>
+        <SplashCard info={section} key={i} index={i + 1} />
       ))}
 
 
