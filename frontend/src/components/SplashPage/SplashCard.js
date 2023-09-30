@@ -1,9 +1,9 @@
 // import 
 
-const SplashCard = ({ info, index }) => {
+const SplashCard = ({ info }) => {
 
     return (
-      <div id={`section-${index}`} className="splash-section">
+      <div id={info.section} className="splash-section">
         <div className="splash-section-card">
           <p>{info.title}</p>
           <p>{info.text}</p>
