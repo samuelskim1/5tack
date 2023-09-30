@@ -4,6 +4,7 @@ import './SplashPage.scss';
 import SplashCard from "./SplashCard";
 import { Modal } from "../../context/modal";
 import LoginForm from "../SessionForms/LoginForm";
+import SignupForm from "../SessionForms/SignupForm";
 
 const SplashPage = () => {
   // const postsCard = useRef();
@@ -33,19 +34,19 @@ const SplashPage = () => {
       title: 'customize your profile',
       // text: 'Something something and more stuff about the stuff wow stuff and stuff and yeah about this length?',
       text: 'Let the community know who you are by specifying details like play style and favorite games.',
-      image: '../../../big-logo.png'
+      image: "../../../edit_profile.mov"
     }, {
       title: 'create a post',
       text: 'Attract players to join your team or browse to find a ',
-      image: '../../../big-logo.png'
+      image: '../../../create_post.mov'
     }, {
       title: 'join a discussion',
       text: 'Something something and more stuff about the stuff wow stuff and stuff and yeah about this length?',
-      image: '../../../big-logo.png'
+      image: "../../../create_comment.mov"
     }, {
       title: 'title about reviews',
       text: 'Something something and more stuff about the stuff wow stuff and stuff and yeah about this length?',
-      image: '../../../big-logo.png'
+      image: '../../../scroll_reviews.mov'
     },    
   ];
 
@@ -94,23 +95,13 @@ const SplashPage = () => {
         <SplashCard info={section} key={i} index={i + 1} />
       ))}
 
-
-      {/* <div id="splash-container">
-
-        <div id="splash-cards-container">
-          <section className="splash-card posts-card">
-            <div className="splash-card-content hidden">
-
-            </div>
-          </section>
-
-          <section className="splash-card reviews-card">
-            <div className="splash-card-content hidden">
-
-            </div>
-          </section>
+      <div className="splash-section last-section">
+        <div className="splash-section-card">
+          <p>Create Your Own Stack Now!</p>
+          <p>test</p>
         </div>
-      </div> */}
+        <SignupForm />
+      </div>
 
     </div>
   )

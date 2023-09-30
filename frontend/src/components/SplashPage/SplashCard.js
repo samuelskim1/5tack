@@ -9,7 +9,9 @@ const SplashCard = ({ info, index }) => {
           <p>{info.text}</p>
         </div>
         <div className="splash-section-card">
-          <img src={info.image}/>
+          <video autoPlay loop muted>
+            <source src={info.image} type="video/mp4" />
+          </video>
         </div>
       </div>
     )
