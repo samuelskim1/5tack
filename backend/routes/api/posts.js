@@ -25,7 +25,6 @@ router.post('/', multipleMulterUpload("images"), multipleMulterUpload("videos"),
     // Emit a WebSocket event when a new post is created
     // io.emit('newPost', newPost);
   } catch (error) {
-    // console.log("catching errors from the backend", error);
     res.status(400).json({ message: error.message });
   }
 });

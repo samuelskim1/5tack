@@ -12,7 +12,6 @@ const CategoryButton = ({category}) => {
     const [active, setActive] = useState(false);
     
     const openCategory = () => {
-        // console.log('opening category...', currBtn.current.innerHTML, active);
         parent.style.pointerEvents = 'none';
 
         const dist = parent.getBoundingClientRect().left - currBtn.current.getBoundingClientRect().left;
@@ -32,14 +31,6 @@ const CategoryButton = ({category}) => {
                 if (btn === currBtn.current) continue;
                 btn.style.opacity = '0';
             }
-            // currBtn.current.addEventListener('animationend', () => {
-            //     for (let btn of btns) {
-            //         if (btn === currBtn.current) continue;
-            //         btn.style.display = 'none';
-            //     }
-            //     parent.style.justifyContent = 'unset';
-            //     setActive(true);
-            // }, {once : true})
         }, {once : true})
         currBtn.current.addEventListener('animationend', () => {
             for (let btn of btns) {
@@ -55,20 +46,17 @@ const CategoryButton = ({category}) => {
     const closeCategory = (newPath) => {
         if (newPath) history.push(`/games/${newPath}`);
         parent.style.pointerEvents = 'none';
-        // console.log('closing category...', currBtn.current.innerHTML, active);
 
         const games = document.getElementById('game-nav');
         if (games) {
             games.addEventListener('animationstart', () => {
                 games.style.pointerEvents = 'none';
                 currBtn.current.classList.remove('active-category-button');
-                // currBtn.current.removeEventListener('animationend', null);
             }, {once : true})
 
 
 
             currBtn.current.style = `--distLeft: ${currBtn.current.style.x}px`;
-            // console.log('currently inline', currBtn.current.style.cssText);
             currBtn.current.classList.add('deactive-category-button');
             currBtn.current.addEventListener('animationend', () => {
                 for (let btn of btns) {
@@ -83,7 +71,6 @@ const CategoryButton = ({category}) => {
                 }
                     
                 currBtn.current.addEventListener('transitionend', () => {
-                    // console.log('does this transition-end even work bro');
                     currBtn.current.classList.remove('active-category-button');
                     currBtn.current.classList.remove('deactive-category-button');
                     parent.style.pointerEvents = null;

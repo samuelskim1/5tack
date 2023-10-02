@@ -23,7 +23,6 @@ const App = () => {
 
   return loaded && (
     <>
-      {/* {currentUser && <AuthNavBar />} */}
       {currentUser ? <AuthNavBar /> : <UnauthNav />}
 
       <Switch>
@@ -32,7 +31,6 @@ const App = () => {
         <Route exact path="/about" component={AboutPage} />
         <ProtectedRoute exact path="/games/:nameURL" component={GameShow} />
         <ProtectedRoute exact path="/:username" component={Profile} />
-        {/* <ProtectedRoute exact path="/uh-oh/404" component={LostPage} /> */}
         <ProtectedRoute component={LostPage} />
       </Switch>
     </>

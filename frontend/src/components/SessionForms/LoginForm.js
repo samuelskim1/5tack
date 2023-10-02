@@ -3,10 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearSessionErrors, login } from "../../store/session";
 import SignupForm from "./SignupForm";
 import './SessionForm.scss';
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
 const LoginForm = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const errors = useSelector(state => state?.errors?.session);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -17,12 +19,14 @@ const LoginForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(login({ username, password }));
+    setTimeout(() => history.push('/'), 100);
   };
 
   const demoLogin = (e) => {
     e.preventDefault();
     dispatch(clearSessionErrors());
     dispatch(login({ username: "demo", password: "password" }));
+    setTimeout(() => history.push('/'), 100);
   };
 
   const update = (field) => {

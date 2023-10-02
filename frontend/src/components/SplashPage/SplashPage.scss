@@ -5,6 +5,7 @@
   overflow-y: scroll;
   scroll-behavior: smooth;
   height: calc(100vh - 100px);
+  min-width: 1270px;
   // > #splash-container {
   //   scroll-snap-align: start;
   // }
@@ -43,12 +44,13 @@
 .splash-section {
   background-color: $darkest-blue;
   min-height: calc(100vh - 150px);
-  min-width: 1000px;
+  min-width: 1270px;
   display: flex;
   justify-content: space-evenly;
   padding-top: 50px;
 
   p {
+    margin-bottom: 10px;
     line-height: normal;
   }
 
@@ -63,69 +65,60 @@
       // background-color: $default-white;
       &:first-child {
         // color: $darkest-blue;
+        // background-color: $default-white;
         align-items: start;
         text-align: left;
         & p {
           font-size: 16px;
           // line-height: normal;
-          margin: 10px 0;
+          margin-bottom: 30px;
           
           &:first-child {
             // max-width: 400px;
             margin: 0;
-            font-size: 40px;
+            font-size: 48px;
             font-weight: 600;
+            margin-bottom: 20px;
           }
         }
       }
       &:nth-child(2) {
-        background-color: $default-white;
-        color: $darkest-blue;
+        display: flex;
         flex-direction: column;
-        > div {
+        justify-content: space-between;
+        > a {
+          width: 100%;
+          height: 18%;
           display: flex;
-          flex-wrap: wrap;
-          justify-content: space-around;
+          justify-content: center;
           align-items: center;
-          width: 85%;
-          height: 85%;
-          > a {
-            width: 43%;
-            height: 43%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 12px;
-            flex-direction: column;
-            font-size: 18px;
-            background-color: $lightest-blue;
-            color: $default-white;
-            transition: background-color 0.3s, color 0.3s;
-            box-shadow: inset;
-            > i {
-              margin-bottom: 0.5em;
-              font-size: 40px;
-            }
-            &:hover {
-              background-color: $lighter-blue;
-              color: $default-white;
-            }
+          border-radius: 12px;
+          flex-direction: column;
+          font-size: 18px;
+          color: $default-white;
+          transition: background-color 0.3s, color 0.3s;
+          font-size: 24px;
+          > i {
+            margin-bottom: 0.5em;
+            font-size: 24px;
           }
         }
         > a:last-child {
           display: flex;
           flex-direction: column;
           align-items: center;
+          font-size: 16px;
+          font-weight: 400;
           > .fa-solid.fa-angles-down {
             margin: 5px 0 10px;
           }
-          &:hover {
+          // &:hover {
             cursor: pointer;
             > .fa-solid.fa-angles-down {
               animation-name: bounce;
               -moz-animation-name: bounce;
             }
-          }
+          // }
         }
       }
     }
@@ -133,7 +126,7 @@
       background-color: $lighter-blue;
       color: $default-white;
       // background-color: $medium-blue;
-      transition: 0.3s;
+      transition: 0.2s;
       &:hover {
         background-color: $medium-blue;
         //   background-color: $default-white;
@@ -188,4 +181,45 @@
     justify-content: center;
   }
 
+}
+
+
+.profile-tab {
+  background-color: $darker-blue;
+  transition: 0.4s;
+  box-shadow: none;
+  &:hover {
+    background-color: $darkest-blue;
+    box-shadow: 0 0 8px 0 #9ba6bbbd;
+  }
+}
+
+.post-tab {
+  transition: 0.4s;
+  background-color: $medium-blue;
+  box-shadow: none;
+  &:hover {
+    background-color: $darkest-blue;
+    box-shadow: 0 0 8px 0 #9ba6bbbd;
+  }
+}
+
+.comment-tab {
+  transition: 0.4s;
+  background-color: $lighter-blue;
+  box-shadow: none;
+  &:hover {
+    background-color: $darkest-blue;
+    box-shadow: 0 0 8px 0 #9ba6bbbd;
+  }
+}
+
+.review-tab {
+  transition: 0.4s;
+  background-color: $lightest-blue;
+  box-shadow: none;
+  &:hover {
+    background-color: $darkest-blue;
+    box-shadow: 0 0 8px 0 #9ba6bbbd;
+  }
 }
