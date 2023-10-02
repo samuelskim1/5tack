@@ -8,6 +8,8 @@
   min-width: 1270px;
   background-color: $default-white;
   overflow: hidden;
+  position: sticky;
+  top: 0;
 }
 
 #unauth-content-container {
