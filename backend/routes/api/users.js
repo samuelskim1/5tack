@@ -162,7 +162,7 @@ router.post('/login', validateLoginInput, async (req, res, next) => {
     if (!user) {
       const err = new Error('Invalid credentials');
       err.statusCode = 400;
-      err.errors = { credentials: "Invalid credentials" };
+      err.errors = { credentials: "Hmm... we weren't able to find a match :(" };
       return next(err);
     }
     return res.json(await loginUser(filterUser(user)));
@@ -183,7 +183,7 @@ router.patch('/:id', singleMulterUpload("profileImageUrl"), validateUpdateUser, 
   }
 
   try {
-    const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true, $set:{'playStyle':[]}})
                             .populate("review_id");
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
@@ -205,6 +205,20 @@ router.delete('/:id', async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 });
+
+
+// EXPERIMENTAL USER SEARCH ROUTE
+
+// router.post('/search', async (req, res) => {
+//   try {
+//     let user = await User.find({playStyle: {$all: ["competitive", "troll", "casual"]}})
+//     console.log(user);
+//     return res.json(user);
+//   }
+//   catch(err) {
+//     return res.json([]);
+//   }
+// })
 
 
 module.exports = router;

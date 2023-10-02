@@ -1,0 +1,64 @@
+@import '../../App.scss';
+
+
+// DELETE POST MODAL:
+
+.delete-modal {
+  width: 420px;
+  height: 100%;
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  #edit-profile-bottom {
+    width: 160px;
+  }
+}
+
+
+// UPDATE POST FORM:
+
+#create-post-container {
+  width: 420px;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: $default-white;
+  border-radius: 8px;
+  padding: 30px;
+
+  > h2 {
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .edit-profile-section {
+    margin: 24px 0 12px 0;
+
+    input[type="text"] {
+      outline: 1px solid $medium-blue;
+    }
+
+    textarea {
+      outline: 1px solid $medium-blue;
+      height: 100px;
+    }
+  }
+
+  #edit-profile-bottom {
+    margin-top: 30px;
+  }
+}

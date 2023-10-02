@@ -1,4 +1,5 @@
 import LoginForm from "./LoginForm";
+import './SessionForm.scss';
 
 const { useState, useEffect } = require("react");
 const { useDispatch, useSelector } = require("react-redux");
@@ -13,13 +14,9 @@ const SignupForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    useEffect(() => {
-        return () => {
-            // dispatch(clearSessionErrors());
-        };
-    }, [dispatch]);
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
         const user = {
             email,
             username,
@@ -30,16 +27,21 @@ const SignupForm = () => {
 
     const demoLogin = (e) => {
         e.preventDefault();
+        dispatch(clearSessionErrors());
         dispatch(login({ username: "demo", password: "password" }));
     };
 
+    useEffect(() => {
+        return () => dispatch(clearSessionErrors());
+    }, [dispatch])
 
     return (
         <>
             {currModal === 'signup' && (
             <div id="session-form-container">
                 <form className="session-form">
-                <h2>Welcome to 5TACK!</h2>
+                <img src="../../../big-logo.png" alt="5TACK logo" />
+                <h2>5TACK</h2>
                     <label>
                         <span>Email</span>
                         <input
@@ -48,8 +50,8 @@ const SignupForm = () => {
                         onChange={e => setEmail(e.target.value)}
                         placeholder="Email"
                         />
-                    </label>
                     <div className="errors">{errors?.email}</div>
+                    </label>
                     <label>
                         <span>Username</span>  
                         <input
@@ -58,8 +60,8 @@ const SignupForm = () => {
                         onChange={e => setUsername(e.target.value)}
                         placeholder="Username"
                         />
-                    </label>
                     <div className="errors">{errors?.username}</div>
+                    </label>
                     <label>
                         <span>Password</span>
                         <input
@@ -68,15 +70,16 @@ const SignupForm = () => {
                         onChange={e => setPassword(e.target.value)}
                         placeholder="Password"
                         />
-                    </label>
                     <div className="errors">{errors?.password}</div>
+                    </label>
                     <div id="log-demo-btn-holder">
-                        <div 
+                        <input 
+                        type="submit"
                         id="submit-login-btn"
+                        value="Sign Up"
                         onClick={handleSubmit}
                         >
-                        Sign Up
-                        </div>
+                        </input>
                         <div 
                         id="submit-demo-btn"
                         onClick={demoLogin}
@@ -87,7 +90,7 @@ const SignupForm = () => {
                     <div 
                         id="alternate-form"
                     >
-                        Already have an account?<span onClick={() => {setCurrModal('login'); dispatch(clearSessionErrors())}}>Click here to log in!</span>
+                        Already have an account? <span onClick={() => {setCurrModal('login'); dispatch(clearSessionErrors())}}>Click here to log in!</span>
                     </div>
                 </form>
             </div>
