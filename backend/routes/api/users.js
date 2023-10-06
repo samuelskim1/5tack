@@ -51,6 +51,54 @@ router.get('/current', restoreUser, (req, res) => {
   return res.json(filterUser(req.user));
 });
 
+
+////// EXPERIMENTING
+
+
+router.get('/search', async (req, res) => {
+  console.log('ytvubhhhjnzwretfyuhictvybutcrybuncrryvubhincffyvgubh REQ BEGIN');
+  console.log(req?.query);
+  console.log('ytvubhhhjnzwretfyuhictvybutcrybuncrryvubhincffyvgubh REQ END');
+  const { playStyle, favorites } = req.query;
+  try {
+    // const users = await User.find({ playStyle: { $all: ['toxic', 'casual'] } });
+    // http://localhost:5001/api/users/search?playStyle=toxic&playStyle=casual
+    // http://localhost:5001/api/users/search?playStyle=competitive&favorites=Starcraft II
+    // http://localhost:5001/api/users/search?playStyle=competitive&favorites=League%20of%20Legends&playStyle=troll
+
+    // const users = await User.find({ playStyle: { $all: playStyle } });
+    // const users = await User.find({ favorites: { $all: favorites } });
+    
+    // const users = await User.find({
+    //   $and: [{ playStyle: { $all: playStyle } }, { favorites: { $all: favorites } }]
+    // });
+
+    // const stupid = [{ playStyle: { $all: playStyle } }, { favorites: { $all: favorites } }];
+    
+    let filters = [];
+
+    if (playStyle) filters.push({ playStyle: { $all: playStyle } });
+    if (favorites) filters.push({ favorites: { $all: favorites } });
+    
+    const users = await User.find({
+      $and: filters
+    });
+
+    console.log('USERS', users);
+
+    if (!users.length) {
+      return res.status(404).json({ message: 'User with these specs not found' });
+    }
+    res.status(200).json(users);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+
+
+
+
 router.get('/:username', async (req, res, next) => {
   let user;
   try {
