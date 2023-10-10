@@ -1,0 +1,68 @@
+@import '../../../App.scss';
+
+#rev-post-card-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+#top-buttons-shadow {
+  position: absolute;
+  z-index: -1;
+  top: -50px;
+  left: -1px;
+
+  height: 90px;
+  width: calc(100% + 2px);
+  min-width: 416px;
+  background-image: linear-gradient(#11151c, #11151ce6, #11151ca8, #11151c05);
+}
+
+#top-buttons-holder {
+  position: sticky;
+  top: 110px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  min-width: 414px;
+
+  margin-bottom: 30px;
+}
+
+.rev-post-top-btn {
+  width: 50%;
+  min-width: 195px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  box-sizing: border-box;
+  border-radius: 12px;
+  border: 1px solid $lighter-blue;
+  padding: 11px;
+
+  background-color: $darkest-blue;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $darker-blue;
+    border: 1px solid $lighter-blue;
+  }
+
+  &.selected-tab {
+    background-color: $lighter-blue;
+    border: 1px solid $lightest-blue;
+  }
+}
+
+#post-idx-btn {
+  margin-right: 30px;
+}
+

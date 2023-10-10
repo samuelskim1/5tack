@@ -93,7 +93,6 @@ export const updateUser = userInfo => async dispatch => {
   }
 }
 
-
 // REDUCER
 export const userErrorsReducer = (state = null, action) => {
   switch (action.type) {
@@ -116,8 +115,6 @@ const usersReducer = (state = {}, action) => {
       return { ...state, [action.user.username]: action.user };
     case RECEIVE_UPDATED_USER:
       return { ...state, [action.updatedUser.username]: action.updatedUser };
-    // case RECEIVE_UPDATED_REVIEW:
-    //   return { ...state, action.updatedReview }
     default:
       return state;
   }

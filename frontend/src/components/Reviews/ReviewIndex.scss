@@ -1,0 +1,49 @@
+@import '../../App.scss';
+
+.reviews-index-container {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 410px;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: $default-white;
+
+    .post-index-item {
+        padding: 40px 24px;
+    }
+
+    .post-index-description {
+        margin-bottom: 0;
+    }
+}
+
+.review-rating-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 16px;
+    margin-bottom: 4px;
+
+    #user-average-rating {
+        width: 105px;
+        font-size: 12px;
+    }
+
+    .star-holder {
+        width: 19px;
+        height: 19px;
+
+        &.full-fill {
+            background-color: $highlight-orange;
+        }
+
+        .fa-star {
+            color: $darkest-blue;
+        }
+    }
+}

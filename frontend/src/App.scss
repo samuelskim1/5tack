@@ -1,25 +1,64 @@
-$default-bg: #222;
 $errors-color: rgb(155, 0, 0);
-$neutral-text: #eeece7;
-$default-font: "system-ui", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$default-font: "-apple-system", "BlinkMacSystemFont", "Inter", "system-ui";
+
+// REDESIGN VARIABLES
+$default-white: #F3F3F3;
+$darkest-blue: #11151C;
+$darker-blue: #19212E;
+$medium-blue: #212D40;
+$lighter-blue: #364156;
+$lightest-blue: #5e6f8f;
+$empty-star-blue: #9ba6bb;
+
+$highlight-orange: #FFA552;
+
 
 div {
     overflow-wrap: break-word;
 }
 
-#entire-app {
-    display: flex;
-    .main-content {
-        width: calc(100vw - 250px);
-        min-height: 100vh;
-    }
-
-    .unlogged-main-content {
-        width: 100%;
-        min-height: 100vh;
-    }
+input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 16px;
+    border: none;
+    color: $darkest-blue;
 }
 
-.main-content {
-    background-color: #222;
+input[type="text"]:hover {
+    outline: 1px solid $lighter-blue;
+}
+
+input[type="text"]:focus {
+    outline: 2px solid $lightest-blue;
+}
+
+textarea {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    color: $darkest-blue;
+}
+
+textarea:hover {
+    outline: 1px solid $lighter-blue;
+}
+
+textarea:focus {
+    outline: 2px solid $lightest-blue;
+}
+
+#auth-nav-placeholder {
+    width: 100vw;
+    height: 80px;
+    background-color: $default-white;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
