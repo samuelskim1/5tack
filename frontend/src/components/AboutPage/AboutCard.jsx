@@ -5,7 +5,13 @@ const AboutCard = ({ info }) => {
       <div>
         <p>{info?.name}</p>
         <p>{info?.role}</p>
-        <a href={`mailto: ${info?.email}`}>{info?.email}</a>
+        <a
+          href={`mailto: ${info?.email}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {info?.email}
+        </a>
         <div>
           <a href={info?.github} target="_blank" rel="noopener noreferrer">
             <i className="fab fa-github"></i>
