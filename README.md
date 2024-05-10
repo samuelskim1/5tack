@@ -9,6 +9,13 @@ The inspiration behind 5tack originates largely from rapidly growing online mult
 
 5tack is a platform where gamers can circumvent this frustration by detailing their specific requirements for both gaming experience and availability. In addition to networking, 5tack users may also leave reviews for players with which they connected. This feature is vital for games that are poorly moderated and serves to improve the integrity of the gaming community by holding players accountable for their actions and behaviors. 
 
+## **Running the Development Server** ##
+***
+- Backend: `npm run dev`
+- Frontend: `npm run start`
+
+Note: `cd` into the correct folders first
+
 ## **Functionality & MVP** ##
 ***
 
